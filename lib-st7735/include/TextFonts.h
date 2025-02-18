@@ -8,6 +8,7 @@
 //
 // https://github.com/bablokb/pic-st7735
 // --------------------------------------------------------------------------
+#include "ST7735_struct.h"
 
 #ifndef TEXTFONTS_H
 #define TEXTFONTS_H
@@ -113,32 +114,7 @@ const char Font[] = {
 0x02, 0x01, 0x02, 0x04, 0x02
 };
 
-/// TFT_ENABLE_FONTSが有効な場合に使用される、ビットマップ情報を含むフォント構造体を格納するための構造
-/// Font data stored PER GLYPH
 
-/// @brief １文字のフォントの画像情報、大きさなどを定義するための構造体
-/// @details 文字の形や大きさと文字のベースラインを定義する。漢字では使用されない。
-typedef struct {
-	uint16_t bitmapOffset;  ///< Pointer into GFXfont->bitmap
-	uint8_t width;          ///< Bitmap dimensions in pixels
-	uint8_t height;         ///< Bitmap dimensions in pixels
-	uint8_t xAdvance;       ///< Distance to advance cursor (x axis)
-	int8_t xOffset;         ///< X dist from cursor pos to UL corner
-	int8_t yOffset;         ///< Y dist from cursor pos to UL corner
-} GFXglyph;
-
-/// @brief フォントセットを格納している構造体。
-/// @details フォントグリフ（GFXglyph構造体）を複数格納し、ひとまとめのフォントセットとして管理するためのデータ構造。
-/// この構造体のデータへのポインタを指定することで、アプリケーションが使用するフォント（非漢字の１バイトフォント）を変更できる。
-
-typedef struct {
-	uint8_t *bitmap;     ///< Glyph bitmaps, concatenated
-	GFXglyph *glyph;     ///< Glyph array
-	uint16_t first;      ///< ASCII extents (first char)
-	uint16_t last;       ///< ASCII extents (last char)
-	uint8_t yAdvance;    ///< Newline distance (y axis)
-	const char *subset;  ///< subset of chars in the font
-} GFXfont;
 
 extern GFXfont *_gfxFont;
 void setFont(const GFXfont *f);

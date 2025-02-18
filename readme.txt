@@ -1,7 +1,11 @@
 /**  
-@mainpage ST7735をコントローラーに使用した液晶用のライブラリ
+@mainpage ST7735 TFT用 Rapberry PI SDKライブラリ
 
 @section main 概要
+
+このライブラリは、Raspberry PI PICO 上で、ST7735 TFT液晶をコントロールするためのライブラリです。日本語表示等に対応しています。
+
+
 
 Strawberry Linux の[I2C低電圧キャラクタ液晶モジュール(SB1602B)](https://strawberry-linux.com/catalog/items?code=27001)をはじめとして、多くのI2C液晶モジュールは、液晶コントローラにST7032を使用している。
 使用方法については多くの情報があるとはいえ、Raspberry pi Picoについては、Arduinoフレームワークや、Pythonのプログラム中心で、C/C++ SDKを使用したものは少ないようだった。
@@ -9,9 +13,20 @@ Strawberry Linux の[I2C低電圧キャラクタ液晶モジュール(SB1602B)](
 　
 <hr/>
 ## このライブラリについて
+ST7735をコントローラにしたTFT液晶の使用例はよくあるが、ほとんどがArdiunoを使用したもので、Raspberry piRaspberry piのSDKを使用した例はほとんどありません。
+また、Ardiuno版を含め、日本語（漢字）が表示可能なライブラリは見つかりません。
+
+このライブラリは、[Raspberry PI SDK](https://www.raspberrypi.com/news/get-started-with-raspberry-pi-pico-series-and-vs-code/) を使用してST7735をコントロールする為のプログラムです。
+Arduinoにくらべ、Raspberry PI PICOはメモリが潤沢にあるため、日本語表示などに対応しています。
+
+開発と動作確認は、aitendoの1.8インチTFT液晶モジュール [M018C7735S541](https://www.aitendo.com/product/16367) で行いました。
+この液晶モジュールは、シルクの印刷が表裏で異なり、加えてRS(RESET?)と D/C(MISO)の印刷も逆になっているように思います。M018C7735S541での配線時には注意してください。
+
 
 <hr/>
 ## ソースコード
+ソースコードはgithubの[ST7735-TFTDriverページ](https://github.com/HisayukiNomura/ST7735-TFTDriver)で公開しています。
+
 
 
 ### mandatory ライブラリを使用するのに必須なファイル

@@ -8,7 +8,7 @@
 #include "hardware/spi.h"
 #include "lib-st7735/include/ST7735_TFT.h"
 #include "lib-st7735/include/hw.h"
-#include "lib-st7735/include/Font_Mono9p.h"
+#include "lib-st7735/include/font/Font_Mono9p.h"
 
 // SPI Defines
 // We are going to use SPI 0, and allocate it to the following GPIO pins

@@ -19,33 +19,33 @@
 
 #if TFT_KANJI_DOT == 16
 	#if TFT_KANJI_LEVEL == 0
-		#include "Font_Kanji16All.inc"
+		#include "font/Font_Kanji16All.inc"
 	#elif TFT_KANJI_LEVEL == 1
-		#include "Font_Kanji16Level1.inc"
+		#include "font/Font_Kanji16Level1.inc"
 	#elif TFT_KANJI_LEVEL == 2
-		#include "Font_Kanji16Jyoyo.inc"
+		#include "font/Font_Kanji16Jyoyo.inc"
 	#elif TFT_KANJI_LEVEL == 3
-		#include "Font_Kanji16Kyoiku.inc"
+		#include "font/Font_Kanji16Kyoiku.inc"
 	#endif
 #elif TFT_KANJI_DOT == 12
 	#if TFT_KANJI_LEVEL == 0
-		#include "Font_Kanji12All.inc"
+		#include "font/Font_Kanji12All.inc"
 	#elif TFT_KANJI_LEVEL == 1
-		#include "Font_Kanji12Level1.inc"
+		#include "font/Font_Kanji12Level1.inc"
 	#elif TFT_KANJI_LEVEL == 2
-		#include "Font_Kanji12Jyoyo.inc"
+		#include "font/Font_Kanji12Jyoyo.inc"
 	#elif TFT_KANJI_LEVEL == 3
-		#include "Font_Kanji12Kyoiku.inc"
+		#include "font/Font_Kanji12Kyoiku.inc"
 	#endif
 #elif TFT_KANJI_DOT == 8
 	#if TFT_KANJI_LEVEL == 0
-		#include "Font_Kanji8All.inc"
+		#include "font/Font_Kanji8All.inc"
 	#elif TFT_KANJI_LEVEL == 1
-		#include "Font_Kanji8Level1.inc"
+		#include "font/Font_Kanji8Level1.inc"
 	#elif TFT_KANJI_LEVEL == 2
-		#include "Font_Kanji8Jyoyo.inc"
+		#include "font/Font_Kanji8Jyoyo.inc"
 	#elif TFT_KANJI_LEVEL == 3
-		#include "Font_Kanji8Kyoiku.inc"
+		#include "font/Font_Kanji8Kyoiku.inc"
 	#endif
 #endif
 

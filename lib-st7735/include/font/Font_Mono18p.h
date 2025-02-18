@@ -1,6 +1,6 @@
 #pragma once
 #ifndef TEXTFONTS_H
-#include "TextFonts.h"
+#include "../ST7735_struct.h"
 #endif
 
 const uint8_t FreeMono18pt7bBitmaps[] = {
