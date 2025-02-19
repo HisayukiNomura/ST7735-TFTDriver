@@ -10,56 +10,7 @@
 #include "lib-st7735/include/hw.h"
 #include "lib-st7735/include/font/Font_Mono9p.h"
 
-// SPI Defines
-// We are going to use SPI 0, and allocate it to the following GPIO pins
-// Pins can be changed, see the GPIO function select table in the datasheet for information on GPIO assignments
 // 1.8インチTFT液晶モジュール★128x160★ [M018C7735S541](https://www.aitendo.com/product/16367)
-
-// Picoのpin assign
-// https://components101.com/sites/default/files/component_pin/Raspberry%20Pi-Pico-W-pinout.png
-
-// arduinoで表示した例。
-// https://qiita.com/ELIXIR/items/72bf9e6fcdd82d390c7a
-//
-// 動いた結線
-//
-//基板      Uno                 PI?
-//　5V      5V                  VBUS (p40)
-// RESET    RESET (普段は5V?)    5V
-// RS       D8   <Data/Command> GP16(21p)   SPI0 RX  <Data/Command>     
-// MOSI     D11  (MOSI)         GP19(25p)   SPI0 TX
-// SCK      D13  (SCK)          GP18(24p)   SPI0 SCK
-// CS       D10  (SS)           GP17(22p)   SPI0 CSn 
-// MISO     D9   <Rset?>        GP28(34p)
-// SD-
-// BLED     5V                  5V
-// GND      GND                 GND
-
-//初期化コマンドは、arduino のライブラリと同じものが出るようにして、
-//ロジアナで確認済み。
-//やはり、結線の問題か。テスト時には#define DBG_SHORT_WAIT 　をコメントにすること
-
-
-// https://github.com/bablokb/pico-st7735/tree/main
-// デモ：https://github.com/bablokb/pico-st7735-demo
-
-// SDK：　https://www.denshi.club/parts/2021/04/raspberry-pi-pico-12-spi-apia-dmcp.html　
-// 
-// --PI---------------------TFT--
-// 	                        5V
-//	GP22 -----------------  RESET
-//                          RS(RS) Register Select   --------   NC
-// 	TX (MOSI GP19/pin25)  -----> MOSI(SDA)
-//	SCK(GP18/pin24) ------  SCK(SCL)
-//	CSn(GP17/pin22) ------  CS(CS)
-//  RS (GP16/pin21) <-----  MISO(RX) 
-//                          SD/CS 
-//	                        BLED
-//	                        GND
-
-
-// https://github.com/tuupola/hagl_pico_mipiのほうがよさそうかもしれない。
-// https://forums.raspberrypi.com/viewtopic.php?t=305614
 
 /*
 #define SPI_PORT spi0
@@ -74,9 +25,6 @@
 #define PIN_SCK  PIN_TFT_SCK         // SCK
 #define PIN_MOSI PIN_TFT_TX        // TX
 volatile uint16_t iRet;
-HW      spiHW(0,16,17,18,19,28,15);
-
-ST7735* pST7735;
 
 						 
 Axis8 randAxis(Axis8& axis) 
@@ -498,6 +446,10 @@ void demo_shapes(ST7735 st7735)
 	}
 }
 #endif
+HW spiHW(0, 16, 17, 18, 19, 28, 15);
+
+ST7735* pST7735;
+
 
 int main()
 {
