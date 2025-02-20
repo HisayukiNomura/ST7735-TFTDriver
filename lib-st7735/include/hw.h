@@ -5,7 +5,7 @@
 // include (pins and ports, includes, function-map at the end of the file).
 //
 // Author: Bernhard Bablok
-//
+// 02/21 ILI9341対応に向けて分岐
 // https://github.com/bablokb/pico-st7735
 // --------------------------------------------------------------------------
 
