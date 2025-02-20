@@ -7,6 +7,7 @@
 // Author: Bernhard Bablok
 // 02/21 ILI9341対応に向けて分岐
 // https://github.com/bablokb/pico-st7735
+// http :  // pan.jczn1688.com/directlink/1/SPI%20%20display%20module/2.4inch_SPI_Module_ILI9341.zip
 // --------------------------------------------------------------------------
 
 #ifndef _HW_H
@@ -27,12 +28,11 @@
 #endif
 #define __delay_ms(x) sleep_ms(x)
 
-
-/// @brief ST7735の待ち時間を設定するクラス。デバッグ時には短い時間で動作させるために、DBG_SHORT_WAITをオンにする。
-/// そうしないと、信号の監視をするときに信号幅に対して、待ち時間が長くなりすぎて信号の確認がやりにくくなるため。
-/// もちろん、このシンボルを有効にしていると実際のデバイスは動作しない。
-// #define DBG_SHORT_WAIT
-class {
+		/// @brief ST7735の待ち時間を設定するクラス。デバッグ時には短い時間で動作させるために、DBG_SHORT_WAITをオンにする。
+		/// そうしないと、信号の監視をするときに信号幅に対して、待ち時間が長くなりすぎて信号の確認がやりにくくなるため。
+		/// もちろん、このシンボルを有効にしていると実際のデバイスは動作しない。
+		// #define DBG_SHORT_WAIT
+		class {
    public:
 	#ifndef DBG_SHORT_WAIT
 	/// @brief SPI通信で、最長のウエイトが必要な時の待ち時間（ms)
