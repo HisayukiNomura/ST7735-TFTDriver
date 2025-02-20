@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: ST7735_initcmd.h ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c5a50853997633758dfee5f1dd444d6e.html">SPIDisplay</a></li><li class="navelem"><a class="el" href="dir_0ab8852d40c8d229a52113626deabd6b.html">lib-st7735</a></li><li class="navelem"><a class="el" href="dir_3ecfe767cd2f056f6ab99bb4cb2006e9.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#define-members">マクロ定義</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle"><div class="title">ST7735_initcmd.h ファイル</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_s_t7735___t_f_t_8h_source.html">ST7735_TFT.h</a>&quot;</code><br />
+<code>#include &quot;pico/stdlib.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_t7735__struct_8h_source.html">ST7735_struct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_t7735__commands_8h_source.html">ST7735_commands.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hw_8h_source.html">hw.h</a>&quot;</code><br />
+</div>
+<p><a href="_s_t7735__initcmd_8h_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_t7735_init.html">ST7735Init</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_s_t7735.html" title="画面表示のクラス。インスタンス化して使用する。">ST7735</a> LCDの初期化処理を行うクラス。 ハードウェアごとに異なるのと、長い初期化コマンドを実行させるために、描画処理とは別のクラスを作成してある。<br  />
+ このクラスは静的ではないので、インスタンス化してから使用する。無いとは思うが、２つのLCDを接続して制御するときは、２つのインスタンスをそれぞれ 作成、初期化して初期化処理を行う。  <a href="class_s_t7735_init.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+マクロ定義</h2></td></tr>
+<tr class="memitem:afad1d61b0b93b057ddd1dc901b50cdce" id="r_afad1d61b0b93b057ddd1dc901b50cdce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afad1d61b0b93b057ddd1dc901b50cdce">ST7735_INIT_H</a></td></tr>
+<tr class="separator:afad1d61b0b93b057ddd1dc901b50cdce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+変数</h2></td></tr>
+<tr class="memitem:a9b86d04a65e5b235e82c29eb435c967e" id="r_a9b86d04a65e5b235e82c29eb435c967e"><td class="memItemLeft" align="right" valign="top">static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b86d04a65e5b235e82c29eb435c967e">Bcmd</a> []</td></tr>
+<tr class="separator:a9b86d04a65e5b235e82c29eb435c967e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09af93a9eaab743be5ed94a43c1c9b4" id="r_ad09af93a9eaab743be5ed94a43c1c9b4"><td class="memItemLeft" align="right" valign="top">static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad09af93a9eaab743be5ed94a43c1c9b4">Rcmd1</a> []</td></tr>
+<tr class="separator:ad09af93a9eaab743be5ed94a43c1c9b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada3eb7c515ea33939763c10720f9f086" id="r_ada3eb7c515ea33939763c10720f9f086"><td class="memItemLeft" align="right" valign="top">static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada3eb7c515ea33939763c10720f9f086">Rcmd2green</a> []</td></tr>
+<tr class="separator:ada3eb7c515ea33939763c10720f9f086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad887999310f96074b52f71252e54ca63" id="r_ad887999310f96074b52f71252e54ca63"><td class="memItemLeft" align="right" valign="top">static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad887999310f96074b52f71252e54ca63">Rcmd2red</a> []</td></tr>
+<tr class="separator:ad887999310f96074b52f71252e54ca63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace3e3352ab494a8d969c93bec9c6ae41" id="r_ace3e3352ab494a8d969c93bec9c6ae41"><td class="memItemLeft" align="right" valign="top">static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace3e3352ab494a8d969c93bec9c6ae41">Rcmd2green144</a> []</td></tr>
+<tr class="separator:ace3e3352ab494a8d969c93bec9c6ae41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dbad386ddd1c2486b145857fc2ab69c" id="r_a5dbad386ddd1c2486b145857fc2ab69c"><td class="memItemLeft" align="right" valign="top">static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dbad386ddd1c2486b145857fc2ab69c">Rcmd2green160x80</a> []</td></tr>
+<tr class="separator:a5dbad386ddd1c2486b145857fc2ab69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a514909852cbcf9d6b9c465f8c1a1ecbf" id="r_a514909852cbcf9d6b9c465f8c1a1ecbf"><td class="memItemLeft" align="right" valign="top">static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a514909852cbcf9d6b9c465f8c1a1ecbf">Rcmd2green160x80plugin</a> []</td></tr>
+<tr class="separator:a514909852cbcf9d6b9c465f8c1a1ecbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcac12dd52e0dc2afca1cf064e427d74" id="r_afcac12dd52e0dc2afca1cf064e427d74"><td class="memItemLeft" align="right" valign="top">static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcac12dd52e0dc2afca1cf064e427d74">Rcmd3</a> []</td></tr>
+<tr class="separator:afcac12dd52e0dc2afca1cf064e427d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">マクロ定義詳解</h2>
+<a id="afad1d61b0b93b057ddd1dc901b50cdce" name="afad1d61b0b93b057ddd1dc901b50cdce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afad1d61b0b93b057ddd1dc901b50cdce">&#9670;&#160;</a></span>ST7735_INIT_H</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ST7735_INIT_H</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">変数詳解</h2>
+<a id="a9b86d04a65e5b235e82c29eb435c967e" name="a9b86d04a65e5b235e82c29eb435c967e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b86d04a65e5b235e82c29eb435c967e">&#9670;&#160;</a></span>Bcmd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t Bcmd[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad09af93a9eaab743be5ed94a43c1c9b4" name="ad09af93a9eaab743be5ed94a43c1c9b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad09af93a9eaab743be5ed94a43c1c9b4">&#9670;&#160;</a></span>Rcmd1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t Rcmd1[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada3eb7c515ea33939763c10720f9f086" name="ada3eb7c515ea33939763c10720f9f086"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada3eb7c515ea33939763c10720f9f086">&#9670;&#160;</a></span>Rcmd2green</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t Rcmd2green[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">= {         </div>
+<div class="line">        2,                   </div>
+<div class="line">        <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.CASET, 4,  </div>
+<div class="line">        0x00, 0x02,          </div>
+<div class="line">        0x00, 0x7F + 0x02,   </div>
+<div class="line">        <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.RASET, 4,  </div>
+<div class="line">        0x00, 0x01,          </div>
+<div class="line">        0x00, 0x9F + 0x01}</div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_abd082341e12a4ae44d894f4eb4eca36a"><div class="ttname"><a href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a></div><div class="ttdeci">class @4 ST7735Cmd</div><div class="ttdoc">ST7735に対するコマンドの定義</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ace3e3352ab494a8d969c93bec9c6ae41" name="ace3e3352ab494a8d969c93bec9c6ae41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace3e3352ab494a8d969c93bec9c6ae41">&#9670;&#160;</a></span>Rcmd2green144</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t Rcmd2green144[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">= {               </div>
+<div class="line">    2,                              </div>
+<div class="line">    <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.CASET,   4,              </div>
+<div class="line">      0x00, 0x00,                   </div>
+<div class="line">      0x00, 0x7F,                   </div>
+<div class="line">    <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.RASET,   4,              </div>
+<div class="line">      0x00, 0x00,                   </div>
+<div class="line">      0x00, 0x7F }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5dbad386ddd1c2486b145857fc2ab69c" name="a5dbad386ddd1c2486b145857fc2ab69c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dbad386ddd1c2486b145857fc2ab69c">&#9670;&#160;</a></span>Rcmd2green160x80</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t Rcmd2green160x80[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">= {   </div>
+<div class="line">        2,                   </div>
+<div class="line">        <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.CASET, 4,  </div>
+<div class="line">        0x00, 0x00,          </div>
+<div class="line">        0x00, 0x4F,          </div>
+<div class="line">        <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.RASET, 4,  </div>
+<div class="line">        0x00, 0x00,          </div>
+<div class="line">        0x00, 0x9F}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a514909852cbcf9d6b9c465f8c1a1ecbf" name="a514909852cbcf9d6b9c465f8c1a1ecbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a514909852cbcf9d6b9c465f8c1a1ecbf">&#9670;&#160;</a></span>Rcmd2green160x80plugin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t Rcmd2green160x80plugin[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">= {  </div>
+<div class="line">        3,                        </div>
+<div class="line">        <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.INVON, 0,       </div>
+<div class="line">        <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.CASET, 4,       </div>
+<div class="line">        0x00, 0x00,               </div>
+<div class="line">        0x00, 0x4F,               </div>
+<div class="line">        <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.RASET, 4,       </div>
+<div class="line">        0x00, 0x00,               </div>
+<div class="line">        0x00, 0x9F}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad887999310f96074b52f71252e54ca63" name="ad887999310f96074b52f71252e54ca63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad887999310f96074b52f71252e54ca63">&#9670;&#160;</a></span>Rcmd2red</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t Rcmd2red[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">= {                    </div>
+<div class="line">    2,                              </div>
+<div class="line">    <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.CASET,   4,              </div>
+<div class="line">      0x00, 0x00,                   </div>
+<div class="line">      0x00, 0x7F,                   </div>
+<div class="line">    <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.RASET,   4,              </div>
+<div class="line">      0x00, 0x00,                   </div>
+<div class="line">      0x00, 0x9F }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afcac12dd52e0dc2afca1cf064e427d74" name="afcac12dd52e0dc2afca1cf064e427d74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcac12dd52e0dc2afca1cf064e427d74">&#9670;&#160;</a></span>Rcmd3</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t Rcmd3[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">= {                  </div>
+<div class="line">        4,                       </div>
+<div class="line">        <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.GMCTRP1, 16,   </div>
+<div class="line">        0x02, 0x1c, 0x07, 0x12,  </div>
+<div class="line">        0x37, 0x32, 0x29, 0x2d,  </div>
+<div class="line">        0x29, 0x25, 0x2B, 0x39,</div>
+<div class="line">        0x00, 0x01, 0x03, 0x10,</div>
+<div class="line">        <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.GMCTRN1, 16,   </div>
+<div class="line">        0x03, 0x1d, 0x07, 0x06,  </div>
+<div class="line">        0x2E, 0x2C, 0x29, 0x2D,  </div>
+<div class="line">        0x2E, 0x2E, 0x37, 0x3F,</div>
+<div class="line">        0x00, 0x00, 0x02, 0x10,</div>
+<div class="line">        <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.NORON, <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.DELAY,   </div>
+<div class="line">        <a class="code hl_variable" href="hw_8h.html#a943b986b00c31e9f65de5a4d6dca6118">ST7735Sleep</a>.SHORT,                  </div>
+<div class="line">        <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.DISPON, <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>.DELAY,  </div>
+<div class="line">        <a class="code hl_variable" href="hw_8h.html#a943b986b00c31e9f65de5a4d6dca6118">ST7735Sleep</a>.MIDLONG}</div>
+<div class="ttc" id="ahw_8h_html_a943b986b00c31e9f65de5a4d6dca6118"><div class="ttname"><a href="hw_8h.html#a943b986b00c31e9f65de5a4d6dca6118">ST7735Sleep</a></div><div class="ttdeci">class @0 ST7735Sleep</div><div class="ttdoc">ST7735の待ち時間を設定するクラス。デバッグ時には短い時間で動作させるために、DBG_SHORT_WAITをオンにする。 そうしないと、信号の監視をするときに信号幅に対して、待ち時間が長くなりすぎて...</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

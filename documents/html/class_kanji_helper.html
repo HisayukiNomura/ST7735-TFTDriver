@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: KanjiHelper クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="class_kanji_helper-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">KanjiHelper クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>漢字フォントのデータを管理するためのクラス。staticなメソッドしか持たない  
+ <a href="#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_kanji_helper_8h_source.html">KanjiHelper.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:af26e46920f81ee923d705f5159a9d97b" id="r_af26e46920f81ee923d705f5159a9d97b"><td class="memItemLeft" align="right" valign="top">static const KanjiFont *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af26e46920f81ee923d705f5159a9d97b">FindKanji</a> (uint32_t codeUTF)</td></tr>
+<tr class="memdesc:af26e46920f81ee923d705f5159a9d97b"><td class="mdescLeft">&#160;</td><td class="mdescRight">フォントテーブルからUTF-8を使って特定のフォントをバイナリサーチで探し出す。<br  />
+ 漢字テーブルにはUTF-8がソートされてはいっている。 UTF-8は非連続、バイト長も１～４とバラバラなので、計算でピンポイントに見つけ出すのは難しい。そこで漢字テーブルからバイナリサーチで探し出す。 検索回数は、6000文字でも13回程度なので良しとする。  <br /></td></tr>
+<tr class="separator:af26e46920f81ee923d705f5159a9d97b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a777428be5733e6f7b13d77c69602cd13" id="r_a777428be5733e6f7b13d77c69602cd13"><td class="memItemLeft" align="right" valign="top">static const AsciiFont *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a777428be5733e6f7b13d77c69602cd13">FindAscii</a> (uint8_t codeAscii)</td></tr>
+<tr class="memdesc:a777428be5733e6f7b13d77c69602cd13"><td class="mdescLeft">&#160;</td><td class="mdescRight">フォントテーブルからASCII文字を検索する。<br  />
+ ASCII文字は、0x00を除く255が必ずあるので、検索ではなく計算でピンポイントで返す  <br /></td></tr>
+<tr class="separator:a777428be5733e6f7b13d77c69602cd13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>漢字フォントのデータを管理するためのクラス。staticなメソッドしか持たない </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a777428be5733e6f7b13d77c69602cd13" name="a777428be5733e6f7b13d77c69602cd13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a777428be5733e6f7b13d77c69602cd13">&#9670;&#160;</a></span>FindAscii()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const AsciiFont * KanjiHelper::FindAscii </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>targetCodeAscii</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>フォントテーブルからASCII文字を検索する。<br  />
+ ASCII文字は、0x00を除く255が必ずあるので、検索ではなく計算でピンポイントで返す </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetCodeAscii</td><td>検索対象のASCIIコード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>検索されたASCIIデータのポインタ </dd></dl>
+
+</div>
+</div>
+<a id="af26e46920f81ee923d705f5159a9d97b" name="af26e46920f81ee923d705f5159a9d97b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af26e46920f81ee923d705f5159a9d97b">&#9670;&#160;</a></span>FindKanji()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const KanjiFont * KanjiHelper::FindKanji </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>targetCodeUTF</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>フォントテーブルからUTF-8を使って特定のフォントをバイナリサーチで探し出す。<br  />
+ 漢字テーブルにはUTF-8がソートされてはいっている。 UTF-8は非連続、バイト長も１～４とバラバラなので、計算でピンポイントに見つけ出すのは難しい。そこで漢字テーブルからバイナリサーチで探し出す。 検索回数は、6000文字でも13回程度なので良しとする。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetCodeUTF</td><td>検索対象のUTF-8コード </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>　検索された漢字データのポインタ。見つからなかったときはNULL。 </dd></dl>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li><a class="el" href="_kanji_helper_8h_source.html">KanjiHelper.h</a></li>
+<li><a class="el" href="_kanji_helper_8cpp.html">KanjiHelper.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

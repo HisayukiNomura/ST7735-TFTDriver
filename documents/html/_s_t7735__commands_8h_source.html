@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: ST7735_commands.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c5a50853997633758dfee5f1dd444d6e.html">SPIDisplay</a></li><li class="navelem"><a class="el" href="dir_0ab8852d40c8d229a52113626deabd6b.html">lib-st7735</a></li><li class="navelem"><a class="el" href="dir_3ecfe767cd2f056f6ab99bb4cb2006e9.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">ST7735_commands.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_s_t7735__commands_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef ST7735_COMMANDS_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ST7735_COMMANDS_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">class </span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>   <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a0859f9bd0ddcd1b0c91904396e7081d9">   12</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a0859f9bd0ddcd1b0c91904396e7081d9">GREENTAB</a> = 0x00;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ac80b69694d34a245f6762fff2f872666">   13</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ac80b69694d34a245f6762fff2f872666">REDTAB</a> = 0x01;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a6a5393d682c02300672010ad93a80b30">   14</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a6a5393d682c02300672010ad93a80b30">BLACKTAB</a> = 0x02;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a239ef55189d66ede89e5de77da8402aa">   15</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a239ef55189d66ede89e5de77da8402aa">GREENTAB18</a> = 0x00;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a3f5641b801af0715ad3c83203970a072">   16</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a3f5641b801af0715ad3c83203970a072">REDTAB18</a> = 0x01;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#acd60d43cd70ae827c7b34336d20d4659">   17</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#acd60d43cd70ae827c7b34336d20d4659">BLACKTAB18</a> = 0x02;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#aa6c46f9467082124536cc9c526e6d4be">   18</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#aa6c46f9467082124536cc9c526e6d4be">GREENTAB144</a> = 0x00;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a8631bfb08bddf3790a3f0fb215a058eb">   19</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a8631bfb08bddf3790a3f0fb215a058eb">MINI160x80</a> = 0x04;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a43af75f7105600371e64cf82e1f34b6e">   20</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a43af75f7105600371e64cf82e1f34b6e">HALLOWING</a> = 0x05;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#aca2c2445e081bb787416e290ed2c43e3">   21</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#aca2c2445e081bb787416e290ed2c43e3">MINI160x80_PLUGIN</a> = 0x06;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#adb48e322396a7120a4c64738510d4060">   22</a></span>} <a class="code hl_variable" href="_s_t7735__commands_8h.html#adb48e322396a7120a4c64738510d4060">ST7735Type</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">class </span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>   <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#abbca325a43539902962bc4f6e37177b5">   27</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#abbca325a43539902962bc4f6e37177b5">WIDTH_128</a> = 128;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#adcc7830ffd889ef917927ed530dfee3e">   28</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#adcc7830ffd889ef917927ed530dfee3e">HEIGHT_128</a> = 128;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ad527a43d057094f1a80c89b25e58d60b">   29</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ad527a43d057094f1a80c89b25e58d60b">WIDTH_80</a> = 80;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ae2894432d96bc2452c652f438569b825">   30</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ae2894432d96bc2452c652f438569b825">HEIGHT_160</a> = 160;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a562d2945d1c532720b7e06ac8f0aef14">   31</a></span>} <a class="code hl_variable" href="_s_t7735__commands_8h.html#a562d2945d1c532720b7e06ac8f0aef14">ST7735Size</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="" data-end="">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a22c2c529849c5c644f36302456d3d972">   33</a></span><span class="preprocessor">#define _swap(a, b) \</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">    {               \</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">        int16_t t;  \</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">        t = a;      \</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">        a = b;      \</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">        b = t;      \</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">    }</span></div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">class </span>{</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>   <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ae877dda8d235be9f734944ef8bc0ab63">   44</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ae877dda8d235be9f734944ef8bc0ab63">DELAY</a> = 0x80;  <span class="comment">// special signifier for command lists</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a7f979a28f881dba12d3e80cc6bdff9d5">   45</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a7f979a28f881dba12d3e80cc6bdff9d5">NOP</a> = 0x00;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ad4c022b6cf2ccd0fdf04a606174de83c">   46</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ad4c022b6cf2ccd0fdf04a606174de83c">SWRESET</a> = 0x01;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a036a6cab90a2de5043d287dafabb8f41">   47</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a036a6cab90a2de5043d287dafabb8f41">RDDID</a> = 0x04;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a72bbda77fcc992f9d7481f657d7ea14a">   48</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a72bbda77fcc992f9d7481f657d7ea14a">RDDST</a> = 0x09;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a84517e85e12e9b13bdc2874a97e795b8">   49</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a84517e85e12e9b13bdc2874a97e795b8">SLPIN</a> = 0x10;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ad483046f2781a3c9eb6b7ca1ab4936f8">   50</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ad483046f2781a3c9eb6b7ca1ab4936f8">SLPOUT</a> = 0x11;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a6d0fe9514840de8d882e97506eaa3b64">   51</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a6d0fe9514840de8d882e97506eaa3b64">PTLON</a> = 0x12;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a57a38f4030f7bfc57e2937089161ac84">   52</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a57a38f4030f7bfc57e2937089161ac84">NORON</a> = 0x13;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#aae1ff5c4ae438b7290ecc015085a9343">   53</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#aae1ff5c4ae438b7290ecc015085a9343">INVOFF</a> = 0x20;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a35486f96f49298f475243cd4fd87bc50">   54</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a35486f96f49298f475243cd4fd87bc50">INVON</a> = 0x21;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ad858f754ed7ae1f850c9cdcec79a691a">   55</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ad858f754ed7ae1f850c9cdcec79a691a">DISPOFF</a> = 0x28;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#afd5d71f6fc3d46eef69dba23c92bcc33">   56</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#afd5d71f6fc3d46eef69dba23c92bcc33">DISPON</a> = 0x29;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a54557615e1abafc2b6861037ff9c1ce2">   57</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a54557615e1abafc2b6861037ff9c1ce2">CASET</a> = 0x2A;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ac6e667141fce45d4ae3e76718c56838b">   58</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ac6e667141fce45d4ae3e76718c56838b">RASET</a> = 0x2B;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#af8d2fcfda335fa0fa05d31b632a06df8">   59</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#af8d2fcfda335fa0fa05d31b632a06df8">RAMWR</a> = 0x2C;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#adcc4c79e75145bf4f24a1e9be31d3dfc">   60</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#adcc4c79e75145bf4f24a1e9be31d3dfc">RAMRD</a> = 0x2E;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a4f2b432afd6fbe08cc73fd70271417fd">   61</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a4f2b432afd6fbe08cc73fd70271417fd">PTLAR</a> = 0x30;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a31c5254989d711ccb96d2965ec795805">   62</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a31c5254989d711ccb96d2965ec795805">VSCRDEF</a> = 0x33;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a0febbc45d89fa6390e56fa274bc09c97">   63</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a0febbc45d89fa6390e56fa274bc09c97">COLMOD</a> = 0x3A;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#af760de8cf689429a7d08ce2dbc83f201">   64</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#af760de8cf689429a7d08ce2dbc83f201">MADCTL</a> = 0x36;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a95e129ed57d10c2e88e247255e672244">   65</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a95e129ed57d10c2e88e247255e672244">MADCTL_MY</a> = 0x80;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ab6dbb2c5779a934d80acb3f79170f129">   66</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ab6dbb2c5779a934d80acb3f79170f129">MADCTL_MX</a> = 0x40;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#af7f2c58f3aa84b0df41831a9eb95bd90">   67</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#af7f2c58f3aa84b0df41831a9eb95bd90">MADCTL_MV</a> = 0x20;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a97696306a43dbf0335b8a846603aedd8">   68</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a97696306a43dbf0335b8a846603aedd8">MADCTL_ML</a> = 0x10;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a32d32fcf887bf992a1d289ae3eea5a51">   69</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a32d32fcf887bf992a1d289ae3eea5a51">MADCTL_RGB</a> = 0x00;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#acb86ae040b8a119db25b1fb65935a0de">   70</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#acb86ae040b8a119db25b1fb65935a0de">VSCRSADD</a> = 0x37;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#aa69ab9c5d21aa30b07ae86ee555b19f5">   71</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#aa69ab9c5d21aa30b07ae86ee555b19f5">FRMCTR1</a> = 0xB1;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a4f698df5930131a3063a0dc4a768d0cc">   72</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a4f698df5930131a3063a0dc4a768d0cc">FRMCTR2</a> = 0xB2;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ab8ba42b5d62e43fd249884cac7af9207">   73</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ab8ba42b5d62e43fd249884cac7af9207">FRMCTR3</a> = 0xB3;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ae5b19ac8f4201b3ec563e835a1ebf93b">   74</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ae5b19ac8f4201b3ec563e835a1ebf93b">INVCTR</a> = 0xB4;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#af27f7026c4acfafea55367bb5f80a622">   75</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#af27f7026c4acfafea55367bb5f80a622">DISSET5</a> = 0xB6;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#af1a4d7f4e45e34fd2a694298f13d89c3">   76</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#af1a4d7f4e45e34fd2a694298f13d89c3">PWCTR1</a> = 0xC0;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a678cc5a0997911dac7b10a59b91ae2ef">   77</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a678cc5a0997911dac7b10a59b91ae2ef">PWCTR2</a> = 0xC1;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a1634e39a3963de373b58808d56feffa8">   78</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a1634e39a3963de373b58808d56feffa8">PWCTR3</a> = 0xC2;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a611727923d29ddd59145c3021148cd3e">   79</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a611727923d29ddd59145c3021148cd3e">PWCTR4</a> = 0xC3;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a56e8c9aab410b2fd78abb8eafc6b7096">   80</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a56e8c9aab410b2fd78abb8eafc6b7096">PWCTR5</a> = 0xC4;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a226625ecd283b06a9485bd4741ca7ed5">   81</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a226625ecd283b06a9485bd4741ca7ed5">VMCTR1</a> = 0xC5;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a9f6cca22314c3eb5e0bc819ad1577cdd">   82</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a9f6cca22314c3eb5e0bc819ad1577cdd">RDID1</a> = 0xDA;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a1ce04e22d8207f59cdedc535f62b0d49">   83</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a1ce04e22d8207f59cdedc535f62b0d49">RDID2</a> = 0xDB;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a2ce35f2d0267d7d12c3db02026075bae">   84</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a2ce35f2d0267d7d12c3db02026075bae">RDID3</a> = 0xDC;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a9f4bb87deb323813141edab4e9a0a646">   85</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a9f4bb87deb323813141edab4e9a0a646">RDID4</a> = 0xDD;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ab5a3839fd80cfc817d17f4dac25eda55">   86</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ab5a3839fd80cfc817d17f4dac25eda55">PWCTR6</a> = 0xFC;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#a6f56ca4c30995432ad3a36c151695861">   87</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#a6f56ca4c30995432ad3a36c151695861">GMCTRP1</a> = 0xE0;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#ab99c0a74f3ab1020b3312c154bba3c0a">   88</a></span>    <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_s_t7735__commands_8h.html#ab99c0a74f3ab1020b3312c154bba3c0a">GMCTRN1</a> = 0xE1;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">   89</a></span>} <a class="code hl_variable" href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a036a6cab90a2de5043d287dafabb8f41"><div class="ttname"><a href="_s_t7735__commands_8h.html#a036a6cab90a2de5043d287dafabb8f41">RDDID</a></div><div class="ttdeci">const uint8_t RDDID</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:47</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a0859f9bd0ddcd1b0c91904396e7081d9"><div class="ttname"><a href="_s_t7735__commands_8h.html#a0859f9bd0ddcd1b0c91904396e7081d9">GREENTAB</a></div><div class="ttdeci">const uint8_t GREENTAB</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:12</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a0febbc45d89fa6390e56fa274bc09c97"><div class="ttname"><a href="_s_t7735__commands_8h.html#a0febbc45d89fa6390e56fa274bc09c97">COLMOD</a></div><div class="ttdeci">const uint8_t COLMOD</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:63</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a1634e39a3963de373b58808d56feffa8"><div class="ttname"><a href="_s_t7735__commands_8h.html#a1634e39a3963de373b58808d56feffa8">PWCTR3</a></div><div class="ttdeci">const uint8_t PWCTR3</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:78</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a1ce04e22d8207f59cdedc535f62b0d49"><div class="ttname"><a href="_s_t7735__commands_8h.html#a1ce04e22d8207f59cdedc535f62b0d49">RDID2</a></div><div class="ttdeci">const uint8_t RDID2</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:83</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a226625ecd283b06a9485bd4741ca7ed5"><div class="ttname"><a href="_s_t7735__commands_8h.html#a226625ecd283b06a9485bd4741ca7ed5">VMCTR1</a></div><div class="ttdeci">const uint8_t VMCTR1</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:81</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a239ef55189d66ede89e5de77da8402aa"><div class="ttname"><a href="_s_t7735__commands_8h.html#a239ef55189d66ede89e5de77da8402aa">GREENTAB18</a></div><div class="ttdeci">const uint8_t GREENTAB18</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:15</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a2ce35f2d0267d7d12c3db02026075bae"><div class="ttname"><a href="_s_t7735__commands_8h.html#a2ce35f2d0267d7d12c3db02026075bae">RDID3</a></div><div class="ttdeci">const uint8_t RDID3</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:84</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a31c5254989d711ccb96d2965ec795805"><div class="ttname"><a href="_s_t7735__commands_8h.html#a31c5254989d711ccb96d2965ec795805">VSCRDEF</a></div><div class="ttdeci">const uint8_t VSCRDEF</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:62</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a32d32fcf887bf992a1d289ae3eea5a51"><div class="ttname"><a href="_s_t7735__commands_8h.html#a32d32fcf887bf992a1d289ae3eea5a51">MADCTL_RGB</a></div><div class="ttdeci">const uint8_t MADCTL_RGB</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:69</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a35486f96f49298f475243cd4fd87bc50"><div class="ttname"><a href="_s_t7735__commands_8h.html#a35486f96f49298f475243cd4fd87bc50">INVON</a></div><div class="ttdeci">const uint8_t INVON</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:54</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a3f5641b801af0715ad3c83203970a072"><div class="ttname"><a href="_s_t7735__commands_8h.html#a3f5641b801af0715ad3c83203970a072">REDTAB18</a></div><div class="ttdeci">const uint8_t REDTAB18</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:16</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a43af75f7105600371e64cf82e1f34b6e"><div class="ttname"><a href="_s_t7735__commands_8h.html#a43af75f7105600371e64cf82e1f34b6e">HALLOWING</a></div><div class="ttdeci">const uint8_t HALLOWING</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:20</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a4f2b432afd6fbe08cc73fd70271417fd"><div class="ttname"><a href="_s_t7735__commands_8h.html#a4f2b432afd6fbe08cc73fd70271417fd">PTLAR</a></div><div class="ttdeci">const uint8_t PTLAR</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:61</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a4f698df5930131a3063a0dc4a768d0cc"><div class="ttname"><a href="_s_t7735__commands_8h.html#a4f698df5930131a3063a0dc4a768d0cc">FRMCTR2</a></div><div class="ttdeci">const uint8_t FRMCTR2</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:72</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a54557615e1abafc2b6861037ff9c1ce2"><div class="ttname"><a href="_s_t7735__commands_8h.html#a54557615e1abafc2b6861037ff9c1ce2">CASET</a></div><div class="ttdeci">const uint8_t CASET</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:57</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a562d2945d1c532720b7e06ac8f0aef14"><div class="ttname"><a href="_s_t7735__commands_8h.html#a562d2945d1c532720b7e06ac8f0aef14">ST7735Size</a></div><div class="ttdeci">class @3 ST7735Size</div><div class="ttdoc">捜査対象のTFTのサイズ</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a56e8c9aab410b2fd78abb8eafc6b7096"><div class="ttname"><a href="_s_t7735__commands_8h.html#a56e8c9aab410b2fd78abb8eafc6b7096">PWCTR5</a></div><div class="ttdeci">const uint8_t PWCTR5</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:80</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a57a38f4030f7bfc57e2937089161ac84"><div class="ttname"><a href="_s_t7735__commands_8h.html#a57a38f4030f7bfc57e2937089161ac84">NORON</a></div><div class="ttdeci">const uint8_t NORON</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:52</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a611727923d29ddd59145c3021148cd3e"><div class="ttname"><a href="_s_t7735__commands_8h.html#a611727923d29ddd59145c3021148cd3e">PWCTR4</a></div><div class="ttdeci">const uint8_t PWCTR4</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:79</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a678cc5a0997911dac7b10a59b91ae2ef"><div class="ttname"><a href="_s_t7735__commands_8h.html#a678cc5a0997911dac7b10a59b91ae2ef">PWCTR2</a></div><div class="ttdeci">const uint8_t PWCTR2</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:77</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a6a5393d682c02300672010ad93a80b30"><div class="ttname"><a href="_s_t7735__commands_8h.html#a6a5393d682c02300672010ad93a80b30">BLACKTAB</a></div><div class="ttdeci">const uint8_t BLACKTAB</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:14</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a6d0fe9514840de8d882e97506eaa3b64"><div class="ttname"><a href="_s_t7735__commands_8h.html#a6d0fe9514840de8d882e97506eaa3b64">PTLON</a></div><div class="ttdeci">const uint8_t PTLON</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:51</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a6f56ca4c30995432ad3a36c151695861"><div class="ttname"><a href="_s_t7735__commands_8h.html#a6f56ca4c30995432ad3a36c151695861">GMCTRP1</a></div><div class="ttdeci">const uint8_t GMCTRP1</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:87</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a72bbda77fcc992f9d7481f657d7ea14a"><div class="ttname"><a href="_s_t7735__commands_8h.html#a72bbda77fcc992f9d7481f657d7ea14a">RDDST</a></div><div class="ttdeci">const uint8_t RDDST</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:48</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a7f979a28f881dba12d3e80cc6bdff9d5"><div class="ttname"><a href="_s_t7735__commands_8h.html#a7f979a28f881dba12d3e80cc6bdff9d5">NOP</a></div><div class="ttdeci">const uint8_t NOP</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:45</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a84517e85e12e9b13bdc2874a97e795b8"><div class="ttname"><a href="_s_t7735__commands_8h.html#a84517e85e12e9b13bdc2874a97e795b8">SLPIN</a></div><div class="ttdeci">const uint8_t SLPIN</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:49</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a8631bfb08bddf3790a3f0fb215a058eb"><div class="ttname"><a href="_s_t7735__commands_8h.html#a8631bfb08bddf3790a3f0fb215a058eb">MINI160x80</a></div><div class="ttdeci">const uint8_t MINI160x80</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:19</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a95e129ed57d10c2e88e247255e672244"><div class="ttname"><a href="_s_t7735__commands_8h.html#a95e129ed57d10c2e88e247255e672244">MADCTL_MY</a></div><div class="ttdeci">const uint8_t MADCTL_MY</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:65</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a97696306a43dbf0335b8a846603aedd8"><div class="ttname"><a href="_s_t7735__commands_8h.html#a97696306a43dbf0335b8a846603aedd8">MADCTL_ML</a></div><div class="ttdeci">const uint8_t MADCTL_ML</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:68</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a9f4bb87deb323813141edab4e9a0a646"><div class="ttname"><a href="_s_t7735__commands_8h.html#a9f4bb87deb323813141edab4e9a0a646">RDID4</a></div><div class="ttdeci">const uint8_t RDID4</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:85</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_a9f6cca22314c3eb5e0bc819ad1577cdd"><div class="ttname"><a href="_s_t7735__commands_8h.html#a9f6cca22314c3eb5e0bc819ad1577cdd">RDID1</a></div><div class="ttdeci">const uint8_t RDID1</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:82</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_aa69ab9c5d21aa30b07ae86ee555b19f5"><div class="ttname"><a href="_s_t7735__commands_8h.html#aa69ab9c5d21aa30b07ae86ee555b19f5">FRMCTR1</a></div><div class="ttdeci">const uint8_t FRMCTR1</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:71</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_aa6c46f9467082124536cc9c526e6d4be"><div class="ttname"><a href="_s_t7735__commands_8h.html#aa6c46f9467082124536cc9c526e6d4be">GREENTAB144</a></div><div class="ttdeci">const uint8_t GREENTAB144</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:18</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_aae1ff5c4ae438b7290ecc015085a9343"><div class="ttname"><a href="_s_t7735__commands_8h.html#aae1ff5c4ae438b7290ecc015085a9343">INVOFF</a></div><div class="ttdeci">const uint8_t INVOFF</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:53</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ab5a3839fd80cfc817d17f4dac25eda55"><div class="ttname"><a href="_s_t7735__commands_8h.html#ab5a3839fd80cfc817d17f4dac25eda55">PWCTR6</a></div><div class="ttdeci">const uint8_t PWCTR6</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:86</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ab6dbb2c5779a934d80acb3f79170f129"><div class="ttname"><a href="_s_t7735__commands_8h.html#ab6dbb2c5779a934d80acb3f79170f129">MADCTL_MX</a></div><div class="ttdeci">const uint8_t MADCTL_MX</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:66</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ab8ba42b5d62e43fd249884cac7af9207"><div class="ttname"><a href="_s_t7735__commands_8h.html#ab8ba42b5d62e43fd249884cac7af9207">FRMCTR3</a></div><div class="ttdeci">const uint8_t FRMCTR3</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:73</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ab99c0a74f3ab1020b3312c154bba3c0a"><div class="ttname"><a href="_s_t7735__commands_8h.html#ab99c0a74f3ab1020b3312c154bba3c0a">GMCTRN1</a></div><div class="ttdeci">const uint8_t GMCTRN1</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:88</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_abbca325a43539902962bc4f6e37177b5"><div class="ttname"><a href="_s_t7735__commands_8h.html#abbca325a43539902962bc4f6e37177b5">WIDTH_128</a></div><div class="ttdeci">const uint8_t WIDTH_128</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:27</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_abd082341e12a4ae44d894f4eb4eca36a"><div class="ttname"><a href="_s_t7735__commands_8h.html#abd082341e12a4ae44d894f4eb4eca36a">ST7735Cmd</a></div><div class="ttdeci">class @4 ST7735Cmd</div><div class="ttdoc">ST7735に対するコマンドの定義</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ac6e667141fce45d4ae3e76718c56838b"><div class="ttname"><a href="_s_t7735__commands_8h.html#ac6e667141fce45d4ae3e76718c56838b">RASET</a></div><div class="ttdeci">const uint8_t RASET</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:58</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ac80b69694d34a245f6762fff2f872666"><div class="ttname"><a href="_s_t7735__commands_8h.html#ac80b69694d34a245f6762fff2f872666">REDTAB</a></div><div class="ttdeci">const uint8_t REDTAB</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:13</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_aca2c2445e081bb787416e290ed2c43e3"><div class="ttname"><a href="_s_t7735__commands_8h.html#aca2c2445e081bb787416e290ed2c43e3">MINI160x80_PLUGIN</a></div><div class="ttdeci">const uint8_t MINI160x80_PLUGIN</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:21</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_acb86ae040b8a119db25b1fb65935a0de"><div class="ttname"><a href="_s_t7735__commands_8h.html#acb86ae040b8a119db25b1fb65935a0de">VSCRSADD</a></div><div class="ttdeci">const uint8_t VSCRSADD</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:70</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_acd60d43cd70ae827c7b34336d20d4659"><div class="ttname"><a href="_s_t7735__commands_8h.html#acd60d43cd70ae827c7b34336d20d4659">BLACKTAB18</a></div><div class="ttdeci">const uint8_t BLACKTAB18</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:17</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ad483046f2781a3c9eb6b7ca1ab4936f8"><div class="ttname"><a href="_s_t7735__commands_8h.html#ad483046f2781a3c9eb6b7ca1ab4936f8">SLPOUT</a></div><div class="ttdeci">const uint8_t SLPOUT</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:50</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ad4c022b6cf2ccd0fdf04a606174de83c"><div class="ttname"><a href="_s_t7735__commands_8h.html#ad4c022b6cf2ccd0fdf04a606174de83c">SWRESET</a></div><div class="ttdeci">const uint8_t SWRESET</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:46</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ad527a43d057094f1a80c89b25e58d60b"><div class="ttname"><a href="_s_t7735__commands_8h.html#ad527a43d057094f1a80c89b25e58d60b">WIDTH_80</a></div><div class="ttdeci">const uint8_t WIDTH_80</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:29</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ad858f754ed7ae1f850c9cdcec79a691a"><div class="ttname"><a href="_s_t7735__commands_8h.html#ad858f754ed7ae1f850c9cdcec79a691a">DISPOFF</a></div><div class="ttdeci">const uint8_t DISPOFF</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:55</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_adb48e322396a7120a4c64738510d4060"><div class="ttname"><a href="_s_t7735__commands_8h.html#adb48e322396a7120a4c64738510d4060">ST7735Type</a></div><div class="ttdeci">class @2 ST7735Type</div><div class="ttdoc">捜査対象のTFTの種類</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_adcc4c79e75145bf4f24a1e9be31d3dfc"><div class="ttname"><a href="_s_t7735__commands_8h.html#adcc4c79e75145bf4f24a1e9be31d3dfc">RAMRD</a></div><div class="ttdeci">const uint8_t RAMRD</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:60</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_adcc7830ffd889ef917927ed530dfee3e"><div class="ttname"><a href="_s_t7735__commands_8h.html#adcc7830ffd889ef917927ed530dfee3e">HEIGHT_128</a></div><div class="ttdeci">const uint8_t HEIGHT_128</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:28</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ae2894432d96bc2452c652f438569b825"><div class="ttname"><a href="_s_t7735__commands_8h.html#ae2894432d96bc2452c652f438569b825">HEIGHT_160</a></div><div class="ttdeci">const uint8_t HEIGHT_160</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:30</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ae5b19ac8f4201b3ec563e835a1ebf93b"><div class="ttname"><a href="_s_t7735__commands_8h.html#ae5b19ac8f4201b3ec563e835a1ebf93b">INVCTR</a></div><div class="ttdeci">const uint8_t INVCTR</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:74</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_ae877dda8d235be9f734944ef8bc0ab63"><div class="ttname"><a href="_s_t7735__commands_8h.html#ae877dda8d235be9f734944ef8bc0ab63">DELAY</a></div><div class="ttdeci">const uint8_t DELAY</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:44</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_af1a4d7f4e45e34fd2a694298f13d89c3"><div class="ttname"><a href="_s_t7735__commands_8h.html#af1a4d7f4e45e34fd2a694298f13d89c3">PWCTR1</a></div><div class="ttdeci">const uint8_t PWCTR1</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:76</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_af27f7026c4acfafea55367bb5f80a622"><div class="ttname"><a href="_s_t7735__commands_8h.html#af27f7026c4acfafea55367bb5f80a622">DISSET5</a></div><div class="ttdeci">const uint8_t DISSET5</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:75</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_af760de8cf689429a7d08ce2dbc83f201"><div class="ttname"><a href="_s_t7735__commands_8h.html#af760de8cf689429a7d08ce2dbc83f201">MADCTL</a></div><div class="ttdeci">const uint8_t MADCTL</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:64</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_af7f2c58f3aa84b0df41831a9eb95bd90"><div class="ttname"><a href="_s_t7735__commands_8h.html#af7f2c58f3aa84b0df41831a9eb95bd90">MADCTL_MV</a></div><div class="ttdeci">const uint8_t MADCTL_MV</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:67</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_af8d2fcfda335fa0fa05d31b632a06df8"><div class="ttname"><a href="_s_t7735__commands_8h.html#af8d2fcfda335fa0fa05d31b632a06df8">RAMWR</a></div><div class="ttdeci">const uint8_t RAMWR</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:59</div></div>
+<div class="ttc" id="a_s_t7735__commands_8h_html_afd5d71f6fc3d46eef69dba23c92bcc33"><div class="ttname"><a href="_s_t7735__commands_8h.html#afd5d71f6fc3d46eef69dba23c92bcc33">DISPON</a></div><div class="ttdeci">const uint8_t DISPON</div><div class="ttdef"><b>Definition</b> ST7735_commands.h:56</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

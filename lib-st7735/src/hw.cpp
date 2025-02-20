@@ -34,7 +34,6 @@ HW::HW(uint8_t spiPortNo, uint8_t a_RXDC, uint8_t a_CS, uint8_t a_SCK,uint8_t a_
 
 
 /// @brief GPIOの初期化を行う。コンストラクタで指定されたポートを出力に設定する。
-/// @param  
 void HW::init(void) 
 {
 	gpio_init(_cs);
@@ -68,7 +67,6 @@ void HW::init(void)
   	}
 }
 /// @brief デバッグピンをストローブする
-/// @return 
 volatile void HW::debugStrobe()
 {
     gpio_put(_debug, 0);
@@ -77,19 +75,16 @@ volatile void HW::debugStrobe()
     gpio_put(_debug, 0);
 }
 /// @brief デバッグピンをHighにする
-/// @return 
 volatile void HW::debugOn()
 {
 	gpio_put(_debug,1);
 }
 /// @brief デバッグピンをLowにする
-/// @return 
 volatile void HW::debugOff()
 {
 	gpio_put(_debug, 0);
 }
 /// @brief spiの出力ルーチンに入ったことを示す信号をデバッグピンに出力する。デバッグがストローブモードのときにはストローブ、そうでないときにはHighにする。
-/// @return 
 volatile void HW::debugIn()
 {
     if (options.isDebugModeOnOff) {
@@ -99,7 +94,6 @@ volatile void HW::debugIn()
     }
 }
 /// @brief spiの出力ルーチンから出たことを示す信号をデバッグピンに出力する。デバッグがストローブモードのときにはストローブ、そうでないときにはLowにする。  
-/// @return
 volatile void HW::debugOut()
 {
     if (options.isDebugModeOnOff) {
@@ -109,7 +103,6 @@ volatile void HW::debugOut()
     }
 }
 /// @brief  リセット信号をLowにする
-/// @return 
 volatile void HW::Reset()
 {
 	if (_reset != 0) {

@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['ramrd_0',['RAMRD',['../_s_t7735__commands_8h.html#adcc4c79e75145bf4f24a1e9be31d3dfc',1,'ST7735_commands.h']]],
+  ['ramwr_1',['RAMWR',['../_s_t7735__commands_8h.html#af8d2fcfda335fa0fa05d31b632a06df8',1,'ST7735_commands.h']]],
+  ['raset_2',['RASET',['../_s_t7735__commands_8h.html#ac6e667141fce45d4ae3e76718c56838b',1,'ST7735_commands.h']]],
+  ['rcmd1_3',['Rcmd1',['../_s_t7735__initcmd_8h.html#ad09af93a9eaab743be5ed94a43c1c9b4',1,'ST7735_initcmd.h']]],
+  ['rcmd2green_4',['Rcmd2green',['../_s_t7735__initcmd_8h.html#ada3eb7c515ea33939763c10720f9f086',1,'ST7735_initcmd.h']]],
+  ['rcmd2green144_5',['Rcmd2green144',['../_s_t7735__initcmd_8h.html#ace3e3352ab494a8d969c93bec9c6ae41',1,'ST7735_initcmd.h']]],
+  ['rcmd2green160x80_6',['Rcmd2green160x80',['../_s_t7735__initcmd_8h.html#a5dbad386ddd1c2486b145857fc2ab69c',1,'ST7735_initcmd.h']]],
+  ['rcmd2green160x80plugin_7',['Rcmd2green160x80plugin',['../_s_t7735__initcmd_8h.html#a514909852cbcf9d6b9c465f8c1a1ecbf',1,'ST7735_initcmd.h']]],
+  ['rcmd2red_8',['Rcmd2red',['../_s_t7735__initcmd_8h.html#ad887999310f96074b52f71252e54ca63',1,'ST7735_initcmd.h']]],
+  ['rcmd3_9',['Rcmd3',['../_s_t7735__initcmd_8h.html#afcac12dd52e0dc2afca1cf064e427d74',1,'ST7735_initcmd.h']]],
+  ['rddid_10',['RDDID',['../_s_t7735__commands_8h.html#a036a6cab90a2de5043d287dafabb8f41',1,'ST7735_commands.h']]],
+  ['rddst_11',['RDDST',['../_s_t7735__commands_8h.html#a72bbda77fcc992f9d7481f657d7ea14a',1,'ST7735_commands.h']]],
+  ['rdid1_12',['RDID1',['../_s_t7735__commands_8h.html#a9f6cca22314c3eb5e0bc819ad1577cdd',1,'ST7735_commands.h']]],
+  ['rdid2_13',['RDID2',['../_s_t7735__commands_8h.html#a1ce04e22d8207f59cdedc535f62b0d49',1,'ST7735_commands.h']]],
+  ['rdid3_14',['RDID3',['../_s_t7735__commands_8h.html#a2ce35f2d0267d7d12c3db02026075bae',1,'ST7735_commands.h']]],
+  ['rdid4_15',['RDID4',['../_s_t7735__commands_8h.html#a9f4bb87deb323813141edab4e9a0a646',1,'ST7735_commands.h']]],
+  ['red_16',['RED',['../_s_t7735__struct_8h.html#a13464d7129044cb193734768a79fcbc6',1,'ST7735_struct.h']]],
+  ['redtab_17',['REDTAB',['../_s_t7735__commands_8h.html#ac80b69694d34a245f6762fff2f872666',1,'ST7735_commands.h']]],
+  ['redtab18_18',['REDTAB18',['../_s_t7735__commands_8h.html#a3f5641b801af0715ad3c83203970a072',1,'ST7735_commands.h']]],
+  ['rotation_19',['rotation',['../class_s_t7735_init.html#adbc6127c59c74c45e7b6a4a4cff86aa0',1,'ST7735Init']]],
+  ['rowstart_20',['rowstart',['../class_s_t7735_init.html#a90aee8b93985240b41ba374b18e29e0d',1,'ST7735Init']]]
+];

@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: ST7735_TFT.h ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c5a50853997633758dfee5f1dd444d6e.html">SPIDisplay</a></li><li class="navelem"><a class="el" href="dir_0ab8852d40c8d229a52113626deabd6b.html">lib-st7735</a></li><li class="navelem"><a class="el" href="dir_3ecfe767cd2f056f6ab99bb4cb2006e9.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#define-members">マクロ定義</a>  </div>
+  <div class="headertitle"><div class="title">ST7735_TFT.h ファイル</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_s_t7735__commands_8h_source.html">ST7735_commands.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_t7735__initcmd_8h_source.html">ST7735_initcmd.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_t7735__struct_8h_source.html">ST7735_struct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_text_fonts_8h_source.html">TextFonts.h</a>&quot;</code><br />
+</div>
+<p><a href="_s_t7735___t_f_t_8h_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_t7735.html">ST7735</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面表示のクラス。インスタンス化して使用する。  <a href="class_s_t7735.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+マクロ定義</h2></td></tr>
+<tr class="memitem:a6bae58ed38290ba7b5c73d6a9e8927fb" id="r_a6bae58ed38290ba7b5c73d6a9e8927fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bae58ed38290ba7b5c73d6a9e8927fb">TFT_ENABLE_FONTS</a></td></tr>
+<tr class="memdesc:a6bae58ed38290ba7b5c73d6a9e8927fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">フォント機能を有効にするかのフラグ。  <br /></td></tr>
+<tr class="separator:a6bae58ed38290ba7b5c73d6a9e8927fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72f354b7f4d9fb878a7519b45b9a19f5" id="r_a72f354b7f4d9fb878a7519b45b9a19f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72f354b7f4d9fb878a7519b45b9a19f5">TFT_ENABLE_BITMAP</a></td></tr>
+<tr class="memdesc:a72f354b7f4d9fb878a7519b45b9a19f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">ビットマップ描画機能を有効にするかのフラグ  <br /></td></tr>
+<tr class="separator:a72f354b7f4d9fb878a7519b45b9a19f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d623b4aea5c93dba4c058708d327bed" id="r_a2d623b4aea5c93dba4c058708d327bed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d623b4aea5c93dba4c058708d327bed">TFT_ENABLE_KANJI</a></td></tr>
+<tr class="memdesc:a2d623b4aea5c93dba4c058708d327bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">漢字フォント機能を有効にするかのフラグ  <br /></td></tr>
+<tr class="separator:a2d623b4aea5c93dba4c058708d327bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcbbf611709392de2db165245bb34a48" id="r_afcbbf611709392de2db165245bb34a48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcbbf611709392de2db165245bb34a48">TFT_FORCE_HANKANA</a></td></tr>
+<tr class="memdesc:afcbbf611709392de2db165245bb34a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">半角カナ文字の扱いを決定する  <br /></td></tr>
+<tr class="separator:afcbbf611709392de2db165245bb34a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa23c90a9d01a9cbb935f9822ed3e6a5e" id="r_aa23c90a9d01a9cbb935f9822ed3e6a5e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa23c90a9d01a9cbb935f9822ed3e6a5e">TFT_ENABLE_BLACK</a></td></tr>
+<tr class="separator:aa23c90a9d01a9cbb935f9822ed3e6a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06977c23ee192fb6d0aa897f84d4adc2" id="r_a06977c23ee192fb6d0aa897f84d4adc2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06977c23ee192fb6d0aa897f84d4adc2">TFT_ENABLE_RESET</a></td></tr>
+<tr class="separator:a06977c23ee192fb6d0aa897f84d4adc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7226b3435e5dfea41e11cac8d356aa7" id="r_ad7226b3435e5dfea41e11cac8d356aa7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7226b3435e5dfea41e11cac8d356aa7">TFT_ENABLE_TEXT</a></td></tr>
+<tr class="memdesc:ad7226b3435e5dfea41e11cac8d356aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">テキスト表示を有効にするかのフラグ。  <br /></td></tr>
+<tr class="separator:ad7226b3435e5dfea41e11cac8d356aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38c77c93603a259df74a997f82a6881d" id="r_a38c77c93603a259df74a997f82a6881d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38c77c93603a259df74a997f82a6881d">TFT_ENABLE_SHAPES</a></td></tr>
+<tr class="memdesc:a38c77c93603a259df74a997f82a6881d"><td class="mdescLeft">&#160;</td><td class="mdescRight">図形描画機能を有効にするかのフラグ  <br /></td></tr>
+<tr class="separator:a38c77c93603a259df74a997f82a6881d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a443cfe6c351ab6860867ea25fcbe41fe" id="r_a443cfe6c351ab6860867ea25fcbe41fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a443cfe6c351ab6860867ea25fcbe41fe">TFT_ENABLE_ROTATE</a></td></tr>
+<tr class="memdesc:a443cfe6c351ab6860867ea25fcbe41fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面の回転機能を有効にするかのフラグ  <br /></td></tr>
+<tr class="separator:a443cfe6c351ab6860867ea25fcbe41fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af987d9689d4533e785af78e3ec64138f" id="r_af987d9689d4533e785af78e3ec64138f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af987d9689d4533e785af78e3ec64138f">TFT_ENABLE_SCROLL</a></td></tr>
+<tr class="memdesc:af987d9689d4533e785af78e3ec64138f"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面のスクロール機能を有効にするかのフラグ  <br /></td></tr>
+<tr class="separator:af987d9689d4533e785af78e3ec64138f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bb801ce7b8f4acc9c27fea0562d6d11" id="r_a1bb801ce7b8f4acc9c27fea0562d6d11"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bb801ce7b8f4acc9c27fea0562d6d11">TFT_ENABLE_ALL</a></td></tr>
+<tr class="memdesc:a1bb801ce7b8f4acc9c27fea0562d6d11"><td class="mdescLeft">&#160;</td><td class="mdescRight">図形表示をすべて有効にするかのフラグ  <br /></td></tr>
+<tr class="separator:a1bb801ce7b8f4acc9c27fea0562d6d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">マクロ定義詳解</h2>
+<a id="a1bb801ce7b8f4acc9c27fea0562d6d11" name="a1bb801ce7b8f4acc9c27fea0562d6d11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bb801ce7b8f4acc9c27fea0562d6d11">&#9670;&#160;</a></span>TFT_ENABLE_ALL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_ENABLE_ALL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>図形表示をすべて有効にするかのフラグ </p>
+<p>このシンボルを有効にすると、以下のすべての図形表示が有効になる。 （漢字表示 TFT_ENABLE_KANJI と、フォント機能　TFT_ENABLE_FONTSは有効にならない。個別に有効化が必要）<br  />
+</p><ul>
+<li>TFT_ENABLE_SHAPES ... 直線、矩形、角丸矩形、円、三角形の表示</li>
+<li>TFT_ENABLE_SCROLL ... 画面のスクロール</li>
+<li>TFT_ENABLE_TEXT ... 画面のスクロール</li>
+<li>TFT_ENABLE_TEXT ... テキスト表示機能</li>
+<li>TFT_ENABLE_ROTATE ...　画面の回転 </li>
+</ul>
+
+</div>
+</div>
+<a id="a72f354b7f4d9fb878a7519b45b9a19f5" name="a72f354b7f4d9fb878a7519b45b9a19f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72f354b7f4d9fb878a7519b45b9a19f5">&#9670;&#160;</a></span>TFT_ENABLE_BITMAP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_ENABLE_BITMAP</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ビットマップ描画機能を有効にするかのフラグ </p>
+<p>このシンボルを定義すると、ビットマップ描画の関数を使用できる。 RGBベタ（565)の配列を用意し、それを任意の場所に表示できる。 </p>
+
+</div>
+</div>
+<a id="aa23c90a9d01a9cbb935f9822ed3e6a5e" name="aa23c90a9d01a9cbb935f9822ed3e6a5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa23c90a9d01a9cbb935f9822ed3e6a5e">&#9670;&#160;</a></span>TFT_ENABLE_BLACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_ENABLE_BLACK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6bae58ed38290ba7b5c73d6a9e8927fb" name="a6bae58ed38290ba7b5c73d6a9e8927fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bae58ed38290ba7b5c73d6a9e8927fb">&#9670;&#160;</a></span>TFT_ENABLE_FONTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_ENABLE_FONTS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>フォント機能を有効にするかのフラグ。 </p>
+<p>このシンボルを定義すると、フォント拡張機能が有効になる。<br  />
+ 未定義の場合、デフォルトのフォントとして、TextFonts.hで定義されている5x7の字体が自動的に使用される。<br  />
+ 有効の場合、フォントはGFXfont構造体へのポインタを、setFontメソッドで指定することができる。 </p>
+
+</div>
+</div>
+<a id="a2d623b4aea5c93dba4c058708d327bed" name="a2d623b4aea5c93dba4c058708d327bed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d623b4aea5c93dba4c058708d327bed">&#9670;&#160;</a></span>TFT_ENABLE_KANJI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_ENABLE_KANJI</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>漢字フォント機能を有効にするかのフラグ </p>
+<p>このシンボルを定義すると、漢字機能が有効になり、drawKanjiメソッドが使用できるようになる。 このシンボルが有効になると、漢字フォントとしてKanjiHelper.h内で字体のデータがincludeされる。 使用されるフォントサイズや、文字セットにより大きさが異なるが、80kBytes～250kBytes程度のメモリを フラッシュ側（プログラムメモリ）で消費する </p>
+
+</div>
+</div>
+<a id="a06977c23ee192fb6d0aa897f84d4adc2" name="a06977c23ee192fb6d0aa897f84d4adc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06977c23ee192fb6d0aa897f84d4adc2">&#9670;&#160;</a></span>TFT_ENABLE_RESET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_ENABLE_RESET</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a443cfe6c351ab6860867ea25fcbe41fe" name="a443cfe6c351ab6860867ea25fcbe41fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a443cfe6c351ab6860867ea25fcbe41fe">&#9670;&#160;</a></span>TFT_ENABLE_ROTATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_ENABLE_ROTATE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面の回転機能を有効にするかのフラグ </p>
+<p>このシンボルを有効にすると、画面を90/180/270度回転できる。 </p>
+
+</div>
+</div>
+<a id="af987d9689d4533e785af78e3ec64138f" name="af987d9689d4533e785af78e3ec64138f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af987d9689d4533e785af78e3ec64138f">&#9670;&#160;</a></span>TFT_ENABLE_SCROLL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_ENABLE_SCROLL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面のスクロール機能を有効にするかのフラグ </p>
+<p>このシンボルを有効にすると、画面のスクロール関連関数が使用できるようになる。 </p>
+
+</div>
+</div>
+<a id="a38c77c93603a259df74a997f82a6881d" name="a38c77c93603a259df74a997f82a6881d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38c77c93603a259df74a997f82a6881d">&#9670;&#160;</a></span>TFT_ENABLE_SHAPES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_ENABLE_SHAPES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>図形描画機能を有効にするかのフラグ </p>
+<p>直線、矩形、角丸矩形、円、三角形の表示関数が使用できるようになる。 </p>
+
+</div>
+</div>
+<a id="ad7226b3435e5dfea41e11cac8d356aa7" name="ad7226b3435e5dfea41e11cac8d356aa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7226b3435e5dfea41e11cac8d356aa7">&#9670;&#160;</a></span>TFT_ENABLE_TEXT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_ENABLE_TEXT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>テキスト表示を有効にするかのフラグ。 </p>
+<p>このシンボルを定義すると、文字表示が有効になる。TFT_ENABLE_TEXTが定義されていないと、フォント 表示も日本語表示も組み込まれないため使用できない。 </p>
+
+</div>
+</div>
+<a id="afcbbf611709392de2db165245bb34a48" name="afcbbf611709392de2db165245bb34a48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcbbf611709392de2db165245bb34a48">&#9670;&#160;</a></span>TFT_FORCE_HANKANA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_FORCE_HANKANA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>半角カナ文字の扱いを決定する </p>
+<p>通常Unicodeのエディタ（VS Code)では、半角カナ文字をefbda1～efbdffまでの3バイト文字セットと して格納し、コンパイル時もそれが使用される。多バイト文字での半角表現は、JISコードには含まれていないため、 UTF-8からJISへの変換で範囲外となってしまい、表示できない。 このフラグを有効にすると、半角カナ文字（UTF:efbda1～efbdff)を、１バイト文字コード(a1～ff)として扱う ことで、UTF-8表現エディタで作成・コンパイルしたプログラムで半角カナを正しく表示できるようになる。 </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

@@ -1,0 +1,3567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: ST7735 クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="class_s_t7735-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">ST7735 クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>画面表示のクラス。インスタンス化して使用する。  
+ <a href="#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_s_t7735___t_f_t_8h_source.html">ST7735_TFT.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:acba0cf86e39067b2f461e5fe872aca3c" id="r_acba0cf86e39067b2f461e5fe872aca3c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acba0cf86e39067b2f461e5fe872aca3c">ST7735</a> (<a class="el" href="class_h_w.html">HW</a> &amp;<a class="el" href="#a44b40afa5b6ae7dd89e0160a26afc859">spiHW</a>)</td></tr>
+<tr class="memdesc:acba0cf86e39067b2f461e5fe872aca3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフィックライブラリのコンストラクタ  <br /></td></tr>
+<tr class="separator:acba0cf86e39067b2f461e5fe872aca3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cfe5851b8106ee7dcba84cfec4582f4" id="r_a2cfe5851b8106ee7dcba84cfec4582f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cfe5851b8106ee7dcba84cfec4582f4">doInit</a> ()</td></tr>
+<tr class="memdesc:a2cfe5851b8106ee7dcba84cfec4582f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">初期化処理を行う  <br /></td></tr>
+<tr class="separator:a2cfe5851b8106ee7dcba84cfec4582f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65c84afbcd019b65d40fb65823772585" id="r_a65c84afbcd019b65d40fb65823772585"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65c84afbcd019b65d40fb65823772585">writeCommand</a> (uint8_t cmd_)</td></tr>
+<tr class="memdesc:a65c84afbcd019b65d40fb65823772585"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドを送信する。  <br /></td></tr>
+<tr class="separator:a65c84afbcd019b65d40fb65823772585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae48b7b4844f535b8389fa48207d25c74" id="r_ae48b7b4844f535b8389fa48207d25c74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae48b7b4844f535b8389fa48207d25c74">writeData</a> (uint8_t data_)</td></tr>
+<tr class="memdesc:ae48b7b4844f535b8389fa48207d25c74"><td class="mdescLeft">&#160;</td><td class="mdescRight">データを送信する。  <br /></td></tr>
+<tr class="separator:ae48b7b4844f535b8389fa48207d25c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6db1ea22ec38c735779f68fce934ff3c" id="r_a6db1ea22ec38c735779f68fce934ff3c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6db1ea22ec38c735779f68fce934ff3c">getWidth</a> ()</td></tr>
+<tr class="separator:a6db1ea22ec38c735779f68fce934ff3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e13f9b816aa0998b6ab2e06e8073b45" id="r_a6e13f9b816aa0998b6ab2e06e8073b45"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e13f9b816aa0998b6ab2e06e8073b45">getHeight</a> ()</td></tr>
+<tr class="separator:a6e13f9b816aa0998b6ab2e06e8073b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a766bbc6bb191c837d004a15e1d5c44cd" id="r_a766bbc6bb191c837d004a15e1d5c44cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a766bbc6bb191c837d004a15e1d5c44cd">setAddrWindow</a> (uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)</td></tr>
+<tr class="memdesc:a766bbc6bb191c837d004a15e1d5c44cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">BitBlitのためのアドレスウインドウを設定する。（https://en.wikipedia.org/wiki/Bit_blit）  <br /></td></tr>
+<tr class="separator:a766bbc6bb191c837d004a15e1d5c44cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a373cb30efb66571a6b9a57bb4f681497" id="r_a373cb30efb66571a6b9a57bb4f681497"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a373cb30efb66571a6b9a57bb4f681497">fillRectangle</a> (uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)</td></tr>
+<tr class="memdesc:a373cb30efb66571a6b9a57bb4f681497"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形を塗りつぶす  <br /></td></tr>
+<tr class="separator:a373cb30efb66571a6b9a57bb4f681497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4deb9ae409aa46b6f5934d9e46427803" id="r_a4deb9ae409aa46b6f5934d9e46427803"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4deb9ae409aa46b6f5934d9e46427803">fillScreen</a> (uint16_t color)</td></tr>
+<tr class="memdesc:a4deb9ae409aa46b6f5934d9e46427803"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面を単色で塗りつぶす。初期設定された液晶サイズの矩形を表示させることで実装。  <br /></td></tr>
+<tr class="separator:a4deb9ae409aa46b6f5934d9e46427803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31a2b0bc8b3c4d1de8eeb1d3b3670be8" id="r_a31a2b0bc8b3c4d1de8eeb1d3b3670be8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">drawFastHLine</a> (uint8_t x, uint8_t y, uint8_t w, uint16_t color)</td></tr>
+<tr class="memdesc:a31a2b0bc8b3c4d1de8eeb1d3b3670be8"><td class="mdescLeft">&#160;</td><td class="mdescRight">水平線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。  <br /></td></tr>
+<tr class="separator:a31a2b0bc8b3c4d1de8eeb1d3b3670be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2755fd5311830fe6774d594f55305cf" id="r_ac2755fd5311830fe6774d594f55305cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a> (uint8_t x, uint8_t y, uint8_t h, uint16_t color)</td></tr>
+<tr class="memdesc:ac2755fd5311830fe6774d594f55305cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">垂直線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。  <br /></td></tr>
+<tr class="separator:ac2755fd5311830fe6774d594f55305cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7ea44bc75631bf333cef07e9a25ff20" id="r_ab7ea44bc75631bf333cef07e9a25ff20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a> (uint8_t x, uint8_t y, uint16_t color)</td></tr>
+<tr class="memdesc:ab7ea44bc75631bf333cef07e9a25ff20"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面に点を描画する  <br /></td></tr>
+<tr class="separator:ab7ea44bc75631bf333cef07e9a25ff20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07153a5bb8ff658acf15ac512c326404" id="r_a07153a5bb8ff658acf15ac512c326404"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07153a5bb8ff658acf15ac512c326404">drawPixel</a> (<a class="el" href="class_axis8.html">Axis8</a> axis, uint16_t color)</td></tr>
+<tr class="separator:a07153a5bb8ff658acf15ac512c326404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfb5f92e8168500e1e82e6e9d4238c54" id="r_adfb5f92e8168500e1e82e6e9d4238c54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfb5f92e8168500e1e82e6e9d4238c54">drawKanjiBlock</a> (uint8_t x, uint8_t y, uint8_t w, uint8_t h, const uint8_t *bmpData, uint16_t color, uint16_t bg)</td></tr>
+<tr class="separator:adfb5f92e8168500e1e82e6e9d4238c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a263cbcc63983968a0b29b107e673ad" id="r_a4a263cbcc63983968a0b29b107e673ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a263cbcc63983968a0b29b107e673ad">invertDisplay</a> (bool i)</td></tr>
+<tr class="memdesc:a4a263cbcc63983968a0b29b107e673ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面の表示を反転させる  <br /></td></tr>
+<tr class="separator:a4a263cbcc63983968a0b29b107e673ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8ada43a4e69ba740688ff86b4d2d123" id="r_aa8ada43a4e69ba740688ff86b4d2d123"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8ada43a4e69ba740688ff86b4d2d123">NormalDisplay</a> ()</td></tr>
+<tr class="memdesc:aa8ada43a4e69ba740688ff86b4d2d123"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面の表示を通常に戻す  <br /></td></tr>
+<tr class="separator:aa8ada43a4e69ba740688ff86b4d2d123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a635b05b3c13edb2b2003db2d94eab4b4" id="r_a635b05b3c13edb2b2003db2d94eab4b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a635b05b3c13edb2b2003db2d94eab4b4">SetRotation</a> (<a class="el" href="_s_t7735__struct_8h.html#afc67bf57f963f3086cb5532735b82c8b">ST7735_ROTATION</a> rot)</td></tr>
+<tr class="memdesc:a635b05b3c13edb2b2003db2d94eab4b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面の回転を設定する。  <br /></td></tr>
+<tr class="separator:a635b05b3c13edb2b2003db2d94eab4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a081f1a09c8a94e5258a53004eafc1df3" id="r_a081f1a09c8a94e5258a53004eafc1df3"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a081f1a09c8a94e5258a53004eafc1df3">Color565</a> (int16_t r, int16_t g, int16_t b)</td></tr>
+<tr class="separator:a081f1a09c8a94e5258a53004eafc1df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67bee8d67424ef791bb94dc00f07e39b" id="r_a67bee8d67424ef791bb94dc00f07e39b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67bee8d67424ef791bb94dc00f07e39b">pushColor</a> (uint16_t color)</td></tr>
+<tr class="memdesc:a67bee8d67424ef791bb94dc00f07e39b"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面に色を表示する  <br /></td></tr>
+<tr class="separator:a67bee8d67424ef791bb94dc00f07e39b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75ab0e30bccad7d4351392712bc75210" id="r_a75ab0e30bccad7d4351392712bc75210"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75ab0e30bccad7d4351392712bc75210">drawCircle</a> (int16_t x0, int16_t y0, int16_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a75ab0e30bccad7d4351392712bc75210"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面に円を描画する  <br /></td></tr>
+<tr class="separator:a75ab0e30bccad7d4351392712bc75210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2510831e654a89395201bb0e9d14e6d6" id="r_a2510831e654a89395201bb0e9d14e6d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2510831e654a89395201bb0e9d14e6d6">drawCircle</a> (<a class="el" href="class_axis16.html">Axis16</a> axis, int16_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a2510831e654a89395201bb0e9d14e6d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面に円を描画する  <br /></td></tr>
+<tr class="separator:a2510831e654a89395201bb0e9d14e6d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc25b36d154622a4fdf172a9d96a0d63" id="r_abc25b36d154622a4fdf172a9d96a0d63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc25b36d154622a4fdf172a9d96a0d63">drawCircle</a> (<a class="el" href="class_axis8.html">Axis8</a> axis, int16_t r, uint16_t color)</td></tr>
+<tr class="memdesc:abc25b36d154622a4fdf172a9d96a0d63"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面に円を描画する  <br /></td></tr>
+<tr class="separator:abc25b36d154622a4fdf172a9d96a0d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe1fa81fbca6e227aa6f4a06fff234db" id="r_abe1fa81fbca6e227aa6f4a06fff234db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe1fa81fbca6e227aa6f4a06fff234db">fillCircle</a> (int16_t x0, int16_t y0, int16_t r, uint16_t color)</td></tr>
+<tr class="memdesc:abe1fa81fbca6e227aa6f4a06fff234db"><td class="mdescLeft">&#160;</td><td class="mdescRight">塗りつぶされた円を描画する  <br /></td></tr>
+<tr class="separator:abe1fa81fbca6e227aa6f4a06fff234db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af42c5646d8ed45a99ccfda300d5b06b1" id="r_af42c5646d8ed45a99ccfda300d5b06b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af42c5646d8ed45a99ccfda300d5b06b1">fillCircle</a> (<a class="el" href="class_axis16.html">Axis16</a> axis, int16_t r, uint16_t color)</td></tr>
+<tr class="memdesc:af42c5646d8ed45a99ccfda300d5b06b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">塗りつぶされた円を描画する  <br /></td></tr>
+<tr class="separator:af42c5646d8ed45a99ccfda300d5b06b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4da1c631f44a8522086685d3adc4a4" id="r_a3b4da1c631f44a8522086685d3adc4a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b4da1c631f44a8522086685d3adc4a4">fillCircle</a> (<a class="el" href="class_axis8.html">Axis8</a> axis, int16_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a3b4da1c631f44a8522086685d3adc4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">塗りつぶされた円を描画する  <br /></td></tr>
+<tr class="separator:a3b4da1c631f44a8522086685d3adc4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9efc9b1d7e85e436337545b539e3264" id="r_af9efc9b1d7e85e436337545b539e3264"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9efc9b1d7e85e436337545b539e3264">drawRectWH</a> (uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)</td></tr>
+<tr class="memdesc:af9efc9b1d7e85e436337545b539e3264"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形を描画する  <br /></td></tr>
+<tr class="separator:af9efc9b1d7e85e436337545b539e3264"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7297b961796896be9a1ffd52f78bb5c0" id="r_a7297b961796896be9a1ffd52f78bb5c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7297b961796896be9a1ffd52f78bb5c0">drawRectWH</a> (<a class="el" href="class_region8.html">Region8</a> region, uint16_t color)</td></tr>
+<tr class="memdesc:a7297b961796896be9a1ffd52f78bb5c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形を描画する  <br /></td></tr>
+<tr class="separator:a7297b961796896be9a1ffd52f78bb5c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19a2c9d6536b82f47184a70767b34cd8" id="r_a19a2c9d6536b82f47184a70767b34cd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19a2c9d6536b82f47184a70767b34cd8">drawRectWH</a> (<a class="el" href="class_axis8.html">Axis8</a> start, <a class="el" href="class_size8.html">Size8</a> size, uint16_t color)</td></tr>
+<tr class="memdesc:a19a2c9d6536b82f47184a70767b34cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形を描画する  <br /></td></tr>
+<tr class="separator:a19a2c9d6536b82f47184a70767b34cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63c2f0c636126a72d225351527cef6f3" id="r_a63c2f0c636126a72d225351527cef6f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63c2f0c636126a72d225351527cef6f3">drawRect</a> (uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint16_t color)</td></tr>
+<tr class="separator:a63c2f0c636126a72d225351527cef6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1edcfe16e8d43054d2ba3745c63592dd" id="r_a1edcfe16e8d43054d2ba3745c63592dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1edcfe16e8d43054d2ba3745c63592dd">drawRect</a> (<a class="el" href="class_axis8.html">Axis8</a> start, <a class="el" href="class_axis8.html">Axis8</a> end, uint16_t color)</td></tr>
+<tr class="memdesc:a1edcfe16e8d43054d2ba3745c63592dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形を描画する  <br /></td></tr>
+<tr class="separator:a1edcfe16e8d43054d2ba3745c63592dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3029c336061fb519d94df5446df5e4b1" id="r_a3029c336061fb519d94df5446df5e4b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3029c336061fb519d94df5446df5e4b1">drawRect</a> (<a class="el" href="class_region8.html">Region8</a> region, uint16_t color)</td></tr>
+<tr class="memdesc:a3029c336061fb519d94df5446df5e4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形を描画する  <br /></td></tr>
+<tr class="separator:a3029c336061fb519d94df5446df5e4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1ac52fa637f96259309e48a3e2aefaa" id="r_aa1ac52fa637f96259309e48a3e2aefaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1ac52fa637f96259309e48a3e2aefaa">fillRectWH</a> (uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)</td></tr>
+<tr class="memdesc:aa1ac52fa637f96259309e48a3e2aefaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形を塗りつぶす。こちらの方が高速かもしれない。  <br /></td></tr>
+<tr class="separator:aa1ac52fa637f96259309e48a3e2aefaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8656b1cde36d4541fa9d39616f29b57c" id="r_a8656b1cde36d4541fa9d39616f29b57c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8656b1cde36d4541fa9d39616f29b57c">fillRectWH</a> (<a class="el" href="class_region8.html">Region8</a> region, uint16_t color)</td></tr>
+<tr class="memdesc:a8656b1cde36d4541fa9d39616f29b57c"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。  <br /></td></tr>
+<tr class="separator:a8656b1cde36d4541fa9d39616f29b57c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4829af385771b39cc37c292eed2c0594" id="r_a4829af385771b39cc37c292eed2c0594"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4829af385771b39cc37c292eed2c0594">fillRectWH</a> (<a class="el" href="class_axis8.html">Axis8</a> start, <a class="el" href="class_size8.html">Size8</a> size, uint16_t color)</td></tr>
+<tr class="memdesc:a4829af385771b39cc37c292eed2c0594"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。  <br /></td></tr>
+<tr class="separator:a4829af385771b39cc37c292eed2c0594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd3801f19d636814dbbb9f5f1549ebec" id="r_acd3801f19d636814dbbb9f5f1549ebec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd3801f19d636814dbbb9f5f1549ebec">fillRect</a> (uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint16_t color)</td></tr>
+<tr class="memdesc:acd3801f19d636814dbbb9f5f1549ebec"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。  <br /></td></tr>
+<tr class="separator:acd3801f19d636814dbbb9f5f1549ebec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f5f69bfdaa7e1021ea855c110561005" id="r_a1f5f69bfdaa7e1021ea855c110561005"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f5f69bfdaa7e1021ea855c110561005">fillRect</a> (<a class="el" href="class_axis8.html">Axis8</a> start, <a class="el" href="class_axis8.html">Axis8</a> end, uint16_t color)</td></tr>
+<tr class="memdesc:a1f5f69bfdaa7e1021ea855c110561005"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。  <br /></td></tr>
+<tr class="separator:a1f5f69bfdaa7e1021ea855c110561005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d02120849a73cc73261fc1b3ca9f553" id="r_a4d02120849a73cc73261fc1b3ca9f553"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d02120849a73cc73261fc1b3ca9f553">fillRect</a> (<a class="el" href="class_region8.html">Region8</a> region, uint16_t color)</td></tr>
+<tr class="memdesc:a4d02120849a73cc73261fc1b3ca9f553"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。  <br /></td></tr>
+<tr class="separator:a4d02120849a73cc73261fc1b3ca9f553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a497c98b8c0cc09cdae99e0349c910a93" id="r_a497c98b8c0cc09cdae99e0349c910a93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a497c98b8c0cc09cdae99e0349c910a93">drawLine</a> (int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color)</td></tr>
+<tr class="memdesc:a497c98b8c0cc09cdae99e0349c910a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">直線を描画する  <br /></td></tr>
+<tr class="separator:a497c98b8c0cc09cdae99e0349c910a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e7ff48c754ca7778f361cbc052cdede" id="r_a9e7ff48c754ca7778f361cbc052cdede"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e7ff48c754ca7778f361cbc052cdede">drawLine</a> (<a class="el" href="class_axis16.html">Axis16</a> start, <a class="el" href="class_axis16.html">Axis16</a> end, uint16_t color)</td></tr>
+<tr class="memdesc:a9e7ff48c754ca7778f361cbc052cdede"><td class="mdescLeft">&#160;</td><td class="mdescRight">直線を描画する  <br /></td></tr>
+<tr class="separator:a9e7ff48c754ca7778f361cbc052cdede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa959baaace5eed19dd216d77fd89ef91" id="r_aa959baaace5eed19dd216d77fd89ef91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa959baaace5eed19dd216d77fd89ef91">drawLine</a> (<a class="el" href="class_axis8.html">Axis8</a> start, <a class="el" href="class_axis8.html">Axis8</a> end, uint16_t color)</td></tr>
+<tr class="memdesc:aa959baaace5eed19dd216d77fd89ef91"><td class="mdescLeft">&#160;</td><td class="mdescRight">直線を描画する  <br /></td></tr>
+<tr class="separator:aa959baaace5eed19dd216d77fd89ef91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9738d1eae2270d11d0bfc8081a649fe5" id="r_a9738d1eae2270d11d0bfc8081a649fe5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9738d1eae2270d11d0bfc8081a649fe5">drawLine</a> (<a class="el" href="class_region16.html">Region16</a> region, uint16_t color)</td></tr>
+<tr class="memdesc:a9738d1eae2270d11d0bfc8081a649fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">直線を描画する  <br /></td></tr>
+<tr class="separator:a9738d1eae2270d11d0bfc8081a649fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16b0269c0acf5ec80eded02aa450a8a6" id="r_a16b0269c0acf5ec80eded02aa450a8a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16b0269c0acf5ec80eded02aa450a8a6">drawLine</a> (<a class="el" href="class_region8.html">Region8</a> region, uint16_t color)</td></tr>
+<tr class="memdesc:a16b0269c0acf5ec80eded02aa450a8a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">直線を描画する  <br /></td></tr>
+<tr class="separator:a16b0269c0acf5ec80eded02aa450a8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a0276f185a2d764dddbe4e3504c3c9f" id="r_a6a0276f185a2d764dddbe4e3504c3c9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a0276f185a2d764dddbe4e3504c3c9f">drawRoundRectWH</a> (uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a6a0276f185a2d764dddbe4e3504c3c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">角丸の矩形を描画する  <br /></td></tr>
+<tr class="separator:a6a0276f185a2d764dddbe4e3504c3c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91dd184ff3797a7a679854059d8ef3ae" id="r_a91dd184ff3797a7a679854059d8ef3ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91dd184ff3797a7a679854059d8ef3ae">drawRoundRectWH</a> (<a class="el" href="class_region8.html">Region8</a> region, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a91dd184ff3797a7a679854059d8ef3ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">角丸矩形を描画する  <br /></td></tr>
+<tr class="separator:a91dd184ff3797a7a679854059d8ef3ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd6acc8150b2a483a1a8ef3ae6c9ceed" id="r_afd6acc8150b2a483a1a8ef3ae6c9ceed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd6acc8150b2a483a1a8ef3ae6c9ceed">drawRoundRectWH</a> (<a class="el" href="class_region16.html">Region16</a> region, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:afd6acc8150b2a483a1a8ef3ae6c9ceed"><td class="mdescLeft">&#160;</td><td class="mdescRight">角丸矩形を描画する  <br /></td></tr>
+<tr class="separator:afd6acc8150b2a483a1a8ef3ae6c9ceed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0794e719a73fd8e96c7c8a614316853c" id="r_a0794e719a73fd8e96c7c8a614316853c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0794e719a73fd8e96c7c8a614316853c">drawRoundRectWH</a> (<a class="el" href="class_axis8.html">Axis8</a> start, <a class="el" href="class_size8.html">Size8</a> size, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a0794e719a73fd8e96c7c8a614316853c"><td class="mdescLeft">&#160;</td><td class="mdescRight">角丸図形を描画する  <br /></td></tr>
+<tr class="separator:a0794e719a73fd8e96c7c8a614316853c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a254f2172b7c56785ae3c5e8895547ab8" id="r_a254f2172b7c56785ae3c5e8895547ab8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a254f2172b7c56785ae3c5e8895547ab8">drawRoundRect</a> (uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a254f2172b7c56785ae3c5e8895547ab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">各丸矩形を描画する。  <br /></td></tr>
+<tr class="separator:a254f2172b7c56785ae3c5e8895547ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e37966d1736adf073c61069a9f8e88f" id="r_a9e37966d1736adf073c61069a9f8e88f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e37966d1736adf073c61069a9f8e88f">drawRoundRect</a> (<a class="el" href="class_region8.html">Region8</a> region, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a9e37966d1736adf073c61069a9f8e88f"><td class="mdescLeft">&#160;</td><td class="mdescRight">角丸塗りつぶし矩形を描画する  <br /></td></tr>
+<tr class="separator:a9e37966d1736adf073c61069a9f8e88f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add65b7925a652db0ba5d78199a68a25d" id="r_add65b7925a652db0ba5d78199a68a25d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add65b7925a652db0ba5d78199a68a25d">drawRoundRect</a> (<a class="el" href="class_axis8.html">Axis8</a> start, <a class="el" href="class_axis8.html">Axis8</a> end, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:add65b7925a652db0ba5d78199a68a25d"><td class="mdescLeft">&#160;</td><td class="mdescRight">角丸塗りつぶし  <br /></td></tr>
+<tr class="separator:add65b7925a652db0ba5d78199a68a25d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f798772ec43d82b7d8f911a9bf175f4" id="r_a7f798772ec43d82b7d8f911a9bf175f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f798772ec43d82b7d8f911a9bf175f4">fillRoundRectWH</a> (uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a7f798772ec43d82b7d8f911a9bf175f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">角丸の矩形を塗りつぶす  <br /></td></tr>
+<tr class="separator:a7f798772ec43d82b7d8f911a9bf175f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa643ef00437a1f4208a49197cab3adc2" id="r_aa643ef00437a1f4208a49197cab3adc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa643ef00437a1f4208a49197cab3adc2">fillRoundRectWH</a> (<a class="el" href="class_region8.html">Region8</a> region, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:aa643ef00437a1f4208a49197cab3adc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">角丸塗りつぶし  <br /></td></tr>
+<tr class="separator:aa643ef00437a1f4208a49197cab3adc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7296fd25bc130c39739386ba6b2989e9" id="r_a7296fd25bc130c39739386ba6b2989e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7296fd25bc130c39739386ba6b2989e9">fillRoundRectWH</a> (<a class="el" href="class_axis8.html">Axis8</a> start, <a class="el" href="class_size8.html">Size8</a> size, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a7296fd25bc130c39739386ba6b2989e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">角丸塗りつぶし  <br /></td></tr>
+<tr class="separator:a7296fd25bc130c39739386ba6b2989e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e3f0c28caafa051c4f66058c87c5461" id="r_a7e3f0c28caafa051c4f66058c87c5461"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e3f0c28caafa051c4f66058c87c5461">fillRoundRect</a> (uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a7e3f0c28caafa051c4f66058c87c5461"><td class="mdescLeft">&#160;</td><td class="mdescRight">角丸の矩形を塗りつぶす  <br /></td></tr>
+<tr class="separator:a7e3f0c28caafa051c4f66058c87c5461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72dbeefe2169d6cf32671f8d803a63e3" id="r_a72dbeefe2169d6cf32671f8d803a63e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72dbeefe2169d6cf32671f8d803a63e3">fillRoundRect</a> (<a class="el" href="class_region8.html">Region8</a> region, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a72dbeefe2169d6cf32671f8d803a63e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">角丸図形の塗りつぶし  <br /></td></tr>
+<tr class="separator:a72dbeefe2169d6cf32671f8d803a63e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a017bcc670a0defc5e0cfcfe80fbb6c51" id="r_a017bcc670a0defc5e0cfcfe80fbb6c51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a017bcc670a0defc5e0cfcfe80fbb6c51">fillRoundRect</a> (<a class="el" href="class_axis8.html">Axis8</a> start, <a class="el" href="class_axis8.html">Axis8</a> end, uint8_t r, uint16_t color)</td></tr>
+<tr class="memdesc:a017bcc670a0defc5e0cfcfe80fbb6c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">角丸図形の塗りつぶし  <br /></td></tr>
+<tr class="separator:a017bcc670a0defc5e0cfcfe80fbb6c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab578306bfb86f9f1639ee5c7bb777c4c" id="r_ab578306bfb86f9f1639ee5c7bb777c4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab578306bfb86f9f1639ee5c7bb777c4c">drawTriangle</a> (int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)</td></tr>
+<tr class="memdesc:ab578306bfb86f9f1639ee5c7bb777c4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">三角形を描画する  <br /></td></tr>
+<tr class="separator:ab578306bfb86f9f1639ee5c7bb777c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e3c1e9ffa1cf16af69b671f43891a38" id="r_a1e3c1e9ffa1cf16af69b671f43891a38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e3c1e9ffa1cf16af69b671f43891a38">drawTriangle</a> (<a class="el" href="class_axis16.html">Axis16</a> a, <a class="el" href="class_axis16.html">Axis16</a> b, <a class="el" href="class_axis16.html">Axis16</a> c, uint16_t color)</td></tr>
+<tr class="memdesc:a1e3c1e9ffa1cf16af69b671f43891a38"><td class="mdescLeft">&#160;</td><td class="mdescRight">三角形の描画  <br /></td></tr>
+<tr class="separator:a1e3c1e9ffa1cf16af69b671f43891a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada716ef252c614b5946f3a492ef2c8df" id="r_ada716ef252c614b5946f3a492ef2c8df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada716ef252c614b5946f3a492ef2c8df">drawTriangle</a> (<a class="el" href="class_axis8.html">Axis8</a> a, <a class="el" href="class_axis8.html">Axis8</a> b, <a class="el" href="class_axis8.html">Axis8</a> c, uint16_t color)</td></tr>
+<tr class="memdesc:ada716ef252c614b5946f3a492ef2c8df"><td class="mdescLeft">&#160;</td><td class="mdescRight">三角形の描画  <br /></td></tr>
+<tr class="separator:ada716ef252c614b5946f3a492ef2c8df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7a08cf152f428dab88a0c0f1610a21b" id="r_ac7a08cf152f428dab88a0c0f1610a21b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7a08cf152f428dab88a0c0f1610a21b">fillTriangle</a> (int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)</td></tr>
+<tr class="memdesc:ac7a08cf152f428dab88a0c0f1610a21b"><td class="mdescLeft">&#160;</td><td class="mdescRight">三角形を塗りつぶす  <br /></td></tr>
+<tr class="separator:ac7a08cf152f428dab88a0c0f1610a21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeda4c1ba6aaec2805ad7fbf2791442e" id="r_adeda4c1ba6aaec2805ad7fbf2791442e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adeda4c1ba6aaec2805ad7fbf2791442e">fillTriangle</a> (<a class="el" href="class_axis16.html">Axis16</a> a, <a class="el" href="class_axis16.html">Axis16</a> b, <a class="el" href="class_axis16.html">Axis16</a> c, uint16_t color)</td></tr>
+<tr class="memdesc:adeda4c1ba6aaec2805ad7fbf2791442e"><td class="mdescLeft">&#160;</td><td class="mdescRight">三角形の塗りつぶし  <br /></td></tr>
+<tr class="separator:adeda4c1ba6aaec2805ad7fbf2791442e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0a96aaf242ddf94bf679cf415bb3f0d" id="r_ab0a96aaf242ddf94bf679cf415bb3f0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0a96aaf242ddf94bf679cf415bb3f0d">fillTriangle</a> (<a class="el" href="class_axis8.html">Axis8</a> a, <a class="el" href="class_axis8.html">Axis8</a> b, <a class="el" href="class_axis8.html">Axis8</a> c, uint16_t color)</td></tr>
+<tr class="memdesc:ab0a96aaf242ddf94bf679cf415bb3f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">三角形の塗りつぶし  <br /></td></tr>
+<tr class="separator:ab0a96aaf242ddf94bf679cf415bb3f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a0734c153004a4487a7584645f0910d" id="r_a9a0734c153004a4487a7584645f0910d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a0734c153004a4487a7584645f0910d">setTextWrap</a> (bool w)</td></tr>
+<tr class="memdesc:a9a0734c153004a4487a7584645f0910d"><td class="mdescLeft">&#160;</td><td class="mdescRight">テキストの改行を行うかのフラグを設定する  <br /></td></tr>
+<tr class="separator:a9a0734c153004a4487a7584645f0910d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c4e14df01e484d494242a3f9dbf25ac" id="r_a2c4e14df01e484d494242a3f9dbf25ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c4e14df01e484d494242a3f9dbf25ac">drawChar</a> (uint8_t x, uint8_t y, uint8_t c, uint16_t color, uint16_t bg, uint8_t size)</td></tr>
+<tr class="memdesc:a2c4e14df01e484d494242a3f9dbf25ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">1文字を描画する  <br /></td></tr>
+<tr class="separator:a2c4e14df01e484d494242a3f9dbf25ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a496e686c96f39db01fd6af40ba758036" id="r_a496e686c96f39db01fd6af40ba758036"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a496e686c96f39db01fd6af40ba758036">drawChar</a> (<a class="el" href="class_axis8.html">Axis8</a> axis, uint8_t c, uint16_t color, uint16_t bg, uint8_t size)</td></tr>
+<tr class="memdesc:a496e686c96f39db01fd6af40ba758036"><td class="mdescLeft">&#160;</td><td class="mdescRight">１文字を表示する  <br /></td></tr>
+<tr class="separator:a496e686c96f39db01fd6af40ba758036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf6256bb3fe937b1ff5d841714e19cae" id="r_adf6256bb3fe937b1ff5d841714e19cae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf6256bb3fe937b1ff5d841714e19cae">drawChar</a> (<a class="el" href="class_axis16.html">Axis16</a> axis, uint8_t c, uint16_t color, uint16_t bg, uint8_t size)</td></tr>
+<tr class="memdesc:adf6256bb3fe937b1ff5d841714e19cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">１文字を表示する  <br /></td></tr>
+<tr class="separator:adf6256bb3fe937b1ff5d841714e19cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46825b1116840510bc52762e93059d79" id="r_a46825b1116840510bc52762e93059d79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46825b1116840510bc52762e93059d79">drawText</a> (uint8_t x, uint8_t y, const char *_text, uint16_t color, uint16_t bg, uint8_t size)</td></tr>
+<tr class="memdesc:a46825b1116840510bc52762e93059d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を描画する  <br /></td></tr>
+<tr class="separator:a46825b1116840510bc52762e93059d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ece37bc63033828511c502eae8fc884" id="r_a4ece37bc63033828511c502eae8fc884"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ece37bc63033828511c502eae8fc884">drawText</a> (<a class="el" href="class_axis8.html">Axis8</a> axis, const char *_text, uint16_t color, uint16_t bg, uint8_t size)</td></tr>
+<tr class="memdesc:a4ece37bc63033828511c502eae8fc884"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を描画する  <br /></td></tr>
+<tr class="separator:a4ece37bc63033828511c502eae8fc884"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8978f38781b0424d1994c9d674dfaaf4" id="r_a8978f38781b0424d1994c9d674dfaaf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8978f38781b0424d1994c9d674dfaaf4">drawText</a> (<a class="el" href="class_axis16.html">Axis16</a> axis, const char *_text, uint16_t color, uint16_t bg, uint8_t size)</td></tr>
+<tr class="memdesc:a8978f38781b0424d1994c9d674dfaaf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を描画する  <br /></td></tr>
+<tr class="separator:a8978f38781b0424d1994c9d674dfaaf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b0df43422287b454702b266447caacf" id="r_a9b0df43422287b454702b266447caacf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b0df43422287b454702b266447caacf">drawKanji</a> (uint8_t &amp;x, uint8_t &amp;y, uint32_t code, uint16_t color, uint16_t bg)</td></tr>
+<tr class="memdesc:a9b0df43422287b454702b266447caacf"><td class="mdescLeft">&#160;</td><td class="mdescRight">漢字１文字を表示する  <br /></td></tr>
+<tr class="separator:a9b0df43422287b454702b266447caacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf40e6e2dfcb5c28bf5926540552a998" id="r_acf40e6e2dfcb5c28bf5926540552a998"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf40e6e2dfcb5c28bf5926540552a998">drawTextKanji</a> (uint8_t x, uint8_t y, const char *_text, uint16_t color, uint16_t bg, uint8_t size)</td></tr>
+<tr class="memdesc:acf40e6e2dfcb5c28bf5926540552a998"><td class="mdescLeft">&#160;</td><td class="mdescRight">漢字文字列を表示する  <br /></td></tr>
+<tr class="separator:acf40e6e2dfcb5c28bf5926540552a998"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68de7806a11f18f5865c0bfbd56bd393" id="r_a68de7806a11f18f5865c0bfbd56bd393"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68de7806a11f18f5865c0bfbd56bd393">setFont</a> (const <a class="el" href="struct_g_f_xfont.html">GFXfont</a> *f)</td></tr>
+<tr class="separator:a68de7806a11f18f5865c0bfbd56bd393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a769b1b01c51d34f9b74aa1162f2349c0" id="r_a769b1b01c51d34f9b74aa1162f2349c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a769b1b01c51d34f9b74aa1162f2349c0">setScrollDefinition</a> (uint8_t top_fix_height, uint8_t bottom_fix_height, bool _scroll_direction)</td></tr>
+<tr class="memdesc:a769b1b01c51d34f9b74aa1162f2349c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面の縦スクロール領域を指定する。<br  />
+  <br /></td></tr>
+<tr class="separator:a769b1b01c51d34f9b74aa1162f2349c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34ed3c607df572ee5c359c73aaf32b61" id="r_a34ed3c607df572ee5c359c73aaf32b61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34ed3c607df572ee5c359c73aaf32b61">VerticalScroll</a> (uint8_t _vsp)</td></tr>
+<tr class="memdesc:a34ed3c607df572ee5c359c73aaf32b61"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面のスクロールを行う。  <br /></td></tr>
+<tr class="separator:a34ed3c607df572ee5c359c73aaf32b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada4b87fe6d40d3abe960471cb135f29e" id="r_ada4b87fe6d40d3abe960471cb135f29e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada4b87fe6d40d3abe960471cb135f29e">bmpUnuseTransColor</a> (void)</td></tr>
+<tr class="memdesc:ada4b87fe6d40d3abe960471cb135f29e"><td class="mdescLeft">&#160;</td><td class="mdescRight">透過色を使用しない。  <br /></td></tr>
+<tr class="separator:ada4b87fe6d40d3abe960471cb135f29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9d12631feb09242857917edef499b1e" id="r_aa9d12631feb09242857917edef499b1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9d12631feb09242857917edef499b1e">bmpUseTrasColor</a> (uint16_t c)</td></tr>
+<tr class="memdesc:aa9d12631feb09242857917edef499b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">透過色を 565 の色で指定する。  <br /></td></tr>
+<tr class="separator:aa9d12631feb09242857917edef499b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdf71a8e1e9991fea81911acbd15fd9f" id="r_acdf71a8e1e9991fea81911acbd15fd9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdf71a8e1e9991fea81911acbd15fd9f">bmpDraw</a> (uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t *p, uint8_t direction)</td></tr>
+<tr class="memdesc:acdf71a8e1e9991fea81911acbd15fd9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面にビットマップを表示する。ビットマップは、５６５形式の16bit値の配列へのポインタ。  <br /></td></tr>
+<tr class="separator:acdf71a8e1e9991fea81911acbd15fd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:a44b40afa5b6ae7dd89e0160a26afc859" id="r_a44b40afa5b6ae7dd89e0160a26afc859"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_h_w.html">HW</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44b40afa5b6ae7dd89e0160a26afc859">spiHW</a></td></tr>
+<tr class="separator:a44b40afa5b6ae7dd89e0160a26afc859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4a8579788e13f01c35bebd2e6641572" id="r_aa4a8579788e13f01c35bebd2e6641572"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_s_t7735_init.html">ST7735Init</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4a8579788e13f01c35bebd2e6641572">st7735Init</a></td></tr>
+<tr class="separator:aa4a8579788e13f01c35bebd2e6641572"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>画面表示のクラス。インスタンス化して使用する。 </p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="acba0cf86e39067b2f461e5fe872aca3c" name="acba0cf86e39067b2f461e5fe872aca3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acba0cf86e39067b2f461e5fe872aca3c">&#9670;&#160;</a></span>ST7735()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ST7735::ST7735 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_h_w.html">HW</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>spiHW</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>グラフィックライブラリのコンストラクタ </p>
+<p>グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spiHW</td><td>ハードウェアにアクセスするための情報を持っているクラスへのポインタ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="acdf71a8e1e9991fea81911acbd15fd9f" name="acdf71a8e1e9991fea81911acbd15fd9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdf71a8e1e9991fea81911acbd15fd9f">&#9670;&#160;</a></span>bmpDraw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::bmpDraw </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>direction</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面にビットマップを表示する。ビットマップは、５６５形式の16bit値の配列へのポインタ。 </p>
+<p>具体的には次のようなデータになる。<br  />
+ const uint16_t bmp1[] = {0x0821, 0x0821, 0x0821, 0x0821, 0x0000, 0xF223, 0xF223, … }; </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>表示する左上の座標 </td></tr>
+    <tr><td class="paramname">y</td><td>表示する左上の座標 </td></tr>
+    <tr><td class="paramname">w</td><td>ビットマップの大きさ </td></tr>
+    <tr><td class="paramname">h</td><td>ビットマップの大きさ </td></tr>
+    <tr><td class="paramname">p</td><td>表示するデータへのポインタ </td></tr>
+    <tr><td class="paramname">direction</td><td>表示する方向。0…標準 1…ミラー表示 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ada4b87fe6d40d3abe960471cb135f29e" name="ada4b87fe6d40d3abe960471cb135f29e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada4b87fe6d40d3abe960471cb135f29e">&#9670;&#160;</a></span>bmpUnuseTransColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::bmpUnuseTransColor </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>透過色を使用しない。 </p>
+
+</div>
+</div>
+<a id="aa9d12631feb09242857917edef499b1e" name="aa9d12631feb09242857917edef499b1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d12631feb09242857917edef499b1e">&#9670;&#160;</a></span>bmpUseTrasColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::bmpUseTrasColor </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>透過色を 565 の色で指定する。 </p>
+<p>bitmapを画面に表示するとき、透過色が指定されているとビットマップのその色の部分は描画されず、地の色がそのまま残る。<br  />
+ 透過色を指定すると、描画時に処理が増えるため遅くなるのでなるべく使用しないほうが良い。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>指定する色。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a081f1a09c8a94e5258a53004eafc1df3" name="a081f1a09c8a94e5258a53004eafc1df3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a081f1a09c8a94e5258a53004eafc1df3">&#9670;&#160;</a></span>Color565()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t ST7735::Color565 </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2cfe5851b8106ee7dcba84cfec4582f4" name="a2cfe5851b8106ee7dcba84cfec4582f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cfe5851b8106ee7dcba84cfec4582f4">&#9670;&#160;</a></span>doInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::doInit </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>初期化処理を行う </p>
+<p>ハードウェア(HWクラスのインスタンス）の初期化処理を呼びだし、各LCDに応じた初期化コマンドを実行する。 </p>
+
+</div>
+</div>
+<a id="adf6256bb3fe937b1ff5d841714e19cae" name="adf6256bb3fe937b1ff5d841714e19cae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf6256bb3fe937b1ff5d841714e19cae">&#9670;&#160;</a></span>drawChar() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawChar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis16.html">Axis16</a></td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>bg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>１文字を表示する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axis</td><td>表示する文字の座標。<br  />
+ TFT_ENABLE_FONTSが指定されている場合は、文字ごとに決められているその文字の始点オフセット。ENABLE_FONTが無効の場合、文字の左上座標。 </td></tr>
+    <tr><td class="paramname">c</td><td>表示する文字コード </td></tr>
+    <tr><td class="paramname">color</td><td>文字色 </td></tr>
+    <tr><td class="paramname">bg</td><td>背景色 </td></tr>
+    <tr><td class="paramname">size</td><td>大きさ。１のときは文字の１ドットは画面上の１ドット。２にすると文字の１ドットは２ｘ２の矩形になる。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a496e686c96f39db01fd6af40ba758036" name="a496e686c96f39db01fd6af40ba758036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a496e686c96f39db01fd6af40ba758036">&#9670;&#160;</a></span>drawChar() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawChar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>bg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>１文字を表示する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axis</td><td>表示する文字の座標。<br  />
+ TFT_ENABLE_FONTSが指定されている場合は、文字ごとに決められているその文字の始点オフセット。ENABLE_FONTが無効の場合、文字の左上座標。 </td></tr>
+    <tr><td class="paramname">c</td><td>表示する文字コード </td></tr>
+    <tr><td class="paramname">color</td><td>文字色 </td></tr>
+    <tr><td class="paramname">bg</td><td>背景色 </td></tr>
+    <tr><td class="paramname">size</td><td>大きさ。１のときは文字の１ドットは画面上の１ドット。２にすると文字の１ドットは２ｘ２の矩形になる。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2c4e14df01e484d494242a3f9dbf25ac" name="a2c4e14df01e484d494242a3f9dbf25ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c4e14df01e484d494242a3f9dbf25ac">&#9670;&#160;</a></span>drawChar() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawChar </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>bg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>1文字を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>描画するx座標 </td></tr>
+    <tr><td class="paramname">y</td><td>描画するy座標 </td></tr>
+    <tr><td class="paramname">c</td><td>描画する文字 </td></tr>
+    <tr><td class="paramname">color</td><td>文字の色 </td></tr>
+    <tr><td class="paramname">bg</td><td>背景色 </td></tr>
+    <tr><td class="paramname">size</td><td>文字のサイズ。1がデフォルト。2で2倍の大きさになる。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2510831e654a89395201bb0e9d14e6d6" name="a2510831e654a89395201bb0e9d14e6d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2510831e654a89395201bb0e9d14e6d6">&#9670;&#160;</a></span>drawCircle() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawCircle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis16.html">Axis16</a></td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>画面に円を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axis</td><td>中心の座標 （16bit) </td></tr>
+    <tr><td class="paramname">r</td><td>半径 </td></tr>
+    <tr><td class="paramname">color</td><td>円の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abc25b36d154622a4fdf172a9d96a0d63" name="abc25b36d154622a4fdf172a9d96a0d63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc25b36d154622a4fdf172a9d96a0d63">&#9670;&#160;</a></span>drawCircle() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawCircle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>画面に円を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axis</td><td>中心の座標 (88it) </td></tr>
+    <tr><td class="paramname">r</td><td>半径 </td></tr>
+    <tr><td class="paramname">color</td><td>円の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a75ab0e30bccad7d4351392712bc75210" name="a75ab0e30bccad7d4351392712bc75210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75ab0e30bccad7d4351392712bc75210">&#9670;&#160;</a></span>drawCircle() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawCircle </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面に円を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x0</td><td>中心のx座標 </td></tr>
+    <tr><td class="paramname">y0</td><td>中心のy座標 </td></tr>
+    <tr><td class="paramname">r</td><td>半径 </td></tr>
+    <tr><td class="paramname">color</td><td>円の色 <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a31a2b0bc8b3c4d1de8eeb1d3b3670be8" name="a31a2b0bc8b3c4d1de8eeb1d3b3670be8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">&#9670;&#160;</a></span>drawFastHLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawFastHLine </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>水平線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>始点のx座標 </td></tr>
+    <tr><td class="paramname">y</td><td>始点のy座標 </td></tr>
+    <tr><td class="paramname">w</td><td>線の長さ </td></tr>
+    <tr><td class="paramname">color</td><td>線の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac2755fd5311830fe6774d594f55305cf" name="ac2755fd5311830fe6774d594f55305cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2755fd5311830fe6774d594f55305cf">&#9670;&#160;</a></span>drawFastVLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawFastVLine </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>垂直線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>始点のx座標 </td></tr>
+    <tr><td class="paramname">y</td><td>始点のy座標 </td></tr>
+    <tr><td class="paramname">h</td><td>線の長さ </td></tr>
+    <tr><td class="paramname">color</td><td>線の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9b0df43422287b454702b266447caacf" name="a9b0df43422287b454702b266447caacf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b0df43422287b454702b266447caacf">&#9670;&#160;</a></span>drawKanji()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawKanji </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>utf8codes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>bg</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>漢字１文字を表示する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>表示するX座標 </td></tr>
+    <tr><td class="paramname">y</td><td>表示するY座標 </td></tr>
+    <tr><td class="paramname">utf8codes</td><td>表示するUTF8、もしくはASCIIコード </td></tr>
+    <tr><td class="paramname">color</td><td>表示色 </td></tr>
+    <tr><td class="paramname">bg</td><td>背景色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adfb5f92e8168500e1e82e6e9d4238c54" name="adfb5f92e8168500e1e82e6e9d4238c54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfb5f92e8168500e1e82e6e9d4238c54">&#9670;&#160;</a></span>drawKanjiBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawKanjiBlock </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>bmpData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>bg</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e7ff48c754ca7778f361cbc052cdede" name="a9e7ff48c754ca7778f361cbc052cdede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e7ff48c754ca7778f361cbc052cdede">&#9670;&#160;</a></span>drawLine() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawLine </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis16.html">Axis16</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis16.html">Axis16</a></td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>直線を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>始点の座標 </td></tr>
+    <tr><td class="paramname">end</td><td>終点の座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa959baaace5eed19dd216d77fd89ef91" name="aa959baaace5eed19dd216d77fd89ef91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa959baaace5eed19dd216d77fd89ef91">&#9670;&#160;</a></span>drawLine() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawLine </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>直線を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>始点の座標 </td></tr>
+    <tr><td class="paramname">end</td><td>終点の座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a497c98b8c0cc09cdae99e0349c910a93" name="a497c98b8c0cc09cdae99e0349c910a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a497c98b8c0cc09cdae99e0349c910a93">&#9670;&#160;</a></span>drawLine() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawLine </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>直線を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x0</td><td>始点のx座標 </td></tr>
+    <tr><td class="paramname">y0</td><td>始点のy座標 </td></tr>
+    <tr><td class="paramname">x1</td><td>終点のx座標 </td></tr>
+    <tr><td class="paramname">y1</td><td>終点のy座標 </td></tr>
+    <tr><td class="paramname">color</td><td>直線の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9738d1eae2270d11d0bfc8081a649fe5" name="a9738d1eae2270d11d0bfc8081a649fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9738d1eae2270d11d0bfc8081a649fe5">&#9670;&#160;</a></span>drawLine() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawLine </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_region16.html">Region16</a></td>          <td class="paramname"><span class="paramname"><em>region</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>直線を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>直線の左上と右下座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a16b0269c0acf5ec80eded02aa450a8a6" name="a16b0269c0acf5ec80eded02aa450a8a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16b0269c0acf5ec80eded02aa450a8a6">&#9670;&#160;</a></span>drawLine() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawLine </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_region8.html">Region8</a></td>          <td class="paramname"><span class="paramname"><em>region</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>直線を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>直線の左上と右下座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a07153a5bb8ff658acf15ac512c326404" name="a07153a5bb8ff658acf15ac512c326404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07153a5bb8ff658acf15ac512c326404">&#9670;&#160;</a></span>drawPixel() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawPixel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7ea44bc75631bf333cef07e9a25ff20" name="ab7ea44bc75631bf333cef07e9a25ff20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7ea44bc75631bf333cef07e9a25ff20">&#9670;&#160;</a></span>drawPixel() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawPixel </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面に点を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>表示位置のX座標 <br  />
+ </td></tr>
+    <tr><td class="paramname">y</td><td>表示位置のy座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1edcfe16e8d43054d2ba3745c63592dd" name="a1edcfe16e8d43054d2ba3745c63592dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1edcfe16e8d43054d2ba3745c63592dd">&#9670;&#160;</a></span>drawRect() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>矩形を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>始点の座標 </td></tr>
+    <tr><td class="paramname">end</td><td>終点の座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3029c336061fb519d94df5446df5e4b1" name="a3029c336061fb519d94df5446df5e4b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3029c336061fb519d94df5446df5e4b1">&#9670;&#160;</a></span>drawRect() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_region8.html">Region8</a></td>          <td class="paramname"><span class="paramname"><em>region</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>矩形を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>矩形の左上座標と右下座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a63c2f0c636126a72d225351527cef6f3" name="a63c2f0c636126a72d225351527cef6f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63c2f0c636126a72d225351527cef6f3">&#9670;&#160;</a></span>drawRect() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRect </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19a2c9d6536b82f47184a70767b34cd8" name="a19a2c9d6536b82f47184a70767b34cd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19a2c9d6536b82f47184a70767b34cd8">&#9670;&#160;</a></span>drawRectWH() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRectWH </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_size8.html">Size8</a></td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>矩形を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>矩形の左上座標 </td></tr>
+    <tr><td class="paramname">size</td><td>矩形のサイズ </td></tr>
+    <tr><td class="paramname">color</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7297b961796896be9a1ffd52f78bb5c0" name="a7297b961796896be9a1ffd52f78bb5c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7297b961796896be9a1ffd52f78bb5c0">&#9670;&#160;</a></span>drawRectWH() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRectWH </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_region8.html">Region8</a></td>          <td class="paramname"><span class="paramname"><em>region</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>矩形を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>矩形の左上座標とサイズ </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af9efc9b1d7e85e436337545b539e3264" name="af9efc9b1d7e85e436337545b539e3264"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9efc9b1d7e85e436337545b539e3264">&#9670;&#160;</a></span>drawRectWH() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRectWH </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>矩形を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>左上のx座標 </td></tr>
+    <tr><td class="paramname">y</td><td>左上のy座標 </td></tr>
+    <tr><td class="paramname">w</td><td>幅 </td></tr>
+    <tr><td class="paramname">h</td><td>高さ </td></tr>
+    <tr><td class="paramname">color</td><td>矩形の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="add65b7925a652db0ba5d78199a68a25d" name="add65b7925a652db0ba5d78199a68a25d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add65b7925a652db0ba5d78199a68a25d">&#9670;&#160;</a></span>drawRoundRect() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRoundRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>角丸塗りつぶし </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>左上座標 </td></tr>
+    <tr><td class="paramname">end</td><td>右下座標 </td></tr>
+    <tr><td class="paramname">r</td><td>角丸部分の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9e37966d1736adf073c61069a9f8e88f" name="a9e37966d1736adf073c61069a9f8e88f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e37966d1736adf073c61069a9f8e88f">&#9670;&#160;</a></span>drawRoundRect() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRoundRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_region8.html">Region8</a></td>          <td class="paramname"><span class="paramname"><em>region</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>角丸塗りつぶし矩形を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>左上と右下領域の座標 </td></tr>
+    <tr><td class="paramname">r</td><td>角丸部分の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a254f2172b7c56785ae3c5e8895547ab8" name="a254f2172b7c56785ae3c5e8895547ab8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a254f2172b7c56785ae3c5e8895547ab8">&#9670;&#160;</a></span>drawRoundRect() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRoundRect </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>各丸矩形を描画する。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x1</td><td>左上のx座標 </td></tr>
+    <tr><td class="paramname">y1</td><td>左上のx座標 </td></tr>
+    <tr><td class="paramname">x2</td><td>右下のX座標 </td></tr>
+    <tr><td class="paramname">y2</td><td>右下のy座標 </td></tr>
+    <tr><td class="paramname">r</td><td>角の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>矩形の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0794e719a73fd8e96c7c8a614316853c" name="a0794e719a73fd8e96c7c8a614316853c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0794e719a73fd8e96c7c8a614316853c">&#9670;&#160;</a></span>drawRoundRectWH() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRoundRectWH </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_size8.html">Size8</a></td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>角丸図形を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>矩形の左上座標 </td></tr>
+    <tr><td class="paramname">size</td><td>矩形のサイズ </td></tr>
+    <tr><td class="paramname">r</td><td>角丸部分の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afd6acc8150b2a483a1a8ef3ae6c9ceed" name="afd6acc8150b2a483a1a8ef3ae6c9ceed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd6acc8150b2a483a1a8ef3ae6c9ceed">&#9670;&#160;</a></span>drawRoundRectWH() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRoundRectWH </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_region16.html">Region16</a></td>          <td class="paramname"><span class="paramname"><em>region</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>角丸矩形を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>左上右下領域の座標とサイズ </td></tr>
+    <tr><td class="paramname">r</td><td>角丸部分の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a91dd184ff3797a7a679854059d8ef3ae" name="a91dd184ff3797a7a679854059d8ef3ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91dd184ff3797a7a679854059d8ef3ae">&#9670;&#160;</a></span>drawRoundRectWH() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRoundRectWH </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_region8.html">Region8</a></td>          <td class="paramname"><span class="paramname"><em>region</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>角丸矩形を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>左上右下領域の座標とサイズ </td></tr>
+    <tr><td class="paramname">r</td><td>角丸部分の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6a0276f185a2d764dddbe4e3504c3c9f" name="a6a0276f185a2d764dddbe4e3504c3c9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a0276f185a2d764dddbe4e3504c3c9f">&#9670;&#160;</a></span>drawRoundRectWH() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawRoundRectWH </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>角丸の矩形を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>左上のx座標 </td></tr>
+    <tr><td class="paramname">y</td><td>左上のy座標 </td></tr>
+    <tr><td class="paramname">w</td><td>幅 </td></tr>
+    <tr><td class="paramname">h</td><td>高さ </td></tr>
+    <tr><td class="paramname">r</td><td>角の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>矩形の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8978f38781b0424d1994c9d674dfaaf4" name="a8978f38781b0424d1994c9d674dfaaf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8978f38781b0424d1994c9d674dfaaf4">&#9670;&#160;</a></span>drawText() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis16.html">Axis16</a></td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>_text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>bg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>文字列を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axis</td><td>表示する文字の座標。<br  />
+ TFT_ENABLE_FONTSが指定されている場合は、文字ごとに決められているその文字の始点オフセット。ENABLE_FONTが無効の場合、文字の左上座標。 </td></tr>
+    <tr><td class="paramname">_text</td><td>表示する文字列 </td></tr>
+    <tr><td class="paramname">color</td><td>前景色 </td></tr>
+    <tr><td class="paramname">bg</td><td>背景色 </td></tr>
+    <tr><td class="paramname">size</td><td>大きさ。１のときは文字の１ドットは画面上の１ドット。２にすると文字の１ドットは２ｘ２の矩形になる。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4ece37bc63033828511c502eae8fc884" name="a4ece37bc63033828511c502eae8fc884"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ece37bc63033828511c502eae8fc884">&#9670;&#160;</a></span>drawText() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>_text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>bg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>文字列を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axis</td><td>表示する文字の座標。<br  />
+ TFT_ENABLE_FONTSが指定されている場合は、文字ごとに決められているその文字の始点オフセット。ENABLE_FONTが無効の場合、文字の左上座標。 </td></tr>
+    <tr><td class="paramname">_text</td><td>表示する文字列 </td></tr>
+    <tr><td class="paramname">color</td><td>前景色 </td></tr>
+    <tr><td class="paramname">bg</td><td>背景色 </td></tr>
+    <tr><td class="paramname">size</td><td>大きさ。１のときは文字の１ドットは画面上の１ドット。２にすると文字の１ドットは２ｘ２の矩形になる。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a46825b1116840510bc52762e93059d79" name="a46825b1116840510bc52762e93059d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46825b1116840510bc52762e93059d79">&#9670;&#160;</a></span>drawText() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawText </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>_text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>bg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>描画するx座標 </td></tr>
+    <tr><td class="paramname">y</td><td>描画するy座標 <br  />
+ </td></tr>
+    <tr><td class="paramname">_text</td><td>描画する文字 </td></tr>
+    <tr><td class="paramname">color</td><td>文字の色 </td></tr>
+    <tr><td class="paramname">bg</td><td>背景色 </td></tr>
+    <tr><td class="paramname">size</td><td>文字のサイズ。1がデフォルト。2で2倍の大きさになる。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acf40e6e2dfcb5c28bf5926540552a998" name="acf40e6e2dfcb5c28bf5926540552a998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf40e6e2dfcb5c28bf5926540552a998">&#9670;&#160;</a></span>drawTextKanji()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawTextKanji </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>_text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>bg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>漢字文字列を表示する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>描画するx座標 </td></tr>
+    <tr><td class="paramname">y</td><td>描画するy座標 </td></tr>
+    <tr><td class="paramname">_text</td><td>描画する文字 </td></tr>
+    <tr><td class="paramname">color</td><td>文字の色 </td></tr>
+    <tr><td class="paramname">bg</td><td>背景色 </td></tr>
+    <tr><td class="paramname">size</td><td>文字のサイズ。1がデフォルト。2で2倍の大きさになる。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1e3c1e9ffa1cf16af69b671f43891a38" name="a1e3c1e9ffa1cf16af69b671f43891a38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e3c1e9ffa1cf16af69b671f43891a38">&#9670;&#160;</a></span>drawTriangle() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawTriangle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis16.html">Axis16</a></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis16.html">Axis16</a></td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis16.html">Axis16</a></td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>三角形の描画 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>点１の座標 </td></tr>
+    <tr><td class="paramname">b</td><td>点２の座標 </td></tr>
+    <tr><td class="paramname">c</td><td>点３の座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ada716ef252c614b5946f3a492ef2c8df" name="ada716ef252c614b5946f3a492ef2c8df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada716ef252c614b5946f3a492ef2c8df">&#9670;&#160;</a></span>drawTriangle() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawTriangle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>三角形の描画 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>点１の座標 </td></tr>
+    <tr><td class="paramname">b</td><td>点２の座標 </td></tr>
+    <tr><td class="paramname">c</td><td>点３の座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab578306bfb86f9f1639ee5c7bb777c4c" name="ab578306bfb86f9f1639ee5c7bb777c4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab578306bfb86f9f1639ee5c7bb777c4c">&#9670;&#160;</a></span>drawTriangle() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::drawTriangle </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>三角形を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x0</td><td>頂点1のx座標 </td></tr>
+    <tr><td class="paramname">y0</td><td>頂点1のy座標 </td></tr>
+    <tr><td class="paramname">x1</td><td>頂点2のx座標 </td></tr>
+    <tr><td class="paramname">y1</td><td>頂点2のy座標 </td></tr>
+    <tr><td class="paramname">x2</td><td>頂点3のx座標 </td></tr>
+    <tr><td class="paramname">y2</td><td>頂点3のy座標 </td></tr>
+    <tr><td class="paramname">color</td><td>三角形の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af42c5646d8ed45a99ccfda300d5b06b1" name="af42c5646d8ed45a99ccfda300d5b06b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af42c5646d8ed45a99ccfda300d5b06b1">&#9670;&#160;</a></span>fillCircle() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillCircle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis16.html">Axis16</a></td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>塗りつぶされた円を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axis</td><td>中心の座標 </td></tr>
+    <tr><td class="paramname">r</td><td>半径 </td></tr>
+    <tr><td class="paramname">color</td><td>円の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3b4da1c631f44a8522086685d3adc4a4" name="a3b4da1c631f44a8522086685d3adc4a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4da1c631f44a8522086685d3adc4a4">&#9670;&#160;</a></span>fillCircle() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillCircle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>塗りつぶされた円を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axis</td><td>中心の座標 </td></tr>
+    <tr><td class="paramname">r</td><td>半径 </td></tr>
+    <tr><td class="paramname">color</td><td>円の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abe1fa81fbca6e227aa6f4a06fff234db" name="abe1fa81fbca6e227aa6f4a06fff234db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe1fa81fbca6e227aa6f4a06fff234db">&#9670;&#160;</a></span>fillCircle() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillCircle </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>塗りつぶされた円を描画する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x0</td><td>中心のx座標 </td></tr>
+    <tr><td class="paramname">y0</td><td>中心のy座標 </td></tr>
+    <tr><td class="paramname">r</td><td>半径 </td></tr>
+    <tr><td class="paramname">color</td><td>円の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1f5f69bfdaa7e1021ea855c110561005" name="a1f5f69bfdaa7e1021ea855c110561005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f5f69bfdaa7e1021ea855c110561005">&#9670;&#160;</a></span>fillRect() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>矩形の左上座標 </td></tr>
+    <tr><td class="paramname">end</td><td>矩形の右下座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4d02120849a73cc73261fc1b3ca9f553" name="a4d02120849a73cc73261fc1b3ca9f553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d02120849a73cc73261fc1b3ca9f553">&#9670;&#160;</a></span>fillRect() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_region8.html">Region8</a></td>          <td class="paramname"><span class="paramname"><em>region</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>矩形の座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acd3801f19d636814dbbb9f5f1549ebec" name="acd3801f19d636814dbbb9f5f1549ebec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd3801f19d636814dbbb9f5f1549ebec">&#9670;&#160;</a></span>fillRect() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRect </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。 </p>
+<p>左上の座標と右下の座標は実行時に正規化されるので入れ替わっていても動作する。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x0</td><td>左上のX座標 </td></tr>
+    <tr><td class="paramname">y0</td><td>左上のy座標 </td></tr>
+    <tr><td class="paramname">x1</td><td>右下のX座標 </td></tr>
+    <tr><td class="paramname">y1</td><td>右下のx座標 </td></tr>
+    <tr><td class="paramname">color</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a373cb30efb66571a6b9a57bb4f681497" name="a373cb30efb66571a6b9a57bb4f681497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a373cb30efb66571a6b9a57bb4f681497">&#9670;&#160;</a></span>fillRectangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRectangle </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>矩形を塗りつぶす </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>左上のx座標 </td></tr>
+    <tr><td class="paramname">y</td><td>左上のy座標 </td></tr>
+    <tr><td class="paramname">w</td><td>横幅 </td></tr>
+    <tr><td class="paramname">h</td><td>高さ </td></tr>
+    <tr><td class="paramname">color</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4829af385771b39cc37c292eed2c0594" name="a4829af385771b39cc37c292eed2c0594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4829af385771b39cc37c292eed2c0594">&#9670;&#160;</a></span>fillRectWH() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRectWH </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_size8.html">Size8</a></td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>矩形の左上座標 </td></tr>
+    <tr><td class="paramname">size</td><td>矩形のサイズ </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8656b1cde36d4541fa9d39616f29b57c" name="a8656b1cde36d4541fa9d39616f29b57c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8656b1cde36d4541fa9d39616f29b57c">&#9670;&#160;</a></span>fillRectWH() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRectWH </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_region8.html">Region8</a></td>          <td class="paramname"><span class="paramname"><em>region</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>矩形の左上座標とサイズ </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa1ac52fa637f96259309e48a3e2aefaa" name="aa1ac52fa637f96259309e48a3e2aefaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1ac52fa637f96259309e48a3e2aefaa">&#9670;&#160;</a></span>fillRectWH() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRectWH </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>矩形を塗りつぶす。こちらの方が高速かもしれない。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>左上のx座標 </td></tr>
+    <tr><td class="paramname">y</td><td>左上のy座標 </td></tr>
+    <tr><td class="paramname">w</td><td>横幅 </td></tr>
+    <tr><td class="paramname">h</td><td>高さ </td></tr>
+    <tr><td class="paramname">color</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a017bcc670a0defc5e0cfcfe80fbb6c51" name="a017bcc670a0defc5e0cfcfe80fbb6c51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a017bcc670a0defc5e0cfcfe80fbb6c51">&#9670;&#160;</a></span>fillRoundRect() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRoundRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>角丸図形の塗りつぶし </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>左上座標 </td></tr>
+    <tr><td class="paramname">end</td><td>右下座標 </td></tr>
+    <tr><td class="paramname">r</td><td>角丸部分の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a72dbeefe2169d6cf32671f8d803a63e3" name="a72dbeefe2169d6cf32671f8d803a63e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72dbeefe2169d6cf32671f8d803a63e3">&#9670;&#160;</a></span>fillRoundRect() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRoundRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_region8.html">Region8</a></td>          <td class="paramname"><span class="paramname"><em>region</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>角丸図形の塗りつぶし </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>塗りつぶし範囲の左上座標と右下座標 </td></tr>
+    <tr><td class="paramname">r</td><td>角丸部分の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7e3f0c28caafa051c4f66058c87c5461" name="a7e3f0c28caafa051c4f66058c87c5461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e3f0c28caafa051c4f66058c87c5461">&#9670;&#160;</a></span>fillRoundRect() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRoundRect </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>角丸の矩形を塗りつぶす </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x1</td><td>左上のx座標 </td></tr>
+    <tr><td class="paramname">y1</td><td>左上のx座標 </td></tr>
+    <tr><td class="paramname">x2</td><td>右下のX座標 </td></tr>
+    <tr><td class="paramname">y2</td><td>右下のy座標 </td></tr>
+    <tr><td class="paramname">r</td><td>角の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>矩形の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7296fd25bc130c39739386ba6b2989e9" name="a7296fd25bc130c39739386ba6b2989e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7296fd25bc130c39739386ba6b2989e9">&#9670;&#160;</a></span>fillRoundRectWH() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRoundRectWH </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_size8.html">Size8</a></td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>角丸塗りつぶし </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>塗りつぶし範囲の左上座標 </td></tr>
+    <tr><td class="paramname">size</td><td>塗りつぶし範囲のサイズ </td></tr>
+    <tr><td class="paramname">r</td><td>角丸部分の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa643ef00437a1f4208a49197cab3adc2" name="aa643ef00437a1f4208a49197cab3adc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa643ef00437a1f4208a49197cab3adc2">&#9670;&#160;</a></span>fillRoundRectWH() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRoundRectWH </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_region8.html">Region8</a></td>          <td class="paramname"><span class="paramname"><em>region</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>角丸塗りつぶし </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>塗りつぶし範囲の左上座標とサイズ </td></tr>
+    <tr><td class="paramname">r</td><td>角丸部分の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7f798772ec43d82b7d8f911a9bf175f4" name="a7f798772ec43d82b7d8f911a9bf175f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f798772ec43d82b7d8f911a9bf175f4">&#9670;&#160;</a></span>fillRoundRectWH() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillRoundRectWH </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>角丸の矩形を塗りつぶす </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>左上のx座標 </td></tr>
+    <tr><td class="paramname">y</td><td>左上のy座標 </td></tr>
+    <tr><td class="paramname">w</td><td>幅 </td></tr>
+    <tr><td class="paramname">h</td><td>高さ </td></tr>
+    <tr><td class="paramname">r</td><td>角の半径 </td></tr>
+    <tr><td class="paramname">color</td><td>矩形の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4deb9ae409aa46b6f5934d9e46427803" name="a4deb9ae409aa46b6f5934d9e46427803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4deb9ae409aa46b6f5934d9e46427803">&#9670;&#160;</a></span>fillScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillScreen </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面を単色で塗りつぶす。初期設定された液晶サイズの矩形を表示させることで実装。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adeda4c1ba6aaec2805ad7fbf2791442e" name="adeda4c1ba6aaec2805ad7fbf2791442e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeda4c1ba6aaec2805ad7fbf2791442e">&#9670;&#160;</a></span>fillTriangle() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillTriangle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis16.html">Axis16</a></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis16.html">Axis16</a></td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis16.html">Axis16</a></td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>三角形の塗りつぶし </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>点１の座標 </td></tr>
+    <tr><td class="paramname">b</td><td>点２の座標 </td></tr>
+    <tr><td class="paramname">c</td><td>点３の座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab0a96aaf242ddf94bf679cf415bb3f0d" name="ab0a96aaf242ddf94bf679cf415bb3f0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0a96aaf242ddf94bf679cf415bb3f0d">&#9670;&#160;</a></span>fillTriangle() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillTriangle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>三角形の塗りつぶし </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>点１の座標 </td></tr>
+    <tr><td class="paramname">b</td><td>点２の座標 </td></tr>
+    <tr><td class="paramname">c</td><td>点３の座標 </td></tr>
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac7a08cf152f428dab88a0c0f1610a21b" name="ac7a08cf152f428dab88a0c0f1610a21b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7a08cf152f428dab88a0c0f1610a21b">&#9670;&#160;</a></span>fillTriangle() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::fillTriangle </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>三角形を塗りつぶす </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x0</td><td>頂点1のx座標 </td></tr>
+    <tr><td class="paramname">y0</td><td>頂点1のy座標 </td></tr>
+    <tr><td class="paramname">x1</td><td>頂点2のx座標 </td></tr>
+    <tr><td class="paramname">y1</td><td>頂点2のy座標 </td></tr>
+    <tr><td class="paramname">x2</td><td>頂点3のx座標 </td></tr>
+    <tr><td class="paramname">y2</td><td>頂点3のy座標 </td></tr>
+    <tr><td class="paramname">color</td><td>三角形の色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6e13f9b816aa0998b6ab2e06e8073b45" name="a6e13f9b816aa0998b6ab2e06e8073b45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e13f9b816aa0998b6ab2e06e8073b45">&#9670;&#160;</a></span>getHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ST7735::getHeight </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6db1ea22ec38c735779f68fce934ff3c" name="a6db1ea22ec38c735779f68fce934ff3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6db1ea22ec38c735779f68fce934ff3c">&#9670;&#160;</a></span>getWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ST7735::getWidth </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a263cbcc63983968a0b29b107e673ad" name="a4a263cbcc63983968a0b29b107e673ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a263cbcc63983968a0b29b107e673ad">&#9670;&#160;</a></span>invertDisplay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::invertDisplay </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面の表示を反転させる </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>true:反転、false:通常表示 <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa8ada43a4e69ba740688ff86b4d2d123" name="aa8ada43a4e69ba740688ff86b4d2d123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8ada43a4e69ba740688ff86b4d2d123">&#9670;&#160;</a></span>NormalDisplay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::NormalDisplay </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面の表示を通常に戻す </p>
+
+</div>
+</div>
+<a id="a67bee8d67424ef791bb94dc00f07e39b" name="a67bee8d67424ef791bb94dc00f07e39b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67bee8d67424ef791bb94dc00f07e39b">&#9670;&#160;</a></span>pushColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::pushColor </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面に色を表示する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>色 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a766bbc6bb191c837d004a15e1d5c44cd" name="a766bbc6bb191c837d004a15e1d5c44cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a766bbc6bb191c837d004a15e1d5c44cd">&#9670;&#160;</a></span>setAddrWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::setAddrWindow </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>BitBlitのためのアドレスウインドウを設定する。（https://en.wikipedia.org/wiki/Bit_blit） </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x0</td><td>左上のx座標 </td></tr>
+    <tr><td class="paramname">y0</td><td>左上のy座標 </td></tr>
+    <tr><td class="paramname">x1</td><td>右下のx座標 </td></tr>
+    <tr><td class="paramname">y1</td><td>右下のy座標 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a68de7806a11f18f5865c0bfbd56bd393" name="a68de7806a11f18f5865c0bfbd56bd393"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68de7806a11f18f5865c0bfbd56bd393">&#9670;&#160;</a></span>setFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::setFont </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_g_f_xfont.html">GFXfont</a> *</td>          <td class="paramname"><span class="paramname"><em>f</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a635b05b3c13edb2b2003db2d94eab4b4" name="a635b05b3c13edb2b2003db2d94eab4b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a635b05b3c13edb2b2003db2d94eab4b4">&#9670;&#160;</a></span>SetRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::SetRotation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_s_t7735__struct_8h.html#afc67bf57f963f3086cb5532735b82c8b">ST7735_ROTATION</a></td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面の回転を設定する。 </p>
+<p>ウインドウに対して描画するオブジェクトを回転させる。ST7735_ROTATION::NORMALを指定すると、元に戻すことができる。 描画するオブジェクトが左右反転（ミラー）してしまったりするときには、ここを呼びだす。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>回転する方向 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a769b1b01c51d34f9b74aa1162f2349c0" name="a769b1b01c51d34f9b74aa1162f2349c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a769b1b01c51d34f9b74aa1162f2349c0">&#9670;&#160;</a></span>setScrollDefinition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::setScrollDefinition </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>top_fix_height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>bottom_fix_height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>_scroll_direction</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面の縦スクロール領域を指定する。<br  />
+ </p>
+<p>画面のスクロールでは、実際に表示されているビットイメージのフレームバッファは書き換えられない。 画面表示の時の、読み出しアドレスが変更されるもの。スクロール時、画面は上下が繋がったようにスクロールする。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">top_fix_height</td><td>画面上部の固定領域の高さ </td></tr>
+    <tr><td class="paramname">bottom_fix_height</td><td>画面下部の固定領域の高さ </td></tr>
+    <tr><td class="paramname">_scroll_direction</td><td>スクロール方向。trueの場合ロールアップ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9a0734c153004a4487a7584645f0910d" name="a9a0734c153004a4487a7584645f0910d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a0734c153004a4487a7584645f0910d">&#9670;&#160;</a></span>setTextWrap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::setTextWrap </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>w</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>テキストの改行を行うかのフラグを設定する </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">w</td><td>true:画面の左に来たらテキストを改行する(デフォルト）、false:改行しない </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a34ed3c607df572ee5c359c73aaf32b61" name="a34ed3c607df572ee5c359c73aaf32b61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34ed3c607df572ee5c359c73aaf32b61">&#9670;&#160;</a></span>VerticalScroll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::VerticalScroll </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>_vsp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面のスクロールを行う。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_vsp</td><td>スクロールするドット数。１０と指定すると、１０ドットスクロールした画面が表示される。このとき、再度１０と指定して呼びだしても画面は変わらない。巻物のように動かすには、1、２、３・・・と数字を変えて複数回呼びだす必要がある。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a65c84afbcd019b65d40fb65823772585" name="a65c84afbcd019b65d40fb65823772585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65c84afbcd019b65d40fb65823772585">&#9670;&#160;</a></span>writeCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::writeCommand </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>cmd_</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コマンドを送信する。 </p>
+<p>ST7735の手順に基づいて、コマンドを送信する。実際には次のような手順で信号が送信される。</p><ul>
+<li>Data/Command信号をＬに設定後、CSn信号をＬに設定。</li>
+<li>コマンドを送信、信号を　DC:L→CS:L→コマンド送信→CS:H</li>
+<li>CSn信号をＨに設定 通常は、この後にwriteDataが続くか、次のコマンドが送られることになる。 <dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd_</td><td>送信するコマンド </td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
+
+</div>
+</div>
+<a id="ae48b7b4844f535b8389fa48207d25c74" name="ae48b7b4844f535b8389fa48207d25c74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae48b7b4844f535b8389fa48207d25c74">&#9670;&#160;</a></span>writeData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ST7735::writeData </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>data_</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>データを送信する。 </p>
+<p>ST7735の手順に基づいて、コマンドを送信する。実際には次のような手順で信号が送信される。</p><ul>
+<li>Data/Command信号をＨに設定後、CSn信号をＬに設定。</li>
+<li>データをを送信</li>
+<li>CSn信号をＨに設定 <dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data_</td><td>送信するデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a44b40afa5b6ae7dd89e0160a26afc859" name="a44b40afa5b6ae7dd89e0160a26afc859"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44b40afa5b6ae7dd89e0160a26afc859">&#9670;&#160;</a></span>spiHW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_h_w.html">HW</a>&amp; ST7735::spiHW</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa4a8579788e13f01c35bebd2e6641572" name="aa4a8579788e13f01c35bebd2e6641572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4a8579788e13f01c35bebd2e6641572">&#9670;&#160;</a></span>st7735Init</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_s_t7735_init.html">ST7735Init</a> ST7735::st7735Init</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li><a class="el" href="_s_t7735___t_f_t_8h_source.html">ST7735_TFT.h</a></li>
+<li><a class="el" href="_s_t7735___t_f_t_8cpp.html">ST7735_TFT.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: ST7735_struct.h ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c5a50853997633758dfee5f1dd444d6e.html">SPIDisplay</a></li><li class="navelem"><a class="el" href="dir_0ab8852d40c8d229a52113626deabd6b.html">lib-st7735</a></li><li class="navelem"><a class="el" href="dir_3ecfe767cd2f056f6ab99bb4cb2006e9.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#enum-members">列挙型</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle"><div class="title">ST7735_struct.h ファイル</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><a href="_s_t7735__struct_8h_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_axis16.html">Axis16</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">座標を示すクラス（16bit)。描画メソッドでは、座標として２つの引数を渡す代わりに、このクラスを使うことができる。  <a href="class_axis16.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_axis8.html">Axis8</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">座標を示すクラス(8bit)。描画メソッドでは、座標として２つの引数を渡す代わりに、このクラスを使うことができる。  <a href="class_axis8.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_size16.html">Size16</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">大きさを示すクラス(8bit)。描画メソッドでは、大きさとして２つの引数を渡す代わりに、このクラスを使うことができる。  <a href="class_size16.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_size8.html">Size8</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">大きさを示すクラス(8bit)。描画メソッドでは、大きさとして２つの引数を渡す代わりに、このクラスを使うことができる。  <a href="class_size8.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region16.html">Region16</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形の範囲をx1,y1 - x2,y2で示すクラス(16bit)。描画メソッドでは、このクラスを使うことができる。  <a href="class_region16.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region8.html">Region8</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形の範囲をx1,y1 - x2,y2で示すクラス(8bit)。描画メソッドでは、このクラスを使うことができる。  <a href="class_region8.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_f_xglyph.html">GFXglyph</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">１文字のフォントの画像情報、大きさなどを定義するための構造体  <a href="struct_g_f_xglyph.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_f_xfont.html">GFXfont</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">フォントセットを格納している構造体。  <a href="struct_g_f_xfont.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+列挙型</h2></td></tr>
+<tr class="memitem:afc67bf57f963f3086cb5532735b82c8b" id="r_afc67bf57f963f3086cb5532735b82c8b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc67bf57f963f3086cb5532735b82c8b">ST7735_ROTATION</a> { <a class="el" href="#afc67bf57f963f3086cb5532735b82c8ba50d1448013c6f17125caee18aa418af7">NORMAL</a> = 0
+, <a class="el" href="#afc67bf57f963f3086cb5532735b82c8ba978e1aa87a6830f314b6b18c157559e4">DEGREE_90</a> = 1
+, <a class="el" href="#afc67bf57f963f3086cb5532735b82c8ba8064bd27cb066aef65692083895e8485">DEGREE_180</a> = 2
+, <a class="el" href="#afc67bf57f963f3086cb5532735b82c8ba196146a6f72f2832ddbe2aaaecbbb1a8">DEGREE_270</a> = 3
+ }</td></tr>
+<tr class="memdesc:afc67bf57f963f3086cb5532735b82c8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面の回転方向を示す定義  <a href="#afc67bf57f963f3086cb5532735b82c8b">[詳解]</a><br /></td></tr>
+<tr class="separator:afc67bf57f963f3086cb5532735b82c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+変数</h2></td></tr>
+<tr class="memitem:a7d80cad544f013a9edd431a7e827961a" id="r_a7d80cad544f013a9edd431a7e827961a"><td class="memItemLeft" >class {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46cdff990f1accac42e9d01bf942618f" id="r_a46cdff990f1accac42e9d01bf942618f"><td class="memItemLeft" >&#160;&#160;&#160;const uint16_t&#160;&#160;&#160;<a class="el" href="#a6343201ef4d7551b7acd86756a6ba47c">BLACK</a> = 0x0000&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a46cdff990f1accac42e9d01bf942618f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe97a5f654add67c70ed88fceb241811" id="r_afe97a5f654add67c70ed88fceb241811"><td class="memItemLeft" >&#160;&#160;&#160;const uint16_t&#160;&#160;&#160;<a class="el" href="#a3071145ae9e92ce4bcd76c2b43401d99">BLUE</a> = 0x001F&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:afe97a5f654add67c70ed88fceb241811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a986b78c5f3b64b2f3d71f2e795d79ee4" id="r_a986b78c5f3b64b2f3d71f2e795d79ee4"><td class="memItemLeft" >&#160;&#160;&#160;const uint16_t&#160;&#160;&#160;<a class="el" href="#a13464d7129044cb193734768a79fcbc6">RED</a> = 0xF800&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a986b78c5f3b64b2f3d71f2e795d79ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff3ef5e5a60ccdaf143889f8ba05b756" id="r_aff3ef5e5a60ccdaf143889f8ba05b756"><td class="memItemLeft" >&#160;&#160;&#160;const uint16_t&#160;&#160;&#160;<a class="el" href="#aa2f0d451f4e120d0d098eb3d6601e2a7">GREEN</a> = 0x07E0&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:aff3ef5e5a60ccdaf143889f8ba05b756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a18b1401835daecd3560357693c5330" id="r_a8a18b1401835daecd3560357693c5330"><td class="memItemLeft" >&#160;&#160;&#160;const uint16_t&#160;&#160;&#160;<a class="el" href="#a012966fae4a1d141ac72c0b639448f20">CYAN</a> = 0x07FF&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a8a18b1401835daecd3560357693c5330"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84971111cd2a11dfc3c92494a4a20b44" id="r_a84971111cd2a11dfc3c92494a4a20b44"><td class="memItemLeft" >&#160;&#160;&#160;const uint16_t&#160;&#160;&#160;<a class="el" href="#abb327d945f48f336948a07887d1851a8">MAGENTA</a> = 0xF81F&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a84971111cd2a11dfc3c92494a4a20b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b305ca247a5ed0610298c81ad40d82a" id="r_a9b305ca247a5ed0610298c81ad40d82a"><td class="memItemLeft" >&#160;&#160;&#160;const uint16_t&#160;&#160;&#160;<a class="el" href="#a4ad3ec123461805d9a3e1bf894e9ccad">YELLOW</a> = 0xFFE0&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a9b305ca247a5ed0610298c81ad40d82a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a546769478d04cba3cd34ad66b27c3b5c" id="r_a546769478d04cba3cd34ad66b27c3b5c"><td class="memItemLeft" >&#160;&#160;&#160;const uint16_t&#160;&#160;&#160;<a class="el" href="#a148d74bde6784612906bcea9e3610482">WHITE</a> = 0xFFFF&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a546769478d04cba3cd34ad66b27c3b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d80cad544f013a9edd431a7e827961a" id="r_a7d80cad544f013a9edd431a7e827961a"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d80cad544f013a9edd431a7e827961a">ST7735Color</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:a7d80cad544f013a9edd431a7e827961a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ST7735に対する色の定義  <br /></td></tr>
+<tr class="separator:a7d80cad544f013a9edd431a7e827961a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">列挙型詳解</h2>
+<a id="afc67bf57f963f3086cb5532735b82c8b" name="afc67bf57f963f3086cb5532735b82c8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc67bf57f963f3086cb5532735b82c8b">&#9670;&#160;</a></span>ST7735_ROTATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#afc67bf57f963f3086cb5532735b82c8b">ST7735_ROTATION</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面の回転方向を示す定義 </p>
+<table class="fieldtable">
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="afc67bf57f963f3086cb5532735b82c8ba50d1448013c6f17125caee18aa418af7" name="afc67bf57f963f3086cb5532735b82c8ba50d1448013c6f17125caee18aa418af7"></a>NORMAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afc67bf57f963f3086cb5532735b82c8ba978e1aa87a6830f314b6b18c157559e4" name="afc67bf57f963f3086cb5532735b82c8ba978e1aa87a6830f314b6b18c157559e4"></a>DEGREE_90&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afc67bf57f963f3086cb5532735b82c8ba8064bd27cb066aef65692083895e8485" name="afc67bf57f963f3086cb5532735b82c8ba8064bd27cb066aef65692083895e8485"></a>DEGREE_180&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afc67bf57f963f3086cb5532735b82c8ba196146a6f72f2832ddbe2aaaecbbb1a8" name="afc67bf57f963f3086cb5532735b82c8ba196146a6f72f2832ddbe2aaaecbbb1a8"></a>DEGREE_270&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">変数詳解</h2>
+<a id="a6343201ef4d7551b7acd86756a6ba47c" name="a6343201ef4d7551b7acd86756a6ba47c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6343201ef4d7551b7acd86756a6ba47c">&#9670;&#160;</a></span>BLACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t BLACK = 0x0000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3071145ae9e92ce4bcd76c2b43401d99" name="a3071145ae9e92ce4bcd76c2b43401d99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3071145ae9e92ce4bcd76c2b43401d99">&#9670;&#160;</a></span>BLUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t BLUE = 0x001F</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a012966fae4a1d141ac72c0b639448f20" name="a012966fae4a1d141ac72c0b639448f20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a012966fae4a1d141ac72c0b639448f20">&#9670;&#160;</a></span>CYAN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t CYAN = 0x07FF</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2f0d451f4e120d0d098eb3d6601e2a7" name="aa2f0d451f4e120d0d098eb3d6601e2a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2f0d451f4e120d0d098eb3d6601e2a7">&#9670;&#160;</a></span>GREEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t GREEN = 0x07E0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb327d945f48f336948a07887d1851a8" name="abb327d945f48f336948a07887d1851a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb327d945f48f336948a07887d1851a8">&#9670;&#160;</a></span>MAGENTA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t MAGENTA = 0xF81F</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13464d7129044cb193734768a79fcbc6" name="a13464d7129044cb193734768a79fcbc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13464d7129044cb193734768a79fcbc6">&#9670;&#160;</a></span>RED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t RED = 0xF800</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d80cad544f013a9edd431a7e827961a" name="a7d80cad544f013a9edd431a7e827961a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d80cad544f013a9edd431a7e827961a">&#9670;&#160;</a></span>[class]</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class  { ... }  ST7735Color</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ST7735に対する色の定義 </p>
+
+</div>
+</div>
+<a id="a148d74bde6784612906bcea9e3610482" name="a148d74bde6784612906bcea9e3610482"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a148d74bde6784612906bcea9e3610482">&#9670;&#160;</a></span>WHITE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t WHITE = 0xFFFF</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ad3ec123461805d9a3e1bf894e9ccad" name="a4ad3ec123461805d9a3e1bf894e9ccad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ad3ec123461805d9a3e1bf894e9ccad">&#9670;&#160;</a></span>YELLOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t YELLOW = 0xFFE0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

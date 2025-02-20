@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: ST7735 TFT用 Rapberry PI SDKライブラリ</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="doc-content">
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title"><a class="el" href="class_s_t7735.html" title="画面表示のクラス。インスタンス化して使用する。">ST7735</a> TFT用 Rapberry PI SDKライブラリ </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1><a class="anchor" id="main"></a>
+概要</h1>
+<h1><a class="anchor" id="autotoc_md0"></a>
+概要</h1>
+<p>このライブラリは、Raspberry PI PICO 上で、ST7735 TFT液晶をコントロールするためのライブラリです。日本語表示等に対応しています。</p>
+<hr  />
+<h1><a class="anchor" id="autotoc_md1"></a>
+このライブラリについて</h1>
+<p>ST7735をコントローラにしたTFT液晶の使用例はよくあるが、ほとんどがArdiunoを使用したもので、Raspberry piRaspberry piのSDKを使用した例はほとんどありません。 また、Ardiuno版を含め、日本語（漢字）が表示可能なライブラリは見つかりません。</p>
+<p>このライブラリは、<a href="https://www.raspberrypi.com/news/get-started-with-raspberry-pi-pico-series-and-vs-code/">Raspberry PI SDK</a> を使用してST7735をコントロールする為のプログラムです。 Arduinoにくらべ、Raspberry PI PICOはメモリが潤沢にあるため、日本語表示などに対応しています。</p>
+<p>開発と動作確認は、aitendoの1.8インチTFT液晶モジュール <a href="https://www.aitendo.com/product/16367">M018C7735S541</a> で行いました。 この液晶モジュールは、シルクの印刷が表裏で異なり、加えてRS(RESET?)と D/C(MISO)の印刷も逆になっているように思います。M018C7735S541での配線時には注意してください。</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+動作例</h1>
+<p>次の動画は、このライブラリのサンプルプログラム（本体に同梱）です。</p>
+<ul>
+<li>ビットマップ表示…有名なヒゲのオジサンが左右に動きます。</li>
+<li>漢字表示とスクロール…12x12ドットの漢字文字列を表示し、スクロールさせます。</li>
+<li>英文字表示とスクロール…フォント定義された大きな文字を画面に表示させ、スクロールさせます。上下に固定領域を設定し、その中だけをスクロールさせています。</li>
+<li>図形の表示　円、矩形、角丸図形とその塗りつぶし、点と線の描画を行います。</li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=v_BOcLKssuE">https://www.youtube.com/watch?v=v_BOcLKssuE</a></p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+ソースコード</h1>
+<p>ソースコードはgithubの<a href="https://github.com/HisayukiNomura/ST7735-TFTDriver">ST7735-TFTDriverページ</a>で公開しています。</p>
+<h3><a class="anchor" id="autotoc_md4"></a>
+フォルダ構成と用途</h3>
+<p>プロジェクトのフォルダ構成と主な用途は次のようになっています。</p>
+<p>／　動作を確認するためのプログラムや、VSCodeのプロジェクト関連ファイル 　｜ 　＋ー SRC　ライブラリ本体のソースコード 　｜ 　＋ー include　ライブラリが使用するincludeファイル 　　　　｜ 　　　　＋ー　font　ライブラリが使用するフォントファイル</p>
+<p>ライブラリの本体は、SRCサブフォルダと、includeフォルダ以下に入っています。このまま、これらのフォルダを使用するプロジェクトに組み込んでください。</p>
+<h3><a class="anchor" id="autotoc_md5"></a>
+フォント情報ファイル</h3>
+<p>fontサブフォルダは、テキスト表示の際に使用されるフォントのビットマップ情報です。</p>
+<h4><a class="anchor" id="autotoc_md6"></a>
+英文フォント用ファイル</h4>
+<p>拡張子 .hは、<a href="https://learn.adafruit.com/adafruit-gfx-graphics-library/using-fonts">adafruitのgfxライブラリ</a>で使用されているものですが、ディレクトリ構成の調整に伴い、次のように若干変更されています。</p>
+<ul>
+<li>インクルードファイルの変更<br  />
+オリジナルでは、GFXfont構造体が TextFonts.hで定義されていました。これだと使用されないFont[]がメモリに読み込まれるため、GFXフォント構造体はST7735_struct.hに移動させました。これに伴い、インクルードされるファイルをTextFonts.hからST7735_struct.hに変更してあります。</li>
+<li>PROGMEM　修飾子の削除<br  />
+ Ardiunoで使用する、PROGMEM修飾子は削除しました。PICO sdkでは、const キーワードを使用することでフォントデータのような大きなデータをフラッシュメモリに格納できます。</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md7"></a>
+日本語フォント用ファイル</h4>
+<p>拡張子 .incは、日本語フォント用のファイルです。複数のファイルがありますが、このうち一つだけがプログラムに読み込まれます。 ファイル名は、 <b>Font_Kanji&lt;横ドット数&gt;&lt;文字セット&gt;.inc</b> の形になっており、文字セットを <a class="el" href="_kanji_helper_8h.html">KanjiHelper.h</a> 内で定義されている、TFT_KANJI_DOT マクロと、 TFT_KANJI_LEVELマクロで定義します。</p>
+<p>現在のところ、TFT_KANJI_DOTに指定できるのは 8, 12,16で、それぞれ 8x8、12x12、16x16ドット（マルチバイト文字、いわゆる全角）のサイズです。１バイト文字は横幅が半分になっています。 8x8は、かなり読むのが難しくなっています。液晶のサイズから、12x12程度が視認性などの点から適しています。</p>
+<p>文字セットは、使用されている文字種別で次のようになっています。</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">文字セット   </th><th class="markdownTableHeadCenter">設定値   </th><th class="markdownTableHeadCenter">含まれる文字   </th><th class="markdownTableHeadCenter">文字数   </th><th class="markdownTableHeadCenter">サイズ(12x12)    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">All   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">ＪＩＳすべて   </td><td class="markdownTableBodyCenter">約6,800文字   </td><td class="markdownTableBodyCenter">約165Kbytes    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Level1   </td><td class="markdownTableBodyCenter">1   </td><td class="markdownTableBodyCenter">第二水準を除いた文字   </td><td class="markdownTableBodyCenter">約3,500文字   </td><td class="markdownTableBodyCenter">約83Kbytes    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Jyoyo   </td><td class="markdownTableBodyCenter">2   </td><td class="markdownTableBodyCenter">常用漢字。ギリシャやキリル、罫線を除く   </td><td class="markdownTableBodyCenter">約2,500文字   </td><td class="markdownTableBodyCenter">約60Kbytes    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Kyoiku   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">教育漢字。ギリシャやキリル、罫線を除く   </td><td class="markdownTableBodyCenter">約800文字   </td><td class="markdownTableBodyCenter">約19Kbytes   </td></tr>
+</table>
+<p>※JISすべてには、第一水準、第二水準、かな、カナ、英字、記号１、記号２、ギリシャ文字、キリル文字、罫線を含みます。</p>
+<p>たとえば、Font_Kanji16Level1.incファイルを使用する場合、KanjiHelper.h 内で次のように定義します。</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#define TFT_KANJI_DOT 16</span></div>
+<div class="line"><span class="preprocessor">#define TFT_KANJI_LEVEL 1</span></div>
+</div><!-- fragment --><p>フォントファイルは使い捨てに近い自作のアプリケーションで東雲フォント等フリーフォントから構成しました。（希望があれば公開します。）</p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+使用方法</h1>
+<h2><a class="anchor" id="autotoc_md9"></a>
+実装にあわせた変更</h2>
+<p>実際の使用環境や要望に合わせて、いくつかのマクロやプログラム内の定数定義を変更してください。</p>
+<h3><a class="anchor" id="autotoc_md10"></a>
+ハードウェアにあわせて変更するもの</h3>
+<p>hw.h内 ここでは、SPIで使用するポート定義のデフォルト値が変更できます。あくまでデフォルトなので、コンストラクタから値を変更できるため必須ではありません。</p>
+<ul>
+<li>PIN_TFT_RX<br  />
+ SPIで使用するデフォルトのピン番号。RXの信号線（GP16）</li>
+<li>PIN_TFT_DC<br  />
+ST7735のData/Commandで使用するピン番号。PIN_TFT_RXと同じ。ST7735では、RX(MISO）は使用せず、Data/Commandとして使用するため、PIN_TFT_RXと同じになっています。この信号線はSDKのSPIライブラリは使用できないため、自力で操作が必要です。</li>
+<li>PIN_TFT_CS<br  />
+PIのCSnのデフォルトピン。GP17。</li>
+<li>PIN_TFT_TX<br  />
+SPIのTX(MOSI)信号ので使用するデフォルトのピン番号。GP19。</li>
+<li>PIN_TFT_SCK<br  />
+SPIのクロック(SCK)で使用するデフォルトのピン番号。GP18</li>
+<li>PIN_TFT_RST<br  />
+リセットピンで使用するポートの番号。無くても動く（＋５V電源に直結）。０を指定するとリセットピンは使用しない。GP28。このポートをGNDにすると、液晶はリセットされる。</li>
+<li>PIN_TFT_DEBUG<br  />
+デバッグピンの定義（SPIの信号出力時にストローブしたり、Highにすることができる）。ゼロを指定するとデバッグピンは使用しない。GP15。</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md11"></a>
+アプリケーションのニーズに合わせて変更するもの</h3>
+<p>マクロを定義するかどうかで、機能を組み込むかが決定されます。使用しない機能をオフにしておくとメモリが節約できます。とくに、日本語関連はフラッシュメモリへの圧迫が大きいので不要な場合はシンボルを削除してください。</p>
+<p>ST7735＿TFT.ｈ内</p><ul>
+<li>TFT_ENABLE_TEXT<br  />
+文字表示を使用する場合は定義します。これを定義しないと、日本語を含みすべての文字出力機能は組み込まれません。</li>
+<li>TFT_ENABLE_FONTS<br  />
+フォント機能を有効にするかのフラグ。 このシンボルを定義すると、フォント拡張機能が有効になります。未定義の場合、デフォルトのフォントとして、TextFonts.hで定義されている5x7の字体が自動的に使用されます。有効の場合、フォントはGFXfont構造体へのポインタを、setFontメソッドで指定することができます。事前に用意したフォントデータを指定してください。このプロジェクトでは、<a href="https://learn.adafruit.com/adafruit-gfx-graphics-library/using-fonts">Adafruit GFX Graphics Library</a>からダウンロードしたフォントの中から、FreeMono9pt7b.hなど、いくつかのフォントを含めてあります。必要なものをincludeして使用してください。</li>
+<li>TFT_ENABLE_BITMAP<br  />
+ビットマップ描画機能を有効にするかのフラグ このシンボルを定義すると、ビットマップ描画の関数を使用できるようになります。RGBベタ（565)の配列を用意し、それを任意の場所に表示できます。このプログラムでは、メインプログラム（デモンストレーション用）内で３枚の画像を用意して切り替えて表示しています。RGBベタの作成は任意のツールを使用してください。<a href="https://github.com/HisayukiNomura/BmpConverter">これ</a>を使うこともできます。<br  />
+</li>
+<li>TFT_ENABLE_KANJI<br  />
+漢字フォント機能を有効にするかのフラグ このシンボルを定義すると、漢字機能が有効になり、drawKanjiメソッドが使用できるようになります。このシンボルが有効になると、漢字フォントとしてKanjiHelper.h内で字体のデータがincludeされます。使用されるフォントサイズや、文字セットにより大きさが異なりますが、80kBytes～250kBytes程度のメモリをフラッシュ側（プログラムメモリ）で消費します。<br  />
+</li>
+<li>TFT_FORCE_HANKANA<br  />
+半角カナ文字を１バイト文字として扱うかのフラグ 通常 Unicodeのエディタ（VS Codeなど)では、半角カナ文字をefbda1～efbdffまでの3バイト文字セットとして格納し、コンパイル時もそれが使用されます。多バイト文字での半角表現はJISコードには含まれていないため、UTF-8からJISへの変換で範囲外となり表示できません。<br  />
+このフラグを有効にすると、UTF-8の半角カナ文字（UTF:efbda1～など）を、１バイト文字コード(a1～ff)に変換します。その結果UTF-8表現エディタで作成・コンパイルしたプログラムで半角カナを正しく表示できるようになります。</li>
+<li>TFT_ENABLE_SHAPES<br  />
+図形描画機能を有効にするかのフラグ 直線、矩形、角丸矩形、円、三角形の表示関数が使用できるようになります。</li>
+<li>TFT_ENABLE_ROTATE<br  />
+画面の回転機能を有効にするかのフラグ このシンボルを有効にすると、画面を90/180/270度回転する機能が使用できるようになります。</li>
+<li>TFT_ENABLE_SCROLL<br  />
+画面のスクロール機能を有効にするかのフラグ このシンボルを有効にすると、画面のスクロール関連関数が使用できるようになります。</li>
+<li>TFT_ENABLE_ALL<br  />
+図形表示をすべて有効にするかのフラグ このシンボルを有効にするとすべての図形表示が有効になります。漢字表示 TFT_ENABLE_KANJI と、フォント機能　TFT_ENABLE_FONTSは有効になりません。個別に有効化が必要です。</li>
+</ul>
+<p>KanjiHelkper.h内</p><ul>
+<li>TFT_KANJI_DOT<br  />
+使用する漢字データの大きさを指定する。 16...全角 16x16 半角8x16 12...全角 12x12 半角6x12 8....全角 8x 8 半角4x8 (かなり視認性は低い）</li>
+<li>TFT_KANJI_LEVEL<br  />
+使用する漢字データの種類を指定する。 0...JISに定義されているすべてのコード（約6800文字、289KBytes/16dot) 1...JIS第一水準+かな+カナ+記号1,2+ギリシャ+キリル+罫線（約3400文字、83KBytes/16dot) 2...常用漢字+かな+カナ+記号1,2（約2500文字、79KBytes/16dot) 3...教育漢字+かな+カナ+記号1,2（約840文字、 25KBytes/16dot)</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md12"></a>
+使用するまでの手順</h2>
+<h3><a class="anchor" id="autotoc_md13"></a>
+ハードウェア</h3>
+<h4><a class="anchor" id="autotoc_md14"></a>
+結線例</h4>
+<p>aitendoの1.8インチTFT液晶モジュール <a href="https://www.aitendo.com/product/16367">M018C7735S541</a> での結線例は次のようになります。シルクが間違えているような気がするので注意が必要です。</p>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2096509/8918b453-7dc3-4e5e-9b7b-5a1461ea670a.png" alt="RaspTFT.png" width="60%" class="inline"/></p>
+<p>ほかのデバイスで使用する場合、CSn(GP17)、SCK(GP18)、TX/MOSI(GP19)、RX/MISO(GP16)を接続してください。TXはマイコン→デバイスへの信号、RXはデバイス→マイコンへの信号用に用意されています。</p>
+<p>デバイス側の表記によっては、RXとTXの表記は逆になっている（デバイスから見て受信するピンがRX)場合があります。MOSI、MISOと表記されていることもあります。MISOは、Master(マイコン）In　Slave（液晶) Out なので、マイコン側にとってはRXに相当します。（多分）　この場合、液晶のMISOはマイコン側のRX(GP16)、液晶のMOSIはマイコン側のTX(GP19）に接続することになります。</p>
+<h3><a class="anchor" id="autotoc_md15"></a>
+ソフトウェア</h3>
+<h2><a class="anchor" id="autotoc_md16"></a>
+Visual Studio CodeへのSDK導入とビルド</h2>
+<p>RaspBerry pi の公式ページ、<a href="https://www.raspberrypi.com/news/get-started-with-raspberry-pi-pico-series-and-vs-code/">Get started with Raspberry Pi Pico-series and VS Code</a>などを参照し、VSCodeにSDKを導入します。日本語でも<a href="https://zenn.dev/usagi1975/articles/2024-08-29-000_pico_development">これ</a> や、<a href="https://tetsufuku-blog.com/pico-vscode/">これ</a>などで情報を見つけることができます。</p>
+<h2><a class="anchor" id="autotoc_md17"></a>
+デモンストレーションプログラムの解説</h2>
+<p>プログラムは、SRC、includeのサブフォルダにあるライブラリ本体と、ルートディレクトリにあるデモ用のプログラムに別れています。 デモ用のプログラム <a class="el" href="_s_p_i_display_8cpp.html">spiDisplay.cpp</a> は、このライブラリが持っているほとんどの機能を実行するようになっています。</p>
+<h3><a class="anchor" id="autotoc_md18"></a>
+main()</h3>
+<p>最初に実行され、GPIOやTFTライブラリの初期化処理を実行した後に、個々の機能を呼びだします。</p>
+<h4><a class="anchor" id="autotoc_md19"></a>
+初期化処理</h4>
+<p>最初に実行される初期化処理は次のようになっています。基本的に、このライブラリを使う場合にはこれらの提携処理が最初に行われることになります。</p>
+<div class="fragment"><div class="line">1. <a class="code hl_class" href="class_h_w.html">HW</a> <a class="code hl_variable" href="_s_p_i_display_8cpp.html#aee26e96bfaf1ee2e582db4efa313f89a">spiHW</a>(0, 16, 17, 18, 19, 28, 15);</div>
+<div class="line">　　：</div>
+<div class="line">　　：</div>
+<div class="line">2. <a class="code hl_variable" href="_s_p_i_display_8cpp.html#a23f0517fe666e1dccd4a8fd1827b230a">iRet</a> = spi_init(<a class="code hl_variable" href="_s_p_i_display_8cpp.html#aee26e96bfaf1ee2e582db4efa313f89a">spiHW</a>.<a class="code hl_variable" href="class_h_w.html#ad173a9d2f3d316881d6ba801ad6ea2f1">portSPI</a>, 10*1000*1000);    </div>
+<div class="line"> </div>
+<div class="line">3. gpio_set_function(<a class="code hl_variable" href="_s_p_i_display_8cpp.html#aee26e96bfaf1ee2e582db4efa313f89a">spiHW</a>.<a class="code hl_variable" href="class_h_w.html#af0e3c7bde9ff018678a821fd15ccc8df">_dc</a>, GPIO_FUNC_SPI);</div>
+<div class="line">    gpio_set_function(<a class="code hl_variable" href="_s_p_i_display_8cpp.html#aee26e96bfaf1ee2e582db4efa313f89a">spiHW</a>.<a class="code hl_variable" href="class_h_w.html#a6d576266a9cee563dc29de84d2b8c483">_cs</a>,  GPIO_FUNC_SPI);</div>
+<div class="line">    gpio_set_function(<a class="code hl_variable" href="_s_p_i_display_8cpp.html#aee26e96bfaf1ee2e582db4efa313f89a">spiHW</a>.<a class="code hl_variable" href="class_h_w.html#a30e733bd17c511c09b0e1ee69f21f2e8">_sck</a>,   GPIO_FUNC_SPI);</div>
+<div class="line">    gpio_set_function(<a class="code hl_variable" href="_s_p_i_display_8cpp.html#aee26e96bfaf1ee2e582db4efa313f89a">spiHW</a>.<a class="code hl_variable" href="class_h_w.html#a699e24cf683f30cddf89b56b5e4ad4bd">_tx</a>, GPIO_FUNC_SPI);</div>
+<div class="line">4. gpio_put(<a class="code hl_variable" href="_s_p_i_display_8cpp.html#aee26e96bfaf1ee2e582db4efa313f89a">spiHW</a>.<a class="code hl_variable" href="class_h_w.html#a6d576266a9cee563dc29de84d2b8c483">_cs</a>,1);</div>
+<div class="line"> </div>
+<div class="line">5. <a class="code hl_variable" href="_s_p_i_display_8cpp.html#aee26e96bfaf1ee2e582db4efa313f89a">spiHW</a>.<a class="code hl_function" href="class_h_w.html#a7247f33f5038930faf7be0091f009e6b">init</a>();      <span class="comment">// ライブラリ初期化</span></div>
+<div class="line">6.  <a class="code hl_class" href="class_s_t7735.html">ST7735</a>  st7735(<a class="code hl_variable" href="_s_p_i_display_8cpp.html#aee26e96bfaf1ee2e582db4efa313f89a">spiHW</a>);</div>
+<div class="line">7.  <a class="code hl_variable" href="_s_p_i_display_8cpp.html#a502dd594669cfeb6601ebb979f658772">pST7735</a> = &amp;st7735;</div>
+<div class="line">    </div>
+<div class="line">8.  st7735.<a class="code hl_function" href="class_s_t7735.html#a2cfe5851b8106ee7dcba84cfec4582f4">doInit</a>();</div>
+<div class="line">　　：</div>
+<div class="line">　　：</div>
+<div class="ttc" id="a_s_p_i_display_8cpp_html_a23f0517fe666e1dccd4a8fd1827b230a"><div class="ttname"><a href="_s_p_i_display_8cpp.html#a23f0517fe666e1dccd4a8fd1827b230a">iRet</a></div><div class="ttdeci">volatile uint16_t iRet</div><div class="ttdef"><b>Definition</b> SPIDisplay.cpp:27</div></div>
+<div class="ttc" id="a_s_p_i_display_8cpp_html_a502dd594669cfeb6601ebb979f658772"><div class="ttname"><a href="_s_p_i_display_8cpp.html#a502dd594669cfeb6601ebb979f658772">pST7735</a></div><div class="ttdeci">ST7735 * pST7735</div><div class="ttdef"><b>Definition</b> SPIDisplay.cpp:451</div></div>
+<div class="ttc" id="a_s_p_i_display_8cpp_html_aee26e96bfaf1ee2e582db4efa313f89a"><div class="ttname"><a href="_s_p_i_display_8cpp.html#aee26e96bfaf1ee2e582db4efa313f89a">spiHW</a></div><div class="ttdeci">HW spiHW(0, 16, 17, 18, 19, 28, 15)</div></div>
+<div class="ttc" id="aclass_h_w_html"><div class="ttname"><a href="class_h_w.html">HW</a></div><div class="ttdoc">ハードウェア関連の処理や設定を行う為のクラス。使用するピンを変える場合などは、このクラスの変数でデフォルト値を変更するか、 このクラスのコンストラクタでポート番号を指定する。 このクラスは静的ではないの...</div><div class="ttdef"><b>Definition</b> hw.h:72</div></div>
+<div class="ttc" id="aclass_h_w_html_a30e733bd17c511c09b0e1ee69f21f2e8"><div class="ttname"><a href="class_h_w.html#a30e733bd17c511c09b0e1ee69f21f2e8">HW::_sck</a></div><div class="ttdeci">uint8_t _sck</div><div class="ttdef"><b>Definition</b> hw.h:105</div></div>
+<div class="ttc" id="aclass_h_w_html_a699e24cf683f30cddf89b56b5e4ad4bd"><div class="ttname"><a href="class_h_w.html#a699e24cf683f30cddf89b56b5e4ad4bd">HW::_tx</a></div><div class="ttdeci">uint8_t _tx</div><div class="ttdef"><b>Definition</b> hw.h:106</div></div>
+<div class="ttc" id="aclass_h_w_html_a6d576266a9cee563dc29de84d2b8c483"><div class="ttname"><a href="class_h_w.html#a6d576266a9cee563dc29de84d2b8c483">HW::_cs</a></div><div class="ttdeci">uint8_t _cs</div><div class="ttdef"><b>Definition</b> hw.h:104</div></div>
+<div class="ttc" id="aclass_h_w_html_a7247f33f5038930faf7be0091f009e6b"><div class="ttname"><a href="class_h_w.html#a7247f33f5038930faf7be0091f009e6b">HW::init</a></div><div class="ttdeci">void init(void)</div><div class="ttdoc">GPIOの初期化を行う。コンストラクタで指定されたポートを出力に設定する。</div><div class="ttdef"><b>Definition</b> hw.cpp:37</div></div>
+<div class="ttc" id="aclass_h_w_html_ad173a9d2f3d316881d6ba801ad6ea2f1"><div class="ttname"><a href="class_h_w.html#ad173a9d2f3d316881d6ba801ad6ea2f1">HW::portSPI</a></div><div class="ttdeci">spi_inst_t * portSPI</div><div class="ttdoc">SPIポートへのポインタ</div><div class="ttdef"><b>Definition</b> hw.h:101</div></div>
+<div class="ttc" id="aclass_h_w_html_af0e3c7bde9ff018678a821fd15ccc8df"><div class="ttname"><a href="class_h_w.html#af0e3c7bde9ff018678a821fd15ccc8df">HW::_dc</a></div><div class="ttdeci">uint8_t _dc</div><div class="ttdoc">Data/Commandで使用するぽーと番号</div><div class="ttdef"><b>Definition</b> hw.h:103</div></div>
+<div class="ttc" id="aclass_s_t7735_html"><div class="ttname"><a href="class_s_t7735.html">ST7735</a></div><div class="ttdoc">画面表示のクラス。インスタンス化して使用する。</div><div class="ttdef"><b>Definition</b> ST7735_TFT.h:113</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a2cfe5851b8106ee7dcba84cfec4582f4"><div class="ttname"><a href="class_s_t7735.html#a2cfe5851b8106ee7dcba84cfec4582f4">ST7735::doInit</a></div><div class="ttdeci">void doInit()</div><div class="ttdoc">初期化処理を行う</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:46</div></div>
+</div><!-- fragment --><ol type="1">
+<li>SPIのハードウェア関連の処理を行うクラスのインスタンスを作成します。SPIハードウェアの番号（ SDKの関数で、SPI機能の初期化を行います。１つ目の引数はSPIハードウェアの番号です。Raspberry PI PICOは、SPIのハードウェアを２つ持っており、そのどちらを使用するか０か１で選びます。それ以降の引数は、使用するポート番号です。デフォルトで良い場合はデフォルトコンストラクタ（引数なし）で初期化することもできます。</li>
+<li>SPIの初期化を行います。使用するのはSPIハードウェアの番号と、ボーレートです。10MHz程度は使用できるようです。もう少し上まで行くかもしれません。</li>
+<li>それぞれのピン番号に、SPI機能を割り当てます。</li>
+<li>csを初期状態にします。</li>
+<li>ST7735固有のハードウェアの初期化を行います。RXではなくData/Commandとして扱うため、RXポートをSPIかGPIOに戻す、リセットの実行等を行います。</li>
+<li>グラフィックライブラリの作成を行います。ここで、ハードウェアのオブジェクトを引き渡します。グラフィックライブラリ側では、この情報を使ってハードウェアと通信します。</li>
+<li>とくに意味はありません。昔、C言語だったころ、参照を扱えなかったのでポインタにしていた名残です。</li>
+<li>グラフィックライブラリの初期化を行います。TFTに対して初期化コマンドを送るなどが行われます。</li>
+</ol>
+<h4><a class="anchor" id="autotoc_md20"></a>
+各機能の実行</h4>
+<p>初期化処理が終わると、各機能を順番に呼びだしていきます。</p>
+<p>それぞれの機能は、有効/無効がマクロ定義で決まっています。そのため、デモの機能を呼びだす部分は <code>#if defined ～ #endif</code> で囲まれています。</p>
+<div class="fragment"><div class="line">    <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><span class="preprocessor">#if defined(TFT_ENABLE_TEXT)</span></div>
+<div class="line">1.      st7735.setTextWrap(<span class="keyword">true</span>);</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line">        st7735.SetRotation(<a class="code hl_enumvalue" href="_s_t7735__struct_8h.html#afc67bf57f963f3086cb5532735b82c8ba50d1448013c6f17125caee18aa418af7">ST7735_ROTATION::NORMAL</a>);</div>
+<div class="line"><span class="preprocessor">#ifdef TFT_ENABLE_BITMAP</span></div>
+<div class="line">2.      <a class="code hl_function" href="_s_p_i_display_8cpp.html#a1fb2f0395c3962bb1d1915084812fa5f">demo_bmp</a>(st7735);</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="comment">// テキスト表示のデモ</span></div>
+<div class="line"><span class="preprocessor">#if defined(TFT_ENABLE_KANJI) &amp;&amp; defined(TFT_ENABLE_TEXT)</span></div>
+<div class="line">3.      <a class="code hl_function" href="_s_p_i_display_8cpp.html#a5d9aa7d685c95386c099052b3cade467">demo_Kanji</a>(st7735);</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if defined(TFT_ENABLE_FONTS) &amp;&amp; defined(TFT_ENABLE_TEXT)</span></div>
+<div class="line">4.      <a class="code hl_function" href="_s_p_i_display_8cpp.html#a6628a2e3d3c281c479a05dbd1e95ce5e">demo_fonts</a>(st7735);</div>
+<div class="line"><span class="preprocessor">#elif defined(TFT_ENABLE_TEXT) </span></div>
+<div class="line">5.      <a class="code hl_function" href="_s_p_i_display_8cpp.html#aa3a896d2f46a38dbc6c9d0b7cdc10d41">demo_text</a>(st7735);</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// 基本描画機能のデモ</span></div>
+<div class="line">6.      <a class="code hl_function" href="_s_p_i_display_8cpp.html#a213e5000bdd683313d4aa1c5c42a41d7">demo_basic</a>(st7735);</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#ifdef TFT_ENABLE_SHAPES</span></div>
+<div class="line">        <span class="comment">// 図形描画のテスト</span></div>
+<div class="line">7.      <a class="code hl_function" href="_s_p_i_display_8cpp.html#a0d6604eb01a69292d7d02c586f1437e8">demo_shapes</a>(st7735);</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line">        <span class="comment">// void drawTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color);</span></div>
+<div class="line">        <span class="comment">// void fillTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color);</span></div>
+<div class="line"> </div>
+<div class="line">        st7735.fillScreen(<a class="code hl_variable" href="_s_t7735__struct_8h.html#a7d80cad544f013a9edd431a7e827961a">ST7735Color</a>.BLACK);</div>
+<div class="line">        sleep_ms(1000);</div>
+<div class="line">    }</div>
+<div class="ttc" id="a_s_p_i_display_8cpp_html_a0d6604eb01a69292d7d02c586f1437e8"><div class="ttname"><a href="_s_p_i_display_8cpp.html#a0d6604eb01a69292d7d02c586f1437e8">demo_shapes</a></div><div class="ttdeci">void demo_shapes(ST7735 st7735)</div><div class="ttdoc">図形描画のデモ</div><div class="ttdef"><b>Definition</b> SPIDisplay.cpp:379</div></div>
+<div class="ttc" id="a_s_p_i_display_8cpp_html_a1fb2f0395c3962bb1d1915084812fa5f"><div class="ttname"><a href="_s_p_i_display_8cpp.html#a1fb2f0395c3962bb1d1915084812fa5f">demo_bmp</a></div><div class="ttdeci">void demo_bmp(ST7735 &amp;st7735)</div><div class="ttdoc">ビットマップ表示のデモ</div><div class="ttdef"><b>Definition</b> SPIDisplay.cpp:77</div></div>
+<div class="ttc" id="a_s_p_i_display_8cpp_html_a213e5000bdd683313d4aa1c5c42a41d7"><div class="ttname"><a href="_s_p_i_display_8cpp.html#a213e5000bdd683313d4aa1c5c42a41d7">demo_basic</a></div><div class="ttdeci">void demo_basic(ST7735 &amp;st7735)</div><div class="ttdoc">画面のクリア、縦直線、横直線、矩形、点の描画など、基本描画機能のデモ。</div><div class="ttdef"><b>Definition</b> SPIDisplay.cpp:341</div></div>
+<div class="ttc" id="a_s_p_i_display_8cpp_html_a5d9aa7d685c95386c099052b3cade467"><div class="ttname"><a href="_s_p_i_display_8cpp.html#a5d9aa7d685c95386c099052b3cade467">demo_Kanji</a></div><div class="ttdeci">void demo_Kanji(ST7735 &amp;st7735)</div><div class="ttdoc">漢字の表示とスクロールのデモ</div><div class="ttdef"><b>Definition</b> SPIDisplay.cpp:243</div></div>
+<div class="ttc" id="a_s_p_i_display_8cpp_html_a6628a2e3d3c281c479a05dbd1e95ce5e"><div class="ttname"><a href="_s_p_i_display_8cpp.html#a6628a2e3d3c281c479a05dbd1e95ce5e">demo_fonts</a></div><div class="ttdeci">void demo_fonts(ST7735 &amp;st7735)</div><div class="ttdoc">フォント指定テキスト出力とスクロールのデモ</div><div class="ttdef"><b>Definition</b> SPIDisplay.cpp:282</div></div>
+<div class="ttc" id="a_s_p_i_display_8cpp_html_aa3a896d2f46a38dbc6c9d0b7cdc10d41"><div class="ttname"><a href="_s_p_i_display_8cpp.html#aa3a896d2f46a38dbc6c9d0b7cdc10d41">demo_text</a></div><div class="ttdeci">void demo_text(ST7735 &amp;st7735)</div><div class="ttdoc">通常テキスト出力とスクロールのデモ</div><div class="ttdef"><b>Definition</b> SPIDisplay.cpp:310</div></div>
+<div class="ttc" id="a_s_t7735__struct_8h_html_a7d80cad544f013a9edd431a7e827961a"><div class="ttname"><a href="_s_t7735__struct_8h.html#a7d80cad544f013a9edd431a7e827961a">ST7735Color</a></div><div class="ttdeci">class @5 ST7735Color</div><div class="ttdoc">ST7735に対する色の定義</div></div>
+<div class="ttc" id="a_s_t7735__struct_8h_html_afc67bf57f963f3086cb5532735b82c8ba50d1448013c6f17125caee18aa418af7"><div class="ttname"><a href="_s_t7735__struct_8h.html#afc67bf57f963f3086cb5532735b82c8ba50d1448013c6f17125caee18aa418af7">NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdef"><b>Definition</b> ST7735_struct.h:8</div></div>
+</div><!-- fragment --><ol type="1">
+<li>テキストの自動改行を行うかを設定しておきます。</li>
+<li>ビットマップ表示のデモを行います。<br  />
+有名なヒゲのおじさんが左右に動きます。ヒゲのおじさんは、右向きのビットマップしか用意していませんが、ST7732のスキャン方向を変更する機能を使用して左右を入れ替え、左向きの画像を表示させて左向きに動かしています。</li>
+<li>漢字表示と、スクロール機能のデモを行います。<br  />
+最初に標準状態で日本語テキストを表示させ、スクロールさせます。その後、画面を横回転させてスクロールさせます。</li>
+<li>フォント定義テキストのデモを行います。<br  />
+フォント定義を行い大きな文字の表示とスクロール機能のデモを行います。上下にスクロール禁止領域を定義し、画面の一部分だけをスクロールさせています。</li>
+<li>基本テキストのデモを行います<br  />
+フォント機能を使用しない、基本テキストの場合のテキスト表示とスクロール機能のデモを行います。上下にスクロール禁止領域を定義し、画面の一部分だけをスクロールさせています。</li>
+<li>基本描画機能のデモを行います。<br  />
+基本描画機能は縦横の線、矩形と塗りつぶし矩形、点の描画です。これらの機能は常に使用できます。</li>
+<li>図形描画機能のデモを行います。<br  />
+丸、矩形、角丸矩形とそれらの塗りつぶし、直線の描画を行います。 </li>
+</ol>
+</div></div><!-- PageDoc -->
+<a href="doxygen_crawl.html"></a>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

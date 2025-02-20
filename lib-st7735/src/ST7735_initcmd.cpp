@@ -55,7 +55,7 @@ void ST7735Init::SetSPIHW(HW* a_pSpiHW)
 /// @brief データのポインタを受け取り、一連のコマンドを送信する
 /// @param commandByte コマンド
 /// @param dataBytes データへのポインタ
-/// @param numDataBytes　送信するデータのバイト数
+/// @param numDataBytes 送信するデータのバイト数
 void ST7735Init::sendCommand(uint8_t commandByte, const uint8_t *dataBytes, uint8_t numDataBytes)
 {
 	pSpiHW->debugIn();
@@ -73,7 +73,7 @@ void ST7735Init::sendCommand(uint8_t commandByte, const uint8_t *dataBytes, uint
 }
 
 /// @brief 指定されたコマンドリストをSPI経由でディスプレイに送信し、初期化処理を行う
-/// @param コマンドリスト
+/// @param addr 実行するコマンドリストのポインタ
 void ST7735Init::displayInit(const uint8_t *addr)
 {
 	uint8_t numCommands, cmd, numArgs;
@@ -82,7 +82,7 @@ void ST7735Init::displayInit(const uint8_t *addr)
 
 	pSpiHW->debugIn();
 
-	numCommands = *addr++;  // 　実行するコマンドの数を最初に読む
+	numCommands = *addr++;  // 実行するコマンドの数を最初に読む
 	for (uint8_t i = 0; i < numCommands; i++) {
 		cmd = *addr++;
 		numArgs = *addr++;
@@ -182,9 +182,8 @@ void ST7735Init::initR(uint8_t options)
 }
 
 #if defined TFT_ENABLE_ROTATE
-/// @brief 画面の横と縦を指定する。
-/// @details 実行中にも変更できるが、表示中の文字は変わらない。
-/// @param m 画面の方向。0...標準、1...90度左回転、2...180度左回転、3...270度左回転 
+/// @brief 画面の横と縦を指定する。変更しても、現在表示中の画面は変更されない。この命令以後表示されるもののみが対象になる。
+/// @param m 画面の方向。0...標準、1...90度左回転、2...180度左回転、3...270度左回転
 void ST7735Init::setRotation(ST7735_ROTATION m)
 {
 	// m can be 0-3

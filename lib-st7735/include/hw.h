@@ -53,15 +53,15 @@ class {
 	const uint8_t SHORT = 5;
 	#endif
 	/// @brief 最大の待ち時間として500ms待つ
-	inline void delay_max() { sleep_ms(MAX); };
+	inline void delay_max(void) { sleep_ms(MAX); };
 	/// @brief 長めの待ち時間として255ms待つ
-	inline void delay_long() { sleep_ms(LONG); };
+	inline void delay_long(void) { sleep_ms(LONG); };
 	/// @brief 中間の待ち時間として150ms待つ
-	inline void delay_midlong() { sleep_ms(MIDLONG); }
+	inline void delay_midlong(void) { sleep_ms(MIDLONG); }
 	/// @brief 中間の待ち時間として50ms待つ
-	inline void delay_middle() { sleep_ms(MIDDLE); }
+	inline void delay_middle(void) { sleep_ms(MIDDLE); }
 	/// @brief 短い待ち時間として10ms待つ
-	inline void delay_short() { sleep_ms(SHORT); }
+	inline void delay_short(void) { sleep_ms(SHORT); }
 } ST7735Sleep;
 
 /// @brief ハードウェア関連の処理や設定を行う為のクラス。使用するピンを変える場合などは、このクラスの変数でデフォルト値を変更するか、
@@ -72,20 +72,20 @@ class HW
 {
 	
 	/// SPIで使用するポートの定義（デフォルト値。コンストラクタで変更可能）
-	/// @def SPIで使用するデフォルトのピン番号。RXの信号線（GP16）
+	/// @brief SPIで使用するデフォルトのピン番号。RXの信号線（GP16）
 	const uint8_t PIN_TFT_RX = 16;
-  	/// @def ST7735のData/Commandで使用するピン番号。ST7735では、RX(MISO）は使用せず、Data/CommandとしてRXのピンを使用する。（自力で制御する）
-  	const uint8_t PIN_TFT_DC =PIN_TFT_RX;  
-  	/// @def SPIのCSnのデフォルトピン
-  	const uint8_t PIN_TFT_CS = 17;   // SPI CSn
-	/// @def SPIのTX(MOSI)信号ので使用するデフォルトのピン番号
-  	const uint8_t PIN_TFT_TX = 19;   // SPI . マスターからの出力情報
-	/// @def SPIのクロック(SCK)で使用するデフォルトのピン番号
+	/// @brief  ST7735のData/Commandで使用するピン番号。ST7735では、RX(MISO）は使用せず、Data/CommandとしてRXのピンを使用する。（自力で制御する）
+	const uint8_t PIN_TFT_DC =PIN_TFT_RX;
+	/// @brief SPIのCSnのデフォルトピン
+	const uint8_t PIN_TFT_CS = 17;   // SPI CSn
+	/// @brief SPIのTX(MOSI)信号ので使用するデフォルトのピン番号
+	const uint8_t PIN_TFT_TX = 19;   // SPI . マスターからの出力情報
+	/// @brief SPIのクロック(SCK)で使用するデフォルトのピン番号
   	const uint8_t PIN_TFT_SCK = 18;  // SCK
 
-  	/// @def リセットピンで使用するポートの番号。無くても動く（電源に直結）。０を指定するとリセットピンは使用しない
+  	/// @brief リセットピンで使用するポートの番号。無くても動く（電源に直結）。０を指定するとリセットピンは使用しない
   	const uint8_t PIN_TFT_RST = 28;
-	/// @def デバッグピンの定義（SPIの信号出力時にストローブしたり、Highになる）。ゼロを指定するとデバッグピンは使用しない
+	/// @brief デバッグピンの定義（SPIの信号出力時にストローブしたり、Highになる）。ゼロを指定するとデバッグピンは使用しない
   	const uint8_t PIN_TFT_DEBUG = 15;
 
   /// @brief 各種の設定を集めた構造体。オン/オフの為に１バイト使うのがアレなのでこうしたらしい。

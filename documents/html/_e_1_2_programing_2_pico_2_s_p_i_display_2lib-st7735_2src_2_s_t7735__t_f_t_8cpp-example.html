@@ -1,0 +1,1123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: E:/Programing/Pico/SPIDisplay/lib-st7735/src/ST7735_TFT.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',false,false,'search.php','検索',false);
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="doc-content">
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<div class="header">
+  <div class="headertitle"><div class="title">E:/Programing/Pico/SPIDisplay/lib-st7735/src/ST7735_TFT.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<p>グラフィックライブラリのコンストラクタ<br  />
+ グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。</p>
+<p>グラフィックライブラリのコンストラクタ<br  />
+ グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spiHW</td><td>ハードウェアにアクセスするための情報を持っているクラスへのポインタ</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>次のようにして使用する </p><div class="fragment"><div class="line">@<a id="_a0" name="_a0"></a><a class="code hl_class" href="class_h_w.html">HW</a>      spiHW(0,16,17,18,19,28,15);</div>
+<div class="ttc" id="aclass_h_w_html"><div class="ttname"><a href="class_h_w.html">HW</a></div><div class="ttdoc">ハードウェア関連の処理や設定を行う為のクラス。使用するピンを変える場合などは、このクラスの変数でデフォルト値を変更するか、 このクラスのコンストラクタでポート番号を指定する。 このクラスは静的ではないの...</div><div class="ttdef"><b>Definition</b> hw.h:72</div></div>
+</div><!-- fragment --><div class="fragment"><div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @file ST7735_TFT.cpp</span></div>
+<div class="line"><span class="comment">/// @brief Raspberry pi pico 標準SDK用の画面ライブラリ&lt;br/&gt;</span></div>
+<div class="line"><span class="comment">/// 次のソースコードをベースにしている。&lt;br/&gt;</span></div>
+<div class="line"><span class="comment">/// pic_16F18346_projects / Gavin Lyons (https://github.com/gavinlyonsrepo/pic_16F18346_projects) &lt;br/&gt;</span></div>
+<div class="line"><span class="comment">/// ST7735 TFT-Library for PIC-Microcontrollers / Bernhard Bablok (https://github.com/bablokb/pic-st7735) &lt;br/&gt;</span></div>
+<div class="line"><span class="comment">///</span></div>
+<div class="line"><span class="comment">/// @details このライブラリは、Microchip社のPIC用ライブラリと、adafruit用のライブラリから作成した、Raspberry PI PICO用の</span></div>
+<div class="line"><span class="comment">/// ST7732ライブラリ。（大元のpic_16F18346_projects自体、adafruit用のライブラリと相当類似しており、どちらが本家かはわからない。&lt;br/&gt;</span></div>
+<div class="line"><span class="comment">/// 主な改変は次の通り。&lt;br/&gt;</span></div>
+<div class="line"><span class="comment">/// - Raspberry PI PICO SDK への適合（https://marketplace.visualstudio.com/items?itemName=raspberry-pi.raspberry-pi-pico　を使用) &lt;br/&gt;</span></div>
+<div class="line"><span class="comment">/// - c++のクラス化 &lt;/br&gt;</span></div>
+<div class="line"><span class="comment">/// - 漢字表示機能の追加 &lt;/br&gt;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="preprocessor">#pragma GCC optimize (&quot;O0&quot;)</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;../include/ST7735_TFT.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iconv.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../include/ST7735_commands.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../include/ST7735_initcmd.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../include/hw.h&quot;</span></div>
+<div class="line"><span class="comment">//#include &quot;../include/JpTextConv.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#if defined(TFT_ENABLE_KANJI)</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../include/KanjiHelper.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if defined(TFT_ENABLE_TEXT) &amp;&amp; ! defined(TFT_ENABLE_FONTS)</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../include/TextFonts.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="preprocessor">#include &lt;bits/move.h&gt;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief グラフィックライブラリのコンストラクタ&lt;br/&gt;</span></div>
+<div class="line"><span class="comment">/// グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。</span></div>
+<div class="line"><span class="comment">/// @param spiHW ハードウェアにアクセスするための情報を持っているクラスへのポインタ</span></div>
+<div class="line"><span class="comment">/// @example</span></div>
+<div class="line"><span class="comment">/// 次のようにして使用する</span></div>
+<div class="line"><span class="comment">/// @code</span></div>
+<div class="line"><span class="comment">/// @HW      spiHW(0,16,17,18,19,28,15);</span></div>
+<div class="line"><span class="comment">/// @endcode </span></div>
+<div class="line"><span class="comment"></span>ST7735::ST7735(<a class="code hl_class" href="class_h_w.html">HW</a>&amp; spiHW) : spiHW(spiHW) </div>
+<div class="line">{</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief 初期化処理を行う</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a1" name="a1"></a><a class="code hl_function" href="class_s_t7735.html#a2cfe5851b8106ee7dcba84cfec4582f4">ST7735::doInit</a>()</div>
+<div class="line">{</div>
+<div class="line">    spiHW.<a id="a2" name="a2"></a><a class="code hl_function" href="class_h_w.html#a7247f33f5038930faf7be0091f009e6b">init</a>();</div>
+<div class="line">    st7735Init.<a id="a3" name="a3"></a><a class="code hl_function" href="class_s_t7735_init.html#ad134f4bd5dab16481694ff80ecda5c3e">SetSPIHW</a>(&amp;spiHW);</div>
+<div class="line"><span class="preprocessor">#ifdef TFT_ENABLE_BLACK</span></div>
+<div class="line">    st7735Init.<a id="a4" name="a4"></a><a class="code hl_function" href="class_s_t7735_init.html#adc8999d313e15f1e253025e18895fcc4">initR</a>((uint8_t)ST7735Type.BLACKTAB);</div>
+<div class="line"><span class="preprocessor">#elif defined(TFT_ENABLE_GREEN)</span></div>
+<div class="line">    st7735Init.<a class="code hl_function" href="class_s_t7735_init.html#adc8999d313e15f1e253025e18895fcc4">initR</a>((uint8_t)ST7735Type.GREENTAB);</div>
+<div class="line"><span class="preprocessor">#elif defined(TFT_ENABLE_RED)</span></div>
+<div class="line">    st7735Init.<a class="code hl_function" href="class_s_t7735_init.html#adc8999d313e15f1e253025e18895fcc4">initR</a>((uint8_t)ST7735Type.REDTAB);</div>
+<div class="line"><span class="preprocessor">#elif defined(TFT_ENABLE_GENERIC)</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief コマンドを送信する。DC:L→CS:L→コマンド送信→CS:H</span></div>
+<div class="line"><span class="comment">/// @param cmd_ 送信するコマンド</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a5" name="a5"></a><a class="code hl_function" href="class_s_t7735.html#a65c84afbcd019b65d40fb65823772585">ST7735::writeCommand</a>(uint8_t cmd_) </div>
+<div class="line">{</div>
+<div class="line">    spiHW.<a id="a6" name="a6"></a><a class="code hl_function" href="class_h_w.html#a8d01c69f5383daf19cba692d3b3681fc">writeCommand</a>(cmd_);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief  データを送信する。DC:H→CS:L→データ送信→CS:H</span></div>
+<div class="line"><span class="comment">/// @param data_ 送信するデータ</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a7" name="a7"></a><a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">ST7735::writeData</a>(uint8_t data_)</div>
+<div class="line">{</div>
+<div class="line">    spiHW.<a id="a8" name="a8"></a><a class="code hl_function" href="class_h_w.html#ae1c3074ee37ca92cf5b19e53609b494b">writeData</a>(data_);</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief BitBlitのためのアドレスウインドウを設定する。（https://en.wikipedia.org/wiki/Bit_blit）</span></div>
+<div class="line"><span class="comment">/// @param x0　左上のx座標</span></div>
+<div class="line"><span class="comment">/// @param y0　左上のy座標</span></div>
+<div class="line"><span class="comment">/// @param x1　右下のx座標</span></div>
+<div class="line"><span class="comment">/// @param y1　右下のy座標</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a9" name="a9"></a><a class="code hl_function" href="class_s_t7735.html#a766bbc6bb191c837d004a15e1d5c44cd">ST7735::setAddrWindow</a>(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)</div>
+<div class="line">{</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#a65c84afbcd019b65d40fb65823772585">writeCommand</a>(ST7735Cmd.CASET);</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0);</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(x0 + st7735Init.<a id="a10" name="a10"></a>xstart);</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0);</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(x1 + st7735Init.xstart);</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#a65c84afbcd019b65d40fb65823772585">writeCommand</a>(ST7735Cmd.RASET);</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0);</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(y0 + st7735Init.<a id="a11" name="a11"></a>ystart);</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0);</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(y1 + st7735Init.ystart);</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#a65c84afbcd019b65d40fb65823772585">writeCommand</a>(ST7735Cmd.RAMWR);  <span class="comment">// Write to RAM</span></div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief 矩形を塗りつぶす</span></div>
+<div class="line"><span class="comment">/// @param x </span></div>
+<div class="line"><span class="comment">/// @param y </span></div>
+<div class="line"><span class="comment">/// @param w </span></div>
+<div class="line"><span class="comment">/// @param h </span></div>
+<div class="line"><span class="comment">/// @param color</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a12" name="a12"></a><a class="code hl_function" href="class_s_t7735.html#a373cb30efb66571a6b9a57bb4f681497">ST7735::fillRectangle</a>(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">  uint8_t hi, lo;</div>
+<div class="line">  <span class="keywordflow">if</span> ((x &gt;= st7735Init.<a id="a13" name="a13"></a>width) || (y &gt;= st7735Init.<a id="a14" name="a14"></a>height)) <span class="keywordflow">return</span>;</div>
+<div class="line">  <span class="keywordflow">if</span> ((x + w - 1) &gt;= st7735Init.width) w = st7735Init.width - x;</div>
+<div class="line">  <span class="keywordflow">if</span> ((y + h - 1) &gt;= st7735Init.height) h = st7735Init.height - y;</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#a766bbc6bb191c837d004a15e1d5c44cd">setAddrWindow</a>(x, y, x + w - 1, y + h - 1);</div>
+<div class="line">  hi = color &gt;&gt; 8;</div>
+<div class="line">  lo = color;</div>
+<div class="line">  spiHW.<a id="a15" name="a15"></a>DCHigh();</div>
+<div class="line">  spiHW.<a id="a16" name="a16"></a>CSLow();</div>
+<div class="line">  <span class="keywordflow">for</span> (y = h; y &gt; 0; y--) {</div>
+<div class="line">    <span class="keywordflow">for</span> (x = w; x &gt; 0; x--) {</div>
+<div class="line">      spiHW.<a id="a17" name="a17"></a>spiWrite(hi); </div>
+<div class="line">      spiHW.spiWrite(lo);</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">  spiHW.<a id="a18" name="a18"></a>CSHigh();</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief 画面を単色で塗りつぶす。初期設定された液晶サイズの矩形を表示させることで実装。</span></div>
+<div class="line"><span class="comment">/// @param color</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a19" name="a19"></a><a class="code hl_function" href="class_s_t7735.html#a4deb9ae409aa46b6f5934d9e46427803">ST7735::fillScreen</a>(uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a373cb30efb66571a6b9a57bb4f681497">fillRectangle</a>(0, 0, st7735Init.width, st7735Init.height, color);</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief　水平線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。</span></div>
+<div class="line"><span class="comment">/// @param x 始点のx座標</span></div>
+<div class="line"><span class="comment">/// @param y 始点のy座標</span></div>
+<div class="line"><span class="comment">/// @param w 線の長さ</span></div>
+<div class="line"><span class="comment">/// @param color 線の色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a20" name="a20"></a><a class="code hl_function" href="class_s_t7735.html#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">ST7735::drawFastHLine</a>(uint8_t x, uint8_t y, uint8_t w, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">  uint8_t hi, lo;</div>
+<div class="line">  <span class="keywordflow">if</span> ((x &gt;= st7735Init.width) || (y &gt;= st7735Init.height)) <span class="keywordflow">return</span>;</div>
+<div class="line">  <span class="keywordflow">if</span> ((x + w - 1) &gt;= st7735Init.width) w = st7735Init.width - x;</div>
+<div class="line">  hi = color &gt;&gt; 8;</div>
+<div class="line">  lo = color;</div>
+<div class="line">  <a class="code hl_function" href="class_s_t7735.html#a766bbc6bb191c837d004a15e1d5c44cd">setAddrWindow</a>(x, y, x + w - 1, y);</div>
+<div class="line">  spiHW.DCHigh();</div>
+<div class="line">  spiHW.CSLow();</div>
+<div class="line">  <span class="keywordflow">while</span> (w--) {</div>
+<div class="line">    spiHW.spiWrite(hi);</div>
+<div class="line">    spiHW.spiWrite(lo);</div>
+<div class="line">  }</div>
+<div class="line">  spiHW.CSHigh();</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief　垂直線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。</span></div>
+<div class="line"><span class="comment">/// @param x 始点のx座標</span></div>
+<div class="line"><span class="comment">/// @param y 始点のy座標</span></div>
+<div class="line"><span class="comment">/// @param w 線の長さ</span></div>
+<div class="line"><span class="comment">/// @param color 線の色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a21" name="a21"></a><a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">ST7735::drawFastVLine</a>(uint8_t x, uint8_t y, uint8_t h, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    uint8_t hi, lo;</div>
+<div class="line">    <span class="keywordflow">if</span> ((x &gt;= st7735Init.width) || (y &gt;= st7735Init.height))</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    <span class="keywordflow">if</span> ((y + h - 1) &gt;= st7735Init.height)</div>
+<div class="line">        h = st7735Init.height - y;</div>
+<div class="line">    hi = color &gt;&gt; 8;</div>
+<div class="line">    lo = color;</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a766bbc6bb191c837d004a15e1d5c44cd">setAddrWindow</a>(x, y, x, y + h - 1);</div>
+<div class="line">    spiHW.DCHigh();</div>
+<div class="line">    spiHW.CSLow();</div>
+<div class="line">    <span class="keywordflow">while</span> (h--) {</div>
+<div class="line">        spiHW.spiWrite(hi);</div>
+<div class="line">        spiHW.spiWrite(lo);</div>
+<div class="line">    }</div>
+<div class="line">    spiHW.CSHigh();</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief 画面に点を描画する</span></div>
+<div class="line"><span class="comment">/// @param x     </span></div>
+<div class="line"><span class="comment">/// @param y </span></div>
+<div class="line"><span class="comment">/// @param color </span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a22" name="a22"></a><a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">ST7735::drawPixel</a>(uint8_t x, uint8_t y, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> ((x &gt;= st7735Init.width) || (y &gt;= st7735Init.height))</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a766bbc6bb191c837d004a15e1d5c44cd">setAddrWindow</a>(x, y, x + 1, y + 1);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(color &gt;&gt; 8);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(color &amp; 0xFF);</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief      画面の表示を反転させる</span></div>
+<div class="line"><span class="comment">/// @param i    true:反転、false:通常表示 </span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a23" name="a23"></a><a class="code hl_function" href="class_s_t7735.html#a4a263cbcc63983968a0b29b107e673ad">ST7735::invertDisplay</a>(<span class="keywordtype">bool</span> i)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (i)</div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#a65c84afbcd019b65d40fb65823772585">writeCommand</a>(ST7735Cmd.INVON);</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#a65c84afbcd019b65d40fb65823772585">writeCommand</a>(ST7735Cmd.INVOFF);</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief 画面の表示を通常に戻す</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a24" name="a24"></a><a class="code hl_function" href="class_s_t7735.html#aa8ada43a4e69ba740688ff86b4d2d123">ST7735::NormalDisplay</a>()</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a65c84afbcd019b65d40fb65823772585">writeCommand</a>(ST7735Cmd.NORON);</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief      画面に色を表示する</span></div>
+<div class="line"><span class="comment">/// @param color </span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a25" name="a25"></a><a class="code hl_function" href="class_s_t7735.html#a67bee8d67424ef791bb94dc00f07e39b">ST7735::pushColor</a>(uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    uint8_t hi, lo;</div>
+<div class="line">    hi = color &gt;&gt; 8;</div>
+<div class="line">    lo = color;</div>
+<div class="line">    spiHW.DCHigh();</div>
+<div class="line">    spiHW.CSLow();</div>
+<div class="line">    spiHW.spiWrite(hi);</div>
+<div class="line">    spiHW.spiWrite(lo);</div>
+<div class="line">    spiHW.CSHigh();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if defined TFT_ENABLE_SHAPES   </span><span class="comment">// 画像の表示関数を有効にする</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief 画面に円を描画する</span></div>
+<div class="line"><span class="comment">/// @param x0 中心のx座標</span></div>
+<div class="line"><span class="comment">/// @param y0　中心のy座標</span></div>
+<div class="line"><span class="comment">/// @param r　半径 </span></div>
+<div class="line"><span class="comment">/// @param color　   円の色 </span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a26" name="a26"></a><a class="code hl_function" href="class_s_t7735.html#a75ab0e30bccad7d4351392712bc75210">ST7735::drawCircle</a>(int16_t x0, int16_t y0, int16_t r, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    int16_t f, ddF_x, ddF_y, x, y;</div>
+<div class="line">    f = 1 - r, ddF_x = 1, ddF_y = -2 * r, x = 0, y = r;</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0, y0 + r, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0, y0 - r, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 + r, y0, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 - r, y0, color);</div>
+<div class="line">    <span class="keywordflow">while</span> (x &lt; y) {</div>
+<div class="line">        <span class="keywordflow">if</span> (f &gt;= 0) {</div>
+<div class="line">            y--;</div>
+<div class="line">            ddF_y += 2;</div>
+<div class="line">            f += ddF_y;</div>
+<div class="line">        }</div>
+<div class="line">        x++;</div>
+<div class="line">        ddF_x += 2;</div>
+<div class="line">        f += ddF_x;</div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 + x, y0 + y, color);</div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 - x, y0 + y, color);</div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 + x, y0 - y, color);</div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 - x, y0 - y, color);</div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 + y, y0 + x, color);</div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 - y, y0 + x, color);</div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 + y, y0 - x, color);</div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 - y, y0 - x, color);</div>
+<div class="line">    }</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief 塗りつぶされた円を描画する</span></div>
+<div class="line"><span class="comment">/// @param x0   中心のx座標</span></div>
+<div class="line"><span class="comment">/// @param y0   中心のy座標 </span></div>
+<div class="line"><span class="comment">/// @param r    半径 </span></div>
+<div class="line"><span class="comment">/// @param color        円の色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a27" name="a27"></a><a class="code hl_function" href="class_s_t7735.html#abe1fa81fbca6e227aa6f4a06fff234db">ST7735::fillCircle</a>(int16_t x0, int16_t y0, int16_t r, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a>(x0, y0 - r, 2 * r + 1, color);</div>
+<div class="line">    fillCircleHelper(x0, y0, r, 3, 0, color);</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief 画面に、1/4の円を描画する。四分円を描画するための補助関数</span></div>
+<div class="line"><span class="comment">/// @param x0　中心のx座標</span></div>
+<div class="line"><span class="comment">/// @param y0　中心のy座標 </span></div>
+<div class="line"><span class="comment">/// @param r　   半径 </span></div>
+<div class="line"><span class="comment">/// @param cornername       四分円の位置。1:左上、2:右上、4:左下、8:右下のビットマスクになっている。</span></div>
+<div class="line"><span class="comment">/// @param color　       円の色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> ST7735::drawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    int16_t f, ddF_x, ddF_y, x, y;</div>
+<div class="line">    f = 1 - r, ddF_x = 1, ddF_y = -2 * r, x = 0, y = r;</div>
+<div class="line">    <span class="keywordflow">while</span> (x &lt; y) {</div>
+<div class="line">        <span class="keywordflow">if</span> (f &gt;= 0) {</div>
+<div class="line">            y--;</div>
+<div class="line">            ddF_y += 2;</div>
+<div class="line">            f += ddF_y;</div>
+<div class="line">        }</div>
+<div class="line">        x++;</div>
+<div class="line">        ddF_x += 2;</div>
+<div class="line">        f += ddF_x;</div>
+<div class="line">        <span class="keywordflow">if</span> (cornername &amp; 0x4) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 + x, y0 + y, color);</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 + y, y0 + x, color);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (cornername &amp; 0x2) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 + x, y0 - y, color);</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 + y, y0 - x, color);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (cornername &amp; 0x8) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 - y, y0 + x, color);</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 - x, y0 + y, color);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (cornername &amp; 0x1) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 - y, y0 - x, color);</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0 - x, y0 - y, color);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief 画面に、1/4の円を塗りつぶす。四分円を描画するための補助関数</span></div>
+<div class="line"><span class="comment">/// @param x0       中心のx座標</span></div>
+<div class="line"><span class="comment">/// @param y0       中心のy座標</span></div>
+<div class="line"><span class="comment">/// @param r        半径</span></div>
+<div class="line"><span class="comment">/// @param cornername       四分円の位置。1:左上、2:右上、4:左下、8:右下のビットマスクになっている。</span></div>
+<div class="line"><span class="comment">/// @param delta    塗りつぶしのための補正値        </span></div>
+<div class="line"><span class="comment">/// @param color        円の色 </span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> ST7735::fillCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, int16_t delta, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    int16_t f, ddF_x, ddF_y, x, y;</div>
+<div class="line">    f = 1 - r, ddF_x = 1, ddF_y = -2 * r, x = 0, y = r;</div>
+<div class="line">    <span class="keywordflow">while</span> (x &lt; y) {</div>
+<div class="line">        <span class="keywordflow">if</span> (f &gt;= 0) {</div>
+<div class="line">            y--;</div>
+<div class="line">            ddF_y += 2;</div>
+<div class="line">            f += ddF_y;</div>
+<div class="line">        }</div>
+<div class="line">        x++;</div>
+<div class="line">        ddF_x += 2;</div>
+<div class="line">        f += ddF_x;</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (cornername &amp; 0x1) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a>(x0 + x, y0 - y, 2 * y + 1 + delta, color);</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a>(x0 + y, y0 - x, 2 * x + 1 + delta, color);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (cornername &amp; 0x2) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a>(x0 - x, y0 - y, 2 * y + 1 + delta, color);</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a>(x0 - y, y0 - x, 2 * x + 1 + delta, color);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief 矩形を描画する</span></div>
+<div class="line"><span class="comment">/// @param x        左上のx座標</span></div>
+<div class="line"><span class="comment">/// @param y        左上のy座標</span></div>
+<div class="line"><span class="comment">/// @param w        幅</span></div>
+<div class="line"><span class="comment">/// @param h        高さ</span></div>
+<div class="line"><span class="comment">/// @param color        矩形の色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a28" name="a28"></a><a class="code hl_function" href="class_s_t7735.html#af9efc9b1d7e85e436337545b539e3264">ST7735::drawRectWH</a>(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">drawFastHLine</a>(x, y, w, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">drawFastHLine</a>(x, y + h - 1, w, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a>(x, y, h, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a>(x + w - 1, y, h, color);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> ST7735::drawRect(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (x0 &gt; x1) _swap(x0, x1);</div>
+<div class="line">    <span class="keywordflow">if</span> (x0 &gt; x1) _swap(y0, y1);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">drawFastHLine</a>(x0, y0, x1 - x0, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">drawFastHLine</a>(x0, y1, x1 - x0, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a>(x0, y0, y1 - y0, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a>(x1, y0, y1 - y0, color);</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief 矩形を塗りつぶす。こちらの方が高速かもしれない。</span></div>
+<div class="line"><span class="comment">/// @param x</span></div>
+<div class="line"><span class="comment">/// @param y</span></div>
+<div class="line"><span class="comment">/// @param w</span></div>
+<div class="line"><span class="comment">/// @param h</span></div>
+<div class="line"><span class="comment">/// @param color</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a29" name="a29"></a><a class="code hl_function" href="class_s_t7735.html#aa1ac52fa637f96259309e48a3e2aefaa">ST7735::fillRectWH</a>(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    int16_t i;</div>
+<div class="line">    <span class="keywordflow">for</span> (i = x; i &lt; x + w; i++) {</div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a>(i, y, h, color);</div>
+<div class="line">    }</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief 矩形を塗りつぶす。こちらの方が高速かもしれない。</span></div>
+<div class="line"><span class="comment">/// @param x</span></div>
+<div class="line"><span class="comment">/// @param y</span></div>
+<div class="line"><span class="comment">/// @param w</span></div>
+<div class="line"><span class="comment">/// @param h</span></div>
+<div class="line"><span class="comment">/// @param color</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a30" name="a30"></a><a class="code hl_function" href="class_s_t7735.html#acd3801f19d636814dbbb9f5f1549ebec">ST7735::fillRect</a>(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (x0 &gt; x1) _swap(x0, x1);</div>
+<div class="line">    <span class="keywordflow">if</span> (x0 &gt; x1) _swap(y0, y1);</div>
+<div class="line">    uint8_t w = x1 - x0;</div>
+<div class="line">    uint8_t h = y1 - y0;</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#aa1ac52fa637f96259309e48a3e2aefaa">fillRectWH</a>(x0, y0, w, h, color);</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief      直線を描画する</span></div>
+<div class="line"><span class="comment">/// @param x0           始点のx座標</span></div>
+<div class="line"><span class="comment">/// @param y0           始点のy座標</span></div>
+<div class="line"><span class="comment">/// @param x1           終点のx座標</span></div>
+<div class="line"><span class="comment">/// @param y1           終点のy座標</span></div>
+<div class="line"><span class="comment">/// @param color        直線の色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a31" name="a31"></a><a class="code hl_function" href="class_s_t7735.html#a497c98b8c0cc09cdae99e0349c910a93">ST7735::drawLine</a>(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    int16_t steep, dx, dy, err, ystep;</div>
+<div class="line">    steep = abs(y1 - y0) &gt; abs(x1 - x0);</div>
+<div class="line">    <span class="keywordflow">if</span> (steep) {</div>
+<div class="line">        _swap(x0, y0);</div>
+<div class="line">        _swap(x1, y1);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (x0 &gt; x1) {</div>
+<div class="line">        _swap(x0, x1);</div>
+<div class="line">        _swap(y0, y1);</div>
+<div class="line">    }</div>
+<div class="line">    dx = x1 - x0;</div>
+<div class="line">    dy = abs(y1 - y0);</div>
+<div class="line"> </div>
+<div class="line">    err = dx / 2;</div>
+<div class="line">    <span class="keywordflow">if</span> (y0 &lt; y1) {</div>
+<div class="line">        ystep = 1;</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        ystep = -1;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span> (; x0 &lt;= x1; x0++) {</div>
+<div class="line">        <span class="keywordflow">if</span> (steep) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(y0, x0, color);</div>
+<div class="line">        } <span class="keywordflow">else</span> {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x0, y0, color);</div>
+<div class="line">        }</div>
+<div class="line">        err -= dy;</div>
+<div class="line">        <span class="keywordflow">if</span> (err &lt; 0) {</div>
+<div class="line">            y0 += ystep;</div>
+<div class="line">            err += dx;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief      角丸の矩形を描画する</span></div>
+<div class="line"><span class="comment">/// @param x        左上のx座標</span></div>
+<div class="line"><span class="comment">/// @param y        左上のy座標 </span></div>
+<div class="line"><span class="comment">/// @param w        幅 </span></div>
+<div class="line"><span class="comment">/// @param h        高さ </span></div>
+<div class="line"><span class="comment">/// @param r        角の半径 </span></div>
+<div class="line"><span class="comment">/// @param color    矩形の色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a32" name="a32"></a><a class="code hl_function" href="class_s_t7735.html#a6a0276f185a2d764dddbe4e3504c3c9f">ST7735::drawRoundRectWH</a>(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">drawFastHLine</a>(x + r, y, w - 2 * r, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">drawFastHLine</a>(x + r, y + h - 1, w - 2 * r, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a>(x, y + r, h - 2 * r, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">drawFastVLine</a>(x + w - 1, y + r, h - 2 * r, color);</div>
+<div class="line">    drawCircleHelper(x + r, y + r, r, 1, color);</div>
+<div class="line">    drawCircleHelper(x + w - r - 1, y + r, r, 2, color);</div>
+<div class="line">    drawCircleHelper(x + w - r - 1, y + h - r - 1, r, 4, color);</div>
+<div class="line">    drawCircleHelper(x + r, y + h - r - 1, r, 8, color);</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief 各丸矩形を描画する。</span></div>
+<div class="line"><span class="comment">/// @param x 左上のx座標</span></div>
+<div class="line"><span class="comment">/// @param y 左上のx座標</span></div>
+<div class="line"><span class="comment">/// @param x1 右下のX座標</span></div>
+<div class="line"><span class="comment">/// @param y2 右下のy座標</span></div>
+<div class="line"><span class="comment">/// @param r 角の半径</span></div>
+<div class="line"><span class="comment">/// @param color　矩形の色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a33" name="a33"></a><a class="code hl_function" href="class_s_t7735.html#a254f2172b7c56785ae3c5e8895547ab8">ST7735::drawRoundRect</a>(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t r, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (x &gt; x1) _swap(x, x1);</div>
+<div class="line">    <span class="keywordflow">if</span> (y &gt; y1) _swap(y, y1);</div>
+<div class="line">    uint8_t w = x1 - x;</div>
+<div class="line">    uint8_t h = y1 - y;</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a6a0276f185a2d764dddbe4e3504c3c9f">drawRoundRectWH</a>(x, y, w, h, r, color);</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief      角丸の矩形を塗りつぶす</span></div>
+<div class="line"><span class="comment">/// @param x        左上のx座標</span></div>
+<div class="line"><span class="comment">/// @param y        左上のy座標</span></div>
+<div class="line"><span class="comment">/// @param w        幅</span></div>
+<div class="line"><span class="comment">/// @param h        高さ</span></div>
+<div class="line"><span class="comment">/// @param r        角の半径</span></div>
+<div class="line"><span class="comment">/// @param color        矩形の色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a34" name="a34"></a><a class="code hl_function" href="class_s_t7735.html#a7f798772ec43d82b7d8f911a9bf175f4">ST7735::fillRoundRectWH</a>(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    </div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#aa1ac52fa637f96259309e48a3e2aefaa">fillRectWH</a>(x + r, y, w - 2 * r, h, color);</div>
+<div class="line">    fillCircleHelper(x + w - r - 1, y + r, r, 1, h - 2 * r - 1, color);</div>
+<div class="line">    fillCircleHelper(x + r, y + r, r, 2, h - 2 * r - 1, color);</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief 角丸の矩形を塗りつぶす</span></div>
+<div class="line"><span class="comment">/// @param x 左上のx座標</span></div>
+<div class="line"><span class="comment">/// @param y 左上のx座標</span></div>
+<div class="line"><span class="comment">/// @param x1 右下のX座標</span></div>
+<div class="line"><span class="comment">/// @param y2 右下のy座標</span></div>
+<div class="line"><span class="comment">/// @param r 角の半径</span></div>
+<div class="line"><span class="comment">/// @param color　矩形の色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a35" name="a35"></a><a class="code hl_function" href="class_s_t7735.html#a7e3f0c28caafa051c4f66058c87c5461">ST7735::fillRoundRect</a>(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t r, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (x &gt; x1) _swap(x, x1);</div>
+<div class="line">    <span class="keywordflow">if</span> (y &gt; y1) _swap(y, y1);</div>
+<div class="line">    uint8_t w = x1 - x;</div>
+<div class="line">    uint8_t h = y1 - y;</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a7f798772ec43d82b7d8f911a9bf175f4">fillRoundRectWH</a>(x, y, w, h, r, color);</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief      三角形を描画する</span></div>
+<div class="line"><span class="comment">/// @param x0           頂点1のx座標 </span></div>
+<div class="line"><span class="comment">/// @param y0           頂点1のy座標</span></div>
+<div class="line"><span class="comment">/// @param x1           頂点2のx座標</span></div>
+<div class="line"><span class="comment">/// @param y1           頂点2のy座標</span></div>
+<div class="line"><span class="comment">/// @param x2           頂点3のx座標 </span></div>
+<div class="line"><span class="comment">/// @param y2           頂点3のy座標</span></div>
+<div class="line"><span class="comment">/// @param color        三角形の色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a36" name="a36"></a><a class="code hl_function" href="class_s_t7735.html#ab578306bfb86f9f1639ee5c7bb777c4c">ST7735::drawTriangle</a>(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a497c98b8c0cc09cdae99e0349c910a93">drawLine</a>(x0, y0, x1, y1, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a497c98b8c0cc09cdae99e0349c910a93">drawLine</a>(x1, y1, x2, y2, color);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a497c98b8c0cc09cdae99e0349c910a93">drawLine</a>(x2, y2, x0, y0, color);</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief      三角形を塗りつぶす</span></div>
+<div class="line"><span class="comment">/// @param x0           頂点1のx座標</span></div>
+<div class="line"><span class="comment">/// @param y0           頂点1のy座標</span></div>
+<div class="line"><span class="comment">/// @param x1           頂点2のx座標</span></div>
+<div class="line"><span class="comment">/// @param y1           頂点2のy座標</span></div>
+<div class="line"><span class="comment">/// @param x2           頂点3のx座標</span></div>
+<div class="line"><span class="comment">/// @param y2           頂点3のy座標</span></div>
+<div class="line"><span class="comment">/// @param color        三角形の色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a37" name="a37"></a><a class="code hl_function" href="class_s_t7735.html#ac7a08cf152f428dab88a0c0f1610a21b">ST7735::fillTriangle</a>(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)</div>
+<div class="line">{</div>
+<div class="line">    int16_t a, b, y, last, dx01, dy01, dx02, dy02, dx12, dy12, sa, sb;</div>
+<div class="line">    <span class="comment">// Sort coordinates by Y order (y2 &gt;= y1 &gt;= y0)</span></div>
+<div class="line">    <span class="keywordflow">if</span> (y0 &gt; y1) {</div>
+<div class="line">        _swap(y0, y1);</div>
+<div class="line">        _swap(x0, x1);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (y1 &gt; y2) {</div>
+<div class="line">        _swap(y2, y1);</div>
+<div class="line">        _swap(x2, x1);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (y0 &gt; y1) {</div>
+<div class="line">        _swap(y0, y1);</div>
+<div class="line">        _swap(x0, x1);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (y0 == y2) {</div>
+<div class="line">        a = b = x0;</div>
+<div class="line">        <span class="keywordflow">if</span> (x1 &lt; a)</div>
+<div class="line">            a = x1;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x1 &gt; b)</div>
+<div class="line">            b = x1;</div>
+<div class="line">        <span class="keywordflow">if</span> (x2 &lt; a)</div>
+<div class="line">            a = x2;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x2 &gt; b)</div>
+<div class="line">            b = x2;</div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">drawFastHLine</a>(a, y0, b - a + 1, color);</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    dx01 = x1 - x0;</div>
+<div class="line">    dy01 = y1 - y0;</div>
+<div class="line">    dx02 = x2 - x0;</div>
+<div class="line">    dy02 = y2 - y0;</div>
+<div class="line">    dx12 = x2 - x1;</div>
+<div class="line">    dy12 = y2 - y1;</div>
+<div class="line">    sa   = 0;</div>
+<div class="line">    sb   = 0;</div>
+<div class="line">  <span class="keywordflow">if</span>(y1 == y2) last = y1;   </div>
+<div class="line">  <span class="keywordflow">else</span>         last = y1-1; </div>
+<div class="line">  <span class="keywordflow">for</span>(y=y0; y&lt;=last; y++) {</div>
+<div class="line">    a   = x0 + sa / dy01;</div>
+<div class="line">    b   = x0 + sb / dy02;</div>
+<div class="line">    sa += dx01;</div>
+<div class="line">    sb += dx02;</div>
+<div class="line">    <span class="keywordflow">if</span>(a &gt; b) _swap(a,b);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">drawFastHLine</a>(a, y, b - a + 1, color);</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  sa = dx12 * (y - y1);</div>
+<div class="line">  sb = dx02 * (y - y0);</div>
+<div class="line">  <span class="keywordflow">for</span>(; y&lt;=y2; y++) {</div>
+<div class="line">    a   = x1 + sa / dy12;</div>
+<div class="line">    b   = x0 + sb / dy02;</div>
+<div class="line">    sa += dx12;</div>
+<div class="line">    sb += dx02;</div>
+<div class="line">    <span class="keywordflow">if</span>(a &gt; b) _swap(a,b);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">drawFastHLine</a>(a, y, b-a+1, color);</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if defined(TFT_ENABLE_TEXT)            </span><span class="comment">// テキスト表示機能が有効な場合</span><span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief  テキストのラッピングを行うかのフラグを設定する</span></div>
+<div class="line"><span class="comment">/// @param w true:ラッピングする(デフォルト）、false:ラッピングしない</span></div>
+<div class="line"><span class="comment"></span>void ST7735::setTextWrap(bool w)</div>
+<div class="line">{</div>
+<div class="line">    bTextWrap = w;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if !defined TFT_ENABLE_FONTS       </span><span class="comment">// フォント変更が可能な場合</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief  1文字を描画する</span></div>
+<div class="line"><span class="comment">/// @param x        描画するx座標</span></div>
+<div class="line"><span class="comment">/// @param y        描画するy座標</span></div>
+<div class="line"><span class="comment">/// @param c        描画する文字</span></div>
+<div class="line"><span class="comment">/// @param color    文字の色</span></div>
+<div class="line"><span class="comment">/// @param bg       背景色</span></div>
+<div class="line"><span class="comment">/// @param size     文字のサイズ。1がデフォルト。2で2倍の大きさになる。</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a38" name="a38"></a><a class="code hl_function" href="class_s_t7735.html#a2c4e14df01e484d494242a3f9dbf25ac">ST7735::drawChar</a>(uint8_t x, uint8_t y, uint8_t c, uint16_t color, uint16_t bg, uint8_t size)</div>
+<div class="line">{</div>
+<div class="line">    int8_t i, j;</div>
+<div class="line">    <span class="keywordflow">if</span> ((x &gt;= st7735Init.width) || (y &gt;= st7735Init.height))</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    <span class="keywordflow">if</span> (size &lt; 1) size = 1;</div>
+<div class="line">    <span class="keywordflow">if</span> ((c &lt; <span class="charliteral">&#39; &#39;</span>) || (c &gt; <span class="charliteral">&#39;~&#39;</span>))</div>
+<div class="line">        c = <span class="charliteral">&#39;?&#39;</span>;</div>
+<div class="line">    <span class="keywordflow">for</span> (i = 0; i &lt; 5; i++) {</div>
+<div class="line">        uint8_t line;</div>
+<div class="line">        line = Font[(c - ASCII_OFFSET) * 5 + i];</div>
+<div class="line">        <span class="keywordflow">for</span> (j = 0; j &lt; 7; j++, line &gt;&gt;= 1) {</div>
+<div class="line">            <span class="keywordflow">if</span> (line &amp; 0x01) {</div>
+<div class="line">                <span class="keywordflow">if</span> (size == 1)</div>
+<div class="line">                    <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x + i, y + j, color);</div>
+<div class="line">                <span class="keywordflow">else</span></div>
+<div class="line">                    <a class="code hl_function" href="class_s_t7735.html#aa1ac52fa637f96259309e48a3e2aefaa">fillRectWH</a>(x + (i * size), y + (j * size), size, size, color);</div>
+<div class="line">            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (bg != color) {</div>
+<div class="line">                <span class="keywordflow">if</span> (size == 1)</div>
+<div class="line">                    <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x + i, y + j, bg);</div>
+<div class="line">                <span class="keywordflow">else</span></div>
+<div class="line">                    <a class="code hl_function" href="class_s_t7735.html#aa1ac52fa637f96259309e48a3e2aefaa">fillRectWH</a>(x + i * size, y + j * size, size, size, bg);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief      文字列を描画する</span></div>
+<div class="line"><span class="comment">/// @param x        描画するx座標</span></div>
+<div class="line"><span class="comment">/// @param y        描画するy座標</span></div>
+<div class="line"><span class="comment">/// @param _text    描画する文字列</span></div>
+<div class="line"><span class="comment">/// @param color    文字の色</span></div>
+<div class="line"><span class="comment">/// @param bg       背景色</span></div>
+<div class="line"><span class="comment">/// @param size     文字のサイズ。1がデフォルト。2で2倍の大きさになる。</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a39" name="a39"></a><a class="code hl_function" href="class_s_t7735.html#a46825b1116840510bc52762e93059d79">ST7735::drawText</a>(uint8_t x, uint8_t y, <span class="keyword">const</span> <span class="keywordtype">char</span> *_text, uint16_t color, uint16_t bg, uint8_t size)</div>
+<div class="line">{</div>
+<div class="line">    uint8_t cursor_x, cursor_y;</div>
+<div class="line">    uint16_t textsize, i;</div>
+<div class="line">    cursor_x = x, cursor_y = y;</div>
+<div class="line">    textsize = strlen(_text);</div>
+<div class="line">    <span class="keywordflow">for</span> (i = 0; i &lt; textsize; i++) {</div>
+<div class="line">        <span class="keywordflow">if</span> (bTextWrap &amp;&amp; ((cursor_x + size * 5) &gt; st7735Init.width)) {</div>
+<div class="line">            cursor_x = 0;</div>
+<div class="line">            cursor_y = cursor_y + size * 7 + 3;</div>
+<div class="line">            <span class="keywordflow">if</span> (cursor_y &gt; st7735Init.height) cursor_y = st7735Init.height;</div>
+<div class="line">            <span class="keywordflow">if</span> (_text[i] == ASCII_OFFSET) {</div>
+<div class="line">                <span class="keywordflow">continue</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#a2c4e14df01e484d494242a3f9dbf25ac">drawChar</a>(cursor_x, cursor_y, _text[i], color, bg, size);</div>
+<div class="line">        cursor_x = cursor_x + size * 6;</div>
+<div class="line">        <span class="keywordflow">if</span> (cursor_x &gt; st7735Init.width) {</div>
+<div class="line">            cursor_x = st7735Init.width;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"><span class="preprocessor">#else</span><span class="comment"></span></div>
+<div class="line"><span class="comment">/// 多分、より自由な形のフォントを使用できるようにするためのものだろう。後で動作を確認しよう。</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><a id="_a40" name="_a40"></a><a class="code hl_struct" href="struct_g_f_xfont.html">GFXfont</a> *_gfxFont;</div>
+<div class="line"><span class="keywordtype">void</span> ST7735::setFont(<span class="keyword">const</span> <a class="code hl_struct" href="struct_g_f_xfont.html">GFXfont</a> *f)</div>
+<div class="line">{</div>
+<div class="line">    _gfxFont = (<a class="code hl_struct" href="struct_g_f_xfont.html">GFXfont</a> *)f;</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief      1文字を描画する</span></div>
+<div class="line"><span class="comment">/// @param x        描画するx座標</span></div>
+<div class="line"><span class="comment">/// @param y    描画するy座標         </span></div>
+<div class="line"><span class="comment">/// @param _text    描画する文字 </span></div>
+<div class="line"><span class="comment">/// @param color    文字の色 </span></div>
+<div class="line"><span class="comment">/// @param bg       背景色</span></div>
+<div class="line"><span class="comment">/// @param size         文字のサイズ。1がデフォルト。2で2倍の大きさになる。</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_s_t7735.html#a46825b1116840510bc52762e93059d79">ST7735::drawText</a>(uint8_t x, uint8_t y, <span class="keyword">const</span> <span class="keywordtype">char</span> *_text, uint16_t color, uint16_t bg, uint8_t size)</div>
+<div class="line">{</div>
+<div class="line">    uint8_t cursor_x, cursor_y, first_char, last_char;</div>
+<div class="line">    uint16_t textlen, i;</div>
+<div class="line"> </div>
+<div class="line">    cursor_x = x, cursor_y = y;</div>
+<div class="line">    first_char = _gfxFont-&gt;<a id="a41" name="a41"></a><a class="code hl_variable" href="struct_g_f_xfont.html#a802323f225b30dd2591c57ccb3fbac00">first</a>;</div>
+<div class="line">    last_char = _gfxFont-&gt;<a id="a42" name="a42"></a><a class="code hl_variable" href="struct_g_f_xfont.html#a9bc82580b9bc5cc1c15ae23457edcd49">last</a>;</div>
+<div class="line">    textlen = strlen(_text);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span> (i = 0; i &lt; textlen; i++) {</div>
+<div class="line">        uint8_t c = _text[i];</div>
+<div class="line">        <span class="keywordflow">if</span> (c &lt; first_char || c &gt; last_char) {</div>
+<div class="line">            <span class="keywordflow">continue</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <a id="_a43" name="_a43"></a><a class="code hl_struct" href="struct_g_f_xglyph.html">GFXglyph</a> *glyph = &amp;(_gfxFont-&gt;<a id="a44" name="a44"></a><a class="code hl_variable" href="struct_g_f_xfont.html#af63d88fa053c9a634e86eab7c96db290">glyph</a>[c - first_char]);</div>
+<div class="line">        uint8_t w = glyph-&gt;<a id="a45" name="a45"></a><a class="code hl_variable" href="struct_g_f_xglyph.html#a02bd34fd474af250b230f52cee75a6c1">width</a>, h = glyph-&gt;<a id="a46" name="a46"></a><a class="code hl_variable" href="struct_g_f_xglyph.html#a24cff650b78fc295dc46e1bfa9127bb7">height</a>;</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> ((w &gt; 0) &amp;&amp; (h &gt; 0)) {  <span class="comment">// bitmap available</span></div>
+<div class="line">            int16_t xo = glyph-&gt;<a id="a47" name="a47"></a><a class="code hl_variable" href="struct_g_f_xglyph.html#ab030bd9aeb37509ccc94ae3dcec4de98">xOffset</a>;</div>
+<div class="line">            <span class="keywordflow">if</span> (bTextWrap &amp;&amp; ((cursor_x + size * (xo + w)) &gt; st7735Init.width)) {</div>
+<div class="line">                cursor_x = 0;</div>
+<div class="line">                cursor_y += (int16_t)size * _gfxFont-&gt;<a id="a48" name="a48"></a><a class="code hl_variable" href="struct_g_f_xfont.html#ac2c2f0184b810a562be808fbb98822fa">yAdvance</a>;</div>
+<div class="line">            }</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#a2c4e14df01e484d494242a3f9dbf25ac">drawChar</a>(cursor_x, cursor_y, c, color, bg, size);</div>
+<div class="line">        }</div>
+<div class="line">        cursor_x += glyph-&gt;<a id="a49" name="a49"></a><a class="code hl_variable" href="struct_g_f_xglyph.html#a9b191040252aa9b5362087d65366bbf2">xAdvance</a> * (int16_t)size;</div>
+<div class="line">    }</div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief      1文字を描画する</span></div>
+<div class="line"><span class="comment">/// @param x        描画するx座標</span></div>
+<div class="line"><span class="comment">/// @param y        描画するy座標</span></div>
+<div class="line"><span class="comment">/// @param c        描画する文字</span></div>
+<div class="line"><span class="comment">/// @param color        文字の色</span></div>
+<div class="line"><span class="comment">/// @param bg       背景色</span></div>
+<div class="line"><span class="comment">/// @param size         文字のサイズ。1がデフォルト。2で2倍の大きさになる。</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_s_t7735.html#a2c4e14df01e484d494242a3f9dbf25ac">ST7735::drawChar</a>(uint8_t x, uint8_t y, uint8_t c, uint16_t color, uint16_t bg, uint8_t size)</div>
+<div class="line">{</div>
+<div class="line">    c -= (uint8_t)(_gfxFont-&gt;<a class="code hl_variable" href="struct_g_f_xfont.html#a802323f225b30dd2591c57ccb3fbac00">first</a>);</div>
+<div class="line">    <a class="code hl_struct" href="struct_g_f_xglyph.html">GFXglyph</a> *glyph = _gfxFont-&gt;<a class="code hl_variable" href="struct_g_f_xfont.html#af63d88fa053c9a634e86eab7c96db290">glyph</a> + c;</div>
+<div class="line">    uint8_t *bitmap = _gfxFont-&gt;<a id="a50" name="a50"></a><a class="code hl_variable" href="struct_g_f_xfont.html#a867b14d604450addbeaf62ae1e4799a7">bitmap</a>;</div>
+<div class="line"> </div>
+<div class="line">    uint16_t bo = glyph-&gt;<a id="a51" name="a51"></a><a class="code hl_variable" href="struct_g_f_xglyph.html#a24d52036821c10af52a742a1d7fbd9b8">bitmapOffset</a>;</div>
+<div class="line">    uint8_t w = glyph-&gt;<a class="code hl_variable" href="struct_g_f_xglyph.html#a02bd34fd474af250b230f52cee75a6c1">width</a>, h = glyph-&gt;<a class="code hl_variable" href="struct_g_f_xglyph.html#a24cff650b78fc295dc46e1bfa9127bb7">height</a>;</div>
+<div class="line">    int8_t xo = glyph-&gt;<a class="code hl_variable" href="struct_g_f_xglyph.html#ab030bd9aeb37509ccc94ae3dcec4de98">xOffset</a>, yo = glyph-&gt;<a id="a52" name="a52"></a><a class="code hl_variable" href="struct_g_f_xglyph.html#a96b2c0dbe314bf053cdc0d5c622e76a7">yOffset</a>;</div>
+<div class="line">    uint8_t xx, yy, bits = 0, abit = 0;</div>
+<div class="line">    int16_t xo16 = 0, yo16 = 0;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (size &gt; 1) {</div>
+<div class="line">        xo16 = xo;</div>
+<div class="line">        yo16 = yo;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span> (yy = 0; yy &lt; h; yy++) {</div>
+<div class="line">        <span class="keywordflow">for</span> (xx = 0; xx &lt; w; xx++) {</div>
+<div class="line">            <span class="keywordflow">if</span> (!(abit++ &amp; 7)) {</div>
+<div class="line">                bits = bitmap[bo++];</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">if</span> (bits &amp; 0x80) {</div>
+<div class="line">                <span class="keywordflow">if</span> (size == 1) {</div>
+<div class="line">                    <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(x + xo + xx, y + yo + yy, color);</div>
+<div class="line">                } <span class="keywordflow">else</span> {</div>
+<div class="line">                    <a class="code hl_function" href="class_s_t7735.html#acd3801f19d636814dbbb9f5f1549ebec">fillRect</a>(x + (xo16 + xx) * size, y + (yo16 + yy) * size, size, size, color);</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            bits &lt;&lt;= 1;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#ifdef TFT_ENABLE_KANJI</span><span class="comment"></span></div>
+<div class="line"><span class="comment">/// @brief 漢字１文字を表示する</span></div>
+<div class="line"><span class="comment">/// @param x 表示するX座標</span></div>
+<div class="line"><span class="comment">/// @param y 表示するY座標</span></div>
+<div class="line"><span class="comment">/// @param utf8codes 表示するUTF8、もしくはASCIIコード</span></div>
+<div class="line"><span class="comment">/// @param color 表示色</span></div>
+<div class="line"><span class="comment">/// @param bg 背景色</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a53" name="a53"></a><a class="code hl_function" href="class_s_t7735.html#a9b0df43422287b454702b266447caacf">ST7735::drawKanji</a>(uint8_t&amp; x, uint8_t&amp; y, uint32_t utf8codes, uint16_t color, uint16_t bg)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">const</span> uint8_t *bmpData;</div>
+<div class="line">    uint8_t w;</div>
+<div class="line">    uint8_t h;</div>
+<div class="line">    <span class="keywordflow">if</span> (utf8codes &lt;= 0xFF) {  <span class="comment">// １バイト文字</span></div>
+<div class="line">        <span class="keyword">const</span> AsciiFont *pFont = <a id="a54" name="a54"></a><a class="code hl_function" href="class_kanji_helper.html#a777428be5733e6f7b13d77c69602cd13">KanjiHelper::FindAscii</a>(utf8codes);</div>
+<div class="line">        <span class="keywordflow">if</span> (pFont == NULL) {</div>
+<div class="line">            x = x + AFont[0].width;</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        bmpData = pFont-&gt;bmpData;</div>
+<div class="line">        w = pFont-&gt;width;</div>
+<div class="line">        h = pFont-&gt;height;</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="keyword">const</span> KanjiFont *pFont = <a id="a55" name="a55"></a><a class="code hl_function" href="class_kanji_helper.html#af26e46920f81ee923d705f5159a9d97b">KanjiHelper::FindKanji</a>(utf8codes);</div>
+<div class="line">        <span class="keywordflow">if</span> (pFont == NULL) {</div>
+<div class="line">            x = x + KFont[0].width;</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        bmpData = pFont-&gt;bmpData;</div>
+<div class="line">        w = pFont-&gt;width;</div>
+<div class="line">        h = pFont-&gt;height;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (bTextWrap) {</div>
+<div class="line">        <span class="keywordflow">if</span> ((x + w) &gt; st7735Init.width) {</div>
+<div class="line">            x = 0;</div>
+<div class="line">            y = y + h;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">    uint8_t w_bytes = (w + 8 - 1) / 8;  <span class="comment">// 横方向のバイト数</span></div>
+<div class="line">    uint8_t h_bytes = h;                <span class="comment">// 縦方向のバイト数</span></div>
+<div class="line">    int16_t bmpIdx = 0;                 <span class="comment">// ビットマップ情報には、bmp + yy*w_bytes + xx でアクセスできるが、順番に並んでいるので最初から順に読むほうが速いのでは？</span></div>
+<div class="line">    <span class="keywordflow">for</span> (int8_t yy = 0; yy &lt; h_bytes; yy++) {</div>
+<div class="line">        <span class="keywordflow">for</span> (int8_t xx = 0; xx &lt; w_bytes; xx++) {</div>
+<div class="line">            <span class="keywordtype">int</span> xxx = x + (xx * 8);         <span class="comment">// そのバイトの描画起点</span></div>
+<div class="line">            uint8_t bits = bmpData[bmpIdx];</div>
+<div class="line">            <span class="keywordflow">for</span> (int8_t bb = 0; bb &lt; 8; bb++) {</div>
+<div class="line">                <span class="keywordflow">if</span> (bits &amp; 0x80) {</div>
+<div class="line">                    <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(xxx, y + yy, color);</div>
+<div class="line">                } <span class="keywordflow">else</span> {</div>
+<div class="line">                    <a class="code hl_function" href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">drawPixel</a>(xxx, y + yy, bg);</div>
+<div class="line">                }</div>
+<div class="line">                xxx++;</div>
+<div class="line">                bits &lt;&lt;= 1;</div>
+<div class="line">            }</div>
+<div class="line">            bmpIdx++;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">    x = x + w;</div>
+<div class="line">    <span class="keywordflow">return</span>;</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// @brief 漢字文字列を表示する</span></div>
+<div class="line"><span class="comment">/// @param x        描画するx座標</span></div>
+<div class="line"><span class="comment">/// @param y    描画するy座標</span></div>
+<div class="line"><span class="comment">/// @param _text    描画する文字</span></div>
+<div class="line"><span class="comment">/// @param color    文字の色</span></div>
+<div class="line"><span class="comment">/// @param bg       背景色</span></div>
+<div class="line"><span class="comment">/// @param size         文字のサイズ。1がデフォルト。2で2倍の大きさになる。</span></div>
+<div class="line"><span class="comment"></span><span class="keywordtype">void</span> <a id="a56" name="a56"></a><a class="code hl_function" href="class_s_t7735.html#acf40e6e2dfcb5c28bf5926540552a998">ST7735::drawTextKanji</a>(uint8_t x, uint8_t y, <span class="keyword">const</span> <span class="keywordtype">char</span> *_text, uint16_t color, uint16_t bg, uint8_t size)</div>
+<div class="line">{</div>
+<div class="line">    uint8_t cursor_x, cursor_y, first_char, last_char;</div>
+<div class="line">    uint16_t textlen, i;</div>
+<div class="line"> </div>
+<div class="line">    cursor_x = x, cursor_y = y;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span> (i = 0; i &lt; strlen(_text);) {</div>
+<div class="line"> </div>
+<div class="line">        uint32_t utf8codes = 0;</div>
+<div class="line">        uint8_t step = 0;</div>
+<div class="line">        <span class="keywordflow">if</span> ((_text[i] &amp; 0x80) == 0x00) {</div>
+<div class="line">            step = 1;           <span class="comment">// 1バイト文字 (ASCII)</span></div>
+<div class="line">            utf8codes = _text[i];</div>
+<div class="line">        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((_text[i] &amp; 0xE0) == 0xC0) {</div>
+<div class="line">            step = 2;  <span class="comment">// 2バイト文字</span></div>
+<div class="line">            utf8codes = (_text[i] &lt;&lt; 8) | _text[i + 1];</div>
+<div class="line">        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((_text[i] &amp; 0xF0) == 0xE0) {</div>
+<div class="line">            step =  3;  <span class="comment">// 3バイト文字</span></div>
+<div class="line">            utf8codes = (_text[i] &lt;&lt; 16) | (_text[i + 1] &lt;&lt; 8) | _text[i+2];</div>
+<div class="line">        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((_text[i] &amp; 0xF8) == 0xF0) {</div>
+<div class="line">            utf8codes = (_text[i] &lt;&lt; 24) | (_text[i + 1] &lt;&lt; 16) | (_text[i +2] &lt;&lt; 8) | _text[i + 3];</div>
+<div class="line">            step = 4;  <span class="comment">// 4バイト文字</span></div>
+<div class="line">        } <span class="keywordflow">else</span> {</div>
+<div class="line">            return ;  <span class="comment">// 不正なUTF-8バイト</span></div>
+<div class="line">        }</div>
+<div class="line"><span class="preprocessor">        #ifdef TFT_FORCE_HANKANA                    </span><span class="comment">// 半角カナを1バイト文字として処理</span></div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> ((utf8codes &amp; 0x00FFFF00) == 0xefbd00) {</div>
+<div class="line">            utf8codes = utf8codes &amp; 0x000000FF;</div>
+<div class="line">        }</div>
+<div class="line"><span class="preprocessor">        #endif</span></div>
+<div class="line">        <a class="code hl_function" href="class_s_t7735.html#a9b0df43422287b454702b266447caacf">drawKanji</a>(cursor_x, cursor_y, utf8codes, color, bg);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (utf8codes &lt;= 0xFF ){  <span class="comment">// １バイト文字</span></div>
+<div class="line">            <span class="keyword">const</span> AsciiFont *pFont = <a class="code hl_function" href="class_kanji_helper.html#a777428be5733e6f7b13d77c69602cd13">KanjiHelper::FindAscii</a>(utf8codes);</div>
+<div class="line">        } <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keyword">const</span> KanjiFont *pFont = <a class="code hl_function" href="class_kanji_helper.html#af26e46920f81ee923d705f5159a9d97b">KanjiHelper::FindKanji</a>(utf8codes);</div>
+<div class="line">        }</div>
+<div class="line">        i += step;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#ifdef TFT_ENABLE_SCROLL</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> ST7735::setScrollDefinition(uint8_t top_fix_height, uint8_t bottom_fix_height, <span class="keywordtype">bool</span> _scroll_direction)</div>
+<div class="line">{</div>
+<div class="line">    uint8_t scroll_height;</div>
+<div class="line">    scroll_height = st7735Init.height - top_fix_height - bottom_fix_height;</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a65c84afbcd019b65d40fb65823772585">writeCommand</a>(ST7735Cmd.VSCRDEF);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0x00);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(top_fix_height);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0x00);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(scroll_height);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0x00);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(bottom_fix_height);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a65c84afbcd019b65d40fb65823772585">writeCommand</a>(ST7735Cmd.MADCTL);</div>
+<div class="line">    <span class="keywordflow">if</span> (_scroll_direction) {</div>
+<div class="line">        <span class="keywordflow">if</span> (st7735Init.<a id="a57" name="a57"></a>tft_type == 0) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0xD8);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (st7735Init.tft_type == 1) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0xD0);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (st7735Init.tft_type == 2) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0x18);</div>
+<div class="line">        }</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (st7735Init.tft_type == 0) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0xC8);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (st7735Init.tft_type == 1) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0xC0);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (st7735Init.tft_type == 2) {</div>
+<div class="line">            <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0x08);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> ST7735::VerticalScroll(uint8_t _vsp)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#a65c84afbcd019b65d40fb65823772585">writeCommand</a>(ST7735Cmd.VSCRSADD);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(0x00);</div>
+<div class="line">    <a class="code hl_function" href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">writeData</a>(_vsp);</div>
+<div class="line">}</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ------ not functional yet ----------------------------------------------</span></div>
+<div class="line"><span class="comment">// needs fat-library</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if defined TFT_ENABLE_BMP</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#ifndef pixel_buffer</span></div>
+<div class="line"><span class="preprocessor">  #define pixel_buffer  10</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> bmpDraw(int8_t x, int8_t y, int8_t *bmpname) {</div>
+<div class="line">  <span class="keywordtype">bool</span> ec = 0, padding = 0;</div>
+<div class="line">  int8_t bmpdata[pixel_buffer * 3],</div>
+<div class="line">       planes, depth, r, g, b, col, row;</div>
+<div class="line">  int16 i, buffer = pixel_buffer * 3, format, bmpHeight, bmpWidth, color;</div>
+<div class="line">  int32 offset, compression, bmp_size, row_size, padding_factor;</div>
+<div class="line">  <span class="keywordflow">if</span>((x &gt;= st7735Init.width) || (y &gt;= st7735Init.height))</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">  <span class="keywordflow">if</span>(fat16_open_file(bmpname) != 0)</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 1, &amp;format);</div>
+<div class="line">  format &lt;&lt;= 8;</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer, &amp;format);</div>
+<div class="line">  <span class="keywordflow">if</span>(format != 0x4D42)                           <span class="comment">// BMP file format signature</span></div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;                                <span class="comment">// Return error</span></div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x0D, &amp;offset);</div>
+<div class="line">  offset &lt;&lt;= 8;</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x0C, &amp;offset);</div>
+<div class="line">  offset &lt;&lt;= 8;</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x0B, &amp;offset);</div>
+<div class="line">  offset &lt;&lt;= 8;</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x0A, &amp;offset);</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x13, &amp;bmpWidth);</div>
+<div class="line">  bmpWidth &lt;&lt;= 8;</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x12, &amp;bmpWidth);</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x17, &amp;bmpHeight);</div>
+<div class="line">  bmpHeight &lt;&lt;= 8;</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x16, &amp;bmpHeight);</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x1A, &amp;planes);</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x1C, &amp;depth);</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x21, &amp;compression);</div>
+<div class="line">  compression &lt;&lt;= 8;</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x20, &amp;compression);</div>
+<div class="line">  compression &lt;&lt;= 8;</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x1f, &amp;compression);</div>
+<div class="line">  compression &lt;&lt;= 8;</div>
+<div class="line">  ec |= sdcard_read_byte(address_pointer + 0x1e, &amp;compression);</div>
+<div class="line">  <span class="keywordflow">if</span>(ec != 0 || compression != 0 || depth != 24 || planes != 1)</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">  bmp_size = file_size - offset;            <span class="comment">// bmp_size: BMP image raw size</span></div>
+<div class="line">  row_size = bmp_size / bmpHeight;          <span class="comment">// row_size: number of bytes per row</span></div>
+<div class="line">  <span class="keywordflow">if</span>((x + bmpWidth  - 1) &gt;=  st7735Init.width) {      <span class="comment">// st7735Init.width is the TFT screen width</span></div>
+<div class="line">    bmpWidth = st7735Init.width  - x;</div>
+<div class="line">    padding = 1;           <span class="comment">//Padding = 1 ==&gt; only upper left part will be displayed</span></div>
+<div class="line">    padding_factor = bmpWidth / pixel_buffer;</div>
+<div class="line">    <span class="keywordflow">if</span>(bmpWidth % pixel_buffer)</div>
+<div class="line">      padding_factor++;</div>
+<div class="line">    padding_factor *= buffer;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordflow">if</span>((y + bmpHeight - 1) &gt;= st7735Init.height) {       <span class="comment">// st7735Init.height is the TFT screen height</span></div>
+<div class="line">    offset += row_size * (bmpHeight - st7735Init.height + y);  <span class="comment">// Only upper part will be displayed</span></div>
+<div class="line">    bmpHeight = st7735Init.height - y;</div>
+<div class="line">  }</div>
+<div class="line">  file_pointer     = offset;</div>
+<div class="line">  address_pointer += offset;</div>
+<div class="line">  i = buffer;</div>
+<div class="line">  <span class="keywordflow">if</span>(_tft_type != 2){</div>
+<div class="line">  <span class="comment">// Change row address order</span></div>
+<div class="line">    write_command(ST7735_MADCTL);</div>
+<div class="line">    <span class="keywordflow">if</span>(_tft_type == 0)</div>
+<div class="line">      write_data(0x48);</div>
+<div class="line">    <span class="keywordflow">if</span>(_tft_type == 1)</div>
+<div class="line">      write_data(0x40);</div>
+<div class="line">  }</div>
+<div class="line">  setAddrWindow(x , y, x + bmpWidth - 1, y + bmpHeight - 1);</div>
+<div class="line">  <span class="keywordflow">for</span>(row = 0; row &lt; bmpHeight; row++){</div>
+<div class="line">    <span class="keywordflow">for</span>(col = 0; col &lt; bmpWidth; col++){</div>
+<div class="line">      <span class="keywordflow">if</span>(i &gt;= buffer){</div>
+<div class="line">        i = 0;</div>
+<div class="line">        fat16_read_data(buffer, bmpdata);</div>
+<div class="line">      }</div>
+<div class="line">      b = bmpdata[i++];</div>
+<div class="line">      g = bmpdata[i++];</div>
+<div class="line">      r = bmpdata[i++];</div>
+<div class="line">      color = Color565(r, g, b);</div>
+<div class="line">      pushColor(color);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span>(padding == 1){</div>
+<div class="line">      i = buffer;</div>
+<div class="line">      file_pointer    += row_size - padding_factor;</div>
+<div class="line">      address_pointer += row_size - padding_factor;</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordflow">if</span>(_tft_type != 2){</div>
+<div class="line">  <span class="comment">// Return row address order as it was</span></div>
+<div class="line">    write_command(ST7735_MADCTL);</div>
+<div class="line">    <span class="keywordflow">if</span>(_tft_type == 0)</div>
+<div class="line">      write_data(0xC8);</div>
+<div class="line">    <span class="keywordflow">if</span>(_tft_type == 1)</div>
+<div class="line">      write_data(0xC0);</div>
+<div class="line">  }</div>
+<div class="line">  <span class="comment">// Good BMP</span></div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_h_w_html_a7247f33f5038930faf7be0091f009e6b"><div class="ttname"><a href="class_h_w.html#a7247f33f5038930faf7be0091f009e6b">HW::init</a></div><div class="ttdeci">void init(void)</div><div class="ttdoc">GPIOの初期化を行う。コンストラクタで指定されたポートを出力に設定する。</div><div class="ttdef"><b>Definition</b> hw.cpp:38</div></div>
+<div class="ttc" id="aclass_h_w_html_a8d01c69f5383daf19cba692d3b3681fc"><div class="ttname"><a href="class_h_w.html#a8d01c69f5383daf19cba692d3b3681fc">HW::writeCommand</a></div><div class="ttdeci">void writeCommand(uint8_t cmd_)</div><div class="ttdoc">コマンドを送信する。DC:L→CS:L→コマンド送信→CS:H</div><div class="ttdef"><b>Definition</b> hw.cpp:127</div></div>
+<div class="ttc" id="aclass_h_w_html_ae1c3074ee37ca92cf5b19e53609b494b"><div class="ttname"><a href="class_h_w.html#ae1c3074ee37ca92cf5b19e53609b494b">HW::writeData</a></div><div class="ttdeci">void writeData(uint8_t data_)</div><div class="ttdoc">データを送信する。DC:H→CS:L→データ送信→CS:H</div><div class="ttdef"><b>Definition</b> hw.cpp:139</div></div>
+<div class="ttc" id="aclass_kanji_helper_html_a777428be5733e6f7b13d77c69602cd13"><div class="ttname"><a href="class_kanji_helper.html#a777428be5733e6f7b13d77c69602cd13">KanjiHelper::FindAscii</a></div><div class="ttdeci">static const AsciiFont * FindAscii(uint8_t codeAscii)</div><div class="ttdoc">フォントテーブルからASCII文字を検索する。  ASCII文字は、0x00を除く255が必ずあるので、検索ではなく計算でピンポイントで返す</div><div class="ttdef"><b>Definition</b> KanjiHelper.cpp:79</div></div>
+<div class="ttc" id="aclass_kanji_helper_html_af26e46920f81ee923d705f5159a9d97b"><div class="ttname"><a href="class_kanji_helper.html#af26e46920f81ee923d705f5159a9d97b">KanjiHelper::FindKanji</a></div><div class="ttdeci">static const KanjiFont * FindKanji(uint32_t codeUTF)</div><div class="ttdoc">フォントテーブルからUTF-8を使って特定のフォントをバイナリサーチで探し出す。  漢字テーブルにはUTF-8がソートされてはいっている。 UTF-8は非連続、バイト長も１～４とバラバラなので、計算でピ...</div><div class="ttdef"><b>Definition</b> KanjiHelper.cpp:67</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a254f2172b7c56785ae3c5e8895547ab8"><div class="ttname"><a href="class_s_t7735.html#a254f2172b7c56785ae3c5e8895547ab8">ST7735::drawRoundRect</a></div><div class="ttdeci">void drawRoundRect(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t r, uint16_t color)</div><div class="ttdoc">各丸矩形を描画する。</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:445</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a2c4e14df01e484d494242a3f9dbf25ac"><div class="ttname"><a href="class_s_t7735.html#a2c4e14df01e484d494242a3f9dbf25ac">ST7735::drawChar</a></div><div class="ttdeci">void drawChar(uint8_t x, uint8_t y, uint8_t c, uint16_t color, uint16_t bg, uint8_t size)</div><div class="ttdoc">1文字を描画する</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:693</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a2cfe5851b8106ee7dcba84cfec4582f4"><div class="ttname"><a href="class_s_t7735.html#a2cfe5851b8106ee7dcba84cfec4582f4">ST7735::doInit</a></div><div class="ttdeci">void doInit()</div><div class="ttdoc">初期化処理を行う</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:49</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a31a2b0bc8b3c4d1de8eeb1d3b3670be8"><div class="ttname"><a href="class_s_t7735.html#a31a2b0bc8b3c4d1de8eeb1d3b3670be8">ST7735::drawFastHLine</a></div><div class="ttdeci">void drawFastHLine(uint8_t x, uint8_t y, uint8_t w, uint16_t color)</div><div class="ttdoc">　水平線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:133</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a373cb30efb66571a6b9a57bb4f681497"><div class="ttname"><a href="class_s_t7735.html#a373cb30efb66571a6b9a57bb4f681497">ST7735::fillRectangle</a></div><div class="ttdeci">void fillRectangle(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)</div><div class="ttdoc">矩形を塗りつぶす</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:102</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a46825b1116840510bc52762e93059d79"><div class="ttname"><a href="class_s_t7735.html#a46825b1116840510bc52762e93059d79">ST7735::drawText</a></div><div class="ttdeci">void drawText(uint8_t x, uint8_t y, const char *_text, uint16_t color, uint16_t bg, uint8_t size)</div><div class="ttdoc">1文字を描画する</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:656</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a497c98b8c0cc09cdae99e0349c910a93"><div class="ttname"><a href="class_s_t7735.html#a497c98b8c0cc09cdae99e0349c910a93">ST7735::drawLine</a></div><div class="ttdeci">void drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color)</div><div class="ttdoc">直線を描画する</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:385</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a4a263cbcc63983968a0b29b107e673ad"><div class="ttname"><a href="class_s_t7735.html#a4a263cbcc63983968a0b29b107e673ad">ST7735::invertDisplay</a></div><div class="ttdeci">void invertDisplay(bool i)</div><div class="ttdoc">画面の表示を反転させる</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:186</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a4deb9ae409aa46b6f5934d9e46427803"><div class="ttname"><a href="class_s_t7735.html#a4deb9ae409aa46b6f5934d9e46427803">ST7735::fillScreen</a></div><div class="ttdeci">void fillScreen(uint16_t color)</div><div class="ttdoc">画面を単色で塗りつぶす。初期設定された液晶サイズの矩形を表示させることで実装。</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:124</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a65c84afbcd019b65d40fb65823772585"><div class="ttname"><a href="class_s_t7735.html#a65c84afbcd019b65d40fb65823772585">ST7735::writeCommand</a></div><div class="ttdeci">void writeCommand(uint8_t cmd_)</div><div class="ttdoc">コマンドを送信する。DC:L→CS:L→コマンド送信→CS:H</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:65</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a67bee8d67424ef791bb94dc00f07e39b"><div class="ttname"><a href="class_s_t7735.html#a67bee8d67424ef791bb94dc00f07e39b">ST7735::pushColor</a></div><div class="ttdeci">void pushColor(uint16_t color)</div><div class="ttdoc">画面に色を表示する</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:202</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a6a0276f185a2d764dddbe4e3504c3c9f"><div class="ttname"><a href="class_s_t7735.html#a6a0276f185a2d764dddbe4e3504c3c9f">ST7735::drawRoundRectWH</a></div><div class="ttdeci">void drawRoundRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, uint16_t color)</div><div class="ttdoc">角丸の矩形を描画する</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:427</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a75ab0e30bccad7d4351392712bc75210"><div class="ttname"><a href="class_s_t7735.html#a75ab0e30bccad7d4351392712bc75210">ST7735::drawCircle</a></div><div class="ttdeci">void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color)</div><div class="ttdoc">画面に円を描画する</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:221</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a766bbc6bb191c837d004a15e1d5c44cd"><div class="ttname"><a href="class_s_t7735.html#a766bbc6bb191c837d004a15e1d5c44cd">ST7735::setAddrWindow</a></div><div class="ttdeci">void setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)</div><div class="ttdoc">BitBlitのためのアドレスウインドウを設定する。（https://en.wikipedia.org/wiki/Bit_blit）</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:82</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a7e3f0c28caafa051c4f66058c87c5461"><div class="ttname"><a href="class_s_t7735.html#a7e3f0c28caafa051c4f66058c87c5461">ST7735::fillRoundRect</a></div><div class="ttdeci">void fillRoundRect(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t r, uint16_t color)</div><div class="ttdoc">角丸の矩形を塗りつぶす</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:475</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a7f798772ec43d82b7d8f911a9bf175f4"><div class="ttname"><a href="class_s_t7735.html#a7f798772ec43d82b7d8f911a9bf175f4">ST7735::fillRoundRectWH</a></div><div class="ttdeci">void fillRoundRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, uint16_t color)</div><div class="ttdoc">角丸の矩形を塗りつぶす</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:461</div></div>
+<div class="ttc" id="aclass_s_t7735_html_a9b0df43422287b454702b266447caacf"><div class="ttname"><a href="class_s_t7735.html#a9b0df43422287b454702b266447caacf">ST7735::drawKanji</a></div><div class="ttdeci">void drawKanji(uint8_t &amp;x, uint8_t &amp;y, uint32_t code, uint16_t color, uint16_t bg)</div><div class="ttdoc">漢字１文字を表示する</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:735</div></div>
+<div class="ttc" id="aclass_s_t7735_html_aa1ac52fa637f96259309e48a3e2aefaa"><div class="ttname"><a href="class_s_t7735.html#aa1ac52fa637f96259309e48a3e2aefaa">ST7735::fillRectWH</a></div><div class="ttdeci">void fillRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)</div><div class="ttdoc">矩形を塗りつぶす。こちらの方が高速かもしれない。</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:357</div></div>
+<div class="ttc" id="aclass_s_t7735_html_aa8ada43a4e69ba740688ff86b4d2d123"><div class="ttname"><a href="class_s_t7735.html#aa8ada43a4e69ba740688ff86b4d2d123">ST7735::NormalDisplay</a></div><div class="ttdeci">void NormalDisplay()</div><div class="ttdoc">画面の表示を通常に戻す</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:195</div></div>
+<div class="ttc" id="aclass_s_t7735_html_ab578306bfb86f9f1639ee5c7bb777c4c"><div class="ttname"><a href="class_s_t7735.html#ab578306bfb86f9f1639ee5c7bb777c4c">ST7735::drawTriangle</a></div><div class="ttdeci">void drawTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)</div><div class="ttdoc">三角形を描画する</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:492</div></div>
+<div class="ttc" id="aclass_s_t7735_html_ab7ea44bc75631bf333cef07e9a25ff20"><div class="ttname"><a href="class_s_t7735.html#ab7ea44bc75631bf333cef07e9a25ff20">ST7735::drawPixel</a></div><div class="ttdeci">void drawPixel(uint8_t x, uint8_t y, uint16_t color)</div><div class="ttdoc">画面に点を描画する</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:176</div></div>
+<div class="ttc" id="aclass_s_t7735_html_abe1fa81fbca6e227aa6f4a06fff234db"><div class="ttname"><a href="class_s_t7735.html#abe1fa81fbca6e227aa6f4a06fff234db">ST7735::fillCircle</a></div><div class="ttdeci">void fillCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color)</div><div class="ttdoc">塗りつぶされた円を描画する</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:253</div></div>
+<div class="ttc" id="aclass_s_t7735_html_ac2755fd5311830fe6774d594f55305cf"><div class="ttname"><a href="class_s_t7735.html#ac2755fd5311830fe6774d594f55305cf">ST7735::drawFastVLine</a></div><div class="ttdeci">void drawFastVLine(uint8_t x, uint8_t y, uint8_t h, uint16_t color)</div><div class="ttdoc">　垂直線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:154</div></div>
+<div class="ttc" id="aclass_s_t7735_html_ac7a08cf152f428dab88a0c0f1610a21b"><div class="ttname"><a href="class_s_t7735.html#ac7a08cf152f428dab88a0c0f1610a21b">ST7735::fillTriangle</a></div><div class="ttdeci">void fillTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)</div><div class="ttdoc">三角形を塗りつぶす</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:506</div></div>
+<div class="ttc" id="aclass_s_t7735_html_acd3801f19d636814dbbb9f5f1549ebec"><div class="ttname"><a href="class_s_t7735.html#acd3801f19d636814dbbb9f5f1549ebec">ST7735::fillRect</a></div><div class="ttdeci">void fillRect(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint16_t color)</div><div class="ttdoc">矩形を塗りつぶす。こちらの方が高速かもしれない。</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:370</div></div>
+<div class="ttc" id="aclass_s_t7735_html_acf40e6e2dfcb5c28bf5926540552a998"><div class="ttname"><a href="class_s_t7735.html#acf40e6e2dfcb5c28bf5926540552a998">ST7735::drawTextKanji</a></div><div class="ttdeci">void drawTextKanji(uint8_t x, uint8_t y, const char *_text, uint16_t color, uint16_t bg, uint8_t size)</div><div class="ttdoc">漢字文字列を表示する</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:795</div></div>
+<div class="ttc" id="aclass_s_t7735_html_ae48b7b4844f535b8389fa48207d25c74"><div class="ttname"><a href="class_s_t7735.html#ae48b7b4844f535b8389fa48207d25c74">ST7735::writeData</a></div><div class="ttdeci">void writeData(uint8_t data_)</div><div class="ttdoc">データを送信する。DC:H→CS:L→データ送信→CS:H</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:73</div></div>
+<div class="ttc" id="aclass_s_t7735_html_af9efc9b1d7e85e436337545b539e3264"><div class="ttname"><a href="class_s_t7735.html#af9efc9b1d7e85e436337545b539e3264">ST7735::drawRectWH</a></div><div class="ttdeci">void drawRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)</div><div class="ttdoc">矩形を描画する</div><div class="ttdef"><b>Definition</b> ST7735_TFT.cpp:333</div></div>
+<div class="ttc" id="aclass_s_t7735_init_html_ad134f4bd5dab16481694ff80ecda5c3e"><div class="ttname"><a href="class_s_t7735_init.html#ad134f4bd5dab16481694ff80ecda5c3e">ST7735Init::SetSPIHW</a></div><div class="ttdeci">void SetSPIHW(HW *a_pSpiHW)</div><div class="ttdoc">ハードウェアにアクセスするための情報を持っているクラスインスタンスを設定する。  デフォルトコンストラクタを使ってnewした場合、必ずこのメソッドの呼び出しが必要。</div><div class="ttdef"><b>Definition</b> ST7735_initcmd.cpp:46</div></div>
+<div class="ttc" id="aclass_s_t7735_init_html_adc8999d313e15f1e253025e18895fcc4"><div class="ttname"><a href="class_s_t7735_init.html#adc8999d313e15f1e253025e18895fcc4">ST7735Init::initR</a></div><div class="ttdeci">void initR(uint8_t options)</div><div class="ttdoc">ST7735を使用したディスプレイの初期化処理を行う。   引数は、対象デバイスのタイプで、ST7735Typeで定義されている。まず、共通のRcmd1を呼びだし、その後にそれぞれにあったものを呼びだす...</div><div class="ttdef"><b>Definition</b> ST7735_initcmd.cpp:125</div></div>
+<div class="ttc" id="astruct_g_f_xfont_html"><div class="ttname"><a href="struct_g_f_xfont.html">GFXfont</a></div><div class="ttdoc">フォントセットを格納している構造体。</div><div class="ttdef"><b>Definition</b> TextFonts.h:134</div></div>
+<div class="ttc" id="astruct_g_f_xfont_html_a802323f225b30dd2591c57ccb3fbac00"><div class="ttname"><a href="struct_g_f_xfont.html#a802323f225b30dd2591c57ccb3fbac00">GFXfont::first</a></div><div class="ttdeci">uint16_t first</div><div class="ttdoc">ASCII extents (first char)</div><div class="ttdef"><b>Definition</b> TextFonts.h:137</div></div>
+<div class="ttc" id="astruct_g_f_xfont_html_a867b14d604450addbeaf62ae1e4799a7"><div class="ttname"><a href="struct_g_f_xfont.html#a867b14d604450addbeaf62ae1e4799a7">GFXfont::bitmap</a></div><div class="ttdeci">uint8_t * bitmap</div><div class="ttdoc">Glyph bitmaps, concatenated</div><div class="ttdef"><b>Definition</b> TextFonts.h:135</div></div>
+<div class="ttc" id="astruct_g_f_xfont_html_a9bc82580b9bc5cc1c15ae23457edcd49"><div class="ttname"><a href="struct_g_f_xfont.html#a9bc82580b9bc5cc1c15ae23457edcd49">GFXfont::last</a></div><div class="ttdeci">uint16_t last</div><div class="ttdoc">ASCII extents (last char)</div><div class="ttdef"><b>Definition</b> TextFonts.h:138</div></div>
+<div class="ttc" id="astruct_g_f_xfont_html_ac2c2f0184b810a562be808fbb98822fa"><div class="ttname"><a href="struct_g_f_xfont.html#ac2c2f0184b810a562be808fbb98822fa">GFXfont::yAdvance</a></div><div class="ttdeci">uint8_t yAdvance</div><div class="ttdoc">Newline distance (y axis)</div><div class="ttdef"><b>Definition</b> TextFonts.h:139</div></div>
+<div class="ttc" id="astruct_g_f_xfont_html_af63d88fa053c9a634e86eab7c96db290"><div class="ttname"><a href="struct_g_f_xfont.html#af63d88fa053c9a634e86eab7c96db290">GFXfont::glyph</a></div><div class="ttdeci">GFXglyph * glyph</div><div class="ttdoc">Glyph array</div><div class="ttdef"><b>Definition</b> TextFonts.h:136</div></div>
+<div class="ttc" id="astruct_g_f_xglyph_html"><div class="ttname"><a href="struct_g_f_xglyph.html">GFXglyph</a></div><div class="ttdoc">１文字のフォントの画像情報、大きさなどを定義するための構造体</div><div class="ttdef"><b>Definition</b> TextFonts.h:121</div></div>
+<div class="ttc" id="astruct_g_f_xglyph_html_a02bd34fd474af250b230f52cee75a6c1"><div class="ttname"><a href="struct_g_f_xglyph.html#a02bd34fd474af250b230f52cee75a6c1">GFXglyph::width</a></div><div class="ttdeci">uint8_t width</div><div class="ttdoc">Bitmap dimensions in pixels</div><div class="ttdef"><b>Definition</b> TextFonts.h:123</div></div>
+<div class="ttc" id="astruct_g_f_xglyph_html_a24cff650b78fc295dc46e1bfa9127bb7"><div class="ttname"><a href="struct_g_f_xglyph.html#a24cff650b78fc295dc46e1bfa9127bb7">GFXglyph::height</a></div><div class="ttdeci">uint8_t height</div><div class="ttdoc">Bitmap dimensions in pixels</div><div class="ttdef"><b>Definition</b> TextFonts.h:124</div></div>
+<div class="ttc" id="astruct_g_f_xglyph_html_a24d52036821c10af52a742a1d7fbd9b8"><div class="ttname"><a href="struct_g_f_xglyph.html#a24d52036821c10af52a742a1d7fbd9b8">GFXglyph::bitmapOffset</a></div><div class="ttdeci">uint16_t bitmapOffset</div><div class="ttdoc">Pointer into GFXfont-&gt;bitmap</div><div class="ttdef"><b>Definition</b> TextFonts.h:122</div></div>
+<div class="ttc" id="astruct_g_f_xglyph_html_a96b2c0dbe314bf053cdc0d5c622e76a7"><div class="ttname"><a href="struct_g_f_xglyph.html#a96b2c0dbe314bf053cdc0d5c622e76a7">GFXglyph::yOffset</a></div><div class="ttdeci">int8_t yOffset</div><div class="ttdoc">Y dist from cursor pos to UL corner</div><div class="ttdef"><b>Definition</b> TextFonts.h:127</div></div>
+<div class="ttc" id="astruct_g_f_xglyph_html_a9b191040252aa9b5362087d65366bbf2"><div class="ttname"><a href="struct_g_f_xglyph.html#a9b191040252aa9b5362087d65366bbf2">GFXglyph::xAdvance</a></div><div class="ttdeci">uint8_t xAdvance</div><div class="ttdoc">Distance to advance cursor (x axis)</div><div class="ttdef"><b>Definition</b> TextFonts.h:125</div></div>
+<div class="ttc" id="astruct_g_f_xglyph_html_ab030bd9aeb37509ccc94ae3dcec4de98"><div class="ttname"><a href="struct_g_f_xglyph.html#ab030bd9aeb37509ccc94ae3dcec4de98">GFXglyph::xOffset</a></div><div class="ttdeci">int8_t xOffset</div><div class="ttdoc">X dist from cursor pos to UL corner</div><div class="ttdef"><b>Definition</b> TextFonts.h:126</div></div>
+</div><!-- fragment --> </div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

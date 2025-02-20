@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: GFXfont 構造体</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="struct_g_f_xfont-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">GFXfont 構造体</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>フォントセットを格納している構造体。  
+ <a href="#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_s_t7735__struct_8h_source.html">ST7735_struct.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:a867b14d604450addbeaf62ae1e4799a7" id="r_a867b14d604450addbeaf62ae1e4799a7"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a867b14d604450addbeaf62ae1e4799a7">bitmap</a></td></tr>
+<tr class="memdesc:a867b14d604450addbeaf62ae1e4799a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Glyph bitmaps, concatenated  <br /></td></tr>
+<tr class="separator:a867b14d604450addbeaf62ae1e4799a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af63d88fa053c9a634e86eab7c96db290" id="r_af63d88fa053c9a634e86eab7c96db290"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_g_f_xglyph.html">GFXglyph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af63d88fa053c9a634e86eab7c96db290">glyph</a></td></tr>
+<tr class="memdesc:af63d88fa053c9a634e86eab7c96db290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Glyph array  <br /></td></tr>
+<tr class="separator:af63d88fa053c9a634e86eab7c96db290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a802323f225b30dd2591c57ccb3fbac00" id="r_a802323f225b30dd2591c57ccb3fbac00"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a802323f225b30dd2591c57ccb3fbac00">first</a></td></tr>
+<tr class="memdesc:a802323f225b30dd2591c57ccb3fbac00"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASCII extents (first char)  <br /></td></tr>
+<tr class="separator:a802323f225b30dd2591c57ccb3fbac00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc82580b9bc5cc1c15ae23457edcd49" id="r_a9bc82580b9bc5cc1c15ae23457edcd49"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bc82580b9bc5cc1c15ae23457edcd49">last</a></td></tr>
+<tr class="memdesc:a9bc82580b9bc5cc1c15ae23457edcd49"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASCII extents (last char)  <br /></td></tr>
+<tr class="separator:a9bc82580b9bc5cc1c15ae23457edcd49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2c2f0184b810a562be808fbb98822fa" id="r_ac2c2f0184b810a562be808fbb98822fa"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2c2f0184b810a562be808fbb98822fa">yAdvance</a></td></tr>
+<tr class="memdesc:ac2c2f0184b810a562be808fbb98822fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Newline distance (y axis)  <br /></td></tr>
+<tr class="separator:ac2c2f0184b810a562be808fbb98822fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bfd43cce7ee68c427e14b34194db02c" id="r_a5bfd43cce7ee68c427e14b34194db02c"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bfd43cce7ee68c427e14b34194db02c">subset</a></td></tr>
+<tr class="memdesc:a5bfd43cce7ee68c427e14b34194db02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">subset of chars in the font  <br /></td></tr>
+<tr class="separator:a5bfd43cce7ee68c427e14b34194db02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>フォントセットを格納している構造体。 </p>
+<p>フォントグリフ（GFXglyph構造体）を複数格納し、ひとまとめのフォントセットとして管理するためのデータ構造。 この構造体のデータへのポインタを指定することで、アプリケーションが使用するフォント（非漢字の１バイトフォント）を変更できる。 </p>
+</div><h2 class="groupheader">メンバ詳解</h2>
+<a id="a867b14d604450addbeaf62ae1e4799a7" name="a867b14d604450addbeaf62ae1e4799a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a867b14d604450addbeaf62ae1e4799a7">&#9670;&#160;</a></span>bitmap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* GFXfont::bitmap</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Glyph bitmaps, concatenated </p>
+
+</div>
+</div>
+<a id="a802323f225b30dd2591c57ccb3fbac00" name="a802323f225b30dd2591c57ccb3fbac00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a802323f225b30dd2591c57ccb3fbac00">&#9670;&#160;</a></span>first</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t GFXfont::first</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ASCII extents (first char) </p>
+
+</div>
+</div>
+<a id="af63d88fa053c9a634e86eab7c96db290" name="af63d88fa053c9a634e86eab7c96db290"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af63d88fa053c9a634e86eab7c96db290">&#9670;&#160;</a></span>glyph</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_g_f_xglyph.html">GFXglyph</a>* GFXfont::glyph</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Glyph array </p>
+
+</div>
+</div>
+<a id="a9bc82580b9bc5cc1c15ae23457edcd49" name="a9bc82580b9bc5cc1c15ae23457edcd49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bc82580b9bc5cc1c15ae23457edcd49">&#9670;&#160;</a></span>last</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t GFXfont::last</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ASCII extents (last char) </p>
+
+</div>
+</div>
+<a id="a5bfd43cce7ee68c427e14b34194db02c" name="a5bfd43cce7ee68c427e14b34194db02c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bfd43cce7ee68c427e14b34194db02c">&#9670;&#160;</a></span>subset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* GFXfont::subset</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>subset of chars in the font </p>
+
+</div>
+</div>
+<a id="ac2c2f0184b810a562be808fbb98822fa" name="ac2c2f0184b810a562be808fbb98822fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2c2f0184b810a562be808fbb98822fa">&#9670;&#160;</a></span>yAdvance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t GFXfont::yAdvance</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Newline distance (y axis) </p>
+
+</div>
+</div>
+<hr/>この構造体詳解は次のファイルから抽出されました:<ul>
+<li><a class="el" href="_s_t7735__struct_8h_source.html">ST7735_struct.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

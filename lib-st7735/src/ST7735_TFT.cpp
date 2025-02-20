@@ -9,8 +9,8 @@
 /// ST7732ライブラリ。（大元のpic_16F18346_projects自体、adafruit用のライブラリと相当類似しており、どちらが本家かはわからない。<br/>
 /// 主な改変は次の通り。<br/>
 /// - Raspberry PI PICO SDK への適合（https://marketplace.visualstudio.com/items?itemName=raspberry-pi.raspberry-pi-pico　を使用) <br/>
-/// - c++のクラス化 </br>
-/// - 漢字表示機能の追加 </br>
+/// - c++のクラス化 <br/>
+/// - 漢字表示機能の追加 <br/>
 
 
 #pragma GCC optimize ("O0")
@@ -81,10 +81,10 @@ void ST7735::writeData(uint8_t data_)
 	spiHW.writeData(data_);
 }
 /// @brief BitBlitのためのアドレスウインドウを設定する。（https://en.wikipedia.org/wiki/Bit_blit）
-/// @param x0　左上のx座標
-/// @param y0　左上のy座標
-/// @param x1　右下のx座標
-/// @param y1　右下のy座標
+/// @param x0 左上のx座標
+/// @param y0 左上のy座標
+/// @param x1 右下のx座標
+/// @param y1 右下のy座標
 void ST7735::setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)
 {
   writeCommand(ST7735Cmd.CASET);
@@ -131,7 +131,7 @@ void ST7735::fillScreen(uint16_t color)
 {
 	fillRectangle(0, 0, st7735Init.width, st7735Init.height, color);
 }
-/// @brief　水平線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。
+/// @brief 水平線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。
 /// @param x 始点のx座標
 /// @param y 始点のy座標
 /// @param w 線の長さ
@@ -152,10 +152,10 @@ void ST7735::drawFastHLine(uint8_t x, uint8_t y, uint8_t w, uint16_t color)
   }
   spiHW.CSHigh();
 }
-/// @brief　垂直線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。
+/// @brief 垂直線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。
 /// @param x 始点のx座標
 /// @param y 始点のy座標
-/// @param w 線の長さ
+/// @param h 線の長さ
 /// @param color 線の色
 void ST7735::drawFastVLine(uint8_t x, uint8_t y, uint8_t h, uint16_t color)
 {
@@ -207,13 +207,13 @@ void ST7735::NormalDisplay()
 /// @brief 画面の回転を設定する。
 /// @details ウインドウに対して描画するオブジェクトを回転させる。ST7735_ROTATION::NORMALを指定すると、元に戻すことができる。
 /// 描画するオブジェクトが左右反転（ミラー）してしまったりするときには、ここを呼びだす。
-/// @param r　
+/// @param r 回転する方向
 void ST7735::SetRotation(ST7735_ROTATION r)
 {
 	st7735Init.setRotation(r);
 }
 /// @brief 		画面に色を表示する
-/// @param color 　色
+/// @param color 色
 void ST7735::pushColor(uint16_t color)
 {
 	uint8_t hi, lo;
@@ -230,9 +230,9 @@ void ST7735::pushColor(uint16_t color)
 
 /// @brief 画面に円を描画する
 /// @param x0 中心のx座標
-/// @param y0　中心のy座標
-/// @param r　半径 
-/// @param color　	円の色 
+/// @param y0 中心のy座標
+/// @param r 半径 
+/// @param color 円の色 
 void ST7735::drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color)
 {
 	int16_t f, ddF_x, ddF_y, x, y;
@@ -271,11 +271,11 @@ void ST7735::fillCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color)
 	fillCircleHelper(x0, y0, r, 3, 0, color);
 }
 /// @brief 画面に、1/4の円を描画する。四分円を描画するための補助関数
-/// @param x0　中心のx座標
-/// @param y0　中心のy座標 
-/// @param r　	半径 
-/// @param cornername 		四分円の位置。1:左上、2:右上、4:左下、8:右下のビットマスクになっている。
-/// @param color　 		円の色
+/// @param x0 中心のx座標
+/// @param y0 中心のy座標 
+/// @param r 半径 
+/// @param cornername 四分円の位置。1:左上、2:右上、4:左下、8:右下のビットマスクになっている。
+/// @param color 円の色
 void ST7735::drawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, uint16_t color)
 {
 	int16_t f, ddF_x, ddF_y, x, y;
@@ -452,19 +452,19 @@ void ST7735::drawRoundRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t
 	drawCircleHelper(x + r, y + h - r - 1, r, 8, color);
 }
 /// @brief 各丸矩形を描画する。
-/// @param x 左上のx座標
-/// @param y 左上のx座標
-/// @param x1 右下のX座標
+/// @param x1 左上のx座標
+/// @param y1 左上のx座標
+/// @param x2 右下のX座標
 /// @param y2 右下のy座標
 /// @param r 角の半径
-/// @param color　矩形の色
-void ST7735::drawRoundRect(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t r, uint16_t color)
+/// @param color 矩形の色
+void ST7735::drawRoundRect(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, uint8_t r, uint16_t color)
 {
-	if (x > x1) _swap(x, x1);
-	if (y > y1) _swap(y, y1);
-	uint8_t w = x1 - x;
-	uint8_t h = y1 - y;
-	drawRoundRectWH(x, y, w, h, r, color);
+	if (x1 > x2) _swap(x1, x2);
+	if (y1 > y2) _swap(y1, y2);
+	uint8_t w = x2 - x1;
+	uint8_t h = y2 - y1;
+	drawRoundRectWH(x1, y1, w, h, r, color);
 }
 
 /// @brief 		角丸の矩形を塗りつぶす
@@ -482,19 +482,19 @@ void ST7735::fillRoundRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t
 	fillCircleHelper(x + r, y + r, r, 2, h - 2 * r - 1, color);
 }
 /// @brief 角丸の矩形を塗りつぶす
-/// @param x 左上のx座標
-/// @param y 左上のx座標
-/// @param x1 右下のX座標
+/// @param x1 左上のx座標
+/// @param y1 左上のx座標
+/// @param x2 右下のX座標
 /// @param y2 右下のy座標
 /// @param r 角の半径
-/// @param color　矩形の色
-void ST7735::fillRoundRect(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t r, uint16_t color)
+/// @param color 矩形の色
+void ST7735::fillRoundRect(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, uint8_t r, uint16_t color)
 {
-	if (x > x1) _swap(x, x1);
-	if (y > y1) _swap(y, y1);
-	uint8_t w = x1 - x;
-	uint8_t h = y1 - y;
-	fillRoundRectWH(x, y, w, h, r, color);
+	if (x1 > x2) _swap(x1, x2);
+	if (y1 > y2) _swap(y1, y2);
+	uint8_t w = x2 - x1;
+	uint8_t h = y2 - y1;
+	fillRoundRectWH(x1, y1, w, h, r, color);
 }
 
 /// @brief 		三角形を描画する
@@ -964,6 +964,7 @@ void ST7735::VerticalScroll(uint8_t _vsp)
 /// @param w ビットマップの大きさ
 /// @param h ビットマップの大きさ
 /// @param p 表示するデータへのポインタ
+/// @param direction 表示する方向。0…標準 1…ミラー表示
 void ST7735::bmpDraw(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t *p,uint8_t direction)
 {
 	if (direction == 1) {
@@ -976,12 +977,6 @@ void ST7735::bmpDraw(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t *p,uin
 		for (int8_t yy = 0; yy < h; yy++) {
 			for (int8_t xx = 0; xx < w; xx++) {
 				uint16_t c = *p;
-				/*if (direction == 0) {
-					c = *p;
-				} else {
-					c = *(pBase + (w - xx) + yy * h);
-				}
-				*/
 				if (isTransparentColor && c == bmpTransparentColor) {
 					// 透過色なら何もしない
 				} else {
@@ -990,20 +985,14 @@ void ST7735::bmpDraw(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t *p,uin
 				p++;
 			}
 		}
-	} else {								//　透過色処理をしないなら、高速で書き込める
+	} else {								// 透過色処理をしないなら、高速で書き込める
 		setAddrWindow(x, y, x + w - 1, y + h - 1);  // 漢字ブロックの大きさでアドレスウインドウを設定
 		for (int8_t yy = 0; yy < h; yy++) {
 			for (int8_t xx = 0; xx < w; xx++) {
 				uint16_t c = *p;
-				/*if (direction == 0) {
-					c = *p;
-				} else {
-					c = *(pBase + (w - xx) + yy * h);
-				}
-				*/
 				if (isTransparentColor && c == bmpTransparentColor) {
 					// 透過色なら何もしない
-					// と思ったらそういうことはできない。
+					// と思ったらそういうことはできない。ウインドウ指定を一回にする場合、スキャンを飛ばす方法がないので。
 				} else {
 					writeData(c >> 8);
 					writeData(c & 0xFF);

@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: hw.h ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c5a50853997633758dfee5f1dd444d6e.html">SPIDisplay</a></li><li class="navelem"><a class="el" href="dir_0ab8852d40c8d229a52113626deabd6b.html">lib-st7735</a></li><li class="navelem"><a class="el" href="dir_3ecfe767cd2f056f6ab99bb4cb2006e9.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#define-members">マクロ定義</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle"><div class="title">hw.h ファイル</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;hardware/spi.h&quot;</code><br />
+<code>#include &quot;pico/stdlib.h&quot;</code><br />
+</div>
+<p><a href="hw_8h_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_w.html">HW</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ハードウェア関連の処理や設定を行う為のクラス。使用するピンを変える場合などは、このクラスの変数でデフォルト値を変更するか、 このクラスのコンストラクタでポート番号を指定する。 このクラスは静的ではないので、インスタンス化してから使用する。無いとは思うが、２つのLCDを接続して制御するときは、２つのインスタンスをそれぞれ 作成、初期化して初期化処理を行う。  <a href="class_h_w.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+マクロ定義</h2></td></tr>
+<tr class="memitem:a6a383704d8f976b5a4d680ba951a3fc6" id="r_a6a383704d8f976b5a4d680ba951a3fc6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a383704d8f976b5a4d680ba951a3fc6">__delay_ms</a>(x)</td></tr>
+<tr class="separator:a6a383704d8f976b5a4d680ba951a3fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b927edcd26c6074ae66bad344bee463" id="r_a4b927edcd26c6074ae66bad344bee463"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b927edcd26c6074ae66bad344bee463">TFT_OPTIONS</a></td></tr>
+<tr class="separator:a4b927edcd26c6074ae66bad344bee463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3186931c4b15e568ee0f42b95929d98" id="r_aa3186931c4b15e568ee0f42b95929d98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3186931c4b15e568ee0f42b95929d98">SPI_TFT_PORT</a>&#160;&#160;&#160;spi1</td></tr>
+<tr class="separator:aa3186931c4b15e568ee0f42b95929d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+変数</h2></td></tr>
+<tr class="memitem:a943b986b00c31e9f65de5a4d6dca6118" id="r_a943b986b00c31e9f65de5a4d6dca6118"><td class="memItemLeft" >class {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12a0690177dffd4d07d382d3789d7be4" id="r_a12a0690177dffd4d07d382d3789d7be4"><td class="memItemLeft" >&#160;&#160;&#160;const uint16_t&#160;&#160;&#160;<a class="el" href="#a1925181059bfd631bab628cb59d71df8">MAX</a> = 500&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:a12a0690177dffd4d07d382d3789d7be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI通信で、最長のウエイトが必要な時の待ち時間（ms)  <a href="#a1925181059bfd631bab628cb59d71df8">[詳解]</a><br /></td></tr>
+<tr class="separator:a12a0690177dffd4d07d382d3789d7be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a7261ff480f585027d93c3ef8f630ac" id="r_a9a7261ff480f585027d93c3ef8f630ac"><td class="memItemLeft" >&#160;&#160;&#160;const uint8_t&#160;&#160;&#160;<a class="el" href="#a523cfccde9db56bf9abcfe5618d13c18">LONG</a> = 255&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:a9a7261ff480f585027d93c3ef8f630ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI通信で、長いウエイトが必要な時の待ち時間（ms)  <a href="#a523cfccde9db56bf9abcfe5618d13c18">[詳解]</a><br /></td></tr>
+<tr class="separator:a9a7261ff480f585027d93c3ef8f630ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0b370365e5f3c07269a288ff0a61eb" id="r_aca0b370365e5f3c07269a288ff0a61eb"><td class="memItemLeft" >&#160;&#160;&#160;const uint8_t&#160;&#160;&#160;<a class="el" href="#a2f6fb13fd009caf8d97cc8cc29e4997c">MIDLONG</a> = 150&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:aca0b370365e5f3c07269a288ff0a61eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI通信で、やや長いウエイトが必要な時の待ち時間（ms)  <a href="#a2f6fb13fd009caf8d97cc8cc29e4997c">[詳解]</a><br /></td></tr>
+<tr class="separator:aca0b370365e5f3c07269a288ff0a61eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae420875a069113f2918bbf35c0669150" id="r_ae420875a069113f2918bbf35c0669150"><td class="memItemLeft" >&#160;&#160;&#160;const uint8_t&#160;&#160;&#160;<a class="el" href="#a8a6f8a096e50523366d3d3dfb62fe4ee">MIDDLE</a> = 50&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:ae420875a069113f2918bbf35c0669150"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI通信で、中くらいのウエイトが必要な時の待ち時間（ms)  <a href="#a8a6f8a096e50523366d3d3dfb62fe4ee">[詳解]</a><br /></td></tr>
+<tr class="separator:ae420875a069113f2918bbf35c0669150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9883fdcc3cf64ad26efa518c8e34650" id="r_aa9883fdcc3cf64ad26efa518c8e34650"><td class="memItemLeft" >&#160;&#160;&#160;const uint8_t&#160;&#160;&#160;<a class="el" href="#adcd7fbc34c95bc6db1b71f32785ef236">SHORT</a> = 10&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:aa9883fdcc3cf64ad26efa518c8e34650"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI通信で、短いウエイトが必要な時の待ち時間（ms)  <a href="#adcd7fbc34c95bc6db1b71f32785ef236">[詳解]</a><br /></td></tr>
+<tr class="separator:aa9883fdcc3cf64ad26efa518c8e34650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a943b986b00c31e9f65de5a4d6dca6118" id="r_a943b986b00c31e9f65de5a4d6dca6118"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a943b986b00c31e9f65de5a4d6dca6118">ST7735Sleep</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:a943b986b00c31e9f65de5a4d6dca6118"><td class="mdescLeft">&#160;</td><td class="mdescRight">ST7735の待ち時間を設定するクラス。デバッグ時には短い時間で動作させるために、DBG_SHORT_WAITをオンにする。 そうしないと、信号の監視をするときに信号幅に対して、待ち時間が長くなりすぎて信号の確認がやりにくくなるため。 もちろん、このシンボルを有効にしていると実際のデバイスは動作しない。  <br /></td></tr>
+<tr class="separator:a943b986b00c31e9f65de5a4d6dca6118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">マクロ定義詳解</h2>
+<a id="a6a383704d8f976b5a4d680ba951a3fc6" name="a6a383704d8f976b5a4d680ba951a3fc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a383704d8f976b5a4d680ba951a3fc6">&#9670;&#160;</a></span>__delay_ms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __delay_ms</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>値:</b><div class="fragment"><div class="line">sleep_ms(x)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa3186931c4b15e568ee0f42b95929d98" name="aa3186931c4b15e568ee0f42b95929d98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3186931c4b15e568ee0f42b95929d98">&#9670;&#160;</a></span>SPI_TFT_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_TFT_PORT&#160;&#160;&#160;spi1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4b927edcd26c6074ae66bad344bee463" name="a4b927edcd26c6074ae66bad344bee463"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b927edcd26c6074ae66bad344bee463">&#9670;&#160;</a></span>TFT_OPTIONS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_OPTIONS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">変数詳解</h2>
+<a id="a523cfccde9db56bf9abcfe5618d13c18" name="a523cfccde9db56bf9abcfe5618d13c18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a523cfccde9db56bf9abcfe5618d13c18">&#9670;&#160;</a></span>LONG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t LONG = 255</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SPI通信で、長いウエイトが必要な時の待ち時間（ms) </p>
+
+</div>
+</div>
+<a id="a1925181059bfd631bab628cb59d71df8" name="a1925181059bfd631bab628cb59d71df8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1925181059bfd631bab628cb59d71df8">&#9670;&#160;</a></span>MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t MAX = 500</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SPI通信で、最長のウエイトが必要な時の待ち時間（ms) </p>
+
+</div>
+</div>
+<a id="a8a6f8a096e50523366d3d3dfb62fe4ee" name="a8a6f8a096e50523366d3d3dfb62fe4ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a6f8a096e50523366d3d3dfb62fe4ee">&#9670;&#160;</a></span>MIDDLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t MIDDLE = 50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SPI通信で、中くらいのウエイトが必要な時の待ち時間（ms) </p>
+
+</div>
+</div>
+<a id="a2f6fb13fd009caf8d97cc8cc29e4997c" name="a2f6fb13fd009caf8d97cc8cc29e4997c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f6fb13fd009caf8d97cc8cc29e4997c">&#9670;&#160;</a></span>MIDLONG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t MIDLONG = 150</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SPI通信で、やや長いウエイトが必要な時の待ち時間（ms) </p>
+
+</div>
+</div>
+<a id="adcd7fbc34c95bc6db1b71f32785ef236" name="adcd7fbc34c95bc6db1b71f32785ef236"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcd7fbc34c95bc6db1b71f32785ef236">&#9670;&#160;</a></span>SHORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t SHORT = 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SPI通信で、短いウエイトが必要な時の待ち時間（ms) </p>
+
+</div>
+</div>
+<a id="a943b986b00c31e9f65de5a4d6dca6118" name="a943b986b00c31e9f65de5a4d6dca6118"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a943b986b00c31e9f65de5a4d6dca6118">&#9670;&#160;</a></span>[class]</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class  { ... }  ST7735Sleep</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ST7735の待ち時間を設定するクラス。デバッグ時には短い時間で動作させるために、DBG_SHORT_WAITをオンにする。 そうしないと、信号の監視をするときに信号幅に対して、待ち時間が長くなりすぎて信号の確認がやりにくくなるため。 もちろん、このシンボルを有効にしていると実際のデバイスは動作しない。 </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

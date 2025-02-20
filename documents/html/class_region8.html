@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: Region8 クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="class_region8-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">Region8 クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>矩形の範囲をx1,y1 - x2,y2で示すクラス(8bit)。描画メソッドでは、このクラスを使うことができる。  
+ <a href="#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_s_t7735__struct_8h_source.html">ST7735_struct.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:ac09dba6b8d61da5376952b624388347a" id="r_ac09dba6b8d61da5376952b624388347a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac09dba6b8d61da5376952b624388347a">Region8</a> ()</td></tr>
+<tr class="memdesc:ac09dba6b8d61da5376952b624388347a"><td class="mdescLeft">&#160;</td><td class="mdescRight">デフォルトコンストラクタ。0,0で初期化される  <br /></td></tr>
+<tr class="separator:ac09dba6b8d61da5376952b624388347a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a915aef0ab0481350eb8a265f09532c9b" id="r_a915aef0ab0481350eb8a265f09532c9b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a915aef0ab0481350eb8a265f09532c9b">Region8</a> (<a class="el" href="class_axis8.html">Axis8</a> <a class="el" href="#ac867a022063ae95dd835541ce49d3df8">start</a>, <a class="el" href="class_axis8.html">Axis8</a> <a class="el" href="#af81a59a31069466633c918dcf5032c34">end</a>)</td></tr>
+<tr class="separator:a915aef0ab0481350eb8a265f09532c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4e1a02881029a9ad32683a17cb51149" id="r_ab4e1a02881029a9ad32683a17cb51149"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4e1a02881029a9ad32683a17cb51149">Region8</a> (<a class="el" href="class_axis8.html">Axis8</a> <a class="el" href="#ac867a022063ae95dd835541ce49d3df8">start</a>, <a class="el" href="class_size8.html">Size8</a> <a class="el" href="#a6ccbb72d4fd034813632f150aab41970">size</a>)</td></tr>
+<tr class="separator:ab4e1a02881029a9ad32683a17cb51149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:ac867a022063ae95dd835541ce49d3df8" id="r_ac867a022063ae95dd835541ce49d3df8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_axis8.html">Axis8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac867a022063ae95dd835541ce49d3df8">start</a></td></tr>
+<tr class="separator:ac867a022063ae95dd835541ce49d3df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2afbf967e5d888d8a507ac5238e70dc4" id="r_a2afbf967e5d888d8a507ac5238e70dc4"><td class="memItemLeft" >union {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c731d88d8407320337117b69877c992" id="r_a4c731d88d8407320337117b69877c992"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="class_axis8.html">Axis8</a>&#160;&#160;&#160;<a class="el" href="#af81a59a31069466633c918dcf5032c34">end</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a4c731d88d8407320337117b69877c992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e1ef3d553d43903aa4ec4365f683f97" id="r_a5e1ef3d553d43903aa4ec4365f683f97"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="class_size8.html">Size8</a>&#160;&#160;&#160;<a class="el" href="#a6ccbb72d4fd034813632f150aab41970">size</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a5e1ef3d553d43903aa4ec4365f683f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2afbf967e5d888d8a507ac5238e70dc4" id="r_a2afbf967e5d888d8a507ac5238e70dc4"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom">&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a2afbf967e5d888d8a507ac5238e70dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>矩形の範囲をx1,y1 - x2,y2で示すクラス(8bit)。描画メソッドでは、このクラスを使うことができる。 </p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="ac09dba6b8d61da5376952b624388347a" name="ac09dba6b8d61da5376952b624388347a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac09dba6b8d61da5376952b624388347a">&#9670;&#160;</a></span>Region8() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Region8::Region8 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>デフォルトコンストラクタ。0,0で初期化される </p>
+
+</div>
+</div>
+<a id="a915aef0ab0481350eb8a265f09532c9b" name="a915aef0ab0481350eb8a265f09532c9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a915aef0ab0481350eb8a265f09532c9b">&#9670;&#160;</a></span>Region8() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Region8::Region8 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>end</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4e1a02881029a9ad32683a17cb51149" name="ab4e1a02881029a9ad32683a17cb51149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4e1a02881029a9ad32683a17cb51149">&#9670;&#160;</a></span>Region8() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Region8::Region8 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_size8.html">Size8</a></td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a2afbf967e5d888d8a507ac5238e70dc4" name="a2afbf967e5d888d8a507ac5238e70dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2afbf967e5d888d8a507ac5238e70dc4">&#9670;&#160;</a></span>[union]</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">union  { ... }  <a class="el" href="class_region8.html">Region8</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af81a59a31069466633c918dcf5032c34" name="af81a59a31069466633c918dcf5032c34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af81a59a31069466633c918dcf5032c34">&#9670;&#160;</a></span>end</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_axis8.html">Axis8</a> Region8::end</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ccbb72d4fd034813632f150aab41970" name="a6ccbb72d4fd034813632f150aab41970"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ccbb72d4fd034813632f150aab41970">&#9670;&#160;</a></span>size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_size8.html">Size8</a> Region8::size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac867a022063ae95dd835541ce49d3df8" name="ac867a022063ae95dd835541ce49d3df8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac867a022063ae95dd835541ce49d3df8">&#9670;&#160;</a></span>start</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_axis8.html">Axis8</a> Region8::start</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li><a class="el" href="_s_t7735__struct_8h_source.html">ST7735_struct.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

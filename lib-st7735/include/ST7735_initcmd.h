@@ -23,21 +23,39 @@ class ST7735Init {
 	HW* pSpiHW;
 
    public:
-	/// @brief 
+	/// @brief 液晶の左上のX座標。
+	/// @details この座標を実際の原点する。ハードウェアにより、この値は調整される。
 	uint8_t colstart;
+	/// @brief 液晶の左上のY座標。この座標を実際の原点する。ハードウェアにより、この値は調整される。
+	/// @details この座標を実際の原点する。ハードウェアにより、この値は調整される。
 	uint8_t rowstart;
+	/// @brief 接続されているTFTの種別
+	/// @details この値により、送信されるコマンドの一部が変わる
 	uint8_t tft_type;
+	/// @brief 現在の表示画面の向き。0...標準、1...90° 2...180° 3...270°
 	uint8_t rotation;
+	/// @brief 描画の左上座標
 	uint8_t xstart;
+	/// @brief 描画の右上座標
 	uint8_t ystart;
 
 	// we keept this public
+	/// @brief 現在接続されている液晶の横ドット数
 	uint8_t width = 128;
+	/// @brief 現在接続されている液用の縦ドット数
 	uint8_t height = 160;
 
+	/// @brief プログラム起動時に設定されていた液晶のドット数を保存しておく。
+	/// @details このプログラムでは、widthとheightが画面の回転により入れ替わる。
+	/// 元に戻すために、この変数に初期値を保存しておく。
 	uint8_t BaseWidth = 128;
+
+	/// @brief プログラム起動時に設定されていた液晶のドット数を保存しておく。
+	/// @details このプログラムでは、widthとheightが画面の回転により入れ替わる。
+	/// 元に戻すために、この変数に初期値を保存しておく。
 	uint8_t BaseHeight = 160;
 
+	/// @brief 接続されているTFTの製品種類を表すための変数
 	uint8_t tabcolor;
 
    public:
@@ -50,7 +68,7 @@ class ST7735Init {
 	void commonInit(const uint8_t* cmdList);
 	void initB(void);
 	void initR(uint8_t options);
-	void setRotation(enum ST7735_ROTATION rot);
+	void setRotation(enum ST7735_ROTATION m);
 };
 
 static const uint8_t Bcmd[] = {                        		// Init commands for 7735B screens

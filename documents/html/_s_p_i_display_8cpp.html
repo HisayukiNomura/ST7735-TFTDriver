@@ -1,0 +1,570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: SPIDisplay.cpp ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c5a50853997633758dfee5f1dd444d6e.html">SPIDisplay</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#define-members">マクロ定義</a> &#124;
+<a href="#func-members">関数</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle"><div class="title">SPIDisplay.cpp ファイル</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &quot;pico/stdlib.h&quot;</code><br />
+<code>#include &quot;hardware/spi.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_t7735___t_f_t_8h_source.html">lib-st7735/include/ST7735_TFT.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hw_8h_source.html">lib-st7735/include/hw.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_font___mono9p_8h_source.html">lib-st7735/include/font/Font_Mono9p.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+マクロ定義</h2></td></tr>
+<tr class="memitem:aa23c90a9d01a9cbb935f9822ed3e6a5e" id="r_aa23c90a9d01a9cbb935f9822ed3e6a5e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa23c90a9d01a9cbb935f9822ed3e6a5e">TFT_ENABLE_BLACK</a></td></tr>
+<tr class="separator:aa23c90a9d01a9cbb935f9822ed3e6a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8112c985f7444e82198d7571ce0a9160" id="r_a8112c985f7444e82198d7571ce0a9160"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8112c985f7444e82198d7571ce0a9160">SPI_PORT</a>&#160;&#160;&#160;<a class="el" href="hw_8h.html#aa3186931c4b15e568ee0f42b95929d98">SPI_TFT_PORT</a></td></tr>
+<tr class="separator:a8112c985f7444e82198d7571ce0a9160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46bdd417480dec5cb9cf196af3c7489c" id="r_a46bdd417480dec5cb9cf196af3c7489c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46bdd417480dec5cb9cf196af3c7489c">PIN_MISO</a>&#160;&#160;&#160;PIN_TFT_RX</td></tr>
+<tr class="separator:a46bdd417480dec5cb9cf196af3c7489c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa592f8fcb7a301edfe97aa121fd28ce" id="r_afa592f8fcb7a301edfe97aa121fd28ce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa592f8fcb7a301edfe97aa121fd28ce">PIN_CS</a>&#160;&#160;&#160;PIN_TFT_CS</td></tr>
+<tr class="separator:afa592f8fcb7a301edfe97aa121fd28ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a1a3e97267377d1b18bb9073192fdf1" id="r_a6a1a3e97267377d1b18bb9073192fdf1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a1a3e97267377d1b18bb9073192fdf1">PIN_SCK</a>&#160;&#160;&#160;PIN_TFT_SCK</td></tr>
+<tr class="separator:a6a1a3e97267377d1b18bb9073192fdf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaeddda4b992af7165ed898ab8b2b4ac" id="r_abaeddda4b992af7165ed898ab8b2b4ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abaeddda4b992af7165ed898ab8b2b4ac">PIN_MOSI</a>&#160;&#160;&#160;PIN_TFT_TX</td></tr>
+<tr class="separator:abaeddda4b992af7165ed898ab8b2b4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a93ee2e1c759976110ccc4589b7ac64fd" id="r_a93ee2e1c759976110ccc4589b7ac64fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_axis8.html">Axis8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93ee2e1c759976110ccc4589b7ac64fd">randAxis</a> (<a class="el" href="class_axis8.html">Axis8</a> &amp;axis)</td></tr>
+<tr class="separator:a93ee2e1c759976110ccc4589b7ac64fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2021781a38a144bee0f972e1a8d177c5" id="r_a2021781a38a144bee0f972e1a8d177c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_size8.html">Size8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2021781a38a144bee0f972e1a8d177c5">randSize</a> (<a class="el" href="class_size8.html">Size8</a> &amp;size)</td></tr>
+<tr class="separator:a2021781a38a144bee0f972e1a8d177c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd239a129ee529d62cf21c5c045a271a" id="r_abd239a129ee529d62cf21c5c045a271a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd239a129ee529d62cf21c5c045a271a">randAxisSize</a> (<a class="el" href="class_axis8.html">Axis8</a> &amp;axis, <a class="el" href="class_size8.html">Size8</a> &amp;size)</td></tr>
+<tr class="separator:abd239a129ee529d62cf21c5c045a271a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb97e98ed3034fc40eabf4b2c80db467" id="r_abb97e98ed3034fc40eabf4b2c80db467"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_region8.html">Region8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb97e98ed3034fc40eabf4b2c80db467">randRegion</a> (<a class="el" href="class_region8.html">Region8</a> &amp;region)</td></tr>
+<tr class="separator:abb97e98ed3034fc40eabf4b2c80db467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fb2f0395c3962bb1d1915084812fa5f" id="r_a1fb2f0395c3962bb1d1915084812fa5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fb2f0395c3962bb1d1915084812fa5f">demo_bmp</a> (<a class="el" href="class_s_t7735.html">ST7735</a> &amp;st7735)</td></tr>
+<tr class="memdesc:a1fb2f0395c3962bb1d1915084812fa5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">ビットマップ表示のデモ  <br /></td></tr>
+<tr class="separator:a1fb2f0395c3962bb1d1915084812fa5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d9aa7d685c95386c099052b3cade467" id="r_a5d9aa7d685c95386c099052b3cade467"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d9aa7d685c95386c099052b3cade467">demo_Kanji</a> (<a class="el" href="class_s_t7735.html">ST7735</a> &amp;st7735)</td></tr>
+<tr class="memdesc:a5d9aa7d685c95386c099052b3cade467"><td class="mdescLeft">&#160;</td><td class="mdescRight">漢字の表示とスクロールのデモ  <br /></td></tr>
+<tr class="separator:a5d9aa7d685c95386c099052b3cade467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6628a2e3d3c281c479a05dbd1e95ce5e" id="r_a6628a2e3d3c281c479a05dbd1e95ce5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6628a2e3d3c281c479a05dbd1e95ce5e">demo_fonts</a> (<a class="el" href="class_s_t7735.html">ST7735</a> &amp;st7735)</td></tr>
+<tr class="memdesc:a6628a2e3d3c281c479a05dbd1e95ce5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">フォント指定テキスト出力とスクロールのデモ  <br /></td></tr>
+<tr class="separator:a6628a2e3d3c281c479a05dbd1e95ce5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3a896d2f46a38dbc6c9d0b7cdc10d41" id="r_aa3a896d2f46a38dbc6c9d0b7cdc10d41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3a896d2f46a38dbc6c9d0b7cdc10d41">demo_text</a> (<a class="el" href="class_s_t7735.html">ST7735</a> &amp;st7735)</td></tr>
+<tr class="memdesc:aa3a896d2f46a38dbc6c9d0b7cdc10d41"><td class="mdescLeft">&#160;</td><td class="mdescRight">通常テキスト出力とスクロールのデモ  <br /></td></tr>
+<tr class="separator:aa3a896d2f46a38dbc6c9d0b7cdc10d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a213e5000bdd683313d4aa1c5c42a41d7" id="r_a213e5000bdd683313d4aa1c5c42a41d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a213e5000bdd683313d4aa1c5c42a41d7">demo_basic</a> (<a class="el" href="class_s_t7735.html">ST7735</a> &amp;st7735)</td></tr>
+<tr class="memdesc:a213e5000bdd683313d4aa1c5c42a41d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面のクリア、縦直線、横直線、矩形、点の描画など、基本描画機能のデモ。  <br /></td></tr>
+<tr class="separator:a213e5000bdd683313d4aa1c5c42a41d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d6604eb01a69292d7d02c586f1437e8" id="r_a0d6604eb01a69292d7d02c586f1437e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d6604eb01a69292d7d02c586f1437e8">demo_shapes</a> (<a class="el" href="class_s_t7735.html">ST7735</a> st7735)</td></tr>
+<tr class="memdesc:a0d6604eb01a69292d7d02c586f1437e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">図形描画のデモ  <br /></td></tr>
+<tr class="separator:a0d6604eb01a69292d7d02c586f1437e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+変数</h2></td></tr>
+<tr class="memitem:a23f0517fe666e1dccd4a8fd1827b230a" id="r_a23f0517fe666e1dccd4a8fd1827b230a"><td class="memItemLeft" align="right" valign="top">volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23f0517fe666e1dccd4a8fd1827b230a">iRet</a></td></tr>
+<tr class="separator:a23f0517fe666e1dccd4a8fd1827b230a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee26e96bfaf1ee2e582db4efa313f89a" id="r_aee26e96bfaf1ee2e582db4efa313f89a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_h_w.html">HW</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee26e96bfaf1ee2e582db4efa313f89a">spiHW</a> (0, 16, 17, 18, 19, 28, 15)</td></tr>
+<tr class="separator:aee26e96bfaf1ee2e582db4efa313f89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502dd594669cfeb6601ebb979f658772" id="r_a502dd594669cfeb6601ebb979f658772"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_s_t7735.html">ST7735</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a502dd594669cfeb6601ebb979f658772">pST7735</a></td></tr>
+<tr class="separator:a502dd594669cfeb6601ebb979f658772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">マクロ定義詳解</h2>
+<a id="afa592f8fcb7a301edfe97aa121fd28ce" name="afa592f8fcb7a301edfe97aa121fd28ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa592f8fcb7a301edfe97aa121fd28ce">&#9670;&#160;</a></span>PIN_CS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PIN_CS&#160;&#160;&#160;PIN_TFT_CS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a46bdd417480dec5cb9cf196af3c7489c" name="a46bdd417480dec5cb9cf196af3c7489c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46bdd417480dec5cb9cf196af3c7489c">&#9670;&#160;</a></span>PIN_MISO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PIN_MISO&#160;&#160;&#160;PIN_TFT_RX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abaeddda4b992af7165ed898ab8b2b4ac" name="abaeddda4b992af7165ed898ab8b2b4ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaeddda4b992af7165ed898ab8b2b4ac">&#9670;&#160;</a></span>PIN_MOSI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PIN_MOSI&#160;&#160;&#160;PIN_TFT_TX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a1a3e97267377d1b18bb9073192fdf1" name="a6a1a3e97267377d1b18bb9073192fdf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a1a3e97267377d1b18bb9073192fdf1">&#9670;&#160;</a></span>PIN_SCK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PIN_SCK&#160;&#160;&#160;PIN_TFT_SCK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8112c985f7444e82198d7571ce0a9160" name="a8112c985f7444e82198d7571ce0a9160"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8112c985f7444e82198d7571ce0a9160">&#9670;&#160;</a></span>SPI_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_PORT&#160;&#160;&#160;<a class="el" href="hw_8h.html#aa3186931c4b15e568ee0f42b95929d98">SPI_TFT_PORT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa23c90a9d01a9cbb935f9822ed3e6a5e" name="aa23c90a9d01a9cbb935f9822ed3e6a5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa23c90a9d01a9cbb935f9822ed3e6a5e">&#9670;&#160;</a></span>TFT_ENABLE_BLACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_ENABLE_BLACK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a213e5000bdd683313d4aa1c5c42a41d7" name="a213e5000bdd683313d4aa1c5c42a41d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a213e5000bdd683313d4aa1c5c42a41d7">&#9670;&#160;</a></span>demo_basic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void demo_basic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_s_t7735.html">ST7735</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>st7735</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>画面のクリア、縦直線、横直線、矩形、点の描画など、基本描画機能のデモ。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st7735</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1fb2f0395c3962bb1d1915084812fa5f" name="a1fb2f0395c3962bb1d1915084812fa5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fb2f0395c3962bb1d1915084812fa5f">&#9670;&#160;</a></span>demo_bmp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void demo_bmp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_s_t7735.html">ST7735</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>st7735</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ビットマップ表示のデモ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st7735</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6628a2e3d3c281c479a05dbd1e95ce5e" name="a6628a2e3d3c281c479a05dbd1e95ce5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6628a2e3d3c281c479a05dbd1e95ce5e">&#9670;&#160;</a></span>demo_fonts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void demo_fonts </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_s_t7735.html">ST7735</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>st7735</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>フォント指定テキスト出力とスクロールのデモ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st7735</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5d9aa7d685c95386c099052b3cade467" name="a5d9aa7d685c95386c099052b3cade467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d9aa7d685c95386c099052b3cade467">&#9670;&#160;</a></span>demo_Kanji()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void demo_Kanji </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_s_t7735.html">ST7735</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>st7735</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>漢字の表示とスクロールのデモ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st7735</td><td>画面表示のためのオブジェクト </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0d6604eb01a69292d7d02c586f1437e8" name="a0d6604eb01a69292d7d02c586f1437e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d6604eb01a69292d7d02c586f1437e8">&#9670;&#160;</a></span>demo_shapes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void demo_shapes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_s_t7735.html">ST7735</a></td>          <td class="paramname"><span class="paramname"><em>st7735</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>図形描画のデモ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st7735</td><td><br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa3a896d2f46a38dbc6c9d0b7cdc10d41" name="aa3a896d2f46a38dbc6c9d0b7cdc10d41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3a896d2f46a38dbc6c9d0b7cdc10d41">&#9670;&#160;</a></span>demo_text()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void demo_text </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_s_t7735.html">ST7735</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>st7735</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>通常テキスト出力とスクロールのデモ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st7735</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93ee2e1c759976110ccc4589b7ac64fd" name="a93ee2e1c759976110ccc4589b7ac64fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93ee2e1c759976110ccc4589b7ac64fd">&#9670;&#160;</a></span>randAxis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_axis8.html">Axis8</a> randAxis </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>axis</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abd239a129ee529d62cf21c5c045a271a" name="abd239a129ee529d62cf21c5c045a271a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd239a129ee529d62cf21c5c045a271a">&#9670;&#160;</a></span>randAxisSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void randAxisSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_axis8.html">Axis8</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_size8.html">Size8</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb97e98ed3034fc40eabf4b2c80db467" name="abb97e98ed3034fc40eabf4b2c80db467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb97e98ed3034fc40eabf4b2c80db467">&#9670;&#160;</a></span>randRegion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_region8.html">Region8</a> randRegion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_region8.html">Region8</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>region</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2021781a38a144bee0f972e1a8d177c5" name="a2021781a38a144bee0f972e1a8d177c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2021781a38a144bee0f972e1a8d177c5">&#9670;&#160;</a></span>randSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_size8.html">Size8</a> randSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_size8.html">Size8</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">変数詳解</h2>
+<a id="a23f0517fe666e1dccd4a8fd1827b230a" name="a23f0517fe666e1dccd4a8fd1827b230a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23f0517fe666e1dccd4a8fd1827b230a">&#9670;&#160;</a></span>iRet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint16_t iRet</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a502dd594669cfeb6601ebb979f658772" name="a502dd594669cfeb6601ebb979f658772"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a502dd594669cfeb6601ebb979f658772">&#9670;&#160;</a></span>pST7735</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_s_t7735.html">ST7735</a>* pST7735</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee26e96bfaf1ee2e582db4efa313f89a" name="aee26e96bfaf1ee2e582db4efa313f89a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee26e96bfaf1ee2e582db4efa313f89a">&#9670;&#160;</a></span>spiHW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_h_w.html">HW</a> spiHW(0, 16, 17, 18, 19, 28, 15) </td>
+          <td>(</td>
+          <td class="paramtype">0</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">16</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">17</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">18</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">19</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">28</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">15</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

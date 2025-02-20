@@ -78,7 +78,7 @@
 /// - TFT_ENABLE_TEXT   ... 画面のスクロール
 /// - TFT_ENABLE_TEXT   ... テキスト表示機能
 /// - TFT_ENABLE_ROTATE ...　画面の回転
-// #define TFT_ENABLE_ALL
+#define TFT_ENABLE_ALL
 
 /*
 #if defined TFT_ENABLE_FONTS
@@ -170,59 +170,60 @@ class ST7735 {
 
 	void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color);
 	/// @brief 画面に円を描画する
-	/// @param axis 中心の座標　（16bit)
-	/// @param r　半径
-	/// @param color　円の色
+	/// @param axis 中心の座標 （16bit)
+	/// @param r 半径
+	/// @param color 円の色
 	void drawCircle(Axis16 axis , int16_t r, uint16_t color) { drawCircle(axis.x, axis.y, r, color); }
 	/// @brief 画面に円を描画する
 	/// @param axis 中心の座標 (88it)
-	/// @param r　半径
-	/// @param color　円の色
+	/// @param r 半径
+	/// @param color 円の色
 	void drawCircle(Axis8 axis, int16_t r, uint16_t color) { drawCircle(axis.x, axis.y, r, color); }
 
 
 	void fillCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color);
 	/// @brief 塗りつぶされた円を描画する
 	/// @param axis	中心の座標
-	/// @param r	半径
-	/// @param color 		円の色
+	/// @param r 半径
+	/// @param color 円の色
 	void fillCircle(Axis16 axis , int16_t r, uint16_t color) { fillCircle(axis.x, axis.y, r, color); }
 	/// @brief 塗りつぶされた円を描画する
 	/// @param axis	中心の座標
-	/// @param r	半径
-	/// @param color 		円の色
+	/// @param r 半径
+	/// @param color 円の色
 	void fillCircle(Axis8 axis, int16_t r, uint16_t color) { fillCircle(axis.x, axis.y, r, color); }
 
 	
 	void drawRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color);
 	/// @brief 矩形を描画する
 	/// @param region 矩形の左上座標とサイズ
-	/// @param color　色
+	/// @param color 色
 	void drawRectWH(Region8 region, uint16_t color) { drawRectWH(region.start.x, region.start.y, region.size.w, region.size.h, color); }
 	/// @brief 矩形を描画する
 	/// @param start 矩形の左上座標
-	/// @param size　矩形のサイズ
+	/// @param size 矩形のサイズ
 	/// @param color
 	void drawRectWH(Axis8 start, Size8 size, uint16_t color) { drawRectWH(start.x, start.y, size.w, size.h, color); }
 
 	void drawRect(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint16_t color);
 	/// @brief 矩形を描画する
-	/// @param region 矩形の左上座標と右下座標
-	/// @param color　色
+	/// @param start 始点の座標
+	/// @param end 終点の座標
+	/// @param color 色
 	void drawRect(Axis8 start, Axis8 end, uint16_t color) { drawRect(start.x, start.y, end.x, end.y, color); }
 	/// @brief 矩形を描画する
 	/// @param region 矩形の左上座標と右下座標
-	/// @param color　色
+	/// @param color 色
 	void drawRect(Region8 region, uint16_t color) { drawRect(region.start.x, region.start.y, region.end.x, region.end.y, color); }
 
 	void fillRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color);
 	/// @brief 矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。
 	/// @param region 矩形の左上座標とサイズ
-	/// @param color　色
+	/// @param color 色
 	void fillRectWH(Region8 region, uint16_t color) { fillRectWH(region.start.x, region.start.y, region.size.w, region.size.h, color); }
 	/// @brief 矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。
 	/// @param start 矩形の左上座標
-	/// @param size　矩形のサイズ
+	/// @param size 矩形のサイズ
 	/// @param color 色
 	void fillRectWH(Axis8 start, Size8 size, uint16_t color) { fillRectWH(start.x, start.y, size.w, size.h, color); }
 
@@ -230,21 +231,21 @@ class ST7735 {
 	/// @brief 矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。
 	/// @param start 矩形の左上座標
 	/// @param end 矩形の右下座標
-	/// @param color　色
+	/// @param color 色
 	void fillRect(Axis8 start, Axis8 end, uint16_t color) { fillRect(start.x, start.y, end.x, end.y, color); }
 	/// @brief 矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。
-	/// @param region　矩形の座標
-	/// @param color　色
+	/// @param region 矩形の座標
+	/// @param color 色
 	void fillRect(Region8 region, uint16_t color) { fillRect(region.start.x, region.start.y, region.end.x, region.end.y, color); }
 
 	void drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color);
 	/// @brief 直線を描画する
-	/// @param start　始点の座標
+	/// @param start 始点の座標
 	/// @param end 終点の座標
 	/// @param color 色
 	void drawLine(Axis16 start, Axis16 end, uint16_t color) { drawLine(start.x, start.y, end.x, end.y, color); }
 	/// @brief 直線を描画する
-	/// @param start　始点の座標
+	/// @param start 始点の座標
 	/// @param end 終点の座標
 	/// @param color 色
 	void drawLine(Axis8 start, Axis8 end, uint16_t color) { drawLine(start.x, start.y, end.x, end.y, color); }	
@@ -270,14 +271,14 @@ class ST7735 {
 	void drawRoundRectWH(Region16 region, uint8_t r, uint16_t color) { drawRoundRectWH(region.start.x, region.start.y, region.size.w, region.size.h, r, color); }
 	/// @brief 角丸図形を描画する
 	/// @param start 矩形の左上座標
-	/// @param size　矩形のサイズ
+	/// @param size 矩形のサイズ
 	/// @param r 角丸部分の半径
 	/// @param color 色
 	void drawRoundRectWH(Axis8 start , Size8 size , uint8_t r, uint16_t color) { drawRoundRectWH(start.x, start.y,size.w, size.h, r, color); }
 
 	void drawRoundRect(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t r, uint16_t color);
 	/// @brief 角丸塗りつぶし矩形を描画する
-	/// @param region　左上と右下領域の座標
+	/// @param region 左上と右下領域の座標
 	/// @param r 角丸部分の半径
 	/// @param color 色
 	void drawRoundRect(Region8 region, uint8_t r, uint16_t color) { drawRoundRect(region.start.x, region.start.y, region.end.x, region.end.y, r, color); }
@@ -295,10 +296,10 @@ class ST7735 {
 	/// @param color 色
 	void fillRoundRectWH(Region8 region, uint8_t r, uint16_t color) { fillRoundRectWH(region.start.x, region.start.y, region.size.w,region.size.h, r, color); }
 	/// @brief 角丸塗りつぶし
-	/// @param start　塗りつぶし範囲の左上座標
+	/// @param start 塗りつぶし範囲の左上座標
 	/// @param size 塗りつぶし範囲のサイズ
 	/// @param r 角丸部分の半径
-	/// @param color色
+	/// @param color 色
 	void fillRoundRectWH(Axis8 start, Size8 size, uint8_t r, uint16_t color) { fillRoundRectWH(start.x, start.y, size.w, size.h, r, color); }
 	
 	void fillRoundRect(uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t r, uint16_t color);
@@ -351,7 +352,7 @@ class ST7735 {
 		/// TFT_ENABLE_FONTSが指定されている場合は、文字ごとに決められているその文字の始点オフセット。ENABLE_FONTが無効の場合、文字の左上座標。
 		/// @param c 表示する文字コード
 		/// @param color 文字色
-		/// @param bg 　背景色
+		/// @param bg 背景色
 		/// @param size 大きさ。１のときは文字の１ドットは画面上の１ドット。２にすると文字の１ドットは２ｘ２の矩形になる。
 		void drawChar(Axis8 axis, uint8_t c, uint16_t color, uint16_t bg, uint8_t size) { drawChar(axis.x, axis.y, c, color, bg, size); }
 		/// @brief １文字を表示する
@@ -359,7 +360,7 @@ class ST7735 {
 		/// TFT_ENABLE_FONTSが指定されている場合は、文字ごとに決められているその文字の始点オフセット。ENABLE_FONTが無効の場合、文字の左上座標。
 		/// @param c 表示する文字コード
 		/// @param color 文字色
-		/// @param bg 　背景色
+		/// @param bg 背景色
 		/// @param size 大きさ。１のときは文字の１ドットは画面上の１ドット。２にすると文字の１ドットは２ｘ２の矩形になる。
 		void drawChar(Axis16 axis, uint8_t c, uint16_t color, uint16_t bg, uint8_t size) { drawChar(axis.x, axis.y, c, color, bg, size); }
 
@@ -368,19 +369,20 @@ class ST7735 {
 		/// @brief 文字列を描画する
 		/// @param axis 表示する文字の座標。<br/>
 		/// TFT_ENABLE_FONTSが指定されている場合は、文字ごとに決められているその文字の始点オフセット。ENABLE_FONTが無効の場合、文字の左上座標。
-		/// @param _text　表示する文字列
-		/// @param color　前景色
-		/// @param bg　背景色
+		/// @param _text 表示する文字列
+		/// @param color 前景色
+		/// @param bg 背景色
 		/// @param size 大きさ。１のときは文字の１ドットは画面上の１ドット。２にすると文字の１ドットは２ｘ２の矩形になる。
 		void drawText(Axis8 axis, const char *_text, uint16_t color, uint16_t bg, uint8_t size) { drawText(axis.x, axis.y, _text, color, bg, size); }
 		/// @brief 文字列を描画する
 		/// @param axis 表示する文字の座標。<br/>
 		/// TFT_ENABLE_FONTSが指定されている場合は、文字ごとに決められているその文字の始点オフセット。ENABLE_FONTが無効の場合、文字の左上座標。
-		/// @param _text　表示する文字列
-		/// @param color　前景色
-		/// @param bg　背景色
+		/// @param _text 表示する文字列
+		/// @param color 前景色
+		/// @param bg 背景色
+		/// @param size 大きさ。１のときは文字の１ドットは画面上の１ドット。２にすると文字の１ドットは２ｘ２の矩形になる。
 		void drawText(Axis16 axis, const char *_text, uint16_t color, uint16_t bg, uint8_t size) { drawText(axis.x, axis.y, _text, color, bg, size); }
-	
+
 	
 
 		void drawKanji(uint8_t& x, uint8_t& y, uint32_t code, uint16_t color, uint16_t bg);
@@ -399,8 +401,8 @@ class ST7735 {
 
 	#ifdef TFT_ENABLE_BITMAP
 		/// @brief 透過色を使用しない。
-		/// @param  
 		void bmpUnuseTransColor(void) { isTransparentColor = false; }
+
 		/// @brief 透過色を 565 の色で指定する。
 		/// @details bitmapを画面に表示するとき、透過色が指定されているとビットマップのその色の部分は描画されず、地の色がそのまま残る。<br/>
 		/// 透過色を指定すると、描画時に処理が増えるため遅くなるのでなるべく使用しないほうが良い。

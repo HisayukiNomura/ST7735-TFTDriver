@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ST7735Driver_for_PicoSDK: KanjiHelper.h ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ST7735Driver_for_PicoSDK
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c5a50853997633758dfee5f1dd444d6e.html">SPIDisplay</a></li><li class="navelem"><a class="el" href="dir_0ab8852d40c8d229a52113626deabd6b.html">lib-st7735</a></li><li class="navelem"><a class="el" href="dir_3ecfe767cd2f056f6ab99bb4cb2006e9.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#define-members">マクロ定義</a>  </div>
+  <div class="headertitle"><div class="title">KanjiHelper.h ファイル</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;errno.h&gt;</code><br />
+<code>#include &lt;iconv.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_font___kanji12_all_8inc_source.html">font/Font_Kanji12All.inc</a>&quot;</code><br />
+</div>
+<p><a href="_kanji_helper_8h_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kanji_helper.html">KanjiHelper</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">漢字フォントのデータを管理するためのクラス。staticなメソッドしか持たない  <a href="class_kanji_helper.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+マクロ定義</h2></td></tr>
+<tr class="memitem:a7ede9757f35cc746d6a3561d76f0b5eb" id="r_a7ede9757f35cc746d6a3561d76f0b5eb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ede9757f35cc746d6a3561d76f0b5eb">TFT_KANJI_DOT</a>&#160;&#160;&#160;12</td></tr>
+<tr class="memdesc:a7ede9757f35cc746d6a3561d76f0b5eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用する漢字データの大きさを指定する。<br  />
+  <br /></td></tr>
+<tr class="separator:a7ede9757f35cc746d6a3561d76f0b5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c5c5ff1189f2c8f0ba0187a12b2ac53" id="r_a9c5c5ff1189f2c8f0ba0187a12b2ac53"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c5c5ff1189f2c8f0ba0187a12b2ac53">TFT_KANJI_LEVEL</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a9c5c5ff1189f2c8f0ba0187a12b2ac53"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用する漢字データの種類を指定する。<br  />
+  <br /></td></tr>
+<tr class="separator:a9c5c5ff1189f2c8f0ba0187a12b2ac53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">マクロ定義詳解</h2>
+<a id="a7ede9757f35cc746d6a3561d76f0b5eb" name="a7ede9757f35cc746d6a3561d76f0b5eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ede9757f35cc746d6a3561d76f0b5eb">&#9670;&#160;</a></span>TFT_KANJI_DOT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_KANJI_DOT&#160;&#160;&#160;12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用する漢字データの大きさを指定する。<br  />
+ </p>
+<ul>
+<li>16...全角 16x16 半角8x16<br  />
+</li>
+<li>12...全角 12x12 半角6x12<br  />
+</li>
+<li>8....全角 8x 8 半角4x8 (かなり視認性は低い）<br  />
+ </li>
+</ul>
+
+</div>
+</div>
+<a id="a9c5c5ff1189f2c8f0ba0187a12b2ac53" name="a9c5c5ff1189f2c8f0ba0187a12b2ac53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c5c5ff1189f2c8f0ba0187a12b2ac53">&#9670;&#160;</a></span>TFT_KANJI_LEVEL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TFT_KANJI_LEVEL&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用する漢字データの種類を指定する。<br  />
+ </p>
+<ul>
+<li>0...JISに定義されているすべてのコード（約6800文字、289KBytes/16dot) <br  />
+</li>
+<li>1...JIS第一水準+かな+カナ+記号1,2+ギリシャ+キリル+罫線（約3400文字、83KBytes/16dot) <br  />
+</li>
+<li>2...常用漢字+かな+カナ+記号1,2（約2500文字、79KBytes/16dot) <br  />
+</li>
+<li>3...教育漢字+かな+カナ+記号1,2（約840文字、 25KBytes/16dot) <br  />
+ </li>
+</ul>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
