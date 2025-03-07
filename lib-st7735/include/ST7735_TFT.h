@@ -27,7 +27,7 @@
 /// @details このシンボルを定義すると、フォント拡張機能が有効になる。<br/>
 /// 未定義の場合、デフォルトのフォントとして、TextFonts.hで定義されている5x7の字体が自動的に使用される。<br>
 /// 有効の場合、フォントはGFXfont構造体へのポインタを、setFontメソッドで指定することができる。
-#define TFT_ENABLE_FONTS
+// #define TFT_ENABLE_FONTS
 
 
 /// @brief ビットマップ描画機能を有効にするかのフラグ
@@ -122,12 +122,16 @@ class ST7735 {
 	uint16_t bmpTransparentColor;
 
    public:
-	HW &spiHW;  // ハードウェア関連
+	HW* pSpiHW;  // ハードウェア関連
 	ST7735Init st7735Init;
 	private:
 
 	public:
-	 ST7735(HW &spiHW);
+	 ST7735();
+	 ST7735(HW *a_spiHW);
+	 ST7735(HW& a_spiHW);
+
+	 void SetSPIHW(HW *a_spiHW);
 	 void doInit();
 	 void writeCommand(uint8_t cmd_);
 	 void writeData(uint8_t data_);
@@ -396,7 +400,7 @@ class ST7735 {
 
 	#ifdef TFT_ENABLE_SCROLL
 		void setScrollDefinition(uint8_t top_fix_height, uint8_t bottom_fix_height, bool _scroll_direction);
-		void VerticalScroll(uint8_t _vsp);
+		void verticalScroll(uint8_t _vsp);
 	#endif
 
 	#ifdef TFT_ENABLE_BITMAP

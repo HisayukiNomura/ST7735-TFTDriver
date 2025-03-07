@@ -12,7 +12,7 @@
 /// - c++のクラス化 <br/>
 /// - 漢字表示機能の追加 <br/>
 
-
+#pragma GCC diagnostic ignored "-Wunused-variable"
 #pragma GCC optimize ("O0")
 #include "../include/ST7735_TFT.h"
 #include <stdint.h>
@@ -31,22 +31,40 @@
 #endif
 #include <bits/move.h>
 
-
+/// @brief グラフィックライブラリのコンストラクタ
+/// @details グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。
+ST7735::ST7735()
+{
+}
 
 /// @brief グラフィックライブラリのコンストラクタ
 /// @details グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。
 /// @param spiHW ハードウェアにアクセスするための情報を持っているクラスへのポインタ
-ST7735::ST7735(HW &spiHW) :
-	spiHW(spiHW) 
-{
+ST7735::ST7735(HW* a_pSpiHW)
 
+{
+	pSpiHW = a_pSpiHW;
+}
+
+/// @brief グラフィックライブラリのコンストラクタ
+/// @details グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。
+/// @param spiHW ハードウェアにアクセスするための情報を持っているクラスへのポインタ
+ST7735::ST7735(HW &spiHW) 
+
+{
+	pSpiHW = &spiHW;
+}
+
+void ST7735::SetSPIHW(HW *a_spiHW)
+{
+	pSpiHW = a_spiHW;
 }
 /// @brief 初期化処理を行う
 /// @details ハードウェア(HWクラスのインスタンス）の初期化処理を呼びだし、各LCDに応じた初期化コマンドを実行する。
 void ST7735::doInit()
 {
-	spiHW.init();
-	st7735Init.SetSPIHW(&spiHW);
+	pSpiHW->init();
+	st7735Init.SetSPIHW(pSpiHW);
 #ifdef TFT_ENABLE_BLACK
 	st7735Init.initR((uint8_t)ST7735Type.BLACKTAB);
 #elif defined(TFT_ENABLE_GREEN)
@@ -67,7 +85,7 @@ void ST7735::doInit()
 /// @param cmd_ 送信するコマンド
 void ST7735::writeCommand(uint8_t cmd_) 
 {
-	spiHW.writeCommand(cmd_);
+	pSpiHW->writeCommand(cmd_);
 }
 
 /// @brief	データを送信する。
@@ -78,7 +96,7 @@ void ST7735::writeCommand(uint8_t cmd_)
 /// @param data_ 送信するデータ
 void ST7735::writeData(uint8_t data_)
 {
-	spiHW.writeData(data_);
+	pSpiHW->writeData(data_);
 }
 /// @brief BitBlitのためのアドレスウインドウを設定する。（https://en.wikipedia.org/wiki/Bit_blit）
 /// @param x0 左上のx座標
@@ -114,15 +132,15 @@ void ST7735::fillRectangle(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t 
   setAddrWindow(x, y, x + w - 1, y + h - 1);
   hi = color >> 8;
   lo = color;
-  spiHW.DCHigh();
-  spiHW.CSLow();
+  pSpiHW->DCHigh();
+  pSpiHW->CSLow();
   for (y = h; y > 0; y--) {
     for (x = w; x > 0; x--) {
-      spiHW.spiWrite(hi); 
-      spiHW.spiWrite(lo);
-    }
+		pSpiHW->spiWrite(hi);
+		pSpiHW->spiWrite(lo);
+	}
   }
-  spiHW.CSHigh();
+  pSpiHW->CSHigh();
 }
 
 /// @brief 画面を単色で塗りつぶす。初期設定された液晶サイズの矩形を表示させることで実装。
@@ -144,13 +162,13 @@ void ST7735::drawFastHLine(uint8_t x, uint8_t y, uint8_t w, uint16_t color)
   hi = color >> 8;
   lo = color;
   setAddrWindow(x, y, x + w - 1, y);
-  spiHW.DCHigh();
-  spiHW.CSLow();
+  pSpiHW->DCHigh();
+  pSpiHW->CSLow();
   while (w--) {
-    spiHW.spiWrite(hi);
-    spiHW.spiWrite(lo);
+	  pSpiHW->spiWrite(hi);
+	  pSpiHW->spiWrite(lo);
   }
-  spiHW.CSHigh();
+  pSpiHW->CSHigh();
 }
 /// @brief 垂直線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。
 /// @param x 始点のx座標
@@ -167,13 +185,13 @@ void ST7735::drawFastVLine(uint8_t x, uint8_t y, uint8_t h, uint16_t color)
 	hi = color >> 8;
 	lo = color;
 	setAddrWindow(x, y, x, y + h - 1);
-	spiHW.DCHigh();
-	spiHW.CSLow();
+	pSpiHW->DCHigh();
+	pSpiHW->CSLow();
 	while (h--) {
-		spiHW.spiWrite(hi);
-		spiHW.spiWrite(lo);
+		pSpiHW->spiWrite(hi);
+		pSpiHW->spiWrite(lo);
 	}
-	spiHW.CSHigh();
+	pSpiHW->CSHigh();
 }
 
 /// @brief 画面に点を描画する
@@ -219,11 +237,11 @@ void ST7735::pushColor(uint16_t color)
 	uint8_t hi, lo;
 	hi = color >> 8;
 	lo = color;
-	spiHW.DCHigh();
-	spiHW.CSLow();
-	spiHW.spiWrite(hi);
-	spiHW.spiWrite(lo);
-	spiHW.CSHigh();
+	pSpiHW->DCHigh();
+	pSpiHW->CSLow();
+	pSpiHW->spiWrite(hi);
+	pSpiHW->spiWrite(lo);
+	pSpiHW->CSHigh();
 }
 
 #if defined TFT_ENABLE_SHAPES	// 画像の表示関数を有効にする
@@ -946,7 +964,7 @@ void ST7735::setScrollDefinition(uint8_t top_fix_height, uint8_t bottom_fix_heig
 }
 /// @brief 画面のスクロールを行う。
 /// @param _vsp スクロールするドット数。１０と指定すると、１０ドットスクロールした画面が表示される。このとき、再度１０と指定して呼びだしても画面は変わらない。巻物のように動かすには、1、２、３・・・と数字を変えて複数回呼びだす必要がある。
-void ST7735::VerticalScroll(uint8_t _vsp)
+void ST7735::verticalScroll(uint8_t _vsp)
 {
 	writeCommand(ST7735Cmd.VSCRSADD);
 	writeData(0x00);

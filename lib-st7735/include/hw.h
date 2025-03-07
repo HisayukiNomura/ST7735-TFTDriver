@@ -120,11 +120,14 @@ class HW
 	 }
 
  public:
+  HW();
   HW(uint8_t spiPortNo);
   HW(uint8_t spiPortNo, uint8_t a_RXDC, uint8_t a_CS, uint8_t a_SCK,
      uint8_t a_TX, uint8_t a_reset, uint8_t a_debug);
 
   void init(void);
+  void init(uint8_t spiPortNo, uint8_t a_RXDC, uint8_t a_CS, uint8_t a_SCK, uint8_t a_TX, uint8_t a_reset, uint8_t a_debug);
+
   int spiWrite(const uint8_t* data)
   {
     int ret = spi_write_blocking(portSPI, data, 1);

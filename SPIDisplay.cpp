@@ -26,8 +26,9 @@
 #define PIN_MOSI PIN_TFT_TX        // TX
 volatile uint16_t iRet;
 
-						 
-Axis8 randAxis(Axis8& axis) 
+ST7735* pST7735;
+
+Axis8 randAxis(Axis8& axis)
 {
 	axis.x = rand() % pST7735->getWidth();
 	axis.y = rand() % pST7735->getHeight();
@@ -255,10 +256,10 @@ void demo_Kanji(ST7735 &st7735)
 	#ifdef TFT_ENABLE_SCROLL
 	for (int i = 0; i < st7735.getHeight(); i++) {
 		st7735.setScrollDefinition(0, 0, true);
-		st7735.VerticalScroll(i);
+		st7735.verticalScroll(i);
 		sleep_ms(10);
 	}
-	st7735.VerticalScroll(0);
+	st7735.verticalScroll(0);
 	#endif
 	st7735.st7735Init.setRotation(ST7735_ROTATION::DEGREE_90);
 	st7735.fillScreen(ST7735Color.WHITE);
@@ -268,10 +269,10 @@ void demo_Kanji(ST7735 &st7735)
 	#ifdef TFT_ENABLE_SCROLL
 	for (int i = 0; i < st7735.getHeight(); i++) {
 		st7735.setScrollDefinition(0, 0, false);
-		st7735.VerticalScroll(i);
+		st7735.verticalScroll(i);
 		sleep_ms(10);
 	}
-	st7735.VerticalScroll(0);
+	st7735.verticalScroll(0);
 	#endif
 }
 #endif
@@ -296,10 +297,10 @@ void demo_fonts(ST7735 &st7735)
 	#ifdef TFT_ENABLE_SCROLL
 		st7735.setScrollDefinition(15, 15, true);
 		for (int i = 15; i < st7735.getHeight() - 15; i++) {
-			st7735.VerticalScroll(i);
+			st7735.verticalScroll(i);
 			sleep_ms(10);
 		}
-		st7735.VerticalScroll(0);
+		st7735.verticalScroll(0);
 	#endif
 }
 #endif
@@ -328,10 +329,10 @@ void demo_text(ST7735 &st7735)
 #ifdef TFT_ENABLE_SCROLL
 	st7735.setScrollDefinition(15, 15, true);
 	for (int i = 15; i < st7735.getHeight() - 15; i++) {
-		st7735.VerticalScroll(i);
+		st7735.verticalScroll(i);
 		sleep_ms(100);
 	}
-	st7735.VerticalScroll(0);
+	st7735.verticalScroll(0);
 #endif
 }
 #endif
@@ -448,7 +449,6 @@ void demo_shapes(ST7735 st7735)
 #endif
 HW spiHW(0, 16, 17, 18, 19, 28, 15);
 
-ST7735* pST7735;
 
 
 int main()

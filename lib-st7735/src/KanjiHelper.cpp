@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../include/KanjiHelper.h"
-
+#pragma GCC diagnostic ignored "-Wunused-variable"
 /**
  * @file KanjiHelper.cpp
  * @brief フォントテーブルデータ（KanjiHelper.hで、シンボルによりインクルードされる）から、特定のフォントを検索する
