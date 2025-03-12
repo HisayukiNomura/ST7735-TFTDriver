@@ -1,6 +1,6 @@
 /**
 
-@mainpage このブランチは開発中です。使用できません
+@mainpage 
 
 
 @section main 概要
