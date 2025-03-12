@@ -12,7 +12,7 @@
 /// - c++のクラス化 <br/>
 /// - 漢字表示機能の追加 <br/>
 
-
+#pragma GCC diagnostic ignored "-Wunused-variable"
 #pragma GCC optimize ("O0")
 #include "../include/ST7735_TFT.h"
 #include <stdint.h>
@@ -31,22 +31,40 @@
 #endif
 #include <bits/move.h>
 
-
+/// @brief グラフィックライブラリのコンストラクタ
+/// @details グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。
+ST7735::ST7735()
+{
+}
 
 /// @brief グラフィックライブラリのコンストラクタ
 /// @details グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。
 /// @param spiHW ハードウェアにアクセスするための情報を持っているクラスへのポインタ
-ST7735::ST7735(HW &spiHW) :
-	spiHW(spiHW) 
-{
+ST7735::ST7735(HW* a_pSpiHW)
 
+{
+	pSpiHW = a_pSpiHW;
+}
+
+/// @brief グラフィックライブラリのコンストラクタ
+/// @details グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。
+/// @param spiHW ハードウェアにアクセスするための情報を持っているクラスへのポインタ
+ST7735::ST7735(HW &spiHW) 
+
+{
+	pSpiHW = &spiHW;
+}
+
+void ST7735::SetSPIHW(HW *a_spiHW)
+{
+	pSpiHW = a_spiHW;
 }
 /// @brief 初期化処理を行う
 /// @details ハードウェア(HWクラスのインスタンス）の初期化処理を呼びだし、各LCDに応じた初期化コマンドを実行する。
 void ST7735::doInit()
 {
-	spiHW.init();
-	st7735Init.SetSPIHW(&spiHW);
+	pSpiHW->init();
+	st7735Init.SetSPIHW(pSpiHW);
 #ifdef TFT_ENABLE_BLACK
 	st7735Init.initR((uint8_t)ST7735Type.BLACKTAB);
 #elif defined(TFT_ENABLE_GREEN)
@@ -67,7 +85,7 @@ void ST7735::doInit()
 /// @param cmd_ 送信するコマンド
 void ST7735::writeCommand(uint8_t cmd_) 
 {
-	spiHW.writeCommand(cmd_);
+	pSpiHW->writeCommand(cmd_);
 }
 
 /// @brief	データを送信する。
@@ -78,14 +96,14 @@ void ST7735::writeCommand(uint8_t cmd_)
 /// @param data_ 送信するデータ
 void ST7735::writeData(uint8_t data_)
 {
-	spiHW.writeData(data_);
+	pSpiHW->writeData(data_);
 }
 /// @brief BitBlitのためのアドレスウインドウを設定する。（https://en.wikipedia.org/wiki/Bit_blit）
 /// @param x0 左上のx座標
 /// @param y0 左上のy座標
 /// @param x1 右下のx座標
 /// @param y1 右下のy座標
-void ST7735::setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)
+void ST7735::setAddrWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
 {
   writeCommand(ST7735Cmd.CASET);
   writeData(0);
@@ -105,7 +123,7 @@ void ST7735::setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)
 /// @param w 横幅
 /// @param h 高さ
 /// @param color
-void ST7735::fillRectangle(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)
+void ST7735::fillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color)
 {
   uint8_t hi, lo;
   if ((x >= st7735Init.width) || (y >= st7735Init.height)) return;
@@ -114,15 +132,15 @@ void ST7735::fillRectangle(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t 
   setAddrWindow(x, y, x + w - 1, y + h - 1);
   hi = color >> 8;
   lo = color;
-  spiHW.DCHigh();
-  spiHW.CSLow();
+  pSpiHW->DCHigh();
+  pSpiHW->CSLow();
   for (y = h; y > 0; y--) {
     for (x = w; x > 0; x--) {
-      spiHW.spiWrite(hi); 
-      spiHW.spiWrite(lo);
-    }
+		pSpiHW->spiWrite(hi);
+		pSpiHW->spiWrite(lo);
+	}
   }
-  spiHW.CSHigh();
+  pSpiHW->CSHigh();
 }
 
 /// @brief 画面を単色で塗りつぶす。初期設定された液晶サイズの矩形を表示させることで実装。
@@ -136,7 +154,7 @@ void ST7735::fillScreen(uint16_t color)
 /// @param y 始点のy座標
 /// @param w 線の長さ
 /// @param color 線の色
-void ST7735::drawFastHLine(uint8_t x, uint8_t y, uint8_t w, uint16_t color)
+void ST7735::drawFastHLine(uint16_t x, uint16_t y, uint16_t w, uint16_t color)
 {
   uint8_t hi, lo;
   if ((x >= st7735Init.width) || (y >= st7735Init.height)) return;
@@ -144,20 +162,20 @@ void ST7735::drawFastHLine(uint8_t x, uint8_t y, uint8_t w, uint16_t color)
   hi = color >> 8;
   lo = color;
   setAddrWindow(x, y, x + w - 1, y);
-  spiHW.DCHigh();
-  spiHW.CSLow();
+  pSpiHW->DCHigh();
+  pSpiHW->CSLow();
   while (w--) {
-    spiHW.spiWrite(hi);
-    spiHW.spiWrite(lo);
+	  pSpiHW->spiWrite(hi);
+	  pSpiHW->spiWrite(lo);
   }
-  spiHW.CSHigh();
+  pSpiHW->CSHigh();
 }
 /// @brief 垂直線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。
 /// @param x 始点のx座標
 /// @param y 始点のy座標
 /// @param h 線の長さ
 /// @param color 線の色
-void ST7735::drawFastVLine(uint8_t x, uint8_t y, uint8_t h, uint16_t color)
+void ST7735::drawFastVLine(uint16_t x, uint16_t y, uint16_t h, uint16_t color)
 {
 	uint8_t hi, lo;
 	if ((x >= st7735Init.width) || (y >= st7735Init.height))
@@ -167,20 +185,20 @@ void ST7735::drawFastVLine(uint8_t x, uint8_t y, uint8_t h, uint16_t color)
 	hi = color >> 8;
 	lo = color;
 	setAddrWindow(x, y, x, y + h - 1);
-	spiHW.DCHigh();
-	spiHW.CSLow();
+	pSpiHW->DCHigh();
+	pSpiHW->CSLow();
 	while (h--) {
-		spiHW.spiWrite(hi);
-		spiHW.spiWrite(lo);
+		pSpiHW->spiWrite(hi);
+		pSpiHW->spiWrite(lo);
 	}
-	spiHW.CSHigh();
+	pSpiHW->CSHigh();
 }
 
 /// @brief 画面に点を描画する
 /// @param x 表示位置のX座標	 
 /// @param y 表示位置のy座標
 /// @param color 色
-void ST7735::drawPixel(uint8_t x, uint8_t y, uint16_t color)
+void ST7735::drawPixel(uint16_t x, uint16_t y, uint16_t color)
 {
 	if ((x >= st7735Init.width) || (y >= st7735Init.height))
 		return;
@@ -219,11 +237,11 @@ void ST7735::pushColor(uint16_t color)
 	uint8_t hi, lo;
 	hi = color >> 8;
 	lo = color;
-	spiHW.DCHigh();
-	spiHW.CSLow();
-	spiHW.spiWrite(hi);
-	spiHW.spiWrite(lo);
-	spiHW.CSHigh();
+	pSpiHW->DCHigh();
+	pSpiHW->CSLow();
+	pSpiHW->spiWrite(hi);
+	pSpiHW->spiWrite(lo);
+	pSpiHW->CSHigh();
 }
 
 #if defined TFT_ENABLE_SHAPES	// 画像の表示関数を有効にする
@@ -345,7 +363,7 @@ void ST7735::fillCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornern
 /// @param w 		幅
 /// @param h 		高さ
 /// @param color		矩形の色
-void ST7735::drawRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)
+void ST7735::drawRectWH(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color)
 {
 	drawFastHLine(x, y, w, color);
 	drawFastHLine(x, y + h - 1, w, color);
@@ -353,7 +371,7 @@ void ST7735::drawRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t col
 	drawFastVLine(x + w - 1, y, h, color);
 }
 
-void ST7735::drawRect(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint16_t color)
+void ST7735::drawRect(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color)
 {
 	if (x0 > x1) _swap(x0, x1);
 	if (x0 > x1) _swap(y0, y1);
@@ -369,7 +387,7 @@ void ST7735::drawRect(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint16_t c
 /// @param w 横幅
 /// @param h 高さ
 /// @param color
-void ST7735::fillRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)
+void ST7735::fillRectWH(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color)
 {
 	int16_t i;
 	for (i = x; i < x + w; i++) {
@@ -383,7 +401,7 @@ void ST7735::fillRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t col
 /// @param x1 右下のX座標
 /// @param y1 右下のx座標
 /// @param color
-void ST7735::fillRect(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint16_t color)
+void ST7735::fillRect(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color)
 {
 	if (x0 > x1) _swap(x0, x1);
 	if (x0 > x1) _swap(y0, y1);
@@ -440,7 +458,7 @@ void ST7735::drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t c
 /// @param h 		高さ 
 /// @param r 		角の半径 
 /// @param color	矩形の色
-void ST7735::drawRoundRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, uint16_t color)
+void ST7735::drawRoundRectWH(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t r, uint16_t color)
 {
 	drawFastHLine(x + r, y, w - 2 * r, color);
 	drawFastHLine(x + r, y + h - 1, w - 2 * r, color);
@@ -458,7 +476,7 @@ void ST7735::drawRoundRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t
 /// @param y2 右下のy座標
 /// @param r 角の半径
 /// @param color 矩形の色
-void ST7735::drawRoundRect(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, uint8_t r, uint16_t color)
+void ST7735::drawRoundRect(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t r, uint16_t color)
 {
 	if (x1 > x2) _swap(x1, x2);
 	if (y1 > y2) _swap(y1, y2);
@@ -474,7 +492,7 @@ void ST7735::drawRoundRect(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, uint8
 /// @param h 		高さ
 /// @param r 		角の半径
 /// @param color 		矩形の色
-void ST7735::fillRoundRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, uint16_t color)
+void ST7735::fillRoundRectWH(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t r, uint16_t color)
 {
 	
 	fillRectWH(x + r, y, w - 2 * r, h, color);
@@ -488,7 +506,7 @@ void ST7735::fillRoundRectWH(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t
 /// @param y2 右下のy座標
 /// @param r 角の半径
 /// @param color 矩形の色
-void ST7735::fillRoundRect(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, uint8_t r, uint16_t color)
+void ST7735::fillRoundRect(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t r, uint16_t color)
 {
 	if (x1 > x2) _swap(x1, x2);
 	if (y1 > y2) _swap(y1, y2);
@@ -668,7 +686,7 @@ void ST7735::setFont(const GFXfont *f)
 /// @param color	文字の色 
 /// @param bg 		背景色
 /// @param size 		文字のサイズ。1がデフォルト。2で2倍の大きさになる。
-void ST7735::drawText(uint8_t x, uint8_t y, const char *_text, uint16_t color, uint16_t bg, uint8_t size)
+void ST7735::drawText(uint16_t x, uint16_t y, const char *_text, uint16_t color, uint16_t bg, uint8_t size)
 {
 	uint8_t cursor_x, cursor_y, first_char, last_char;
 	uint16_t textlen, i;
@@ -705,7 +723,7 @@ void ST7735::drawText(uint8_t x, uint8_t y, const char *_text, uint16_t color, u
 /// @param color 		文字の色
 /// @param bg 		背景色
 /// @param size 		文字のサイズ。1がデフォルト。2で2倍の大きさになる。
-void ST7735::drawChar(uint8_t x, uint8_t y, uint8_t c, uint16_t color, uint16_t bg, uint8_t size)
+void ST7735::drawChar(uint16_t x, uint16_t y, uint8_t c, uint16_t color, uint16_t bg, uint8_t size)
 {
 	c -= (uint8_t)(_gfxFont->first);
 	GFXglyph *glyph = _gfxFont->glyph + c;
@@ -755,7 +773,7 @@ void ST7735::drawChar(uint8_t x, uint8_t y, uint8_t c, uint16_t color, uint16_t 
 /// @param utf8codes 表示するUTF8、もしくはASCIIコード
 /// @param color 表示色
 /// @param bg 背景色
-void ST7735::drawKanji(uint8_t& x, uint8_t& y, uint32_t utf8codes, uint16_t color, uint16_t bg)
+void ST7735::drawKanji(uint16_t &x, uint16_t &y, uint32_t utf8codes, uint16_t color, uint16_t bg)
 {
 	const uint8_t *bmpData;
 	uint8_t w;
@@ -811,7 +829,7 @@ void ST7735::drawKanji(uint8_t& x, uint8_t& y, uint32_t utf8codes, uint16_t colo
 	return;
 }
 
-void ST7735::drawKanjiBlock(uint8_t x, uint8_t y, uint8_t w, uint8_t h, const uint8_t *bmpData, uint16_t color,uint16_t bg)
+void ST7735::drawKanjiBlock(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint8_t *bmpData, uint16_t color,uint16_t bg)
 {
 	setAddrWindow(x, y, x + w -1 , y + h -1);  // 漢字ブロックの大きさでアドレスウインドウを設定
 	uint8_t w_bytes = (w + 8 - 1) / 8;  // 横方向のバイト数
@@ -849,9 +867,10 @@ void ST7735::drawKanjiBlock(uint8_t x, uint8_t y, uint8_t w, uint8_t h, const ui
 /// @param color	文字の色
 /// @param bg 		背景色
 /// @param size 		文字のサイズ。1がデフォルト。2で2倍の大きさになる。
-void ST7735::drawTextKanji(uint8_t x, uint8_t y, const char *_text, uint16_t color, uint16_t bg, uint8_t size)
+void ST7735::drawTextKanji(uint16_t x, uint16_t y, const char *_text, uint16_t color, uint16_t bg, uint8_t size)
 {
-	uint8_t cursor_x, cursor_y, first_char, last_char;
+	uint16_t cursor_x, cursor_y;
+	//uint8_t first_char, last_char;
 	uint16_t textlen, i;
 
 	cursor_x = x, cursor_y = y;
@@ -946,7 +965,7 @@ void ST7735::setScrollDefinition(uint8_t top_fix_height, uint8_t bottom_fix_heig
 }
 /// @brief 画面のスクロールを行う。
 /// @param _vsp スクロールするドット数。１０と指定すると、１０ドットスクロールした画面が表示される。このとき、再度１０と指定して呼びだしても画面は変わらない。巻物のように動かすには、1、２、３・・・と数字を変えて複数回呼びだす必要がある。
-void ST7735::VerticalScroll(uint8_t _vsp)
+void ST7735::verticalScroll(uint8_t _vsp)
 {
 	writeCommand(ST7735Cmd.VSCRSADD);
 	writeData(0x00);
@@ -965,7 +984,7 @@ void ST7735::VerticalScroll(uint8_t _vsp)
 /// @param h ビットマップの大きさ
 /// @param p 表示するデータへのポインタ
 /// @param direction 表示する方向。0…標準 1…ミラー表示
-void ST7735::bmpDraw(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t *p,uint8_t direction)
+void ST7735::bmpDraw(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t *p,uint8_t direction)
 {
 	if (direction == 1) {
 		writeCommand(ST7735Cmd.MADCTL);
@@ -974,8 +993,8 @@ void ST7735::bmpDraw(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t *p,uin
 	} 
 	uint16_t* pBase = p;
 	if (isTransparentColor) {
-		for (int8_t yy = 0; yy < h; yy++) {
-			for (int8_t xx = 0; xx < w; xx++) {
+		for (uint16_t yy = 0; yy < h; yy++) {
+			for (uint16_t xx = 0; xx < w; xx++) {
 				uint16_t c = *p;
 				if (isTransparentColor && c == bmpTransparentColor) {
 					// 透過色なら何もしない
@@ -987,8 +1006,8 @@ void ST7735::bmpDraw(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t *p,uin
 		}
 	} else {								// 透過色処理をしないなら、高速で書き込める
 		setAddrWindow(x, y, x + w - 1, y + h - 1);  // 漢字ブロックの大きさでアドレスウインドウを設定
-		for (int8_t yy = 0; yy < h; yy++) {
-			for (int8_t xx = 0; xx < w; xx++) {
+		for (uint16_t yy = 0; yy < h; yy++) {
+			for (uint16_t xx = 0; xx < w; xx++) {
 				uint16_t c = *p;
 				if (isTransparentColor && c == bmpTransparentColor) {
 					// 透過色なら何もしない
@@ -998,7 +1017,7 @@ void ST7735::bmpDraw(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t *p,uin
 					writeData(c & 0xFF);
 				}
 					p++;
-				}
+			}
 		}
 	}
 	if (direction == 1) {
