@@ -1,16 +1,21 @@
 /**
 
-@mainpage ST7735 TFT用 Rapberry PI SDKライブラリ
+@mainpage 
+
 
 @section main 概要
 
 # 概要
-このライブラリは、Raspberry PI PICO 上で、ST7735 TFT液晶をコントロールするためのライブラリです。日本語表示等に対応しています。
 
 
-
+メインブランチ
+https://github.com/HisayukiNomura/ST7735-TFTDriver/tree/main
+を参照するか、
+https://github.com/HisayukiNomura/ST7735-TFTDriver/releases/tag/1.0
+からソースコードをダウンロードしてください。
 
 <hr/>
+
 
 # このライブラリについて
 
@@ -266,4 +271,134 @@ SDKの関数で、SPI機能の初期化を行います。１つ目の引数はSP
 6. 基本描画機能のデモを行います。<br/>基本描画機能は縦横の線、矩形と塗りつぶし矩形、点の描画です。これらの機能は常に使用できます。
 7. 図形描画機能のデモを行います。<br/>丸、矩形、角丸矩形とそれらの塗りつぶし、直線の描画を行います。
 
+
+## 機能のリファレンス
+
+詳しい機能については、<a href="class_s_t7735.html">ST7735</a> を参照してください。
+
+主なメソッドは次の通りです。メソッド名の最後がWHのものは、開始座標（X,ｙ）と、横幅、高さを指定する引数を持ちます。メソッド名にWHの突かないものは、２点の座標を指定します。
+引数には、座標を使用することもできますし、ベクトルを表すクラスインスタンスを指定することもできます。
+
+
+void 	fillRectangle (uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)
+ 	矩形を塗りつぶす
+void 	fillScreen (uint16_t color)
+ 	画面を単色で塗りつぶす。初期設定された液晶サイズの矩形を表示させることで実装。
+void 	drawFastHLine (uint8_t x, uint8_t y, uint8_t w, uint16_t color)
+ 	水平線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。
+void 	drawFastVLine (uint8_t x, uint8_t y, uint8_t h, uint16_t color)
+ 	垂直線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。
+
+void 	drawPixel (uint8_t x, uint8_t y, uint16_t color)
+void 	drawPixel (Axis8 axis, uint16_t color)
+ 	画面に点を描画する
+
+void 	invertDisplay (bool i)
+ 	画面の表示を反転させる
+void 	NormalDisplay ()
+ 	画面の表示を通常に戻す
+
+
+void 	SetRotation (ST7735_ROTATION rot)
+ 	画面の回転を設定する。
+
+void 	drawCircle (int16_t x0, int16_t y0, int16_t r, uint16_t color)
+void 	drawCircle (Axis16 axis, int16_t r, uint16_t color)
+void 	drawCircle (Axis8 axis, int16_t r, uint16_t color)
+ 
+void 	fillCircle (int16_t x0, int16_t y0, int16_t r, uint16_t color)
+void 	fillCircle (Axis16 axis, int16_t r, uint16_t color)
+void 	fillCircle (Axis8 axis, int16_t r, uint16_t color)
+ 	塗りつぶされた円を描画する
+ 
+void 	drawRectWH (uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)
+void 	drawRectWH (Region8 region, uint16_t color)
+void 	drawRectWH (Axis8 start, Size8 size, uint16_t color)
+ 	矩形を描画する
+ 
+void 	drawRect (uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint16_t color)
+void 	drawRect (Axis8 start, Axis8 end, uint16_t color)
+void 	drawRect (Region8 region, uint16_t color)
+ 	矩形を描画する
+ 
+void 	fillRectWH (uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color)
+void 	fillRectWH (Region8 region, uint16_t color)
+void 	fillRectWH (Axis8 start, Size8 size, uint16_t color)
+ 	矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。
+ 
+void 	fillRect (uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint16_t color)
+void 	fillRect (Axis8 start, Axis8 end, uint16_t color)
+void 	fillRect (Region8 region, uint16_t color)
+ 	矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。
+ 
+void 	drawLine (int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color)
+void 	drawLine (Axis16 start, Axis16 end, uint16_t color)
+void 	drawLine (Axis8 start, Axis8 end, uint16_t color)
+void 	drawLine (Region16 region, uint16_t color)
+void 	drawLine (Region8 region, uint16_t color)
+ 	直線を描画する
+ 
+void 	drawRoundRectWH (uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, uint16_t color)
+void 	drawRoundRectWH (Region8 region, uint8_t r, uint16_t color)
+void 	drawRoundRectWH (Region16 region, uint8_t r, uint16_t color)
+void 	drawRoundRectWH (Axis8 start, Size8 size, uint8_t r, uint16_t color)
+ 	角丸図形を描画する
+ 
+void 	drawRoundRect (uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t r, uint16_t color)
+void 	drawRoundRect (Region8 region, uint8_t r, uint16_t color)
+void 	drawRoundRect (Axis8 start, Axis8 end, uint8_t r, uint16_t color)
+ 	角丸塗りつぶし矩形を描画する
+ 
+void 	fillRoundRectWH (uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, uint16_t color)
+void 	fillRoundRectWH (Region8 region, uint8_t r, uint16_t color)
+void 	fillRoundRectWH (Axis8 start, Size8 size, uint8_t r, uint16_t color)
+ 	角丸の矩形を塗りつぶす
+ 
+ 
+void 	fillRoundRect (uint8_t x, uint8_t y, uint8_t x1, uint8_t y1, uint8_t r, uint16_t color)
+void 	fillRoundRect (Region8 region, uint8_t r, uint16_t color)
+void 	fillRoundRect (Axis8 start, Axis8 end, uint8_t r, uint16_t color)
+ 	角丸図形の塗りつぶし
+ 
+void 	drawTriangle (int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)
+void 	drawTriangle (Axis16 a, Axis16 b, Axis16 c, uint16_t color)
+void 	drawTriangle (Axis8 a, Axis8 b, Axis8 c, uint16_t color)
+ 	三角形の描画
+ 
+void 	fillTriangle (int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)
+void 	fillTriangle (Axis16 a, Axis16 b, Axis16 c, uint16_t color)
+void 	fillTriangle (Axis8 a, Axis8 b, Axis8 c, uint16_t color)
+ 	三角形の塗りつぶし
+ 
+void 	setTextWrap (bool w)
+ 	テキストの改行を行うかのフラグを設定する
+ 
+
+void 	drawText (Axis8 axis, const char *_text, uint16_t color, uint16_t bg, uint8_t size)
+void 	drawText (Axis16 axis, const char *_text, uint16_t color, uint16_t bg, uint8_t size)
+	文字列を表示する
+
+void 	drawKanji (uint8_t &x, uint8_t &y, uint32_t code, uint16_t color, uint16_t bg)
+void 	drawTextKanji (uint8_t x, uint8_t y, const char *_text, uint16_t color, uint16_t bg, uint8_t size)
+ 	漢字文字列を表示する
+ 
+void 	setFont (const GFXfont *f)
+	フォントのポインタを指定して、drawTextで使用されるフォントを選択する。（TFT_ENABLE_FONTSがオンの場合のみ）
+
+void 	setScrollDefinition (uint8_t top_fix_height, uint8_t bottom_fix_height, bool _scroll_direction)
+ 	画面の縦スクロール領域を指定する。
+ 
+void 	VerticalScroll (uint8_t _vsp)
+ 	画面のスクロールを行う。
+ 
+void 	bmpUnuseTransColor (void)
+ 	透過色を使用しない。
+ 
+void 	bmpUseTrasColor (uint16_t c)
+ 	透過色を 565 の色で指定する。
+ 
+void 	bmpDraw (uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t *p, uint8_t direction)
+ 	画面にビットマップを表示する。ビットマップは、５６５形式の16bit値の配列へのポインタ。
+
+ 
 **/
