@@ -1,16 +1,21 @@
 /**
 
-@mainpage ST7735 TFT用 Rapberry PI SDKライブラリ
+@mainpage このブランチは開発中です。使用できません
+
 
 @section main 概要
 
 # 概要
-このライブラリは、Raspberry PI PICO 上で、ST7735 TFT液晶をコントロールするためのライブラリです。日本語表示等に対応しています。
+ここのブランチは開発中です。使用できません
 
-
-
+メインブランチ
+https://github.com/HisayukiNomura/ST7735-TFTDriver/tree/main
+を参照するか、
+https://github.com/HisayukiNomura/ST7735-TFTDriver/releases/tag/1.0
+からソースコードをダウンロードしてください。
 
 <hr/>
+
 
 # このライブラリについて
 

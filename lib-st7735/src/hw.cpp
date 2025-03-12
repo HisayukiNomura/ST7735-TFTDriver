@@ -2,6 +2,24 @@
 #pragma GCC optimize("O0")
 #include "../include/hw.h"
 
+/// @brief デフォルトコンストラクタ。Pythonの拡張モジュールで newが使えなかったので、引数なしのコンストラクタを追加して静的オブジェクトに対応する。
+/// 通常使用では推奨しない。
+HW::HW()
+{
+	portSPI = spi0;
+	_dc = PIN_TFT_DC;
+	_cs = PIN_TFT_CS;
+	_sck = PIN_TFT_SCK;
+	_tx = PIN_TFT_TX;
+	_reset = PIN_TFT_RST;
+	_debug = PIN_TFT_DEBUG;
+
+	options.isUseDebugPin = 1;
+	options.isUseResetPint = 1;
+	options.isDebugModeOnOff = 0;
+}
+
+
 /// @brief コンストラクタ。使用するポート番号はデフォルト。
 /// @param spiPortNo 使用するSPIのポート番号。0または1
 HW::HW(uint8_t spiPortNo)
@@ -65,6 +83,20 @@ void HW::init(void)
     	gpio_set_dir(_debug,GPIO_OUT);
     	gpio_put(_debug,0);
   	}
+}
+/// @brief ポートを指定して、GPIOの初期化を行う
+/// @param spiPortNo	使用するspiのポート番号。0または1
+/// @param a_RXDC		Data/Commandのポート番号
+/// @param a_CS			CSnのポート番号
+/// @param a_SCK		SCKのポート番号
+/// @param a_TX			TXのポート番号
+/// @param a_reset		リセット信号のポート番号
+/// @param a_debug		デバッグ用のポート番号
+void HW::init(uint8_t spiPortNo, uint8_t a_RXDC, uint8_t a_CS, uint8_t a_SCK, uint8_t a_TX, uint8_t a_reset, uint8_t a_debug)
+{
+	portSPI = (spiPortNo == 0) ? spi0 : spi1;
+	initPort(a_RXDC, a_CS, a_SCK, a_TX, a_reset, a_debug);
+	init();
 }
 /// @brief デバッグピンをストローブする
 volatile void HW::debugStrobe()

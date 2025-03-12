@@ -1,4 +1,5 @@
-
+#pragma GCC diagnostic ignored "-Wunused-variable"
+#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
 #pragma GCC optimize("O0")
 #include "../include/ST7735_initcmd.h"
 #include <stdint.h>
