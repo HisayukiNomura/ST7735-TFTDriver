@@ -1,9 +1,7 @@
 /// @brief このファイルは、MicropythonのC拡張モジュールとして使用する場合に有効にする。
 
-#ifdef USE_MICROPYTHON_MODULE
 #include "../include/GFXModule.h"
-
-
+#ifdef USE_MICROPYTHON_MODULE
 
 // Define a Python reference to the function we'll make available.
 // See example.cpp for the definition.

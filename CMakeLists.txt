@@ -1,4 +1,6 @@
-# Generated Cmake Pico project file
+# C/C++から呼びだすサンプルをビルドするときに使われる cmake ファイル。
+# Python拡張として使用される時にはこちらは使用しない。
+
 
 cmake_minimum_required(VERSION 3.13)
 

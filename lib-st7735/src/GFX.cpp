@@ -1,23 +1,25 @@
 /// @brief このファイルは、MicropythonのC拡張モジュールとして使用する場合に有効にする。
 
-#ifdef USE_MICROPYTHON_MODULE
 extern "C" {
-#include <py/objstr.h>
 #include <stdlib.h>
-#include <stdio.h>
-#include "../include/ST7735_TFT.h"
+
 #include "../include/gfxmodule.h"
-#include "../include/hw.h"
-#include "hardware/spi.h"
+#ifdef USE_MICROPYTHON_MODULE
+	#include <py/objstr.h>
+	#include <stdio.h>
 
-#ifdef TFT_ENABLE_FONTS
-	#include "../include/font/Font_Mono9p.h"
-	#include "../include/font/Font_Mono18p.h"
-	#include "../include/font/FreeMonoOblique12pt7b.h"
-	#include "../include/font/FreeMonoOblique12pt_sub.h"
+	#include "../include/ST7735_TFT.h"
+	#include "../include/hw.h"
+	#include "hardware/spi.h"
 
-#endif
-#pragma GCC diagnostic ignored "-Wunused-variable"
+	#ifdef TFT_ENABLE_FONTS
+		#include "../include/font/Font_Mono9p.h"
+		#include "../include/font/Font_Mono18p.h"
+		#include "../include/font/FreeMonoOblique12pt7b.h"
+		#include "../include/font/FreeMonoOblique12pt_sub.h"
+
+	#endif
+	#pragma GCC diagnostic ignored "-Wunused-variable"
 
 
 	// Here we implement the function using C++ code, but since it's
@@ -781,6 +783,6 @@ extern "C" {
 		return mp_obj_new_int(1);
 	}
 #endif
+#endif
 }
 
-#endif

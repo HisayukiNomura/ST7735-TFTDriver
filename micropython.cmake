@@ -1,4 +1,5 @@
 # Micropythonの拡張Cモジュールとしてビルドするときに使用する cmakeファイル。
+# C/C++から使用するときにはこのcmakeファイルは使われない。
 
 # インタフェースライブラリを作成する。
 add_library(KNJGfx INTERFACE)
