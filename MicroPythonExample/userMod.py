@@ -51,12 +51,12 @@ def randXYWH(xofs,yofs):
 def demo_text() :
     global DisplayWidth
     global DisplayHeight
-    print(f"Globals: DisplayHeight={DisplayHeight}")
-    print(f"Globals: DisplayWidth={DisplayWidth}")
+    #print(f"Globals: DisplayHeight={DisplayHeight}")
+    #print(f"Globals: DisplayWidth={DisplayWidth}")
     
     KNJGfx.fillScreen(BLACK)
     ret = KNJGfx.setTextWrap(True)
-    print(f"SetTextWrap:{ret}")
+    #print(f"SetTextWrap:{ret}")
     
     #画面を黒くする。スクロール機能を使用するとき、なぜか現在の画面色が変になってしまう。
     #原因不明。
@@ -65,7 +65,7 @@ def demo_text() :
     # 上下部分にスクロールしない領域を確保し、文字をそこに書く
     ret = KNJGfx.fillRectangle((0,0,DisplayWidth,9),WHITE)
     ret = KNJGfx.fillRectangle((0,DisplayHeight-9,DisplayWidth,8),WHITE)
-    print(f"fillRectangle:{ret}")
+    #print(f"fillRectangle:{ret}")
     ret = KNJGfx.drawText((0,1,BLACK,WHITE,False),"<< TOP FIXED AREA>>")
     ret = KNJGfx.drawText((0,DisplayHeight-8,BLACK,WHITE,False),"<< BOTTOM FIXED AREA>>")
 
@@ -102,7 +102,7 @@ def demo_kanji_V() :
     KNJGfx.fillScreen(BLACK)
     
     ret = KNJGfx.setTextWrap(True)
-    print(f"SetTextWrap:{ret}")
+    #print(f"SetTextWrap:{ret}")
     
 
     #画面を黒くする。スクロール機能を使用するとき、なぜか現在の画面色が変になってしまう。
@@ -112,7 +112,7 @@ def demo_kanji_V() :
     # 上下部分にスクロールしない領域を確保し、文字をそこに書く
     ret = KNJGfx.fillRectangle((0,0,DisplayWidth,14),WHITE)
     ret = KNJGfx.fillRectangle((0,DisplayHeight-13,DisplayWidth,13),WHITE)
-    print(f"fillRectangle:{ret}")
+    #print(f"fillRectangle:{ret}")
     ret = KNJGfx.drawTextKanji((0,1,BLACK,WHITE,False),"<<上部固定エリア>>")
     ret = KNJGfx.drawTextKanji((0,DisplayHeight-13,BLACK,WHITE,False),"<<下部固定エリア>>")
 
@@ -157,7 +157,7 @@ def demo_kanji_H() :
     KNJGfx.fillScreen(BLACK)
     
     ret = KNJGfx.setTextWrap(True)
-    print(f"SetTextWrap:{ret}")
+    #print(f"SetTextWrap:{ret}")
     KNJGfx.setRotation(1)
     
     ret = KNJGfx.fillScreen(WHITE)
@@ -186,11 +186,11 @@ def demo_fontText() :
     KNJGfx.fillScreen(BLACK)
     
     ret = KNJGfx.setTextWrap(True)
-    print(f"SetTextWrap:{ret}")
+    #print(f"SetTextWrap:{ret}")
     
-    fontList = KNJGfx.getAvaiableAsciiFonts()
-    for fn in fontList :
-        print(f"{fn}")
+    #fontList = KNJGfx.getAvaiableAsciiFonts()
+    #for fn in fontList :
+    #    print(f"{fn}")
 
     #画面を黒くする。スクロール機能を使用するとき、なぜか現在の画面色が変になってしまう。
     #原因不明。
@@ -199,7 +199,7 @@ def demo_fontText() :
     # 上下部分にスクロールしない領域を確保し、文字をそこに書く
     ret = KNJGfx.fillRectangle((0,0,DisplayWidth,16),WHITE)
     ret = KNJGfx.fillRectangle((0,DisplayHeight-16,DisplayWidth,16),WHITE)
-    print(f"fillRectangle:{ret}")
+    #print(f"fillRectangle:{ret}")
     KNJGfx.setAsciiFont("FreeMono9pt7b")
 
     ret = KNJGfx.drawText((0,14,BLACK,WHITE,False),"<<FIXED>>")
@@ -401,7 +401,7 @@ spi = machine.SPI(0,baudrate=10000000, # 通信速度（ボーレート）
           mosi=machine.Pin(19),  # マスタ出力/スレーブ入力ピン
           miso=machine.Pin(16))
 
-print("---start---")
+#print("---start---")
 
 utime.sleep(0.1)
 ret = KNJGfx.InitHW((0,16, 17, 18, 19, 28, 15))
@@ -420,7 +420,7 @@ while True:
     ret = KNJGfx.fillScreen(0)
     DisplayWidth = KNJGfx.getWidth()
     DisplayHeight= KNJGfx.getHeight()
-    print(f"ScreenSize:Width={DisplayWidth} , Height={DisplayHeight}")
+    #print(f"ScreenSize:Width={DisplayWidth} , Height={DisplayHeight}")
     
     ret = KNJGfx.fillRectangle((0,0,DisplayWidth,DisplayHeight-1),BLUE)
     #このデモは、ライブラリ側でTFT_ENABLE_FONTSをオフにする必要がある。
