@@ -3,4 +3,4 @@ _build
 Scopy_SPISettings.ini
 *_
 .vscode
-.clang_format
+.clang-format

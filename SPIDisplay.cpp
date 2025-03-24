@@ -618,9 +618,9 @@ HW spiHW(0, 16, 17, 18, 19, 28, 15);
 
 int main()
 {
-    stdio_init_all();
-    
-    // SPI initialisation. This example will use SPI at 1MHz.
+	stdio_init_all();
+
+	// SPI initialisation. This example will use SPI at 1MHz.
      iRet = spi_init(spiHW.portSPI, 10*1000*1000);		// これくらいはいける。15Mhzくらいまでという話も。
 	//iRet = spi_init(spiHW.portSPI, 1 * 1000 * 1000);
 
@@ -640,7 +640,7 @@ int main()
 	iRet = spi_get_index (SPI_PORT);
     iRet =  spi_is_writable (SPI_PORT);
 
-	
+
 	while (1) {
 		/*
 		st7735.fillScreen(ST7735Color.BLACK);

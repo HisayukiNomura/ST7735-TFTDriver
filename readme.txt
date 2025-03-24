@@ -7,8 +7,15 @@
 
 # 概要
 
+解説ページは
+https://qiita.com/BUBUBB/items/3caf2aefba4ae3a715e1
+および
+https://qiita.com/BUBUBB/items/8810ed28da866443635a
+で公開されています。
+このreadmeは古い可能性があります。なるべく上記ページを参照してください
 
-メインブランチ
+
+ソースコードは
 https://github.com/HisayukiNomura/ST7735-TFTDriver/tree/main
 を参照するか、
 https://github.com/HisayukiNomura/ST7735-TFTDriver/releases/tag/1.0
@@ -24,6 +31,12 @@ ST7735をコントローラにしたTFT液晶の使用例はよくあるが、�
 
 このライブラリは、[Raspberry PI SDK](https://www.raspberrypi.com/news/get-started-with-raspberry-pi-pico-series-and-vs-code/) を使用してST7735をコントロールする為のプログラムです。
 Arduinoにくらべ、Raspberry PI PICOはメモリが潤沢にあるため、日本語表示などに対応しています。
+
+現在のところ、
+- C/C++のSDKから使用
+- Micropythonから使用
+が可能です。
+
 
 開発と動作確認は、aitendoの1.8インチTFT液晶モジュール [M018C7735S541](https://www.aitendo.com/product/16367) で行いました。
 この液晶モジュールは、シルクの印刷が表裏で異なり、加えてRS(RESET?)と D/C(MISO)の印刷も逆になっているように思います。M018C7735S541での配線時には注意してください。
