@@ -14,19 +14,22 @@
 
 #pragma GCC diagnostic ignored "-Wunused-variable"
 #pragma GCC optimize ("O0")
-#include "../include/ST7735_TFT.h"
+
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <iconv.h>
+
+
+#include "../include/ST7735_TFT.h"
 #include "../include/ST7735_commands.h"
 #include "../include/ST7735_initcmd.h"
 #include "../include/hw.h"
-//#include "../include/JpTextConv.h"
+
 #if defined(TFT_ENABLE_KANJI)
 #include "../include/KanjiHelper.h"
 #endif
-
-#if defined(TFT_ENABLE_TEXT) && ! defined(TFT_ENABLE_FONTS)
+#if defined(TFT_ENABLE_TEXT) && !defined(TFT_ENABLE_FONTS)
 #include "../include/TextFonts.h"
 #endif
 #include <bits/move.h>

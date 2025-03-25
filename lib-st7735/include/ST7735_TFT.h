@@ -9,6 +9,8 @@
 // https://github.com/bablokb/pic-st7735
 // --------------------------------------------------------------------------
 #pragma once 
+#ifndef __ST7735_TFT_H__
+#define __ST7735_TFT_H__
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -440,3 +442,4 @@ class ST7735 {
 bool bmpDraw(int8_t x, int8_t y, int8_t *bmpname);
 #endif
 
+#endif

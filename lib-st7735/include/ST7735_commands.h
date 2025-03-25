@@ -1,3 +1,4 @@
+#pragma once
 #ifndef ST7735_COMMANDS_H
 #define ST7735_COMMANDS_H
 

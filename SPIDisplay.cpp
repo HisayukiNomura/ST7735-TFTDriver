@@ -6,6 +6,8 @@
 #include "pico/stdlib.h"
 #define TFT_ENABLE_BLACK
 #include "hardware/spi.h"
+#define TFT_KANJI_DOT 8
+#define TFT_KANJI_LEVEL 1
 #include "lib-st7735/include/ST7735_TFT.h"
 #include "lib-st7735/include/hw.h"
 #include "lib-st7735/include/font/Font_Mono9p.h"
