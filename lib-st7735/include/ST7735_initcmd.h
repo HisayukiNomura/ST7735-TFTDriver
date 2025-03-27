@@ -58,19 +58,49 @@ class ST7735Init {
 	/// @brief 接続されているTFTの製品種類を表すための変数
 	uint8_t tabcolor;
 
-   public:
-	ST7735Init();
+  public:
+  /// @brief デフォルトコンストラクタ。128x160ドットの液晶として初期化される。
+  /// @details pSPIHWが設定されていないので、使用する前には、SetSPIHW(HW* a_pSpiHW)メソッドを使用してハードウェアへのアクセスを行うクラスインスタンスへのポインタを設定する。
+  ST7735Init();
+  /// @brief コンストラクタ。128x160ドットの液晶として初期化される。
+  /// @details 引数にはハードウェアにアクセスするための情報を持っているクラスインスタンスへのポインタを渡す。
+  /// @param a_pSpiHW ハードウェアにアクセスするための情報を持っているクラスインスタンスへのポインタ
 	ST7735Init(HW* a_pSpiHW);
 
+  /// @brief ハードウェアにアクセスするための情報を持っているクラスインスタンスを設定する。<br/>
+  /// @details デフォルトコンストラクタを使ってnewした場合、必ずこのメソッドの呼び出しが必要。
+  /// @param a_pSpiHW ハードウェアにアクセスするための情報を持っているクラスインスタンスへのポインタ
 	void SetSPIHW(HW* a_pSpiHW);	
+
+  /// @brief データのポインタを受け取り、一連のコマンドを送信する
+  /// @param commandByte コマンド
+  /// @param dataBytes データへのポインタ
+  /// @param numDataBytes 送信するデータのバイト数
 	void sendCommand(uint8_t commandByte, const uint8_t* dataBytes, uint8_t numDataBytes);
+
+  /// @brief 指定されたコマンドリストをSPI経由でディスプレイに送信し、初期化処理を行う
+  /// @param addr 実行するコマンドリストのポインタ
 	void displayInit(const uint8_t* addr);
-	void commonInit(const uint8_t* cmdList);
-	void initB(void);
+
+  /// @brief 指定されたコマンドリストをSPI経由でディスプレイに送信し、初期化処理を行う。<br/>
+  /// displayInitをそのまま呼びだす。なぜこのメソッドがあるのかは謎・・・
+  /// @param cmdList コマンドリスト
+  void commonInit(const uint8_t* cmdList);
+	
+  /// @brief ST7735Bの初期化処理を行う
+  void initB(void);
+  
+  /// @brief ST7735を使用したディスプレイの初期化処理を行う。
+  /// @details 引数は、対象デバイスのタイプで、ST7735Typeで定義されている。まず、共通のRcmd1を呼びだし、その後にそれぞれにあったものを呼びだす。
+  /// @param options adafruit で購入したタブの色らしい。  
 	void initR(uint8_t options);
+  /// @brief 画面の横と縦を指定する。変更しても、現在表示中の画面は変更されない。この命令以後表示されるもののみが対象になる。
+  /// @param m 画面の方向。0...標準、1...90度左回転、2...180度左回転、3...270度左回転  
 	void setRotation(enum ST7735_ROTATION m);
 };
 
+/// @brief ST7735Bの初期化コマンド
+/// @details このコマンドは、ST7735Bの初期化処理を行うためのもの。ST7735Init::initB(void)で、このデータを送信する。
 static const uint8_t Bcmd[] = {                        		// Init commands for 7735B screens
     18,                             		// 18 commands in list:
 	ST7735Cmd.SWRESET	,ST7735Cmd.DELAY, 	//  1: Software reset, no args, w/delay
@@ -130,7 +160,8 @@ static const uint8_t Bcmd[] = {                        		// Init commands for 77
     ST7735Cmd.DISPON,    ST7735Cmd.DELAY, // 18: Main screen turn on, no args, delay
       ST7735Sleep.LONG 
 	  };                        //     255 = max (500 ms) delay
-
+/// @brief ST7735Rの初期化コマンド
+/// @details このコマンドは、ST7735Rの初期化処理を行うためのもの。ST7735Init::initR(uint8_t options)で、渡される引数に従い選択された場合にこのデータを送信する。
 static const uint8_t 
   Rcmd1[] = {                       // 7735R init, part 1 (red or green tab)
     15,                             // 15 commands in list:
@@ -169,6 +200,9 @@ static const uint8_t
     ST7735Cmd.COLMOD,  1,              // 15: set color mode, 1 arg, no delay:
       0x05 };                       //     16-bit color
 
+/// @brief ST7735Rの初期化コマンド
+/// @details このコマンドは、ST7735Rの初期化処理を行うためのもの。ST7735Init::initR(uint8_t options)で、渡される引数に従い選択された場合にこのデータを送信する。
+
 static const uint8_t
     Rcmd2green[] = {         // 7735R init, part 2 (green tab only)
         2,                   //  2 commands in list:
@@ -179,6 +213,9 @@ static const uint8_t
         0x00, 0x01,          //     XSTART = 0
         0x00, 0x9F + 0x01};  //     XEND = 159
 
+/// @brief ST7735Rの初期化コマンド
+/// @details このコマンドは、ST7735Rの初期化処理を行うためのもの。ST7735Init::initR(uint8_t options)で、渡される引数に従い選択された場合にこのデータを送信する。
+
 static const uint8_t 
   Rcmd2red[] = {                    // 7735R init, part 2 (red tab only)
     2,                              //  2 commands in list:
@@ -188,6 +225,8 @@ static const uint8_t
     ST7735Cmd.RASET,   4,              //  2: Row addr set, 4 args, no delay:
       0x00, 0x00,                   //     XSTART = 0
       0x00, 0x9F };                 //     XEND = 159
+/// @brief ST7735Rの初期化コマンド
+/// @details このコマンドは、ST7735Rの初期化処理を行うためのもの。ST7735Init::initR(uint8_t options)で、渡される引数に従い選択された場合にこのデータを送信する。
 
 static const uint8_t 
   Rcmd2green144[] = {               // 7735R init, part 2 (green 1.44 tab)
@@ -198,6 +237,8 @@ static const uint8_t
     ST7735Cmd.RASET,   4,              //  2: Row addr set, 4 args, no delay:
       0x00, 0x00,                   //     XSTART = 0
       0x00, 0x7F };                 //     XEND = 127
+/// @brief ST7735Rの初期化コマンド
+/// @details このコマンドは、ST7735Rの初期化処理を行うためのもの。ST7735Init::initR(uint8_t options)で、渡される引数に従い選択された場合にこのデータを送信する。
 
 static const uint8_t
     Rcmd2green160x80[] = {   // 7735R init, part 2 (mini 160x80)
@@ -208,7 +249,8 @@ static const uint8_t
         ST7735Cmd.RASET, 4,  //  2: Row addr set, 4 args, no delay:
         0x00, 0x00,          //     XSTART = 0
         0x00, 0x9F};         //     XEND = 159
-
+/// @brief ST7735Rの初期化コマンド
+/// @details このコマンドは、ST7735Rの初期化処理を行うためのもの。ST7735Init::initR(uint8_t options)で、渡される引数に従い選択された場合にこのデータを送信する。
 static const uint8_t
     Rcmd2green160x80plugin[] = {  // 7735R init, part 2 (mini 160x80 with plugin FPC)
         3,                        //  3 commands in list:
@@ -219,7 +261,8 @@ static const uint8_t
         ST7735Cmd.RASET, 4,       //  3: Row addr set, 4 args, no delay:
         0x00, 0x00,               //     XSTART = 0
         0x00, 0x9F};  //     XEND = 159
-
+/// @brief ST7735Rの初期化コマンド
+/// @details このコマンドは、ST7735Rの初期化処理を行うためのもの。ST7735Init::initR(uint8_t options)で、渡される引数に従い選択された場合にこのデータを送信する。
 static const uint8_t
     Rcmd3[] = {                  // 7735R init, part 3 (red or green tab)
         4,                       //  4 commands in list:

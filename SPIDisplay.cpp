@@ -91,7 +91,7 @@ void demo_bmp(ST7735& st7735)
 	}
 	sleep_ms(1000);
 
-	st7735.bmpUseTrasColor(0b0000100000100001);	// 透過あり
+	st7735.bmpUseTransColor(0b0000100000100001);	// 透過あり
 	st7735.bmpDraw(0,0, st7735.getWidth(),st7735.getHeight() ,(uint16_t*)hiroshige,0);
 	for (int i = 0;i<10;i++) {
 		st7735.bmpDraw(rand() % (st7735.getWidth() - 50), rand() % (st7735.getHeight() - 80), 48, 77, (uint16_t*)sharaku, 0);
@@ -102,7 +102,7 @@ void demo_bmp(ST7735& st7735)
 
 	// 透過あり
 	for (int i = 4; i < st7735.getWidth() - 20; i += 4) {
-		st7735.bmpUseTrasColor(0b0000100000100001);
+		st7735.bmpUseTransColor(0b0000100000100001);
 		const uint16_t* p;
 		if (i % 3 == 0)
 			p = bmp1;
@@ -116,7 +116,7 @@ void demo_bmp(ST7735& st7735)
 		sleep_ms(100);
 	}
 	for (int i = st7735.getWidth() - 20; i > 4; i -= 4) {
-		st7735.bmpUseTrasColor(0b0000100000100001);
+		st7735.bmpUseTransColor(0b0000100000100001);
 		const uint16_t* p;
 		if (i % 3 == 0)
 			p = bmp1;
@@ -258,6 +258,7 @@ void demo_text(ST7735 &st7735)
 		sleep_ms(100);
 	}
 	st7735.verticalScroll(0);
+	st7735.SetRotation(ST7735_ROTATION::NORMAL);            //　これがないとこれ以降の画面の色が変になる	
 #endif
 }
 #endif
@@ -402,18 +403,6 @@ int main()
 
 
 	while (1) {
-		/*
-		st7735.fillScreen(ST7735Color.BLACK);
-		st7735.fillScreen(ST7735Color.BLUE);
-		st7735.setScrollDefinition(15, 15, true);
-		st7735.setScrollDefinition(0, 0, true);
-		st7735.verticalScroll(0);
-		st7735.SetRotation(DEGREE_90);
-		st7735.invertDisplay(false);
-		st7735.doInit();
-		while (1) {
-		}
-		*/
 
 #if defined(TFT_ENABLE_TEXT)
 		st7735.setTextWrap(true);

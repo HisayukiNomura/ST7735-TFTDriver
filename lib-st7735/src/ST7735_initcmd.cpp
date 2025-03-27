@@ -13,10 +13,6 @@
  * @brief ST7735の初期化処理を行う、ST7735Initクラスを定義する。
  *
  */
-
-/// @brief デフォルトコンストラクタ。128x160ドットの液晶として初期化される。<br/>
-/// pSPIHWが設定されていないので、使用する前には、SetSPIHW(HW* a_pSpiHW)メソッドを使用して、
-/// ハードウェアへのアクセスを行うクラスインスタンスへのポインタを設定する。
 ST7735Init::ST7735Init() 
 {
 	colstart = 0;
@@ -30,8 +26,6 @@ ST7735Init::ST7735Init()
 	BaseWidth = width;
 	BaseHeight = height;
 }
-/// @brief コンストラクタ。128x160ドットの液晶として初期化される。<br/>
-/// @param a_pSpiHW ハードウェアにアクセスするための情報を持っているクラスインスタンスへのポインタ
 ST7735Init::ST7735Init(HW*  a_pSpiHW) : pSpiHW(a_pSpiHW) 
 {
 	colstart = 0;
@@ -45,18 +39,11 @@ ST7735Init::ST7735Init(HW*  a_pSpiHW) : pSpiHW(a_pSpiHW)
 	BaseWidth = width;
 	BaseHeight = height;
 }
-/// @brief ハードウェアにアクセスするための情報を持っているクラスインスタンスを設定する。<br/>
-/// デフォルトコンストラクタを使ってnewした場合、必ずこのメソッドの呼び出しが必要。
-/// @param a_pSpiHW
 void ST7735Init::SetSPIHW(HW* a_pSpiHW)
 {
 	pSpiHW = a_pSpiHW;
 }
 
-/// @brief データのポインタを受け取り、一連のコマンドを送信する
-/// @param commandByte コマンド
-/// @param dataBytes データへのポインタ
-/// @param numDataBytes 送信するデータのバイト数
 void ST7735Init::sendCommand(uint8_t commandByte, const uint8_t *dataBytes, uint8_t numDataBytes)
 {
 	pSpiHW->debugIn();
@@ -73,8 +60,6 @@ void ST7735Init::sendCommand(uint8_t commandByte, const uint8_t *dataBytes, uint
 	pSpiHW->debugOut();
 }
 
-/// @brief 指定されたコマンドリストをSPI経由でディスプレイに送信し、初期化処理を行う
-/// @param addr 実行するコマンドリストのポインタ
 void ST7735Init::displayInit(const uint8_t *addr)
 {
 	uint8_t numCommands, cmd, numArgs;
@@ -107,9 +92,6 @@ void ST7735Init::displayInit(const uint8_t *addr)
 	pSpiHW->debugOut();
 }
 
-/// @brief 指定されたコマンドリストをSPI経由でディスプレイに送信し、初期化処理を行う。<br/>
-/// displayInitをそのまま呼びだす。なぜこのメソッドがあるのかは謎・・・
-/// @param cmdList コマンドリスト
 void ST7735Init::commonInit(const uint8_t *cmdList)
 {
 	if (cmdList) {
@@ -117,16 +99,14 @@ void ST7735Init::commonInit(const uint8_t *cmdList)
 	}
 }
 
-/// @brief ST7735Bの初期化処理を行う
+
 void ST7735Init::initB(void)
 {
 	commonInit(Bcmd);
 	setRotation(ST7735_ROTATION::NORMAL);
 }
 
-/// @brief ST7735を使用したディスプレイの初期化処理を行う。 <br/>
-/// 引数は、対象デバイスのタイプで、ST7735Typeで定義されている。まず、共通のRcmd1を呼びだし、その後にそれぞれにあったものを呼びだす。
-/// @param options adafruit で購入したタブの色らしい。
+
 void ST7735Init::initR(uint8_t options)
 {
 	commonInit(Rcmd1);

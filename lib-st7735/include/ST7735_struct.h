@@ -22,6 +22,14 @@ class {
 	const uint16_t MAGENTA = 0xF81F;
 	const uint16_t YELLOW = 0xFFE0;
 	const uint16_t WHITE = 0xFFFF;
+	const uint16_t GRAY        = 0x8410; // 灰色
+	const uint16_t LIGHT_BLUE  = 0x03EF; // ライトブルー
+	const uint16_t DARK_GREEN  = 0x03E0; // ダークグリーン
+	const uint16_t DARK_BLUE   = 0x0010; // ダークブルー
+	const uint16_t LIGHT_GREEN = 0x07E8; // ライトグリーン
+	const uint16_t DARK_RED    = 0x7800; // ダークレッド
+	const uint16_t ORANGE      = 0xFC00; // オレンジ
+	const uint16_t PINK        = 0xF81F; // ピンク
 } ST7735Color;
 
 /// @brief 座標を示すクラス（16bit)。描画メソッドでは、座標として２つの引数を渡す代わりに、このクラスを使うことができる。
@@ -171,4 +179,9 @@ typedef struct {
 	const char *subset;  ///< subset of chars in the font
 } GFXfont;
 
+
+static struct {
+	const char *name;
+	const GFXfont* font;
+} registeredFonts[16];
 #endif

@@ -34,38 +34,52 @@
 #endif
 #include <bits/move.h>
 
-/// @brief グラフィックライブラリのコンストラクタ
-/// @details グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。
+#pragma region コンストラクタ
 ST7735::ST7735()
 {
+
 }
-
-/// @brief グラフィックライブラリのコンストラクタ
-/// @details グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。
-/// @param spiHW ハードウェアにアクセスするための情報を持っているクラスへのポインタ
 ST7735::ST7735(HW* a_pSpiHW)
-
 {
 	pSpiHW = a_pSpiHW;
 }
 
-/// @brief グラフィックライブラリのコンストラクタ
-/// @details グラフィックライブラリのクラスを作成する。使用するには、new してインスタンス化する必要がある。
-/// @param spiHW ハードウェアにアクセスするための情報を持っているクラスへのポインタ
 ST7735::ST7735(HW &spiHW) 
-
 {
 	pSpiHW = &spiHW;
 }
+#pragma endregion
 
+#pragma region 初期化メソッド
 void ST7735::SetSPIHW(HW *a_spiHW)
 {
 	pSpiHW = a_spiHW;
 }
-/// @brief 初期化処理を行う
-/// @details ハードウェア(HWクラスのインスタンス）の初期化処理を呼びだし、各LCDに応じた初期化コマンドを実行する。
+#ifdef TFT_ENABLE_FONTS
+	#include "../include/font/Font_Mono9p.h"
+	#include "../include/font/Font_Mono18p.h"
+	#include "../include/font/FreeMonoOblique12pt7b.h"
+	#include "../include/font/FreeMonoOblique12pt_sub.h"
+#endif
+
 void ST7735::doInit()
 {
+	// フォントの初期化
+#ifdef TFT_ENABLE_FONTS
+		for (int i = 0; i < 16; i++) {
+			registeredFonts[i].name = NULL;
+			registeredFonts[i].font = NULL;
+		}
+		registeredFonts[0].font = &FreeMono9pt7b;
+		registeredFonts[0].name = "FreeMono9pt7b";
+		registeredFonts[1].font = &FreeMono18pt7b;
+		registeredFonts[1].name = "FreeMono18pt7b";
+		registeredFonts[2].font = &FreeMonoOblique12pt_sub;
+		registeredFonts[2].name = "FreeMonoOblique12pt_sub";
+		registeredFonts[3].font = &FreeMonoOblique12pt7b;
+		registeredFonts[3].name = "FreeMonoOblique12pt7b";
+#endif
+
 	pSpiHW->init();
 	st7735Init.SetSPIHW(pSpiHW);
 #ifdef TFT_ENABLE_BLACK
@@ -79,33 +93,22 @@ void ST7735::doInit()
 	//st7735Init.setRotation(1);
 }
 
-/// @brief コマンドを送信する。
-/// @details ST7735の手順に基づいて、コマンドを送信する。実際には次のような手順で信号が送信される。
-/// + Data/Command信号をＬに設定後、CSn信号をＬに設定。
-/// + コマンドを送信、信号を　DC:L→CS:L→コマンド送信→CS:H
-/// + CSn信号をＨに設定
-/// 通常は、この後にwriteDataが続くか、次のコマンドが送られることになる。
-/// @param cmd_ 送信するコマンド
+#pragma endregion
+
+
+#pragma region SPI通信関連メソッド
 void ST7735::writeCommand(uint8_t cmd_) 
 {
 	pSpiHW->writeCommand(cmd_);
 }
 
-/// @brief	データを送信する。
-/// @details ST7735の手順に基づいて、コマンドを送信する。実際には次のような手順で信号が送信される。
-/// + Data/Command信号をＨに設定後、CSn信号をＬに設定。
-/// + データをを送信
-/// + CSn信号をＨに設定
-/// @param data_ 送信するデータ
 void ST7735::writeData(uint8_t data_)
 {
 	pSpiHW->writeData(data_);
 }
-/// @brief BitBlitのためのアドレスウインドウを設定する。（https://en.wikipedia.org/wiki/Bit_blit）
-/// @param x0 左上のx座標
-/// @param y0 左上のy座標
-/// @param x1 右下のx座標
-/// @param y1 右下のy座標
+#pragma endregion
+
+#pragma region 設定メソッド
 void ST7735::setAddrWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
 {
   writeCommand(ST7735Cmd.CASET);
@@ -120,6 +123,14 @@ void ST7735::setAddrWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
   writeData(y1 + st7735Init.ystart);
   writeCommand(ST7735Cmd.RAMWR);  // Write to RAM
 }
+void ST7735::SetRotation(ST7735_ROTATION r)
+{
+	st7735Init.setRotation(r);
+}
+#pragma endregion
+
+#pragma region 基本描画メソッド
+
 /// @brief 矩形を塗りつぶす
 /// @param x 左上のx座標
 /// @param y 左上のy座標
@@ -152,11 +163,7 @@ void ST7735::fillScreen(uint16_t color)
 {
 	fillRectangle(0, 0, st7735Init.width, st7735Init.height, color);
 }
-/// @brief 水平線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。
-/// @param x 始点のx座標
-/// @param y 始点のy座標
-/// @param w 線の長さ
-/// @param color 線の色
+
 void ST7735::drawFastHLine(uint16_t x, uint16_t y, uint16_t w, uint16_t color)
 {
   uint8_t hi, lo;
@@ -173,11 +180,7 @@ void ST7735::drawFastHLine(uint16_t x, uint16_t y, uint16_t w, uint16_t color)
   }
   pSpiHW->CSHigh();
 }
-/// @brief 垂直線を高速に描画する。ななめの線で必要なDDA処理が不要なので高速で描画できる。
-/// @param x 始点のx座標
-/// @param y 始点のy座標
-/// @param h 線の長さ
-/// @param color 線の色
+
 void ST7735::drawFastVLine(uint16_t x, uint16_t y, uint16_t h, uint16_t color)
 {
 	uint8_t hi, lo;
@@ -197,10 +200,7 @@ void ST7735::drawFastVLine(uint16_t x, uint16_t y, uint16_t h, uint16_t color)
 	pSpiHW->CSHigh();
 }
 
-/// @brief 画面に点を描画する
-/// @param x 表示位置のX座標	 
-/// @param y 表示位置のy座標
-/// @param color 色
+
 void ST7735::drawPixel(uint16_t x, uint16_t y, uint16_t color)
 {
 	if ((x >= st7735Init.width) || (y >= st7735Init.height))
@@ -209,8 +209,7 @@ void ST7735::drawPixel(uint16_t x, uint16_t y, uint16_t color)
 	writeData(color >> 8);
 	writeData(color & 0xFF);
 }
-/// @brief 		画面の表示を反転させる
-/// @param i	true:反転、false:通常表示 
+
 void ST7735::invertDisplay(bool i)
 {
 	if (i)
@@ -219,41 +218,19 @@ void ST7735::invertDisplay(bool i)
 		writeCommand(ST7735Cmd.INVOFF);
 }
 
-/// @brief 画面の表示を通常に戻す
+
 void ST7735::NormalDisplay()
 {
 	writeCommand(ST7735Cmd.NORON);
 }
+#pragma endregion
 
-/// @brief 画面の回転を設定する。
-/// @details ウインドウに対して描画するオブジェクトを回転させる。ST7735_ROTATION::NORMALを指定すると、元に戻すことができる。
-/// 描画するオブジェクトが左右反転（ミラー）してしまったりするときには、ここを呼びだす。
-/// @param r 回転する方向
-void ST7735::SetRotation(ST7735_ROTATION r)
-{
-	st7735Init.setRotation(r);
-}
-/// @brief 		画面に色を表示する
-/// @param color 色
-void ST7735::pushColor(uint16_t color)
-{
-	uint8_t hi, lo;
-	hi = color >> 8;
-	lo = color;
-	pSpiHW->DCHigh();
-	pSpiHW->CSLow();
-	pSpiHW->spiWrite(hi);
-	pSpiHW->spiWrite(lo);
-	pSpiHW->CSHigh();
-}
 
+
+#pragma region 図形描画メソッド
 #if defined TFT_ENABLE_SHAPES	// 画像の表示関数を有効にする
 
-/// @brief 画面に円を描画する
-/// @param x0 中心のx座標
-/// @param y0 中心のy座標
-/// @param r 半径 
-/// @param color 円の色 
+
 void ST7735::drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color)
 {
 	int16_t f, ddF_x, ddF_y, x, y;
@@ -281,22 +258,13 @@ void ST7735::drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color)
 		drawPixel(x0 - y, y0 - x, color);
 	}
 }
-/// @brief 塗りつぶされた円を描画する
-/// @param x0	中心のx座標
-/// @param y0	中心のy座標 
-/// @param r	半径 
-/// @param color 		円の色
+
 void ST7735::fillCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color)
 {
 	drawFastVLine(x0, y0 - r, 2 * r + 1, color);
 	fillCircleHelper(x0, y0, r, 3, 0, color);
 }
-/// @brief 画面に、1/4の円を描画する。四分円を描画するための補助関数
-/// @param x0 中心のx座標
-/// @param y0 中心のy座標 
-/// @param r 半径 
-/// @param cornername 四分円の位置。1:左上、2:右上、4:左下、8:右下のビットマスクになっている。
-/// @param color 円の色
+
 void ST7735::drawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, uint16_t color)
 {
 	int16_t f, ddF_x, ddF_y, x, y;
@@ -328,13 +296,7 @@ void ST7735::drawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornern
 		}
 	}
 }
-/// @brief 画面に、1/4の円を塗りつぶす。四分円を描画するための補助関数
-/// @param x0 		中心のx座標
-/// @param y0 		中心のy座標
-/// @param r 		半径
-/// @param cornername 		四分円の位置。1:左上、2:右上、4:左下、8:右下のビットマスクになっている。
-/// @param delta	塗りつぶしのための補正値 		
-/// @param color		円の色 
+
 void ST7735::fillCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, int16_t delta, uint16_t color)
 {
 	int16_t f, ddF_x, ddF_y, x, y;
@@ -360,12 +322,7 @@ void ST7735::fillCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornern
 	}
 }
 
-/// @brief 矩形を描画する
-/// @param x 		左上のx座標
-/// @param y 		左上のy座標
-/// @param w 		幅
-/// @param h 		高さ
-/// @param color		矩形の色
+
 void ST7735::drawRectWH(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color)
 {
 	drawFastHLine(x, y, w, color);
@@ -384,12 +341,7 @@ void ST7735::drawRect(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16
 	drawFastVLine(x0, y0, y1 - y0, color);
 	drawFastVLine(x1, y0, y1 - y0, color);
 }
-/// @brief 矩形を塗りつぶす。こちらの方が高速かもしれない。
-/// @param x 左上のx座標
-/// @param y 左上のy座標
-/// @param w 横幅
-/// @param h 高さ
-/// @param color
+
 void ST7735::fillRectWH(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color)
 {
 	int16_t i;
@@ -397,13 +349,6 @@ void ST7735::fillRectWH(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t
 		drawFastVLine(i, y, h, color);
 	}
 }
-/// @brief 矩形を塗りつぶす。fillRectangleより、こちらの方が高速かもしれない。
-/// @details 左上の座標と右下の座標は実行時に正規化されるので入れ替わっていても動作する。
-/// @param x0 左上のX座標
-/// @param y0 左上のy座標
-/// @param x1 右下のX座標
-/// @param y1 右下のx座標
-/// @param color
 void ST7735::fillRect(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color)
 {
 	if (x0 > x1) _swap(x0, x1);
@@ -413,12 +358,7 @@ void ST7735::fillRect(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16
 	fillRectWH(x0, y0, w, h, color);
 }
 
-/// @brief 		直線を描画する
-/// @param x0 			始点のx座標
-/// @param y0 			始点のy座標
-/// @param x1 			終点のx座標
-/// @param y1 			終点のy座標
-/// @param color 		直線の色
+
 void ST7735::drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color)
 {
 	int16_t steep, dx, dy, err, ystep;
@@ -454,13 +394,7 @@ void ST7735::drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t c
 		}
 	}
 }
-/// @brief 		角丸の矩形を描画する
-/// @param x 		左上のx座標
-/// @param y		左上のy座標 
-/// @param w		幅 
-/// @param h 		高さ 
-/// @param r 		角の半径 
-/// @param color	矩形の色
+
 void ST7735::drawRoundRectWH(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t r, uint16_t color)
 {
 	drawFastHLine(x + r, y, w - 2 * r, color);
@@ -601,9 +535,14 @@ void ST7735::fillTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_
 }
 #endif
 
+#pragma endregion
+
+
+#pragma region  テキスト表示関連メソッド
+
 #if defined(TFT_ENABLE_TEXT)			// テキスト表示機能が有効な場合
-/// @brief 	テキストの改行を行うかのフラグを設定する
-/// @param w true:画面の左に来たらテキストを改行する(デフォルト）、false:改行しない
+
+
 void ST7735::setTextWrap(bool w)
 {
 	bTextWrap = w;
@@ -675,20 +614,41 @@ void ST7735::drawText(uint8_t x, uint8_t y, const char *_text, uint16_t color, u
 	}
 }
 #else
-/// 多分、より自由な形のフォントを使用できるようにするためのものだろう。後で動作を確認しよう。
 GFXfont *_gfxFont;
 void ST7735::setFont(const GFXfont *f)
 {
 	_gfxFont = (GFXfont *)f;
 }
 
-/// @brief 	文字列を描画する
-/// @param x 		描画するx座標
-/// @param y	描画するy座標 		
-/// @param _text	描画する文字 
-/// @param color	文字の色 
-/// @param bg 		背景色
-/// @param size 		文字のサイズ。1がデフォルト。2で2倍の大きさになる。
+void ST7735::setFont(const char *name)
+{
+	for (int i = 0; i < 16; i++) {
+		if (registeredFonts[i].name != NULL) {
+			if (strcmp(name, registeredFonts[i].name) == 0) {
+				_gfxFont = (GFXfont *)registeredFonts[i].font;
+				return;
+			}
+		}
+	}
+}
+bool ST7735::getFonts(char *buf, uint16_t len)
+{
+	buf[0] = 0;
+	int curLen = 0;
+	for (int i = 0; i < 16; i++) {
+		if (registeredFonts[i].name != NULL) {
+			if (curLen+strlen(registeredFonts[i].name) + 1 > len) {
+				return false;
+			}
+			strcat(buf, registeredFonts[i].name);
+			strcat(buf, ",");
+			curLen += strlen(registeredFonts[i].name) + 1;
+		}
+	}
+	buf[strlen(buf) - 1] = 0;
+	return true;
+}
+
 void ST7735::drawText(uint16_t x, uint16_t y, const char *_text, uint16_t color, uint16_t bg, uint8_t size)
 {
 	uint8_t cursor_x, cursor_y, first_char, last_char;
@@ -719,13 +679,7 @@ void ST7735::drawText(uint16_t x, uint16_t y, const char *_text, uint16_t color,
 		cursor_x += glyph->xAdvance * (int16_t)size;
 	}
 }
-/// @brief 		1文字を描画する
-/// @param x 		描画するx座標
-/// @param y 		描画するy座標
-/// @param c 		描画する文字
-/// @param color 		文字の色
-/// @param bg 		背景色
-/// @param size 		文字のサイズ。1がデフォルト。2で2倍の大きさになる。
+
 void ST7735::drawChar(uint16_t x, uint16_t y, uint8_t c, uint16_t color, uint16_t bg, uint8_t size)
 {
 	c -= (uint8_t)(_gfxFont->first);
@@ -755,10 +709,14 @@ void ST7735::drawChar(uint16_t x, uint16_t y, uint8_t c, uint16_t color, uint16_
 					fillRect(x + (xo16 + xx) * size, y + (yo16 + yy) * size, size, size, color);
 				}
 			} else {
-				if (size == 1) {
-					drawPixel(x + xo + xx, y + yo + yy, bg);
+				if (isTransparentColor && bg == bmpTransparentColor) {
+					// 何もしない
 				} else {
-					fillRect(x + (xo16 + xx) * size, y + (yo16 + yy) * size, size, size, bg);
+					if (size == 1) {
+						drawPixel(x + xo + xx, y + yo + yy, bg);
+					} else {
+						fillRect(x + (xo16 + xx) * size, y + (yo16 + yy) * size, size, size, bg);
+					}
 				}
 				
 			}
@@ -769,6 +727,7 @@ void ST7735::drawChar(uint16_t x, uint16_t y, uint8_t c, uint16_t color, uint16_
 }
 #endif
 
+#pragma region 漢字表示関連メソッド
 #ifdef TFT_ENABLE_KANJI				// 漢字表示が可能な場合
 /// @brief 漢字１文字を表示する
 /// @param x 表示するX座標
@@ -832,6 +791,7 @@ void ST7735::drawKanji(uint16_t &x, uint16_t &y, uint32_t utf8codes, uint16_t co
 	return;
 }
 
+
 void ST7735::drawKanjiBlock(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint8_t *bmpData, uint16_t color,uint16_t bg)
 {
 	setAddrWindow(x, y, x + w -1 , y + h -1);  // 漢字ブロックの大きさでアドレスウインドウを設定
@@ -849,12 +809,18 @@ void ST7735::drawKanjiBlock(uint16_t x, uint16_t y, uint16_t w, uint16_t h, cons
 			}
 			uint8_t bits = bmpData[bmpIdx];
 			for (int8_t bb = 0; bb < bitCnt; bb++) {
-				if (bits & 0x80) {
-					writeData(color >> 8);
-					writeData(color & 0xFF);
+				if (isTransparentColor && bg == bmpTransparentColor) {
+					if (bits & 0x80) {
+						drawPixel(x+(xx*8)+bb,y+yy,color);
+					} 					
 				} else {
-					writeData(bg >> 8);
-					writeData(bg & 0xFF);
+					if (bits & 0x80) {
+						writeData(color >> 8);
+						writeData(color & 0xFF);
+					} else {
+						writeData(bg >> 8);
+						writeData(bg & 0xFF);
+					}
 				}
 				bits <<= 1;
 			}
@@ -863,13 +829,7 @@ void ST7735::drawKanjiBlock(uint16_t x, uint16_t y, uint16_t w, uint16_t h, cons
 	}
 }
 
-/// @brief 漢字文字列を表示する
-/// @param x 		描画するx座標
-/// @param y	描画するy座標
-/// @param _text	描画する文字
-/// @param color	文字の色
-/// @param bg 		背景色
-/// @param size 		文字のサイズ。1がデフォルト。2で2倍の大きさになる。
+
 void ST7735::drawTextKanji(uint16_t x, uint16_t y, const char *_text, uint16_t color, uint16_t bg, uint8_t size)
 {
 	uint16_t cursor_x, cursor_y;
@@ -916,22 +876,18 @@ void ST7735::drawTextKanji(uint16_t x, uint16_t y, const char *_text, uint16_t c
 	}
 }
 #endif
-
-
-
+#pragma endregion
 
 
 #endif
+#pragma endregion 
 
 
+
+#pragma region スクロール機能関連メソッド
 
 #ifdef TFT_ENABLE_SCROLL
-/// @brief 画面の縦スクロール領域を指定する。<br/>
-/// @details 画面のスクロールでは、実際に表示されているビットイメージのフレームバッファは書き換えられない。
-/// 画面表示の時の、読み出しアドレスが変更されるもの。スクロール時、画面は上下が繋がったようにスクロールする。
-/// @param top_fix_height 画面上部の固定領域の高さ
-/// @param bottom_fix_height 画面下部の固定領域の高さ
-/// @param _scroll_direction スクロール方向。trueの場合ロールアップ
+
 void ST7735::setScrollDefinition(uint8_t top_fix_height, uint8_t bottom_fix_height, bool _scroll_direction)
 {
 	uint8_t scroll_height;
@@ -966,8 +922,6 @@ void ST7735::setScrollDefinition(uint8_t top_fix_height, uint8_t bottom_fix_heig
 		}
 	}
 }
-/// @brief 画面のスクロールを行う。
-/// @param _vsp スクロールするドット数。１０と指定すると、１０ドットスクロールした画面が表示される。このとき、再度１０と指定して呼びだしても画面は変わらない。巻物のように動かすには、1、２、３・・・と数字を変えて複数回呼びだす必要がある。
 void ST7735::verticalScroll(uint8_t _vsp)
 {
 	writeCommand(ST7735Cmd.VSCRSADD);
@@ -975,18 +929,11 @@ void ST7735::verticalScroll(uint8_t _vsp)
 	writeData(_vsp);
 }
 #endif
+#pragma endregion
 
-
+#pragma region ビットマップ表示関連メソッド
 #ifdef TFT_ENABLE_BITMAP
-/// @brief 画面にビットマップを表示する。ビットマップは、５６５形式の16bit値の配列へのポインタ。
-/// @details 具体的には次のようなデータになる。<br/>
-/// const uint16_t bmp1[] = {0x0821, 0x0821, 0x0821, 0x0821, 0x0000, 0xF223, 0xF223, … };
-/// @param x 表示する左上の座標
-/// @param y 表示する左上の座標
-/// @param w ビットマップの大きさ
-/// @param h ビットマップの大きさ
-/// @param p 表示するデータへのポインタ
-/// @param direction 表示する方向。0…標準 1…ミラー表示
+
 void ST7735::bmpDraw(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t *p,uint8_t direction)
 {
 	if (direction == 1) {
@@ -1029,15 +976,31 @@ void ST7735::bmpDraw(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t *p
 	}
 }
 #endif
+#pragma endregion
 
 // ------ not functional yet ----------------------------------------------
 // needs fat-library
 
 #if defined TFT_ENABLE_BMP
-
+#pragma region 未使用のメソッド
 #ifndef pixel_buffer
   #define pixel_buffer  10
 #endif
+
+
+
+void ST7735::pushColor(uint16_t color)
+{
+	uint8_t hi, lo;
+	hi = color >> 8;
+	lo = color;
+	pSpiHW->DCHigh();
+	pSpiHW->CSLow();
+	pSpiHW->spiWrite(hi);
+	pSpiHW->spiWrite(lo);
+	pSpiHW->CSHigh();
+}
+
 
 bool bmpDraw(int8_t x, int8_t y, int8_t *bmpname) {
   bool ec = 0, padding = 0;
@@ -1133,4 +1096,6 @@ bool bmpDraw(int8_t x, int8_t y, int8_t *bmpname) {
   // Good BMP
   return true;
 }
+
 #endif
+#pragma endregion

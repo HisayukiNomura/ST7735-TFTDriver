@@ -770,7 +770,7 @@ extern "C" {
 #else
 		if (!mp_obj_is_int(a_c)) mp_raise_TypeError("Expected a int for 1st argument");
 		int c = mp_obj_get_int(a_c);
-		ST7735Obj.bmpUseTrasColor(c);
+		ST7735Obj.bmpUseTransColor(c);
 		return mp_obj_new_int(1);
 #endif
 	}
