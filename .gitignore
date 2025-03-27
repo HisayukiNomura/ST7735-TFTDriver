@@ -4,3 +4,4 @@ Scopy_SPISettings.ini
 *_
 .vscode
 .clang-format
+*.bak
